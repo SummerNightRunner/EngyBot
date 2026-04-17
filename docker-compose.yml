@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: engybot-db
+    environment:
+      POSTGRES_DB: engybot
+      POSTGRES_USER: engybot
+      POSTGRES_PASSWORD: engybot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U engybot -d engybot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  bot:
+    build: .
+    container_name: engybot-app
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://engybot:engybot@db:5432/engybot
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
