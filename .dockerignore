@@ -6,4 +6,6 @@ __pycache__
 .idea
 .vscode
 .DS_Store
-data
+data/*
+!data/seed/
+!data/seed/word_sets.json
