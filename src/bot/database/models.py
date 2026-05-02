@@ -16,6 +16,7 @@ class User(Base):
     source_language: Mapped[str] = mapped_column(String(16), default="ru")
     target_language: Mapped[str] = mapped_column(String(16), default="en")
     level: Mapped[str] = mapped_column(String(32), default="A1")
+    bilingual_ui: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

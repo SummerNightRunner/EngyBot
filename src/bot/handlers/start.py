@@ -15,6 +15,7 @@ from bot.database.models import DailyPractice, TrainingAttempt, User, UserWordPr
 from bot.database.session import SessionLocal
 from bot.keyboards.main_menu import (
     card_keyboard,
+    course_menu_keyboard,
     dialogue_keyboard,
     dialogue_step_keyboard,
     grammar_units_keyboard,
@@ -24,6 +25,7 @@ from bot.keyboards.main_menu import (
     level_keyboard,
     main_menu_keyboard,
     nav_keyboard,
+    practice_menu_keyboard,
     profile_keyboard,
     quiz_formats_keyboard,
     quiz_options_keyboard,
@@ -53,6 +55,136 @@ LANGUAGE_NAMES = {
 }
 
 GRAMMAR_UNITS = load_grammar_units()
+
+TOPIC_LABELS = {
+    "Путешествия": {"en": "Travel"},
+    "Город и транспорт": {"en": "City & Transport"},
+    "Дом и быт": {"en": "Home & Daily Life"},
+    "Еда и напитки": {"en": "Food & Drinks"},
+    "Путешествия": {"en": "Travel"},
+    "Семья и отношения": {"en": "Family & Relationships"},
+    "Хобби и досуг": {"en": "Hobbies & Leisure"},
+    "Повседневная жизнь и распорядок": {"en": "Daily Routine"},
+    "Одежда и внешность": {"en": "Clothes & Appearance"},
+    "Здоровье и образ жизни": {"en": "Health & Lifestyle"},
+    "Образование и обучение": {"en": "Education & Learning"},
+    "Покупки и деньги": {"en": "Shopping & Money"},
+    "Работа и карьера": {"en": "Work & Career"},
+    "Технологии и медиа": {"en": "Technology & Media"},
+    "Природа и экология": {"en": "Nature & Environment"},
+    "Эмоции и общение": {"en": "Emotions & Communication"},
+    "Культура и общество": {"en": "Culture & Society"},
+    "Наука и инновации": {"en": "Science & Innovation"},
+    "Аргументация и дебаты": {"en": "Argumentation & Debate"},
+}
+
+UI_TEXT = {
+    "course": {"en": "Course", "ru": "Курс"},
+    "practice": {"en": "Practice", "ru": "Практика"},
+    "review": {"en": "Review", "ru": "Повторение"},
+    "profile": {"en": "Profile", "ru": "Профиль"},
+    "stats": {"en": "Progress", "ru": "Статистика"},
+    "help": {"en": "Help", "ru": "Помощь"},
+    "vocabulary": {"en": "Vocabulary", "ru": "Слова"},
+    "grammar": {"en": "Grammar", "ru": "Грамматика"},
+    "dialogues": {"en": "Dialogues", "ru": "Диалоги"},
+    "daily": {"en": "Daily Practice", "ru": "Практика дня"},
+    "quiz": {"en": "Mixed Quiz", "ru": "Квиз"},
+    "home": {"en": "Home", "ru": "В меню"},
+    "edit_profile": {"en": "Edit profile", "ru": "Изменить профиль"},
+    "toggle_bilingual_on": {"en": "Bilingual UI: On", "ru": "Два языка: Вкл"},
+    "toggle_bilingual_off": {"en": "Bilingual UI: Off", "ru": "Два языка: Выкл"},
+    "course_title": {"en": "Course", "ru": "Курс"},
+    "practice_title": {"en": "Practice", "ru": "Практика"},
+}
+
+
+def translated_label(key: str, target_language: str, source_language: str, bilingual: bool) -> str:
+    entry = UI_TEXT[key]
+    target = entry.get(target_language, entry.get("en", key))
+    source = entry.get(source_language, entry.get("ru", key))
+    if not bilingual or target == source:
+        return target
+    return f"{target} ({source})"
+
+
+def topic_label(title: str, target_language: str, source_language: str, bilingual: bool) -> str:
+    entry = TOPIC_LABELS.get(title, {})
+    target = entry.get(target_language, title)
+    source = title if source_language == "ru" else entry.get(source_language, title)
+    if not bilingual or target == source:
+        return target
+    return f"{target} ({source})"
+
+
+def grammar_label(title: str, target_language: str, source_language: str, bilingual: bool) -> str:
+    source = title
+    if source_language == "ru":
+        translated = {
+            "to be and subject pronouns": "to be и личные местоимения",
+            "articles and plurals": "артикли и множественное число",
+            "present simple": "present simple",
+            "there is / there are / have got": "there is / there are / have got",
+            "can / can't and basic questions": "can / can't и базовые вопросы",
+            "present continuous": "present continuous",
+            "past simple": "past simple",
+            "some / any / much / many": "some / any / much / many",
+            "comparatives and superlatives": "сравнительная и превосходная степени",
+            "going to and basic future": "going to и базовое будущее",
+            "prepositions of time and place": "предлоги времени и места",
+            "present perfect": "present perfect",
+            "past continuous": "past continuous",
+            "first conditional": "first conditional",
+            "must / have to / should": "must / have to / should",
+            "relative clauses": "relative clauses",
+            "gerunds and infinitives": "gerunds и infinitives",
+            "passive voice": "passive voice",
+            "reported speech": "reported speech",
+            "second and third conditionals": "second и third conditionals",
+            "modal deduction": "modal deduction",
+            "linkers and discourse markers": "связки и discourse markers",
+            "inversion and emphasis": "inversion и emphasis",
+            "participle clauses": "participle clauses",
+            "hedging and stance": "hedging и stance",
+            "advanced sentence combining": "сложные sentence patterns",
+            "nominalisation and register control": "nominalisation и register",
+            "rhetorical and argumentation grammar": "риторика и grammar for argumentation",
+        }
+        source = translated.get(title, title)
+    if not bilingual:
+        return title
+    return f"{title} ({source})"
+
+
+def user_labels(user: User | None) -> dict[str, str]:
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    labels = {
+        key: translated_label(key, target_language, source_language, bilingual)
+        for key in (
+            "course",
+            "practice",
+            "review",
+            "profile",
+            "stats",
+            "help",
+            "vocabulary",
+            "grammar",
+            "dialogues",
+            "daily",
+            "quiz",
+            "home",
+            "edit_profile",
+        )
+    }
+    labels["toggle_bilingual"] = translated_label(
+        "toggle_bilingual_off" if user is not None and user.bilingual_ui else "toggle_bilingual_on",
+        target_language,
+        source_language,
+        bilingual,
+    )
+    return labels
 
 
 async def get_registered_user(telegram_id: int) -> User | None:
@@ -375,10 +507,11 @@ async def show_home(target: Message | CallbackQuery, state: FSMContext) -> None:
         )
         return
 
+    labels = user_labels(user)
     await send(
         f"Привет, <b>{telegram_user.full_name}</b>! Я ваш помощник в изучении иностранных языков.\n"
         "Что вы хотите сделать сегодня?",
-        reply_markup=main_menu_keyboard(),
+        reply_markup=main_menu_keyboard(labels),
     )
 
 
@@ -395,6 +528,7 @@ async def persist_profile(telegram_user, state: FSMContext) -> User:
                 source_language=data["source_language"],
                 target_language=data["target_language"],
                 level=data["level"],
+                bilingual_ui=True,
             )
             session.add(user)
         else:
@@ -414,7 +548,8 @@ def format_profile(user: User) -> str:
         "<b>Профиль пользователя</b>\n\n"
         f"Родной язык: {LANGUAGE_NAMES.get(user.source_language, user.source_language)}\n"
         f"Изучаемый язык: {LANGUAGE_NAMES.get(user.target_language, user.target_language)}\n"
-        f"Уровень: {user.level}"
+        f"Уровень: {user.level}\n"
+        f"Интерфейс с двумя языками: {'включен' if user.bilingual_ui else 'выключен'}"
     )
 
 
@@ -578,7 +713,7 @@ async def profile_level_handler(callback: CallbackQuery, state: FSMContext) -> N
     await state.update_data(level=callback.data.split(":")[-1])
     user = await persist_profile(callback.from_user, state)
     await state.clear()
-    await edit_screen(callback, "Профиль сохранен.\n\n" + format_profile(user), profile_keyboard())
+    await edit_screen(callback, "Профиль сохранен.\n\n" + format_profile(user), profile_keyboard(user_labels(user)))
 
 
 @router.callback_query(F.data == "menu:profile")
@@ -591,18 +726,81 @@ async def profile_handler(callback: CallbackQuery) -> None:
             nav_keyboard(back_to="profile:start_setup"),
         )
         return
-    await edit_screen(callback, format_profile(user), profile_keyboard())
+    await edit_screen(callback, format_profile(user), profile_keyboard(user_labels(user)))
+
+
+@router.callback_query(F.data == "profile:toggle_bilingual")
+async def profile_toggle_bilingual_handler(callback: CallbackQuery) -> None:
+    async with SessionLocal() as session:
+        result = await session.execute(select(User).where(User.telegram_id == callback.from_user.id))
+        user = result.scalar_one_or_none()
+        if user is None:
+            await edit_screen(
+                callback,
+                "Профиль еще не настроен.\n\nСначала завершите настройку профиля.",
+                nav_keyboard(back_to="profile:start_setup"),
+            )
+            return
+        user.bilingual_ui = not user.bilingual_ui
+        await session.commit()
+        await session.refresh(user)
+    await edit_screen(callback, format_profile(user), profile_keyboard(user_labels(user)))
+
+
+@router.callback_query(F.data == "menu:course")
+async def course_handler(callback: CallbackQuery) -> None:
+    user = await get_registered_user(callback.from_user.id)
+    labels = user_labels(user)
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    await edit_screen(
+        callback,
+        f"<b>{translated_label('course_title', target_language, source_language, bilingual)}</b>\n\n"
+        "Choose what you want to build today: vocabulary, grammar, or guided dialogues."
+        if target_language == "en"
+        else "<b>Course</b>\n\nChoose what you want to build today: vocabulary, grammar, or guided dialogues.",
+        course_menu_keyboard(labels),
+    )
+
+
+@router.callback_query(F.data == "menu:practice")
+async def practice_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    await state.clear()
+    user = await get_registered_user(callback.from_user.id)
+    labels = user_labels(user)
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    await edit_screen(
+        callback,
+        f"<b>{translated_label('practice_title', target_language, source_language, bilingual)}</b>\n\n"
+        "Train actively: daily sets and mixed quizzes keep recent language fresh."
+        if target_language == "en"
+        else "<b>Practice</b>\n\nTrain actively: daily sets and mixed quizzes keep recent language fresh.",
+        practice_menu_keyboard(labels),
+    )
 
 
 @router.callback_query(F.data == "menu:learn")
 async def learn_handler(callback: CallbackQuery) -> None:
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
     word_sets = await get_active_word_sets(user_level)
-    payload = [(word_set.id, word_set.title, build_word_set_meta(word_set, user_level)) for word_set in word_sets]
-    text = "Выберите тему:"
+    payload = [
+        (
+            word_set.id,
+            topic_label(word_set.title, target_language, source_language, bilingual),
+            build_word_set_meta(word_set, user_level),
+        )
+        for word_set in word_sets
+    ]
+    text = "Choose a topic:"
     if user_level is not None:
-        text = f"Выберите тему для уровня {user_level}:"
+        text = f"Choose a topic for level {user_level}:"
     await edit_screen(callback, text, word_sets_keyboard(payload, mode="learn"))
 
 
@@ -610,16 +808,22 @@ async def learn_handler(callback: CallbackQuery) -> None:
 async def grammar_handler(callback: CallbackQuery) -> None:
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
     units = get_grammar_units(user_level)
-    payload = [(unit["id"], unit["title"], unit["level"]) for unit in units]
+    payload = [
+        (unit["id"], grammar_label(unit["title"], target_language, source_language, bilingual), unit["level"])
+        for unit in units
+    ]
     text = (
-        "Выберите грамматический блок.\n\n"
-        "Здесь собраны времена, конструкции и связующие темы по уровням."
+        "Choose a grammar block.\n\n"
+        "Work through tenses, structures, and discourse patterns level by level."
     )
     if user_level is not None:
         text = (
-            f"Выберите грамматический блок для уровня {user_level}.\n\n"
-            "Список включает все темы, которые уже должны быть доступны на вашем уровне."
+            f"Choose a grammar block for level {user_level}.\n\n"
+            "This list includes the grammar topics that should already be active at your level."
         )
     await edit_screen(callback, text, grammar_units_keyboard(payload))
 

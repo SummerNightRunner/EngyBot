@@ -16,6 +16,7 @@ async def migrate_schema() -> None:
         def collect_missing(sync_connection) -> dict[str, set[str]]:
             inspector = inspect(sync_connection)
             required = {
+                "users": {"bilingual_ui"},
                 "words": {"level"},
                 "daily_practices": set(),
             }
@@ -32,6 +33,8 @@ async def migrate_schema() -> None:
 
         if "level" in missing.get("words", set()):
             await connection.exec_driver_sql("ALTER TABLE words ADD COLUMN level VARCHAR(32) DEFAULT 'A1'")
+        if "bilingual_ui" in missing.get("users", set()):
+            await connection.exec_driver_sql("ALTER TABLE users ADD COLUMN bilingual_ui BOOLEAN DEFAULT TRUE")
 
 
 async def init_db() -> None:

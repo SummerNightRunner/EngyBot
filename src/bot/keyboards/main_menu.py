@@ -10,18 +10,36 @@ LANGUAGE_OPTIONS = [
 LEVEL_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
 
-def main_menu_keyboard() -> InlineKeyboardMarkup:
+def main_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Практика дня", callback_data="menu:daily")],
-            [InlineKeyboardButton(text="Изучить слова", callback_data="menu:learn")],
-            [InlineKeyboardButton(text="Грамматика", callback_data="menu:grammar")],
-            [InlineKeyboardButton(text="Мини-диалоги", callback_data="menu:dialogue")],
-            [InlineKeyboardButton(text="Пройти квиз", callback_data="menu:quiz")],
-            [InlineKeyboardButton(text="Повторение", callback_data="menu:review")],
-            [InlineKeyboardButton(text="Профиль", callback_data="menu:profile")],
-            [InlineKeyboardButton(text="Статистика", callback_data="menu:stats")],
-            [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
+            [InlineKeyboardButton(text=labels["course"], callback_data="menu:course")],
+            [InlineKeyboardButton(text=labels["practice"], callback_data="menu:practice")],
+            [InlineKeyboardButton(text=labels["review"], callback_data="menu:review")],
+            [InlineKeyboardButton(text=labels["profile"], callback_data="menu:profile")],
+            [InlineKeyboardButton(text=labels["stats"], callback_data="menu:stats")],
+            [InlineKeyboardButton(text=labels["help"], callback_data="menu:help")],
+        ]
+    )
+
+
+def course_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=labels["vocabulary"], callback_data="menu:learn")],
+            [InlineKeyboardButton(text=labels["grammar"], callback_data="menu:grammar")],
+            [InlineKeyboardButton(text=labels["dialogues"], callback_data="menu:dialogue")],
+            [InlineKeyboardButton(text=labels["home"], callback_data="menu:home")],
+        ]
+    )
+
+
+def practice_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=labels["daily"], callback_data="menu:daily")],
+            [InlineKeyboardButton(text=labels["quiz"], callback_data="menu:quiz")],
+            [InlineKeyboardButton(text=labels["home"], callback_data="menu:home")],
         ]
     )
 
@@ -50,11 +68,12 @@ def level_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def profile_keyboard() -> InlineKeyboardMarkup:
+def profile_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Изменить профиль", callback_data="profile:start_setup")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text=labels["edit_profile"], callback_data="profile:start_setup")],
+            [InlineKeyboardButton(text=labels["toggle_bilingual"], callback_data="profile:toggle_bilingual")],
+            [InlineKeyboardButton(text=labels["home"], callback_data="menu:home")],
         ]
     )
 
