@@ -519,6 +519,296 @@
     ]
   },
   {
+    "title": "Одежда и внешность",
+    "description": "Лексика о предметах одежды, стиле, покупках и описании внешности.",
+    "level": "A1",
+    "words": [
+      {
+        "source_text": "куртка",
+        "target_text": "jacket",
+        "level": "A1",
+        "example": "Take your jacket, it is cold outside."
+      },
+      {
+        "source_text": "обувь",
+        "target_text": "shoes",
+        "level": "A1",
+        "example": "These shoes are very comfortable."
+      },
+      {
+        "source_text": "платье",
+        "target_text": "dress",
+        "level": "A1",
+        "example": "She bought a new dress for the party."
+      },
+      {
+        "source_text": "рубашка",
+        "target_text": "shirt",
+        "level": "A1",
+        "example": "His shirt needs ironing."
+      },
+      {
+        "source_text": "футболка",
+        "target_text": "T-shirt",
+        "level": "A1",
+        "example": "He is wearing a blue T-shirt."
+      },
+      {
+        "source_text": "брюки",
+        "target_text": "trousers",
+        "level": "A2",
+        "example": "These trousers are too long for me."
+      },
+      {
+        "source_text": "примерять",
+        "target_text": "to try on",
+        "level": "A2",
+        "example": "I want to try on these boots."
+      },
+      {
+        "source_text": "размер",
+        "target_text": "size",
+        "level": "A2",
+        "example": "Do you have this in a larger size?"
+      },
+      {
+        "source_text": "свитер",
+        "target_text": "sweater",
+        "level": "A2",
+        "example": "This sweater is made of wool."
+      },
+      {
+        "source_text": "юбка",
+        "target_text": "skirt",
+        "level": "A2",
+        "example": "The skirt matches her shoes."
+      },
+      {
+        "source_text": "аккуратный",
+        "target_text": "neat",
+        "level": "B1",
+        "example": "He always looks neat and organized."
+      },
+      {
+        "source_text": "внешность",
+        "target_text": "appearance",
+        "level": "B1",
+        "example": "Appearance matters in some professions."
+      },
+      {
+        "source_text": "повседневный стиль",
+        "target_text": "casual style",
+        "level": "B1",
+        "example": "I prefer casual style at work."
+      },
+      {
+        "source_text": "элегантный",
+        "target_text": "elegant",
+        "level": "B1",
+        "example": "That coat looks very elegant."
+      },
+      {
+        "source_text": "небрежный",
+        "target_text": "scruffy",
+        "level": "B2",
+        "example": "He looked scruffy after the long flight."
+      },
+      {
+        "source_text": "подходить по фигуре",
+        "target_text": "to fit well",
+        "level": "B2",
+        "example": "That suit fits him well."
+      },
+      {
+        "source_text": "ткань",
+        "target_text": "fabric",
+        "level": "B2",
+        "example": "This fabric feels soft and light."
+      },
+      {
+        "source_text": "формальный дресс-код",
+        "target_text": "formal dress code",
+        "level": "B2",
+        "example": "The event has a formal dress code."
+      },
+      {
+        "source_text": "портной",
+        "target_text": "tailor",
+        "level": "C1",
+        "example": "The tailor adjusted the sleeves perfectly."
+      },
+      {
+        "source_text": "силуэт",
+        "target_text": "silhouette",
+        "level": "C1",
+        "example": "The dress has a simple but striking silhouette."
+      },
+      {
+        "source_text": "самопрезентация",
+        "target_text": "self-presentation",
+        "level": "C2",
+        "example": "Clothing is part of professional self-presentation."
+      },
+      {
+        "source_text": "эстетика",
+        "target_text": "aesthetic",
+        "level": "C2",
+        "example": "Their brand aesthetic is very minimalist."
+      }
+    ]
+  },
+  {
+    "title": "Повседневная жизнь и распорядок",
+    "description": "Лексика о ежедневных делах, времени, привычках и рутине.",
+    "level": "A1",
+    "words": [
+      {
+        "source_text": "вечер",
+        "target_text": "evening",
+        "level": "A1",
+        "example": "We take a walk in the evening."
+      },
+      {
+        "source_text": "возвращаться домой",
+        "target_text": "to come home",
+        "level": "A1",
+        "example": "She comes home late on Fridays."
+      },
+      {
+        "source_text": "завтракать",
+        "target_text": "to have breakfast",
+        "level": "A1",
+        "example": "We usually have breakfast together."
+      },
+      {
+        "source_text": "идти на работу",
+        "target_text": "to go to work",
+        "level": "A1",
+        "example": "He goes to work by bus."
+      },
+      {
+        "source_text": "ложиться спать",
+        "target_text": "to go to bed",
+        "level": "A1",
+        "example": "The children go to bed at nine."
+      },
+      {
+        "source_text": "просыпаться",
+        "target_text": "to wake up",
+        "level": "A1",
+        "example": "I wake up at seven every day."
+      },
+      {
+        "source_text": "утро",
+        "target_text": "morning",
+        "level": "A1",
+        "example": "I study English in the morning."
+      },
+      {
+        "source_text": "встречаться с друзьями",
+        "target_text": "to meet friends",
+        "level": "A2",
+        "example": "I like to meet friends after class."
+      },
+      {
+        "source_text": "выходной",
+        "target_text": "day off",
+        "level": "A2",
+        "example": "Sunday is my only day off this week."
+      },
+      {
+        "source_text": "делать покупки",
+        "target_text": "to do the shopping",
+        "level": "A2",
+        "example": "We do the shopping on Saturdays."
+      },
+      {
+        "source_text": "день недели",
+        "target_text": "weekday",
+        "level": "A2",
+        "example": "My weekdays are usually very busy."
+      },
+      {
+        "source_text": "планировать день",
+        "target_text": "to plan the day",
+        "level": "A2",
+        "example": "She likes to plan the day the night before."
+      },
+      {
+        "source_text": "дело по дому",
+        "target_text": "chore",
+        "level": "B1",
+        "example": "Washing dishes is my least favorite chore."
+      },
+      {
+        "source_text": "привыкать",
+        "target_text": "to get used to",
+        "level": "B1",
+        "example": "It took me time to get used to the new schedule."
+      },
+      {
+        "source_text": "рутина",
+        "target_text": "routine",
+        "level": "B1",
+        "example": "A stable routine helps people focus."
+      },
+      {
+        "source_text": "спешить",
+        "target_text": "to rush",
+        "level": "B1",
+        "example": "I always rush in the morning."
+      },
+      {
+        "source_text": "откладывать дела",
+        "target_text": "to procrastinate",
+        "level": "B2",
+        "example": "Students often procrastinate before exams."
+      },
+      {
+        "source_text": "перегруженный график",
+        "target_text": "packed schedule",
+        "level": "B2",
+        "example": "Her packed schedule leaves little time to rest."
+      },
+      {
+        "source_text": "сбалансированный образ жизни",
+        "target_text": "balanced lifestyle",
+        "level": "B2",
+        "example": "A balanced lifestyle reduces stress."
+      },
+      {
+        "source_text": "управление временем",
+        "target_text": "time management",
+        "level": "B2",
+        "example": "Time management is a useful professional skill."
+      },
+      {
+        "source_text": "повседневные обязательства",
+        "target_text": "daily commitments",
+        "level": "C1",
+        "example": "Daily commitments can easily crowd out rest."
+      },
+      {
+        "source_text": "структурировать день",
+        "target_text": "to structure the day",
+        "level": "C1",
+        "example": "Learning to structure the day improved my productivity."
+      },
+      {
+        "source_text": "распределение внимания",
+        "target_text": "attention allocation",
+        "level": "C2",
+        "example": "Attention allocation becomes harder in digital life."
+      },
+      {
+        "source_text": "устойчивый ритм",
+        "target_text": "sustainable rhythm",
+        "level": "C2",
+        "example": "A sustainable rhythm is better than short bursts of effort."
+      }
+    ]
+  },
+  {
     "title": "Путешествия",
     "description": "Лексика для поездок, транспорта, размещения и сложных ситуаций в путешествии.",
     "level": "A1",
@@ -2118,6 +2408,157 @@
     ]
   },
   {
+    "title": "Эмоции и общение",
+    "description": "Лексика о чувствах, реакции, общении с людьми и межличностных ситуациях.",
+    "level": "B1",
+    "words": [
+      {
+        "source_text": "волноваться",
+        "target_text": "to worry",
+        "level": "B1",
+        "example": "Parents often worry about their children."
+      },
+      {
+        "source_text": "грустный",
+        "target_text": "sad",
+        "level": "B1",
+        "example": "He looked sad after the meeting."
+      },
+      {
+        "source_text": "злой",
+        "target_text": "angry",
+        "level": "B1",
+        "example": "She was angry about the delay."
+      },
+      {
+        "source_text": "нервничать",
+        "target_text": "to feel nervous",
+        "level": "B1",
+        "example": "I always feel nervous before speaking in public."
+      },
+      {
+        "source_text": "поощрять",
+        "target_text": "to encourage",
+        "level": "B1",
+        "example": "Good teachers encourage curiosity."
+      },
+      {
+        "source_text": "счастливый",
+        "target_text": "happy",
+        "level": "B1",
+        "example": "She felt happy after the exam."
+      },
+      {
+        "source_text": "удивленный",
+        "target_text": "surprised",
+        "level": "B1",
+        "example": "They were surprised by the result."
+      },
+      {
+        "source_text": "успокаивать",
+        "target_text": "to calm down",
+        "level": "B1",
+        "example": "A short walk helps me calm down."
+      },
+      {
+        "source_text": "благодарный",
+        "target_text": "grateful",
+        "level": "B2",
+        "example": "We are grateful for your support."
+      },
+      {
+        "source_text": "воспринимать критику",
+        "target_text": "to take criticism",
+        "level": "B2",
+        "example": "It is not easy to take criticism calmly."
+      },
+      {
+        "source_text": "выражать мнение",
+        "target_text": "to express an opinion",
+        "level": "B2",
+        "example": "Students should learn to express an opinion clearly."
+      },
+      {
+        "source_text": "недоразумение",
+        "target_text": "misunderstanding",
+        "level": "B2",
+        "example": "The conflict began with a misunderstanding."
+      },
+      {
+        "source_text": "неловкий",
+        "target_text": "awkward",
+        "level": "B2",
+        "example": "There was an awkward silence in the room."
+      },
+      {
+        "source_text": "разочарованный",
+        "target_text": "disappointed",
+        "level": "B2",
+        "example": "I was disappointed by the service."
+      },
+      {
+        "source_text": "сочувствие",
+        "target_text": "empathy",
+        "level": "B2",
+        "example": "Empathy makes communication more effective."
+      },
+      {
+        "source_text": "напористость",
+        "target_text": "assertiveness",
+        "level": "C1",
+        "example": "Assertiveness is useful in workplace communication."
+      },
+      {
+        "source_text": "неоднозначный сигнал",
+        "target_text": "mixed signal",
+        "level": "C1",
+        "example": "His reply sent mixed signals."
+      },
+      {
+        "source_text": "обида",
+        "target_text": "resentment",
+        "level": "C1",
+        "example": "Resentment can damage close relationships."
+      },
+      {
+        "source_text": "уязвимость",
+        "target_text": "vulnerability",
+        "level": "C1",
+        "example": "Showing vulnerability can build trust."
+      },
+      {
+        "source_text": "межличностная динамика",
+        "target_text": "interpersonal dynamics",
+        "level": "C2",
+        "example": "Leaders must understand interpersonal dynamics."
+      },
+      {
+        "source_text": "невербальный сигнал",
+        "target_text": "non-verbal cue",
+        "level": "C2",
+        "example": "Non-verbal cues often reveal discomfort."
+      },
+      {
+        "source_text": "смягчать конфликт",
+        "target_text": "to defuse a conflict",
+        "level": "C2",
+        "example": "Humor can sometimes defuse a conflict."
+      },
+      {
+        "source_text": "эмоциональная регуляция",
+        "target_text": "emotional regulation",
+        "level": "C2",
+        "example": "Emotional regulation is essential in conflict situations."
+      },
+      {
+        "source_text": "эмоциональный отклик",
+        "target_text": "emotional response",
+        "level": "C2",
+        "example": "The film triggered a strong emotional response."
+      }
+    ]
+  },
+  {
     "title": "Культура и общество",
     "description": "Лексика для обсуждения традиций, ценностей, искусства и общественных процессов.",
     "level": "B2",
@@ -2325,6 +2766,260 @@
         "target_text": "value system",
         "level": "C2",
         "example": "A value system develops over time."
+      }
+    ]
+  },
+  {
+    "title": "Наука и инновации",
+    "description": "Лексика о науке, исследованиях, технологиях будущего и открытиях.",
+    "level": "B2",
+    "words": [
+      {
+        "source_text": "данные",
+        "target_text": "data",
+        "level": "B2",
+        "example": "The data supports the original claim."
+      },
+      {
+        "source_text": "изобретение",
+        "target_text": "invention",
+        "level": "B2",
+        "example": "The invention changed medical practice."
+      },
+      {
+        "source_text": "исследование",
+        "target_text": "research study",
+        "level": "B2",
+        "example": "The research study lasted two years."
+      },
+      {
+        "source_text": "лаборатория",
+        "target_text": "laboratory",
+        "level": "B2",
+        "example": "The samples were tested in a laboratory."
+      },
+      {
+        "source_text": "открытие",
+        "target_text": "discovery",
+        "level": "B2",
+        "example": "The discovery attracted global attention."
+      },
+      {
+        "source_text": "эксперимент",
+        "target_text": "experiment",
+        "level": "B2",
+        "example": "The experiment produced unexpected results."
+      },
+      {
+        "source_text": "гипотеза",
+        "target_text": "hypothesis",
+        "level": "C1",
+        "example": "The hypothesis was not supported by the results."
+      },
+      {
+        "source_text": "доказательство",
+        "target_text": "evidence",
+        "level": "C1",
+        "example": "There is little evidence for that theory."
+      },
+      {
+        "source_text": "методология",
+        "target_text": "methodology",
+        "level": "C1",
+        "example": "The methodology needs to be clearly described."
+      },
+      {
+        "source_text": "моделирование",
+        "target_text": "simulation",
+        "level": "C1",
+        "example": "The simulation predicted system failure."
+      },
+      {
+        "source_text": "переменная",
+        "target_text": "variable",
+        "level": "C1",
+        "example": "The researchers controlled every variable."
+      },
+      {
+        "source_text": "прорыв",
+        "target_text": "breakthrough",
+        "level": "C1",
+        "example": "The team announced a major breakthrough."
+      },
+      {
+        "source_text": "воспроизводимость",
+        "target_text": "replicability",
+        "level": "C2",
+        "example": "Replicability is essential in modern science."
+      },
+      {
+        "source_text": "инновационная экосистема",
+        "target_text": "innovation ecosystem",
+        "level": "C2",
+        "example": "Universities support the innovation ecosystem."
+      },
+      {
+        "source_text": "масштабируемость",
+        "target_text": "scalability",
+        "level": "C2",
+        "example": "The startup proved the scalability of the model."
+      },
+      {
+        "source_text": "междисциплинарный",
+        "target_text": "interdisciplinary",
+        "level": "C2",
+        "example": "The project required an interdisciplinary approach."
+      },
+      {
+        "source_text": "научная грамотность",
+        "target_text": "scientific literacy",
+        "level": "C2",
+        "example": "Scientific literacy helps people evaluate claims."
+      },
+      {
+        "source_text": "научный консенсус",
+        "target_text": "scientific consensus",
+        "level": "C2",
+        "example": "The scientific consensus is stronger than ever."
+      },
+      {
+        "source_text": "рецензируемый",
+        "target_text": "peer-reviewed",
+        "level": "C2",
+        "example": "The paper was published in a peer-reviewed journal."
+      },
+      {
+        "source_text": "этические последствия",
+        "target_text": "ethical implications",
+        "level": "C2",
+        "example": "The ethical implications of gene editing are complex."
+      }
+    ]
+  },
+  {
+    "title": "Аргументация и дебаты",
+    "description": "Лексика для выражения позиции, анализа аргументов и участия в сложных обсуждениях.",
+    "level": "C1",
+    "words": [
+      {
+        "source_text": "аргумент",
+        "target_text": "argument",
+        "level": "C1",
+        "example": "Her argument was clear and persuasive."
+      },
+      {
+        "source_text": "доказать",
+        "target_text": "to demonstrate",
+        "level": "C1",
+        "example": "The report demonstrates a clear trend."
+      },
+      {
+        "source_text": "контраргумент",
+        "target_text": "counterargument",
+        "level": "C1",
+        "example": "A good essay anticipates the counterargument."
+      },
+      {
+        "source_text": "обосновывать",
+        "target_text": "to justify",
+        "level": "C1",
+        "example": "You need to justify your choice with evidence."
+      },
+      {
+        "source_text": "оспаривать",
+        "target_text": "to challenge",
+        "level": "C1",
+        "example": "Several experts challenged the conclusion."
+      },
+      {
+        "source_text": "точка зрения",
+        "target_text": "point of view",
+        "level": "C1",
+        "example": "Try to consider the opposite point of view."
+      },
+      {
+        "source_text": "выстраивать позицию",
+        "target_text": "to build a case",
+        "level": "C2",
+        "example": "The article builds a strong case for reform."
+      },
+      {
+        "source_text": "интерпретировать данные",
+        "target_text": "to interpret data",
+        "level": "C2",
+        "example": "People often interpret data through prior beliefs."
+      },
+      {
+        "source_text": "логическая ошибка",
+        "target_text": "fallacy",
+        "level": "C2",
+        "example": "The article contains a common logical fallacy."
+      },
+      {
+        "source_text": "ложная дихотомия",
+        "target_text": "false dichotomy",
+        "level": "C2",
+        "example": "The speaker created a false dichotomy."
+      },
+      {
+        "source_text": "нюансировать позицию",
+        "target_text": "to qualify a position",
+        "level": "C2",
+        "example": "She later qualified her position in an interview."
+      },
+      {
+        "source_text": "обобщение",
+        "target_text": "generalization",
+        "level": "C2",
+        "example": "That conclusion is based on a weak generalization."
+      },
+      {
+        "source_text": "опровергать",
+        "target_text": "to refute",
+        "level": "C2",
+        "example": "The lawyer refuted each accusation calmly."
+      },
+      {
+        "source_text": "подкреплять довод",
+        "target_text": "to substantiate a claim",
+        "level": "C2",
+        "example": "The author failed to substantiate the claim."
+      },
+      {
+        "source_text": "подрывать довод",
+        "target_text": "to undermine an argument",
+        "level": "C2",
+        "example": "A single inconsistency can undermine an argument."
+      },
+      {
+        "source_text": "последовательность рассуждения",
+        "target_text": "line of reasoning",
+        "level": "C2",
+        "example": "The line of reasoning breaks down in the final paragraph."
+      },
+      {
+        "source_text": "предпосылка",
+        "target_text": "premise",
+        "level": "C2",
+        "example": "The argument depends on a questionable premise."
+      },
+      {
+        "source_text": "риторический прием",
+        "target_text": "rhetorical device",
+        "level": "C2",
+        "example": "Repetition is a common rhetorical device."
+      },
+      {
+        "source_text": "смещать акцент",
+        "target_text": "to shift the focus",
+        "level": "C2",
+        "example": "The moderator tried to shift the focus back to evidence."
+      },
+      {
+        "source_text": "убедительность",
+        "target_text": "persuasiveness",
+        "level": "C2",
+        "example": "Tone affects the persuasiveness of an argument."
       }
     ]
   }
