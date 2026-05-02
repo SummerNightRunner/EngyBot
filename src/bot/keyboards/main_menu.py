@@ -125,6 +125,8 @@ def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> In
 def review_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
+            [InlineKeyboardButton(text="Слабые слова", callback_data="review:words")],
+            [InlineKeyboardButton(text="Квиз по ошибкам", callback_data="review:quiz")],
             [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
         ]
     )

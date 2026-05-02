@@ -89,6 +89,18 @@ async def get_review_words(telegram_id: int, limit: int = 8) -> list[Word]:
         return list(result.scalars().all())
 
 
+async def get_words_by_ids(word_ids: list[int]) -> list[Word]:
+    if not word_ids:
+        return []
+
+    async with SessionLocal() as session:
+        result = await session.execute(select(Word).where(Word.id.in_(word_ids)))
+        words = list(result.scalars().all())
+
+    by_id = {word.id: word for word in words}
+    return [by_id[word_id] for word_id in word_ids if word_id in by_id]
+
+
 async def edit_screen(callback: CallbackQuery, text: str, reply_markup) -> None:
     if callback.message is None:
         await callback.answer()
@@ -199,17 +211,32 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
 
 async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None:
     data = await state.get_data()
-    word_set = await get_word_set(data["quiz_word_set_id"])
-    if word_set is None or not word_set.words:
-        await state.clear()
-        await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
-        return
-
+    review_mode = data.get("review_mode", False)
     question_index = data["quiz_index"]
-    current_word = word_set.words[question_index]
     quiz_format = data["quiz_format"]
 
-    options = [word.target_text for word in word_set.words]
+    if review_mode:
+        review_words = await get_words_by_ids(data["review_word_ids"])
+        if not review_words:
+            await state.clear()
+            await edit_screen(callback, "Слова для повторения не найдены.", nav_keyboard(back_to="menu:review"))
+            return
+        current_word = review_words[question_index]
+        total_questions = len(review_words)
+        topic_title = "Повторение ошибок"
+        options_pool = review_words
+    else:
+        word_set = await get_word_set(data["quiz_word_set_id"])
+        if word_set is None or not word_set.words:
+            await state.clear()
+            await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
+            return
+        current_word = word_set.words[question_index]
+        total_questions = len(word_set.words)
+        topic_title = word_set.title
+        options_pool = word_set.words
+
+    options = [word.target_text for word in options_pool]
     random.shuffle(options)
     options = options[:4]
     if current_word.target_text not in options:
@@ -219,7 +246,13 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
     await state.update_data(correct_answer=current_word.target_text, current_word_id=current_word.id)
     await edit_screen(
         callback,
-        build_quiz_prompt(quiz_format, current_word, word_set, question_index, len(word_set.words)),
+        build_quiz_prompt(
+            quiz_format,
+            current_word,
+            WordSet(title=topic_title, description=None, level="", is_active=True),
+            question_index,
+            total_questions,
+        ),
         quiz_options_keyboard(options),
     )
 
@@ -348,13 +381,23 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "menu:review")
 async def review_handler(callback: CallbackQuery) -> None:
+    await edit_screen(
+        callback,
+        "<b>Повторение</b>\n\n"
+        "Здесь можно посмотреть слабые слова и пройти короткий квиз по ошибкам.",
+        review_keyboard(),
+    )
+
+
+@router.callback_query(F.data == "review:words")
+async def review_words_handler(callback: CallbackQuery) -> None:
     words = await get_review_words(callback.from_user.id)
     if not words:
         await edit_screen(
             callback,
             "Раздел повторения пока пуст.\n\n"
             "Пройдите несколько квизов, и здесь появятся слова, с которыми были ошибки или трудности.",
-            review_keyboard(),
+            nav_keyboard(back_to="menu:review"),
         )
         return
 
@@ -369,8 +412,32 @@ async def review_handler(callback: CallbackQuery) -> None:
         "<b>Слова для повторения</b>\n\n"
         "Здесь собраны слова, которые стоит повторить в первую очередь:\n\n"
         + "\n".join(lines),
-        review_keyboard(),
+        nav_keyboard(back_to="menu:review"),
     )
+
+
+@router.callback_query(F.data == "review:quiz")
+async def review_quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    words = await get_review_words(callback.from_user.id, limit=6)
+    if len(words) < 2:
+        await edit_screen(
+            callback,
+            "Для квиза по ошибкам пока недостаточно данных.\n\n"
+            "Сначала завершите несколько обычных квизов и допустите хотя бы пару ошибок.",
+            nav_keyboard(back_to="menu:review"),
+        )
+        return
+
+    await state.set_state(QuizStates.in_progress)
+    await state.update_data(
+        review_mode=True,
+        review_word_ids=[word.id for word in words],
+        quiz_word_set_id=None,
+        quiz_index=0,
+        quiz_correct=0,
+        quiz_format="choice",
+    )
+    await show_quiz_question(callback, state)
 
 
 @router.callback_query(F.data.startswith("quiz:format:"))
@@ -451,14 +518,28 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
     is_correct = selected_answer == data["correct_answer"]
     correct_count = data["quiz_correct"] + int(is_correct)
     next_index = data["quiz_index"] + 1
+    review_mode = data.get("review_mode", False)
 
-    word_set = await get_word_set(data["quiz_word_set_id"])
-    if word_set is None or not word_set.words:
-        await state.clear()
-        await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
-        return
+    if review_mode:
+        review_words = await get_words_by_ids(data["review_word_ids"])
+        if not review_words:
+            await state.clear()
+            await edit_screen(callback, "Слова для повторения не найдены.", nav_keyboard(back_to="menu:review"))
+            return
+        total_questions = len(review_words)
+        quiz_title = "Повторение ошибок"
+        word_set_id = None
+    else:
+        word_set = await get_word_set(data["quiz_word_set_id"])
+        if word_set is None or not word_set.words:
+            await state.clear()
+            await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
+            return
+        total_questions = len(word_set.words)
+        quiz_title = word_set.title
+        word_set_id = word_set.id
 
-    if next_index >= len(word_set.words):
+    if next_index >= total_questions:
         user = await get_registered_user(callback.from_user.id)
         if user is not None:
             async with SessionLocal() as session:
@@ -478,23 +559,25 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                     progress.wrong_count += 1
                 progress.last_result = is_correct
 
-                session.add(
-                    TrainingAttempt(
-                        user_id=user.id,
-                        word_set_id=word_set.id,
-                        correct_answers=correct_count,
-                        total_questions=len(word_set.words),
+                if word_set_id is not None:
+                    session.add(
+                        TrainingAttempt(
+                            user_id=user.id,
+                            word_set_id=word_set_id,
+                            correct_answers=correct_count,
+                            total_questions=total_questions,
+                        )
                     )
-                )
                 await session.commit()
         await state.clear()
+        back_to = "menu:review" if review_mode else "menu:quiz"
         await edit_screen(
             callback,
             "<b>Квиз завершен</b>\n\n"
             f"Формат: {QUIZ_FORMATS[data['quiz_format']]}\n"
-            f"Тема: {word_set.title}\n"
-            f"Правильных ответов: {correct_count} из {len(word_set.words)}",
-            nav_keyboard(back_to="menu:quiz"),
+            f"Тема: {quiz_title}\n"
+            f"Правильных ответов: {correct_count} из {total_questions}",
+            nav_keyboard(back_to=back_to),
         )
         return
 
