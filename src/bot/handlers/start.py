@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import random
+from datetime import UTC, datetime, timedelta
 
 from aiogram import F, Router
 from aiogram.filters import CommandStart
@@ -173,6 +174,45 @@ async def get_theme_progress(telegram_id: int) -> list[dict]:
         )
 
     return progress_rows
+
+
+async def get_daily_goal_summary(telegram_id: int) -> dict | None:
+    user = await get_registered_user(telegram_id)
+    if user is None:
+        return None
+
+    async with SessionLocal() as session:
+        attempts_result = await session.execute(
+            select(TrainingAttempt).where(TrainingAttempt.user_id == user.id).order_by(TrainingAttempt.created_at.desc())
+        )
+        attempts = list(attempts_result.scalars().all())
+
+    today = datetime.now(UTC).date()
+    today_attempts = sum(1 for attempt in attempts if attempt.created_at.date() == today)
+    today_correct = sum(attempt.correct_answers for attempt in attempts if attempt.created_at.date() == today)
+    today_total = sum(attempt.total_questions for attempt in attempts if attempt.created_at.date() == today)
+
+    unique_days = sorted({attempt.created_at.date() for attempt in attempts}, reverse=True)
+    streak = 0
+    cursor = today
+    for day in unique_days:
+        if day == cursor:
+            streak += 1
+            cursor = cursor - timedelta(days=1)
+        elif day > cursor:
+            continue
+        else:
+            break
+
+    goal_target = 3
+    return {
+        "today_attempts": today_attempts,
+        "today_correct": today_correct,
+        "today_total": today_total,
+        "goal_target": goal_target,
+        "goal_done": min(today_attempts, goal_target),
+        "streak": streak,
+    }
 
 
 async def edit_screen(callback: CallbackQuery, text: str, reply_markup) -> None:
@@ -799,6 +839,32 @@ async def stats_handler(callback: CallbackQuery) -> None:
         f"Точность: {accuracy}%\n"
         f"Слабые слова: {weak_words}",
         stats_keyboard(),
+    )
+
+
+@router.callback_query(F.data == "stats:goal")
+async def stats_goal_handler(callback: CallbackQuery) -> None:
+    summary = await get_daily_goal_summary(callback.from_user.id)
+    if summary is None:
+        await edit_screen(
+            callback,
+            "Сначала настройте профиль, чтобы бот начал отслеживать вашу активность.",
+            nav_keyboard(back_to="menu:stats"),
+        )
+        return
+
+    accuracy = 0
+    if summary["today_total"] > 0:
+        accuracy = round(summary["today_correct"] / summary["today_total"] * 100)
+
+    await edit_screen(
+        callback,
+        "<b>Цель дня</b>\n\n"
+        f"Пройдено квизов сегодня: {summary['today_attempts']}\n"
+        f"Прогресс цели: {summary['goal_done']}/{summary['goal_target']}\n"
+        f"Сегодняшняя точность: {accuracy}%\n"
+        f"Серия дней подряд: {summary['streak']}",
+        nav_keyboard(back_to="menu:stats"),
     )
 
 

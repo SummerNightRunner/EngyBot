@@ -137,6 +137,7 @@ def review_keyboard() -> InlineKeyboardMarkup:
 def stats_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
+            [InlineKeyboardButton(text="Цель дня", callback_data="stats:goal")],
             [InlineKeyboardButton(text="Прогресс по темам", callback_data="stats:themes")],
             [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
         ]
