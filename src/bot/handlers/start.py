@@ -13,6 +13,8 @@ from bot.database.models import TrainingAttempt, User, UserWordProgress, Word, W
 from bot.database.session import SessionLocal
 from bot.keyboards.main_menu import (
     card_keyboard,
+    dialogue_keyboard,
+    dialogue_step_keyboard,
     guest_menu_keyboard,
     help_keyboard,
     language_keyboard,
@@ -26,7 +28,7 @@ from bot.keyboards.main_menu import (
     start_quiz_keyboard,
     word_sets_keyboard,
 )
-from bot.services.content import QUIZ_FORMATS, WORD_DEFINITIONS, level_is_allowed
+from bot.services.content import DIALOGUE_SCENARIOS, QUIZ_FORMATS, WORD_DEFINITIONS, level_is_allowed
 from bot.states.training import QuizStates
 
 router = Router()
@@ -99,6 +101,19 @@ async def get_words_by_ids(word_ids: list[int]) -> list[Word]:
 
     by_id = {word.id: word for word in words}
     return [by_id[word_id] for word_id in word_ids if word_id in by_id]
+
+
+def get_dialogue_scenarios(user_level: str | None = None) -> list[dict]:
+    if user_level is None:
+        return DIALOGUE_SCENARIOS
+    return [scenario for scenario in DIALOGUE_SCENARIOS if level_is_allowed(user_level, scenario["level"])]
+
+
+def get_dialogue_by_id(scenario_id: str) -> dict | None:
+    for scenario in DIALOGUE_SCENARIOS:
+        if scenario["id"] == scenario_id:
+            return scenario
+    return None
 
 
 async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
@@ -353,6 +368,39 @@ async def learn_handler(callback: CallbackQuery) -> None:
     if user_level is not None:
         text = f"Выберите тему для уровня {user_level}:"
     await edit_screen(callback, text, word_sets_keyboard(payload, mode="learn"))
+
+
+@router.callback_query(F.data == "menu:dialogue")
+async def dialogue_menu_handler(callback: CallbackQuery) -> None:
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
+    scenarios = get_dialogue_scenarios(user_level)
+    payload = [(item["id"], item["title"], item["level"], item["theme"]) for item in scenarios]
+    text = "Выберите мини-диалог:"
+    if user_level is not None:
+        text = f"Выберите мини-диалог для уровня {user_level}:"
+    await edit_screen(callback, text, dialogue_keyboard(payload))
+
+
+@router.callback_query(F.data.startswith("dialogue:"))
+async def dialogue_handler(callback: CallbackQuery) -> None:
+    _, scenario_id, raw_index = callback.data.split(":")
+    scenario = get_dialogue_by_id(scenario_id)
+    if scenario is None:
+        await edit_screen(callback, "Диалог не найден.", nav_keyboard(back_to="menu:dialogue"))
+        return
+
+    index = min(int(raw_index), len(scenario["lines"]) - 1)
+    line = scenario["lines"][index]
+    await edit_screen(
+        callback,
+        f"<b>{scenario['title']}</b>\n"
+        f"Тема: {scenario['theme']}\n"
+        f"Уровень: {scenario['level']}\n\n"
+        f"{line}\n\n"
+        f"Реплика {index + 1} из {len(scenario['lines'])}",
+        dialogue_step_keyboard(scenario_id, index, len(scenario["lines"])),
+    )
 
 
 @router.callback_query(F.data.startswith("learn:set:"))
