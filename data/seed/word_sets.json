@@ -1,0 +1,87 @@
+[
+  {
+    "title": "Путешествия",
+    "description": "Лексика для поездок, аэропорта, отеля и маршрутов.",
+    "level": "A1",
+    "words": [
+      {"source_text": "самолет", "target_text": "airplane", "example": "I am going to travel by airplane."},
+      {"source_text": "отель", "target_text": "hotel", "example": "I booked a room at the hotel."},
+      {"source_text": "паспорт", "target_text": "passport", "example": "Do not forget your passport."},
+      {"source_text": "багаж", "target_text": "luggage", "example": "My luggage is very heavy."},
+      {"source_text": "билет", "target_text": "ticket", "example": "I bought a ticket online."},
+      {"source_text": "маршрут", "target_text": "itinerary", "example": "Our itinerary is ready."},
+      {"source_text": "осмотр достопримечательностей", "target_text": "sightseeing", "example": "We went sightseeing in the old town."},
+      {"source_text": "путеводитель", "target_text": "guidebook", "example": "This guidebook is very useful."},
+      {"source_text": "резервирование", "target_text": "reservation", "example": "Your reservation is confirmed."},
+      {"source_text": "аэропорт", "target_text": "airport", "example": "The airport is far from the city center."}
+    ]
+  },
+  {
+    "title": "Еда и напитки",
+    "description": "Базовые продукты, блюда и напитки для повседневного общения.",
+    "level": "A1",
+    "words": [
+      {"source_text": "яблоко", "target_text": "apple", "example": "I eat an apple every morning."},
+      {"source_text": "хлеб", "target_text": "bread", "example": "We need some fresh bread."},
+      {"source_text": "вода", "target_text": "water", "example": "Can I have a glass of water?"},
+      {"source_text": "кофе", "target_text": "coffee", "example": "I drink coffee at work."},
+      {"source_text": "салат", "target_text": "salad", "example": "This salad is very tasty."},
+      {"source_text": "курица", "target_text": "chicken", "example": "My favorite food is chicken."},
+      {"source_text": "паста", "target_text": "pasta", "example": "We ordered pasta for dinner."},
+      {"source_text": "десерт", "target_text": "dessert", "example": "Dessert is my favorite part of lunch."},
+      {"source_text": "сок", "target_text": "juice", "example": "Orange juice is on the table."},
+      {"source_text": "сыр", "target_text": "cheese", "example": "This cheese is very soft."}
+    ]
+  },
+  {
+    "title": "Работа и профессии",
+    "description": "Слова для рабочей коммуникации, задач и карьерного роста.",
+    "level": "A2",
+    "words": [
+      {"source_text": "менеджер", "target_text": "manager", "example": "The manager leads the team."},
+      {"source_text": "сотрудник", "target_text": "employee", "example": "Every employee has a schedule."},
+      {"source_text": "встреча", "target_text": "meeting", "example": "The meeting starts at ten."},
+      {"source_text": "проект", "target_text": "project", "example": "Our project is almost finished."},
+      {"source_text": "дедлайн", "target_text": "deadline", "example": "The deadline is tomorrow."},
+      {"source_text": "презентация", "target_text": "presentation", "example": "Her presentation was excellent."},
+      {"source_text": "коллега", "target_text": "colleague", "example": "My colleague helps me a lot."},
+      {"source_text": "собеседование", "target_text": "interview", "example": "I have an interview next week."},
+      {"source_text": "зарплата", "target_text": "salary", "example": "His salary increased this year."},
+      {"source_text": "повышение", "target_text": "promotion", "example": "She got a promotion at work."}
+    ]
+  },
+  {
+    "title": "Семья и друзья",
+    "description": "Базовая лексика о родственниках и близком окружении.",
+    "level": "A2",
+    "words": [
+      {"source_text": "мать", "target_text": "mother", "example": "My mother lives nearby."},
+      {"source_text": "отец", "target_text": "father", "example": "My father works in a bank."},
+      {"source_text": "друг", "target_text": "friend", "example": "My friend is waiting outside."},
+      {"source_text": "сестра", "target_text": "sister", "example": "My sister studies at university."},
+      {"source_text": "брат", "target_text": "brother", "example": "My brother likes football."},
+      {"source_text": "двоюродный брат/сестра", "target_text": "cousin", "example": "My cousin lives in another city."},
+      {"source_text": "тетя", "target_text": "aunt", "example": "My aunt cooks very well."},
+      {"source_text": "дядя", "target_text": "uncle", "example": "My uncle drives a truck."},
+      {"source_text": "бабушка и дедушка", "target_text": "grandparents", "example": "My grandparents live in the village."},
+      {"source_text": "сосед", "target_text": "neighbor", "example": "Our neighbor is very friendly."}
+    ]
+  },
+  {
+    "title": "Хобби и досуг",
+    "description": "Лексика о свободном времени, увлечениях и отдыхе.",
+    "level": "B1",
+    "words": [
+      {"source_text": "живопись", "target_text": "painting", "example": "Painting helps me relax."},
+      {"source_text": "чтение", "target_text": "reading", "example": "Reading is my favorite hobby."},
+      {"source_text": "спорт", "target_text": "sports", "example": "Sports keep people healthy."},
+      {"source_text": "музыка", "target_text": "music", "example": "I listen to music every day."},
+      {"source_text": "садоводство", "target_text": "gardening", "example": "Gardening is good for the mind."},
+      {"source_text": "фотография", "target_text": "photography", "example": "Photography teaches you to notice details."},
+      {"source_text": "приготовление пищи", "target_text": "cooking", "example": "Cooking is both useful and fun."},
+      {"source_text": "походы", "target_text": "hiking", "example": "We enjoy hiking in the mountains."},
+      {"source_text": "танцы", "target_text": "dancing", "example": "Dancing gives me energy."},
+      {"source_text": "путешествия", "target_text": "traveling", "example": "Traveling broadens the mind."}
+    ]
+  }
+]

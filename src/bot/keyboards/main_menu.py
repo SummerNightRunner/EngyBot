@@ -1,85 +1,121 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-def main_menu_keyboard(*, is_registered: bool) -> InlineKeyboardMarkup:
-    if not is_registered:
-        return InlineKeyboardMarkup(
-            inline_keyboard=[
-                [InlineKeyboardButton(text="Настроить профиль", callback_data="menu:profile_setup")],
-                [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
-            ]
-        )
+LANGUAGE_OPTIONS = [
+    ("Русский", "ru"),
+    ("Английский", "en"),
+    ("Немецкий", "de"),
+]
 
+LEVEL_OPTIONS = ["A1", "A2", "B1"]
+
+
+def main_menu_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Учить слова", callback_data="menu:learn")],
-            [InlineKeyboardButton(text="Пройти тест", callback_data="menu:quiz")],
+            [InlineKeyboardButton(text="Изучить слова", callback_data="menu:learn")],
+            [InlineKeyboardButton(text="Пройти квиз", callback_data="menu:quiz")],
+            [InlineKeyboardButton(text="Профиль", callback_data="menu:profile")],
             [InlineKeyboardButton(text="Статистика", callback_data="menu:stats")],
             [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
         ]
     )
 
 
-def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> InlineKeyboardMarkup:
-    buttons: list[list[InlineKeyboardButton]] = []
-
-    if back_to is not None:
-        buttons.append([InlineKeyboardButton(text="Назад", callback_data=back_to)])
-
-    if include_home:
-        buttons.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
-
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-
-def profile_setup_keyboard() -> InlineKeyboardMarkup:
+def guest_menu_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Выбрать язык", callback_data="profile:target_language")],
-            [InlineKeyboardButton(text="Как будет устроен профиль", callback_data="profile:about")],
-            [InlineKeyboardButton(text="Назад", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Начать настройку", callback_data="profile:start_setup")],
+            [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
         ]
     )
 
 
-def learn_keyboard() -> InlineKeyboardMarkup:
+def language_keyboard(prefix: str) -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=label, callback_data=f"{prefix}:{code}")]
+        for label, code in LANGUAGE_OPTIONS
+    ]
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def level_keyboard() -> InlineKeyboardMarkup:
+    rows = [[InlineKeyboardButton(text=level, callback_data=f"profile:level:{level}")] for level in LEVEL_OPTIONS]
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def profile_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Наборы слов", callback_data="learn:sets")],
-            [InlineKeyboardButton(text="Как работает обучение", callback_data="learn:about")],
+            [InlineKeyboardButton(text="Изменить профиль", callback_data="profile:start_setup")],
             [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
         ]
     )
 
 
-def quiz_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text="Формат тестов", callback_data="quiz:about")],
-            [InlineKeyboardButton(text="Что будет проверяться", callback_data="quiz:topics")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
-        ]
-    )
-
-
-def stats_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text="Что будет в статистике", callback_data="stats:about")],
-            [InlineKeyboardButton(text="Как считаем прогресс", callback_data="stats:progress")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
-        ]
-    )
-
-
-def help_keyboard(*, is_registered: bool) -> InlineKeyboardMarkup:
-    buttons = [
+def help_keyboard(is_registered: bool) -> InlineKeyboardMarkup:
+    rows = [
         [InlineKeyboardButton(text="Как пользоваться ботом", callback_data="help:usage")],
         [InlineKeyboardButton(text="Что умеет MVP", callback_data="help:mvp")],
     ]
-
     if not is_registered:
-        buttons.append([InlineKeyboardButton(text="Настроить профиль", callback_data="menu:profile_setup")])
+        rows.append([InlineKeyboardButton(text="Начать настройку", callback_data="profile:start_setup")])
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
 
-    buttons.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+def word_sets_keyboard(word_sets: list[tuple[int, str, str]], *, mode: str) -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=f"{title} ({level})", callback_data=f"{mode}:set:{word_set_id}")]
+        for word_set_id, title, level in word_sets
+    ]
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def quiz_formats_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Выбор правильного варианта", callback_data="quiz:format:choice")],
+            [InlineKeyboardButton(text="Заполнение пропусков", callback_data="quiz:format:gap")],
+            [InlineKeyboardButton(text="Угадай слово по определению", callback_data="quiz:format:definition")],
+            [InlineKeyboardButton(text="Соответствие", callback_data="quiz:format:match")],
+            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+        ]
+    )
+
+
+def card_keyboard(word_set_id: int, index: int, total: int) -> InlineKeyboardMarkup:
+    rows: list[list[InlineKeyboardButton]] = []
+    if index + 1 < total:
+        rows.append([InlineKeyboardButton(text="Следующее слово", callback_data=f"learn:card:{word_set_id}:{index + 1}")])
+    rows.append([InlineKeyboardButton(text="К списку тем", callback_data="menu:learn")])
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def start_quiz_keyboard(word_set_id: int, quiz_format: str) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Начать квиз", callback_data=f"quiz:start:{quiz_format}:{word_set_id}")],
+            [InlineKeyboardButton(text="К форматам квизов", callback_data="menu:quiz")],
+            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+        ]
+    )
+
+
+def quiz_options_keyboard(options: list[str]) -> InlineKeyboardMarkup:
+    rows = [[InlineKeyboardButton(text=option, callback_data=f"quiz:answer:{option}")] for option in options]
+    rows.append([InlineKeyboardButton(text="Прервать квиз", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> InlineKeyboardMarkup:
+    rows: list[list[InlineKeyboardButton]] = []
+    if back_to is not None:
+        rows.append([InlineKeyboardButton(text="Назад", callback_data=back_to)])
+    if include_home:
+        rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)

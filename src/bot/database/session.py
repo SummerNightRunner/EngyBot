@@ -2,6 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 
 from bot.config import get_settings
 from bot.database.base import Base
+from bot.services.content import seed_word_sets
 
 
 settings = get_settings()
@@ -12,6 +13,9 @@ SessionLocal = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSe
 async def init_db() -> None:
     async with engine.begin() as connection:
         await connection.run_sync(Base.metadata.create_all)
+
+    async with SessionLocal() as session:
+        await seed_word_sets(session)
 
 
 async def get_session() -> AsyncSession:

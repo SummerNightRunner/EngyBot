@@ -11,4 +11,6 @@ __pycache__/
 dist/
 build/
 *.egg-info/
-data/
+data/*
+!data/seed/
+!data/seed/word_sets.json
