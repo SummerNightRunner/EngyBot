@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import random
 from datetime import UTC, datetime, timedelta
 
@@ -10,7 +11,7 @@ from aiogram.types import CallbackQuery, Message
 from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload
 
-from bot.database.models import TrainingAttempt, User, UserWordProgress, Word, WordSet
+from bot.database.models import DailyPractice, TrainingAttempt, User, UserWordProgress, Word, WordSet
 from bot.database.session import SessionLocal
 from bot.keyboards.main_menu import (
     card_keyboard,
@@ -131,12 +132,69 @@ async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
     word_sets = await get_active_word_sets(user_level)
     pool: list[Word] = []
     for word_set in word_sets:
-        pool.extend(word_set.words)
+        pool.extend(filter_words_for_level(word_set.words, user_level))
 
     if len(pool) <= limit:
         return pool
 
     return random.sample(pool, k=limit)
+
+
+def load_daily_word_ids(practice: DailyPractice) -> list[int]:
+    return json.loads(practice.word_ids_json)
+
+
+def format_daily_completion(practice: DailyPractice, words: list[Word]) -> str:
+    total_questions = len(words)
+    completed_at = practice.completed_at.astimezone(UTC).strftime("%Y-%m-%d %H:%M UTC") if practice.completed_at else "сегодня"
+    return (
+        "<b>Практика дня завершена</b>\n\n"
+        f"Дата: {practice.practice_date.isoformat()}\n"
+        f"Правильных ответов: {practice.correct_answers} из {total_questions}\n"
+        f"Завершено: {completed_at}\n\n"
+        "Новый набор слов появится завтра."
+    )
+
+
+async def get_or_create_daily_practice(telegram_id: int, limit: int = 5) -> DailyPractice | None:
+    user = await get_registered_user(telegram_id)
+    if user is None:
+        return None
+
+    today = datetime.now(UTC).date()
+    async with SessionLocal() as session:
+        result = await session.execute(
+            select(DailyPractice).where(
+                DailyPractice.user_id == user.id,
+                DailyPractice.practice_date == today,
+            )
+        )
+        practice = result.scalar_one_or_none()
+        if practice is not None:
+            return practice
+
+        word_sets = await get_active_word_sets(user.level)
+        pool: list[Word] = []
+        for word_set in word_sets:
+            pool.extend(filter_words_for_level(word_set.words, user.level))
+
+        if len(pool) < 2:
+            return None
+
+        generator = random.Random(f"{user.id}:{today.isoformat()}")
+        selected_words = pool if len(pool) <= limit else generator.sample(pool, k=limit)
+        practice = DailyPractice(
+            user_id=user.id,
+            practice_date=today,
+            word_ids_json=json.dumps([word.id for word in selected_words]),
+            current_index=0,
+            correct_answers=0,
+            is_completed=False,
+        )
+        session.add(practice)
+        await session.commit()
+        await session.refresh(practice)
+        return practice
 
 
 def build_word_set_meta(word_set: WordSet, user_level: str | None) -> str:
@@ -202,13 +260,36 @@ async def get_daily_goal_summary(telegram_id: int) -> dict | None:
             select(TrainingAttempt).where(TrainingAttempt.user_id == user.id).order_by(TrainingAttempt.created_at.desc())
         )
         attempts = list(attempts_result.scalars().all())
+        practices_result = await session.execute(
+            select(DailyPractice).where(DailyPractice.user_id == user.id).order_by(DailyPractice.practice_date.desc())
+        )
+        daily_practices = list(practices_result.scalars().all())
 
     today = datetime.now(UTC).date()
     today_attempts = sum(1 for attempt in attempts if attempt.created_at.date() == today)
     today_correct = sum(attempt.correct_answers for attempt in attempts if attempt.created_at.date() == today)
     today_total = sum(attempt.total_questions for attempt in attempts if attempt.created_at.date() == today)
 
+    for practice in daily_practices:
+        if practice.practice_date != today or not practice.is_completed:
+            continue
+        total_questions = len(load_daily_word_ids(practice))
+        today_attempts += 1
+        today_correct += practice.correct_answers
+        today_total += total_questions
+
     unique_days = sorted({attempt.created_at.date() for attempt in attempts}, reverse=True)
+    unique_days.extend(
+        sorted(
+            {
+                practice.practice_date
+                for practice in daily_practices
+                if practice.is_completed
+            },
+            reverse=True,
+        )
+    )
+    unique_days = sorted(set(unique_days), reverse=True)
     streak = 0
     cursor = today
     for day in unique_days:
@@ -575,8 +656,8 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
 
 @router.callback_query(F.data == "menu:daily")
 async def daily_practice_handler(callback: CallbackQuery, state: FSMContext) -> None:
-    words = await get_daily_words(callback.from_user.id, limit=5)
-    if len(words) < 2:
+    practice = await get_or_create_daily_practice(callback.from_user.id, limit=5)
+    if practice is None:
         await edit_screen(
             callback,
             "Для практики дня пока недостаточно слов.\n\n"
@@ -585,14 +666,29 @@ async def daily_practice_handler(callback: CallbackQuery, state: FSMContext) -> 
         )
         return
 
+    words = await get_words_by_ids(load_daily_word_ids(practice))
+    if len(words) < 2:
+        await edit_screen(
+            callback,
+            "Практика дня пока недоступна: не удалось собрать актуальный набор слов.",
+            nav_keyboard(back_to="menu:home", include_home=False),
+        )
+        return
+
+    if practice.is_completed:
+        await state.clear()
+        await edit_screen(callback, format_daily_completion(practice, words), nav_keyboard(back_to="menu:home"))
+        return
+
     await state.set_state(QuizStates.in_progress)
     await state.update_data(
+        daily_practice_id=practice.id,
         daily_mode=True,
-        daily_word_ids=[word.id for word in words],
+        daily_word_ids=load_daily_word_ids(practice),
         review_mode=False,
         quiz_word_set_id=None,
-        quiz_index=0,
-        quiz_correct=0,
+        quiz_index=practice.current_index,
+        quiz_correct=practice.correct_answers,
         quiz_format="choice",
     )
     await show_quiz_question(callback, state)
@@ -821,6 +917,17 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                     progress.wrong_count += 1
                 progress.last_result = is_correct
 
+                if daily_mode:
+                    practice_result = await session.execute(
+                        select(DailyPractice).where(DailyPractice.id == data["daily_practice_id"])
+                    )
+                    practice = practice_result.scalar_one_or_none()
+                    if practice is not None:
+                        practice.current_index = total_questions
+                        practice.correct_answers = correct_count
+                        practice.is_completed = True
+                        practice.completed_at = datetime.now(UTC)
+
                 if word_set_id is not None:
                     session.add(
                         TrainingAttempt(
@@ -868,6 +975,15 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             else:
                 progress.wrong_count += 1
             progress.last_result = is_correct
+
+            if daily_mode:
+                practice_result = await session.execute(
+                    select(DailyPractice).where(DailyPractice.id == data["daily_practice_id"])
+                )
+                practice = practice_result.scalar_one_or_none()
+                if practice is not None:
+                    practice.current_index = next_index
+                    practice.correct_answers = correct_count
             await session.commit()
 
     await state.update_data(quiz_index=next_index, quiz_correct=correct_count)
