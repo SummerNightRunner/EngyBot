@@ -747,8 +747,15 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                 )
                 progress = progress_result.scalar_one_or_none()
                 if progress is None:
-                    progress = UserWordProgress(user_id=user.id, word_id=data["current_word_id"])
+                    progress = UserWordProgress(
+                        user_id=user.id,
+                        word_id=data["current_word_id"],
+                        correct_count=0,
+                        wrong_count=0,
+                    )
                     session.add(progress)
+                progress.correct_count = progress.correct_count or 0
+                progress.wrong_count = progress.wrong_count or 0
                 if is_correct:
                     progress.correct_count += 1
                 else:
@@ -788,8 +795,15 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             )
             progress = progress_result.scalar_one_or_none()
             if progress is None:
-                progress = UserWordProgress(user_id=user.id, word_id=data["current_word_id"])
+                progress = UserWordProgress(
+                    user_id=user.id,
+                    word_id=data["current_word_id"],
+                    correct_count=0,
+                    wrong_count=0,
+                )
                 session.add(progress)
+            progress.correct_count = progress.correct_count or 0
+            progress.wrong_count = progress.wrong_count or 0
             if is_correct:
                 progress.correct_count += 1
             else:
