@@ -18,6 +18,7 @@ LEVEL_ORDER = {
 }
 
 SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "word_sets.json"
+GRAMMAR_SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "grammar_units.json"
 
 
 QUIZ_FORMATS = {
@@ -127,6 +128,10 @@ DIALOGUE_SCENARIOS = [
 
 def load_seed_word_sets() -> list[dict]:
     return json.loads(SEED_PATH.read_text(encoding="utf-8"))
+
+
+def load_grammar_units() -> list[dict]:
+    return json.loads(GRAMMAR_SEED_PATH.read_text(encoding="utf-8"))
 
 
 def level_is_allowed(user_level: str, content_level: str) -> bool:

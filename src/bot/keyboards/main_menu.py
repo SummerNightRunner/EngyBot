@@ -15,6 +15,7 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
         inline_keyboard=[
             [InlineKeyboardButton(text="Практика дня", callback_data="menu:daily")],
             [InlineKeyboardButton(text="Изучить слова", callback_data="menu:learn")],
+            [InlineKeyboardButton(text="Грамматика", callback_data="menu:grammar")],
             [InlineKeyboardButton(text="Мини-диалоги", callback_data="menu:dialogue")],
             [InlineKeyboardButton(text="Пройти квиз", callback_data="menu:quiz")],
             [InlineKeyboardButton(text="Повторение", callback_data="menu:review")],
@@ -158,5 +159,14 @@ def dialogue_step_keyboard(scenario_id: str, index: int, total: int) -> InlineKe
     if index + 1 < total:
         rows.append([InlineKeyboardButton(text="Следующая реплика", callback_data=f"dialogue:{scenario_id}:{index + 1}")])
     rows.append([InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")])
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def grammar_units_keyboard(units: list[tuple[str, str, str]]) -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=f"[{level}] {title}", callback_data=f"grammar:unit:{unit_id}")]
+        for unit_id, title, level in units
+    ]
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)

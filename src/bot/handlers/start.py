@@ -17,6 +17,7 @@ from bot.keyboards.main_menu import (
     card_keyboard,
     dialogue_keyboard,
     dialogue_step_keyboard,
+    grammar_units_keyboard,
     guest_menu_keyboard,
     help_keyboard,
     language_keyboard,
@@ -36,6 +37,7 @@ from bot.services.content import (
     QUIZ_FORMATS,
     WORD_DEFINITIONS,
     filter_words_for_level,
+    load_grammar_units,
     get_word_set_level_range,
     level_is_allowed,
 )
@@ -49,6 +51,8 @@ LANGUAGE_NAMES = {
     "en": "Английский",
     "de": "Немецкий",
 }
+
+GRAMMAR_UNITS = load_grammar_units()
 
 
 async def get_registered_user(telegram_id: int) -> User | None:
@@ -124,6 +128,32 @@ def get_dialogue_by_id(scenario_id: str) -> dict | None:
         if scenario["id"] == scenario_id:
             return scenario
     return None
+
+
+def get_grammar_units(user_level: str | None = None) -> list[dict]:
+    if user_level is None:
+        return GRAMMAR_UNITS
+    return [unit for unit in GRAMMAR_UNITS if level_is_allowed(user_level, unit["level"])]
+
+
+def get_grammar_unit(unit_id: str) -> dict | None:
+    for unit in GRAMMAR_UNITS:
+        if unit["id"] == unit_id:
+            return unit
+    return None
+
+
+def format_grammar_unit(unit: dict) -> str:
+    patterns = "\n".join(f"• <code>{pattern}</code>" for pattern in unit["patterns"])
+    examples = "\n".join(f"• {example}" for example in unit["examples"])
+    return (
+        f"<b>{unit['title']}</b>\n"
+        f"Уровень: {unit['level']}\n\n"
+        f"{unit['summary']}\n\n"
+        f"<b>Зачем это нужно</b>\n{unit['why_it_matters']}\n\n"
+        f"<b>Шаблоны</b>\n{patterns}\n\n"
+        f"<b>Примеры</b>\n{examples}"
+    )
 
 
 async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
@@ -576,6 +606,24 @@ async def learn_handler(callback: CallbackQuery) -> None:
     await edit_screen(callback, text, word_sets_keyboard(payload, mode="learn"))
 
 
+@router.callback_query(F.data == "menu:grammar")
+async def grammar_handler(callback: CallbackQuery) -> None:
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
+    units = get_grammar_units(user_level)
+    payload = [(unit["id"], unit["title"], unit["level"]) for unit in units]
+    text = (
+        "Выберите грамматический блок.\n\n"
+        "Здесь собраны времена, конструкции и связующие темы по уровням."
+    )
+    if user_level is not None:
+        text = (
+            f"Выберите грамматический блок для уровня {user_level}.\n\n"
+            "Список включает все темы, которые уже должны быть доступны на вашем уровне."
+        )
+    await edit_screen(callback, text, grammar_units_keyboard(payload))
+
+
 @router.callback_query(F.data == "menu:dialogue")
 async def dialogue_menu_handler(callback: CallbackQuery) -> None:
     user = await get_registered_user(callback.from_user.id)
@@ -607,6 +655,16 @@ async def dialogue_handler(callback: CallbackQuery) -> None:
         f"Реплика {index + 1} из {len(scenario['lines'])}",
         dialogue_step_keyboard(scenario_id, index, len(scenario["lines"])),
     )
+
+
+@router.callback_query(F.data.startswith("grammar:unit:"))
+async def grammar_unit_handler(callback: CallbackQuery) -> None:
+    unit_id = callback.data.split(":")[-1]
+    unit = get_grammar_unit(unit_id)
+    if unit is None:
+        await edit_screen(callback, "Грамматический блок не найден.", nav_keyboard(back_to="menu:grammar"))
+        return
+    await edit_screen(callback, format_grammar_unit(unit), nav_keyboard(back_to="menu:grammar"))
 
 
 @router.callback_query(F.data.startswith("learn:set:"))
@@ -1116,7 +1174,8 @@ async def help_handler(callback: CallbackQuery) -> None:
         callback,
         "Привет! Я ваш помощник в изучении иностранных языков. Что вы хотите сделать сегодня?\n\n"
         "1. Изучить слова\n"
-        "2. Пройти квиз",
+        "2. Изучить грамматику\n"
+        "3. Пройти квиз",
         help_keyboard(user is not None),
     )
 
@@ -1131,7 +1190,11 @@ async def help_usage_handler(callback: CallbackQuery) -> None:
         "2. Выбрать изучение слов\n"
         "3. Выбрать тему\n"
         "4. Изучить слова с переводом\n\n"
-        "Сценарий 2: Прохождение квиза\n"
+        "Сценарий 2: Изучение грамматики\n"
+        "1. Открыть раздел грамматики\n"
+        "2. Выбрать грамматический блок\n"
+        "3. Посмотреть шаблоны и примеры\n\n"
+        "Сценарий 3: Прохождение квиза\n"
         "1. Открыть раздел квизов\n"
         "2. Выбрать формат\n"
         "3. Выбрать тему\n"

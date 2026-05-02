@@ -1,0 +1,472 @@
+[
+  {
+    "id": "a1_be_pronouns",
+    "level": "A1",
+    "title": "to be and subject pronouns",
+    "summary": "Базовые формы am/is/are и местоимения I, you, he, she, it, we, they.",
+    "why_it_matters": "Это фундамент для простых представлений, описания людей и предметов.",
+    "patterns": [
+      "I am ...",
+      "You are ...",
+      "He/She/It is ...",
+      "We/They are ..."
+    ],
+    "examples": [
+      "I am a student.",
+      "She is tired.",
+      "They are at home."
+    ]
+  },
+  {
+    "id": "a1_articles_plurals",
+    "level": "A1",
+    "title": "articles and plurals",
+    "summary": "Неопределенный и определенный артикль, базовое множественное число существительных.",
+    "why_it_matters": "Нужно для первых описаний предметов и повседневных вещей.",
+    "patterns": [
+      "a/an + singular noun",
+      "the + noun",
+      "book -> books"
+    ],
+    "examples": [
+      "This is a book.",
+      "The phone is on the table.",
+      "I have two bags."
+    ]
+  },
+  {
+    "id": "a1_present_simple",
+    "level": "A1",
+    "title": "present simple",
+    "summary": "Простое настоящее время для фактов, привычек и распорядка.",
+    "why_it_matters": "С него обычно начинается школьная и Duolingo-последовательность времен.",
+    "patterns": [
+      "I/You/We/They work",
+      "He/She/It works",
+      "Do/Does ... ?"
+    ],
+    "examples": [
+      "I study English every day.",
+      "He works in a cafe.",
+      "Do you like coffee?"
+    ]
+  },
+  {
+    "id": "a1_there_is_have_got",
+    "level": "A1",
+    "title": "there is / there are / have got",
+    "summary": "Базовые конструкции для описания наличия и владения.",
+    "why_it_matters": "Нужны для темы дома, города, вещей и семьи.",
+    "patterns": [
+      "There is ...",
+      "There are ...",
+      "I have got ..."
+    ],
+    "examples": [
+      "There is a park near my house.",
+      "There are two chairs in the room.",
+      "I have got a brother."
+    ]
+  },
+  {
+    "id": "a1_can_questions",
+    "level": "A1",
+    "title": "can / can't and basic questions",
+    "summary": "Модальный can для умений и разрешения, простые вопросительные конструкции.",
+    "why_it_matters": "Помогает говорить о навыках и делать базовые запросы.",
+    "patterns": [
+      "I can ...",
+      "I can't ...",
+      "Can you ... ?"
+    ],
+    "examples": [
+      "I can swim.",
+      "She can't drive.",
+      "Can you help me?"
+    ]
+  },
+  {
+    "id": "a2_present_continuous",
+    "level": "A2",
+    "title": "present continuous",
+    "summary": "Действия, которые происходят сейчас или вокруг момента речи.",
+    "why_it_matters": "Школьные курсы и Duolingo обычно вводят это время сразу после present simple.",
+    "patterns": [
+      "am/is/are + verb-ing",
+      "What are you doing?"
+    ],
+    "examples": [
+      "I am reading now.",
+      "They are waiting outside.",
+      "What is she doing?"
+    ]
+  },
+  {
+    "id": "a2_past_simple",
+    "level": "A2",
+    "title": "past simple",
+    "summary": "Прошедшее время для законченных действий в прошлом.",
+    "why_it_matters": "Нужно, чтобы рассказывать о вчерашнем дне, поездках и опыте.",
+    "patterns": [
+      "worked / went / saw",
+      "did not + verb",
+      "Did you ... ?"
+    ],
+    "examples": [
+      "We visited our friends yesterday.",
+      "She did not call me.",
+      "Did you watch the film?"
+    ]
+  },
+  {
+    "id": "a2_quantifiers",
+    "level": "A2",
+    "title": "some / any / much / many",
+    "summary": "Количество, исчисляемые и неисчисляемые существительные.",
+    "why_it_matters": "Критично для покупок, еды, телефона, заказа и everyday transactions.",
+    "patterns": [
+      "some water",
+      "any questions",
+      "much time / many people"
+    ],
+    "examples": [
+      "We need some bread.",
+      "Do you have any questions?",
+      "There are many cafes here."
+    ]
+  },
+  {
+    "id": "a2_comparatives",
+    "level": "A2",
+    "title": "comparatives and superlatives",
+    "summary": "Сравнение предметов, людей и мест.",
+    "why_it_matters": "Используется в школьных курсах довольно рано для описания и выбора.",
+    "patterns": [
+      "bigger than",
+      "more interesting than",
+      "the best / the most useful"
+    ],
+    "examples": [
+      "This book is more useful than that one.",
+      "My room is smaller than yours.",
+      "It is the best option."
+    ]
+  },
+  {
+    "id": "a2_future_going_to",
+    "level": "A2",
+    "title": "going to and basic future",
+    "summary": "Планы, намерения и простые предсказания.",
+    "why_it_matters": "Помогает говорить о ближайших планах и договоренностях.",
+    "patterns": [
+      "be going to + verb",
+      "I think it will ..."
+    ],
+    "examples": [
+      "I am going to study tonight.",
+      "We are going to travel next month.",
+      "I think it will rain."
+    ]
+  },
+  {
+    "id": "a2_prepositions_time_place",
+    "level": "A2",
+    "title": "prepositions of time and place",
+    "summary": "in, on, at и базовые пространственные предлоги.",
+    "why_it_matters": "Нужны для расписания, адресов, встреч и бытового общения.",
+    "patterns": [
+      "at 7 o'clock",
+      "on Monday",
+      "in the kitchen / next to / behind"
+    ],
+    "examples": [
+      "The lesson starts at eight.",
+      "We meet on Friday.",
+      "The bag is under the chair."
+    ]
+  },
+  {
+    "id": "b1_present_perfect",
+    "level": "B1",
+    "title": "present perfect",
+    "summary": "Связь прошлого опыта с настоящим: have/has + past participle.",
+    "why_it_matters": "Одна из основных тем школьной грамматики на среднем уровне.",
+    "patterns": [
+      "have/has done",
+      "Have you ever ... ?",
+      "already / yet / just"
+    ],
+    "examples": [
+      "I have already finished my homework.",
+      "She has never been to Spain.",
+      "Have you seen this film yet?"
+    ]
+  },
+  {
+    "id": "b1_past_continuous",
+    "level": "B1",
+    "title": "past continuous",
+    "summary": "Действие в процессе в определенный момент в прошлом.",
+    "why_it_matters": "Помогает строить более естественные рассказы и описывать фон событий.",
+    "patterns": [
+      "was/were + verb-ing",
+      "while / when"
+    ],
+    "examples": [
+      "I was walking home when it started to rain.",
+      "They were watching TV at nine.",
+      "She called while we were eating."
+    ]
+  },
+  {
+    "id": "b1_first_conditional",
+    "level": "B1",
+    "title": "first conditional",
+    "summary": "Реальные условия и их вероятный результат.",
+    "why_it_matters": "Нужно для планов, предупреждений и everyday decision making.",
+    "patterns": [
+      "If + present simple, will + verb"
+    ],
+    "examples": [
+      "If it rains, we will stay inside.",
+      "If you study, you will improve.",
+      "If she calls, I will tell you."
+    ]
+  },
+  {
+    "id": "b1_modals_obligation_advice",
+    "level": "B1",
+    "title": "must / have to / should",
+    "summary": "Обязанность, необходимость и советы.",
+    "why_it_matters": "Нужно для правил, рекомендаций и повседневных решений.",
+    "patterns": [
+      "must / mustn't",
+      "have to / don't have to",
+      "should / shouldn't"
+    ],
+    "examples": [
+      "You must wear a seat belt.",
+      "I have to finish this today.",
+      "You should get more sleep."
+    ]
+  },
+  {
+    "id": "b1_relative_clauses",
+    "level": "B1",
+    "title": "relative clauses",
+    "summary": "who, which, that для соединения идей в более длинные предложения.",
+    "why_it_matters": "Это шаг от коротких фраз к связной речи и письму.",
+    "patterns": [
+      "The person who ...",
+      "The book that ...",
+      "The place where ..."
+    ],
+    "examples": [
+      "The man who called you is my teacher.",
+      "This is the cafe that I told you about.",
+      "We visited the town where my mother grew up."
+    ]
+  },
+  {
+    "id": "b1_gerunds_infinitives",
+    "level": "B1",
+    "title": "gerunds and infinitives",
+    "summary": "Разница между verb + ing и to + verb после типичных глаголов.",
+    "why_it_matters": "Очень частая школьная тема и частый источник ошибок.",
+    "patterns": [
+      "like doing",
+      "want to do",
+      "start doing / start to do"
+    ],
+    "examples": [
+      "I enjoy reading in the evening.",
+      "She wants to learn German.",
+      "They started working early."
+    ]
+  },
+  {
+    "id": "b2_passive_voice",
+    "level": "B2",
+    "title": "passive voice",
+    "summary": "Пассивный залог для описания процессов, новостей и формального стиля.",
+    "why_it_matters": "Типичная школьная и экзаменационная тема уровня B2.",
+    "patterns": [
+      "is made",
+      "was built",
+      "will be sent"
+    ],
+    "examples": [
+      "The project was completed last week.",
+      "English is spoken in many countries.",
+      "The email will be sent tomorrow."
+    ]
+  },
+  {
+    "id": "b2_reported_speech",
+    "level": "B2",
+    "title": "reported speech",
+    "summary": "Передача чужой речи и изменение времен в косвенной речи.",
+    "why_it_matters": "Нужно для пересказа, новостей и более сложных разговоров.",
+    "patterns": [
+      "He said that ...",
+      "She told me to ...",
+      "They asked if ..."
+    ],
+    "examples": [
+      "He said that he was tired.",
+      "She told me to wait outside.",
+      "They asked if I could help."
+    ]
+  },
+  {
+    "id": "b2_second_third_conditionals",
+    "level": "B2",
+    "title": "second and third conditionals",
+    "summary": "Гипотетические и нереальные ситуации в настоящем и прошлом.",
+    "why_it_matters": "Это важная часть mature communication и аргументации.",
+    "patterns": [
+      "If I were ..., I would ...",
+      "If she had known, she would have ..."
+    ],
+    "examples": [
+      "If I had more time, I would travel more.",
+      "If they had left earlier, they would have caught the train.",
+      "If I were you, I would apologize."
+    ]
+  },
+  {
+    "id": "b2_modal_deduction",
+    "level": "B2",
+    "title": "modal deduction",
+    "summary": "must, might, can't для выводов и предположений.",
+    "why_it_matters": "Очень типичная B2-грамматика для рассуждений и интерпретации фактов.",
+    "patterns": [
+      "must be",
+      "might be",
+      "can't be"
+    ],
+    "examples": [
+      "She must be at work now.",
+      "They might be late because of traffic.",
+      "That can't be the right answer."
+    ]
+  },
+  {
+    "id": "b2_linkers_discourse",
+    "level": "B2",
+    "title": "linkers and discourse markers",
+    "summary": "although, however, therefore, in addition и связность речи.",
+    "why_it_matters": "Без этого невозможно писать связно и говорить на B2-уровне.",
+    "patterns": [
+      "However, ...",
+      "In addition, ...",
+      "Therefore, ..."
+    ],
+    "examples": [
+      "However, the plan was too expensive.",
+      "In addition, we need more time.",
+      "Therefore, we decided to postpone the launch."
+    ]
+  },
+  {
+    "id": "c1_inversion_emphasis",
+    "level": "C1",
+    "title": "inversion and emphasis",
+    "summary": "Продвинутые способы усиления смысла и формальной речи.",
+    "why_it_matters": "Характерно для high-level writing and speaking.",
+    "patterns": [
+      "Rarely have I ...",
+      "Not only ... but also ..."
+    ],
+    "examples": [
+      "Rarely have I seen such a strong reaction.",
+      "Not only did they lose money, but they also lost trust.",
+      "Only later did we understand the problem."
+    ]
+  },
+  {
+    "id": "c1_participle_clauses",
+    "level": "C1",
+    "title": "participle clauses",
+    "summary": "Сжатые структуры для более плотной и академичной речи.",
+    "why_it_matters": "Часто встречается в advanced textbooks and exams.",
+    "patterns": [
+      "Having finished ...",
+      "Given that ...",
+      "Compared with ..."
+    ],
+    "examples": [
+      "Having finished the report, she left the office.",
+      "Given the circumstances, the delay was understandable.",
+      "Compared with last year, the results are stronger."
+    ]
+  },
+  {
+    "id": "c1_hedging_stance",
+    "level": "C1",
+    "title": "hedging and stance",
+    "summary": "Смягчение утверждений и выражение степени уверенности.",
+    "why_it_matters": "Нужно для академического и профессионального общения.",
+    "patterns": [
+      "It seems that ...",
+      "This may suggest ...",
+      "It is likely that ..."
+    ],
+    "examples": [
+      "It seems that the problem began earlier than expected.",
+      "This may suggest a deeper issue.",
+      "It is likely that demand will grow."
+    ]
+  },
+  {
+    "id": "c1_advanced_complex_sentences",
+    "level": "C1",
+    "title": "advanced sentence combining",
+    "summary": "Сложноподчиненные структуры для точности и гибкости выражения.",
+    "why_it_matters": "Это делает речь менее школьной и более зрелой.",
+    "patterns": [
+      "while / whereas / despite / in spite of",
+      "the reason why ...",
+      "what matters is ..."
+    ],
+    "examples": [
+      "Whereas the first plan was affordable, the second was more sustainable.",
+      "The reason why it failed is still unclear.",
+      "What matters is how we respond now."
+    ]
+  },
+  {
+    "id": "c2_nominalisation_register",
+    "level": "C2",
+    "title": "nominalisation and register control",
+    "summary": "Переход от разговорной к академической и аналитической подаче мысли.",
+    "why_it_matters": "Типичная черта very high-level writing and argumentation.",
+    "patterns": [
+      "decide -> decision",
+      "analyze -> analysis",
+      "formal vs informal reformulation"
+    ],
+    "examples": [
+      "The analysis revealed several inconsistencies.",
+      "Their refusal led to further discussion.",
+      "The proposal requires reconsideration."
+    ]
+  },
+  {
+    "id": "c2_rhetorical_argumentation",
+    "level": "C2",
+    "title": "rhetorical and argumentation grammar",
+    "summary": "Продвинутые структуры для дебатов, контраргументов и точной позиции.",
+    "why_it_matters": "Нужно для сложных письменных и устных рассуждений.",
+    "patterns": [
+      "It is not so much ... as ...",
+      "What follows from this is ...",
+      "Much as I agree ..."
+    ],
+    "examples": [
+      "It is not so much the cost as the timing that worries me.",
+      "What follows from this is a need for reform.",
+      "Much as I agree with the goal, the method is flawed."
+    ]
+  }
+]
