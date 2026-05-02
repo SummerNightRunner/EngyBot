@@ -420,12 +420,41 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
     )
 
 
+async def build_quiz_options(
+    current_word: Word,
+    session_words: list[Word],
+    user_level: str | None,
+    desired_count: int = 4,
+) -> list[str]:
+    distractor_targets = {
+        word.target_text
+        for word in session_words
+        if word.id != current_word.id and word.target_text != current_word.target_text
+    }
+
+    word_sets = await get_active_word_sets(user_level)
+    for word_set in word_sets:
+        for word in filter_words_for_level(word_set.words, user_level):
+            if word.id == current_word.id or word.target_text == current_word.target_text:
+                continue
+            distractor_targets.add(word.target_text)
+
+    distractor_pool = list(distractor_targets)
+    random.shuffle(distractor_pool)
+    selected = distractor_pool[: max(desired_count - 1, 0)]
+    options = selected + [current_word.target_text]
+    random.shuffle(options)
+    return options
+
+
 async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None:
     data = await state.get_data()
     review_mode = data.get("review_mode", False)
     daily_mode = data.get("daily_mode", False)
     question_index = data["quiz_index"]
     quiz_format = data["quiz_format"]
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
 
     if review_mode:
         review_words = await get_words_by_ids(data["review_word_ids"])
@@ -458,12 +487,7 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         topic_title = data["quiz_title"]
         options_pool = quiz_words
 
-    options = [word.target_text for word in options_pool]
-    random.shuffle(options)
-    options = options[:4]
-    if current_word.target_text not in options:
-        options[-1] = current_word.target_text
-    random.shuffle(options)
+    options = await build_quiz_options(current_word, options_pool, user_level)
 
     await state.update_data(correct_answer=current_word.target_text, current_word_id=current_word.id)
     await edit_screen(
