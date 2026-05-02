@@ -134,6 +134,15 @@ def review_keyboard() -> InlineKeyboardMarkup:
     )
 
 
+def stats_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Прогресс по темам", callback_data="stats:themes")],
+            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+        ]
+    )
+
+
 def dialogue_keyboard(scenarios: list[tuple[str, str, str, str]]) -> InlineKeyboardMarkup:
     rows = [
         [InlineKeyboardButton(text=f"{title} [{level}] - {theme}", callback_data=f"dialogue:{scenario_id}:0")]

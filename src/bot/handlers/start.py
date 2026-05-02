@@ -26,6 +26,7 @@ from bot.keyboards.main_menu import (
     quiz_options_keyboard,
     review_keyboard,
     start_quiz_keyboard,
+    stats_keyboard,
     word_sets_keyboard,
 )
 from bot.services.content import DIALOGUE_SCENARIOS, QUIZ_FORMATS, WORD_DEFINITIONS, level_is_allowed
@@ -128,6 +129,50 @@ async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
         return pool
 
     return random.sample(pool, k=limit)
+
+
+async def get_theme_progress(telegram_id: int) -> list[dict]:
+    user = await get_registered_user(telegram_id)
+    if user is None:
+        return []
+
+    word_sets = await get_active_word_sets(user.level)
+    progress_rows: list[dict] = []
+
+    async with SessionLocal() as session:
+        progress_result = await session.execute(
+            select(UserWordProgress).where(UserWordProgress.user_id == user.id)
+        )
+        progress_entries = list(progress_result.scalars().all())
+
+    progress_by_word_id = {entry.word_id: entry for entry in progress_entries}
+
+    for word_set in word_sets:
+        total = len(word_set.words)
+        mastered = 0
+        difficult = 0
+        for word in word_set.words:
+            entry = progress_by_word_id.get(word.id)
+            if entry is None:
+                continue
+            if entry.correct_count > entry.wrong_count:
+                mastered += 1
+            elif entry.wrong_count > entry.correct_count:
+                difficult += 1
+
+        percent = 0 if total == 0 else round(mastered / total * 100)
+        progress_rows.append(
+            {
+                "title": word_set.title,
+                "level": word_set.level,
+                "total": total,
+                "mastered": mastered,
+                "difficult": difficult,
+                "percent": percent,
+            }
+        )
+
+    return progress_rows
 
 
 async def edit_screen(callback: CallbackQuery, text: str, reply_markup) -> None:
@@ -753,7 +798,35 @@ async def stats_handler(callback: CallbackQuery) -> None:
         f"Всего вопросов: {total_questions}\n"
         f"Точность: {accuracy}%\n"
         f"Слабые слова: {weak_words}",
-        nav_keyboard(back_to="menu:home", include_home=False),
+        stats_keyboard(),
+    )
+
+
+@router.callback_query(F.data == "stats:themes")
+async def stats_themes_handler(callback: CallbackQuery) -> None:
+    rows = await get_theme_progress(callback.from_user.id)
+    if not rows:
+        await edit_screen(
+            callback,
+            "Прогресс по темам пока пуст.\n\n"
+            "Изучите слова и пройдите несколько квизов, чтобы увидеть разбивку по темам.",
+            nav_keyboard(back_to="menu:stats"),
+        )
+        return
+
+    lines = []
+    for row in rows:
+        lines.append(
+            f"• <b>{row['title']}</b> [{row['level']}]\n"
+            f"  Освоено: {row['mastered']}/{row['total']} | "
+            f"Сложных слов: {row['difficult']} | "
+            f"Прогресс: {row['percent']}%"
+        )
+
+    await edit_screen(
+        callback,
+        "<b>Прогресс по темам</b>\n\n" + "\n".join(lines),
+        nav_keyboard(back_to="menu:stats"),
     )
 
 
