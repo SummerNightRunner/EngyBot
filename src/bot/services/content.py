@@ -1,10 +1,11 @@
 import json
 from pathlib import Path
 
-from sqlalchemy import delete, func, select
+from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
-from bot.database.models import TrainingAttempt, Word, WordSet
+from bot.database.models import DailyPractice, TrainingAttempt, UserWordProgress, Word, WordSet
 
 
 LEVEL_ORDER = {
@@ -132,20 +133,88 @@ def level_is_allowed(user_level: str, content_level: str) -> bool:
     return LEVEL_ORDER.get(content_level, 999) <= LEVEL_ORDER.get(user_level, 999)
 
 
+def filter_words_for_level(words: list[Word], user_level: str | None) -> list[Word]:
+    if user_level is None:
+        return list(words)
+    return [word for word in words if level_is_allowed(user_level, word.level)]
+
+
+def get_level_range(levels: list[str]) -> str:
+    if not levels:
+        return "A1"
+    unique_levels = sorted(set(levels), key=lambda item: LEVEL_ORDER.get(item, 999))
+    if len(unique_levels) == 1:
+        return unique_levels[0]
+    return f"{unique_levels[0]}-{unique_levels[-1]}"
+
+
+def get_word_set_level_range(word_set: WordSet, user_level: str | None = None) -> str:
+    words = filter_words_for_level(word_set.words, user_level)
+    if not words:
+        words = word_set.words
+    return get_level_range([word.level for word in words])
+
+
+def normalize_seed_payload(payloads: list[dict]) -> list[dict]:
+    normalized: list[dict] = []
+    for payload in sorted(payloads, key=lambda item: item["title"]):
+        normalized.append(
+            {
+                "title": payload["title"],
+                "description": payload["description"],
+                "level": payload["level"],
+                "words": sorted(
+                    [
+                        {
+                            "source_text": word["source_text"],
+                            "target_text": word["target_text"],
+                            "level": word["level"],
+                            "example": word["example"],
+                        }
+                        for word in payload["words"]
+                    ],
+                    key=lambda item: (item["level"], item["source_text"], item["target_text"]),
+                ),
+            }
+        )
+    return normalized
+
+
+def normalize_db_payload(word_sets: list[WordSet]) -> list[dict]:
+    normalized: list[dict] = []
+    for word_set in sorted(word_sets, key=lambda item: item.title):
+        normalized.append(
+            {
+                "title": word_set.title,
+                "description": word_set.description,
+                "level": word_set.level,
+                "words": sorted(
+                    [
+                        {
+                            "source_text": word.source_text,
+                            "target_text": word.target_text,
+                            "level": word.level,
+                            "example": word.example,
+                        }
+                        for word in word_set.words
+                    ],
+                    key=lambda item: (item["level"], item["source_text"], item["target_text"]),
+                ),
+            }
+        )
+    return normalized
+
+
 async def seed_word_sets(session: AsyncSession) -> None:
     payloads = load_seed_word_sets()
+    existing_result = await session.execute(select(WordSet).options(selectinload(WordSet.words)))
+    existing_word_sets = list(existing_result.scalars().all())
 
-    titles_result = await session.execute(select(WordSet.title).order_by(WordSet.title))
-    existing_titles = list(titles_result.scalars().all())
-    expected_titles = sorted(item["title"] for item in payloads)
-
-    word_count_result = await session.execute(select(func.count(Word.id)))
-    existing_words_count = word_count_result.scalar_one()
-    expected_words_count = sum(len(item["words"]) for item in payloads)
-
-    if existing_titles == expected_titles and existing_words_count == expected_words_count:
+    if normalize_db_payload(existing_word_sets) == normalize_seed_payload(payloads):
         return
 
+    await session.execute(delete(DailyPractice))
+    await session.execute(delete(UserWordProgress))
     await session.execute(delete(TrainingAttempt))
     await session.execute(delete(Word))
     await session.execute(delete(WordSet))
@@ -163,6 +232,7 @@ async def seed_word_sets(session: AsyncSession) -> None:
                 Word(
                     source_text=word["source_text"],
                     target_text=word["target_text"],
+                    level=word["level"],
                     example=word["example"],
                 )
             )

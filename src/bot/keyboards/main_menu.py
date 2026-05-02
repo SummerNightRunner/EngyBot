@@ -71,8 +71,8 @@ def help_keyboard(is_registered: bool) -> InlineKeyboardMarkup:
 
 def word_sets_keyboard(word_sets: list[tuple[int, str, str]], *, mode: str) -> InlineKeyboardMarkup:
     rows = [
-        [InlineKeyboardButton(text=f"{title} ({level})", callback_data=f"{mode}:set:{word_set_id}")]
-        for word_set_id, title, level in word_sets
+        [InlineKeyboardButton(text=f"{title} ({meta})", callback_data=f"{mode}:set:{word_set_id}")]
+        for word_set_id, title, meta in word_sets
     ]
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)

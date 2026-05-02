@@ -1,6 +1,6 @@
-from datetime import datetime
+from datetime import date, datetime
 
-from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import BigInteger, Boolean, Date, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from bot.database.base import Base
@@ -47,6 +47,7 @@ class Word(Base):
     word_set_id: Mapped[int] = mapped_column(ForeignKey("word_sets.id"))
     source_text: Mapped[str] = mapped_column(String(255))
     target_text: Mapped[str] = mapped_column(String(255))
+    level: Mapped[str] = mapped_column(String(32), default="A1")
     example: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     word_set: Mapped["WordSet"] = relationship(back_populates="words")
@@ -84,3 +85,17 @@ class UserWordProgress(Base):
 
     user: Mapped["User"] = relationship(back_populates="word_progress")
     word: Mapped["Word"] = relationship(back_populates="progress_entries")
+
+
+class DailyPractice(Base):
+    __tablename__ = "daily_practices"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    practice_date: Mapped[date] = mapped_column(Date, index=True)
+    word_ids_json: Mapped[str] = mapped_column(Text)
+    current_index: Mapped[int] = mapped_column(Integer, default=0)
+    correct_answers: Mapped[int] = mapped_column(Integer, default=0)
+    is_completed: Mapped[bool] = mapped_column(Boolean, default=False)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

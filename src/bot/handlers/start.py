@@ -30,7 +30,14 @@ from bot.keyboards.main_menu import (
     stats_keyboard,
     word_sets_keyboard,
 )
-from bot.services.content import DIALOGUE_SCENARIOS, QUIZ_FORMATS, WORD_DEFINITIONS, level_is_allowed
+from bot.services.content import (
+    DIALOGUE_SCENARIOS,
+    QUIZ_FORMATS,
+    WORD_DEFINITIONS,
+    filter_words_for_level,
+    get_word_set_level_range,
+    level_is_allowed,
+)
 from bot.states.training import QuizStates
 
 router = Router()
@@ -62,7 +69,7 @@ async def get_active_word_sets(user_level: str | None = None) -> list[WordSet]:
     if user_level is None:
         return word_sets
 
-    return [word_set for word_set in word_sets if level_is_allowed(user_level, word_set.level)]
+    return [word_set for word_set in word_sets if filter_words_for_level(word_set.words, user_level)]
 
 
 async def get_word_set(word_set_id: int) -> WordSet | None:
@@ -132,6 +139,14 @@ async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
     return random.sample(pool, k=limit)
 
 
+def build_word_set_meta(word_set: WordSet, user_level: str | None) -> str:
+    visible_words = filter_words_for_level(word_set.words, user_level)
+    if not visible_words:
+        visible_words = word_set.words
+    level_range = get_word_set_level_range(word_set, user_level)
+    return f"{level_range} | {len(visible_words)} слов"
+
+
 async def get_theme_progress(telegram_id: int) -> list[dict]:
     user = await get_registered_user(telegram_id)
     if user is None:
@@ -149,10 +164,11 @@ async def get_theme_progress(telegram_id: int) -> list[dict]:
     progress_by_word_id = {entry.word_id: entry for entry in progress_entries}
 
     for word_set in word_sets:
-        total = len(word_set.words)
+        visible_words = filter_words_for_level(word_set.words, user.level)
+        total = len(visible_words)
         mastered = 0
         difficult = 0
-        for word in word_set.words:
+        for word in visible_words:
             entry = progress_by_word_id.get(word.id)
             if entry is None:
                 continue
@@ -165,7 +181,7 @@ async def get_theme_progress(telegram_id: int) -> list[dict]:
         progress_rows.append(
             {
                 "title": word_set.title,
-                "level": word_set.level,
+                "level": get_word_set_level_range(word_set, user.level),
                 "total": total,
                 "mastered": mastered,
                 "difficult": difficult,
@@ -351,15 +367,15 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         topic_title = "Практика дня"
         options_pool = daily_words
     else:
-        word_set = await get_word_set(data["quiz_word_set_id"])
-        if word_set is None or not word_set.words:
+        quiz_words = await get_words_by_ids(data["quiz_word_ids"])
+        if not quiz_words:
             await state.clear()
             await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
             return
-        current_word = word_set.words[question_index]
-        total_questions = len(word_set.words)
-        topic_title = word_set.title
-        options_pool = word_set.words
+        current_word = quiz_words[question_index]
+        total_questions = len(quiz_words)
+        topic_title = data["quiz_title"]
+        options_pool = quiz_words
 
     options = [word.target_text for word in options_pool]
     random.shuffle(options)
@@ -448,7 +464,7 @@ async def learn_handler(callback: CallbackQuery) -> None:
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
     word_sets = await get_active_word_sets(user_level)
-    payload = [(word_set.id, word_set.title, word_set.level) for word_set in word_sets]
+    payload = [(word_set.id, word_set.title, build_word_set_meta(word_set, user_level)) for word_set in word_sets]
     text = "Выберите тему:"
     if user_level is not None:
         text = f"Выберите тему для уровня {user_level}:"
@@ -490,40 +506,60 @@ async def dialogue_handler(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data.startswith("learn:set:"))
 async def learn_set_handler(callback: CallbackQuery) -> None:
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
     word_set = await get_word_set(int(callback.data.split(":")[-1]))
-    if word_set is None or not word_set.words:
+    if word_set is None:
         await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:learn"))
         return
-    word = word_set.words[0]
+    words = filter_words_for_level(word_set.words, user_level)
+    if not words:
+        await edit_screen(
+            callback,
+            "Для вашего текущего уровня в этой теме пока нет доступных слов.",
+            nav_keyboard(back_to="menu:learn"),
+        )
+        return
+    word = words[0]
     await edit_screen(
         callback,
         f"<b>{word_set.title}</b>\n"
-        f"Уровень: {word_set.level}\n"
+        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
         f"{word_set.description}\n\n"
         f"<b>{word.target_text}</b> — {word.source_text}\n"
         f"Пример: {word.example}\n\n"
-        f"Слово 1 из {len(word_set.words)}",
-        card_keyboard(word_set.id, 0, len(word_set.words)),
+        f"Слово 1 из {len(words)}",
+        card_keyboard(word_set.id, 0, len(words)),
     )
 
 
 @router.callback_query(F.data.startswith("learn:card:"))
 async def learn_card_handler(callback: CallbackQuery) -> None:
     _, _, word_set_id, index = callback.data.split(":")
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
     word_set = await get_word_set(int(word_set_id))
-    if word_set is None or not word_set.words:
+    if word_set is None:
         await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:learn"))
         return
-    current_index = min(int(index), len(word_set.words) - 1)
-    word = word_set.words[current_index]
+    words = filter_words_for_level(word_set.words, user_level)
+    if not words:
+        await edit_screen(
+            callback,
+            "Для вашего текущего уровня в этой теме пока нет доступных слов.",
+            nav_keyboard(back_to="menu:learn"),
+        )
+        return
+    current_index = min(int(index), len(words) - 1)
+    word = words[current_index]
     await edit_screen(
         callback,
         f"<b>{word_set.title}</b>\n\n"
-        f"Уровень: {word_set.level}\n"
+        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
         f"<b>{word.target_text}</b> — {word.source_text}\n"
         f"Пример: {word.example}\n\n"
-        f"Слово {current_index + 1} из {len(word_set.words)}",
-        card_keyboard(word_set.id, current_index, len(word_set.words)),
+        f"Слово {current_index + 1} из {len(words)}",
+        card_keyboard(word_set.id, current_index, len(words)),
     )
 
 
@@ -636,7 +672,7 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
         word_sets = await get_active_word_sets(user_level)
         preview = []
         for word_set in word_sets[:2]:
-            for word in word_set.words[:3]:
+            for word in filter_words_for_level(word_set.words, user_level)[:3]:
                 preview.append(f"{word.target_text} — {word.source_text}")
         await edit_screen(
             callback,
@@ -650,7 +686,7 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
     word_sets = await get_active_word_sets(user_level)
-    payload = [(word_set.id, word_set.title, word_set.level) for word_set in word_sets]
+    payload = [(word_set.id, word_set.title, build_word_set_meta(word_set, user_level)) for word_set in word_sets]
     await edit_screen(
         callback,
         f"Выберите тему для квиза формата «{QUIZ_FORMATS[quiz_format]}»:",
@@ -664,16 +700,27 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
 async def quiz_set_handler(callback: CallbackQuery, state: FSMContext) -> None:
     _, quiz_format, _, raw_id = callback.data.split(":")
     await state.update_data(selected_quiz_format=quiz_format)
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
     word_set = await get_word_set(int(raw_id))
-    if word_set is None or not word_set.words:
+    if word_set is None:
         await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
+        return
+    words = filter_words_for_level(word_set.words, user_level)
+    if not words:
+        await edit_screen(
+            callback,
+            "Для вашего текущего уровня в этой теме пока нет слов для квиза.",
+            nav_keyboard(back_to="menu:quiz"),
+        )
         return
     await edit_screen(
         callback,
         f"<b>{word_set.title}</b>\n"
         f"{word_set.description}\n\n"
         f"Формат квиза: {QUIZ_FORMATS[quiz_format]}\n"
-        f"Количество вопросов: {len(word_set.words)}",
+        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
+        f"Количество вопросов: {len(words)}",
         start_quiz_keyboard(word_set.id, quiz_format),
     )
 
@@ -681,15 +728,27 @@ async def quiz_set_handler(callback: CallbackQuery, state: FSMContext) -> None:
 @router.callback_query(F.data.startswith("quiz:start:"))
 async def quiz_start_handler(callback: CallbackQuery, state: FSMContext) -> None:
     _, _, quiz_format, raw_id = callback.data.split(":")
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
     word_set = await get_word_set(int(raw_id))
-    if word_set is None or not word_set.words:
+    if word_set is None:
         await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
+        return
+    words = filter_words_for_level(word_set.words, user_level)
+    if not words:
+        await edit_screen(
+            callback,
+            "Для вашего текущего уровня в этой теме пока нет слов для квиза.",
+            nav_keyboard(back_to="menu:quiz"),
+        )
         return
     await state.set_state(QuizStates.in_progress)
     await state.update_data(
         daily_mode=False,
         review_mode=False,
         quiz_word_set_id=word_set.id,
+        quiz_word_ids=[word.id for word in words],
+        quiz_title=word_set.title,
         quiz_index=0,
         quiz_correct=0,
         quiz_format=quiz_format,
@@ -726,14 +785,14 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
         quiz_title = "Практика дня"
         word_set_id = None
     else:
-        word_set = await get_word_set(data["quiz_word_set_id"])
-        if word_set is None or not word_set.words:
+        quiz_words = await get_words_by_ids(data["quiz_word_ids"])
+        if not quiz_words:
             await state.clear()
             await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
             return
-        total_questions = len(word_set.words)
-        quiz_title = word_set.title
-        word_set_id = word_set.id
+        total_questions = len(quiz_words)
+        quiz_title = data["quiz_title"]
+        word_set_id = data["quiz_word_set_id"]
 
     if next_index >= total_questions:
         user = await get_registered_user(callback.from_user.id)
@@ -948,10 +1007,10 @@ async def help_mvp_handler(callback: CallbackQuery) -> None:
     await edit_screen(
         callback,
         "MVP включает:\n"
-        "- 5 тематических наборов слов\n"
-        "- уровни A1, A2 и B1\n"
-        "- карточки со словами и примерами\n"
-        "- несколько форматов квизов\n"
+        "- сквозные темы с лексикой от A1 до C2\n"
+        "- карточки слов с примерами и прогрессией по уровням\n"
+        "- несколько режимов практики и повторения\n"
+        "- мини-диалоги и практику дня\n"
         "- сохранение статистики обучения",
         nav_keyboard(back_to="menu:help", include_home=user is not None),
     )
