@@ -9,7 +9,7 @@ from aiogram.types import CallbackQuery, Message
 from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload
 
-from bot.database.models import TrainingAttempt, User, WordSet
+from bot.database.models import TrainingAttempt, User, UserWordProgress, Word, WordSet
 from bot.database.session import SessionLocal
 from bot.keyboards.main_menu import (
     card_keyboard,
@@ -22,6 +22,7 @@ from bot.keyboards.main_menu import (
     profile_keyboard,
     quiz_formats_keyboard,
     quiz_options_keyboard,
+    review_keyboard,
     start_quiz_keyboard,
     word_sets_keyboard,
 )
@@ -66,6 +67,26 @@ async def get_word_set(word_set_id: int) -> WordSet | None:
             select(WordSet).where(WordSet.id == word_set_id).options(selectinload(WordSet.words))
         )
         return result.scalar_one_or_none()
+
+
+async def get_review_words(telegram_id: int, limit: int = 8) -> list[Word]:
+    user = await get_registered_user(telegram_id)
+    if user is None:
+        return []
+
+    async with SessionLocal() as session:
+        result = await session.execute(
+            select(Word)
+            .join(UserWordProgress, UserWordProgress.word_id == Word.id)
+            .where(UserWordProgress.user_id == user.id)
+            .order_by(
+                UserWordProgress.last_result.asc(),
+                (UserWordProgress.wrong_count - UserWordProgress.correct_count).desc(),
+                UserWordProgress.updated_at.desc(),
+            )
+            .limit(limit)
+        )
+        return list(result.scalars().all())
 
 
 async def edit_screen(callback: CallbackQuery, text: str, reply_markup) -> None:
@@ -195,7 +216,7 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         options[-1] = current_word.target_text
     random.shuffle(options)
 
-    await state.update_data(correct_answer=current_word.target_text)
+    await state.update_data(correct_answer=current_word.target_text, current_word_id=current_word.id)
     await edit_screen(
         callback,
         build_quiz_prompt(quiz_format, current_word, word_set, question_index, len(word_set.words)),
@@ -325,6 +346,33 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
     )
 
 
+@router.callback_query(F.data == "menu:review")
+async def review_handler(callback: CallbackQuery) -> None:
+    words = await get_review_words(callback.from_user.id)
+    if not words:
+        await edit_screen(
+            callback,
+            "Раздел повторения пока пуст.\n\n"
+            "Пройдите несколько квизов, и здесь появятся слова, с которыми были ошибки или трудности.",
+            review_keyboard(),
+        )
+        return
+
+    lines = []
+    for word in words:
+        lines.append(f"• <b>{word.target_text}</b> — {word.source_text}")
+        if word.example:
+            lines.append(f"  <i>{word.example}</i>")
+
+    await edit_screen(
+        callback,
+        "<b>Слова для повторения</b>\n\n"
+        "Здесь собраны слова, которые стоит повторить в первую очередь:\n\n"
+        + "\n".join(lines),
+        review_keyboard(),
+    )
+
+
 @router.callback_query(F.data.startswith("quiz:format:"))
 async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> None:
     quiz_format = callback.data.split(":")[-1]
@@ -400,7 +448,8 @@ async def quiz_start_handler(callback: CallbackQuery, state: FSMContext) -> None
 async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> None:
     data = await state.get_data()
     selected_answer = callback.data.removeprefix("quiz:answer:")
-    correct_count = data["quiz_correct"] + int(selected_answer == data["correct_answer"])
+    is_correct = selected_answer == data["correct_answer"]
+    correct_count = data["quiz_correct"] + int(is_correct)
     next_index = data["quiz_index"] + 1
 
     word_set = await get_word_set(data["quiz_word_set_id"])
@@ -413,6 +462,22 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
         user = await get_registered_user(callback.from_user.id)
         if user is not None:
             async with SessionLocal() as session:
+                progress_result = await session.execute(
+                    select(UserWordProgress).where(
+                        UserWordProgress.user_id == user.id,
+                        UserWordProgress.word_id == data["current_word_id"],
+                    )
+                )
+                progress = progress_result.scalar_one_or_none()
+                if progress is None:
+                    progress = UserWordProgress(user_id=user.id, word_id=data["current_word_id"])
+                    session.add(progress)
+                if is_correct:
+                    progress.correct_count += 1
+                else:
+                    progress.wrong_count += 1
+                progress.last_result = is_correct
+
                 session.add(
                     TrainingAttempt(
                         user_id=user.id,
@@ -432,6 +497,26 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             nav_keyboard(back_to="menu:quiz"),
         )
         return
+
+    user = await get_registered_user(callback.from_user.id)
+    if user is not None:
+        async with SessionLocal() as session:
+            progress_result = await session.execute(
+                select(UserWordProgress).where(
+                    UserWordProgress.user_id == user.id,
+                    UserWordProgress.word_id == data["current_word_id"],
+                )
+            )
+            progress = progress_result.scalar_one_or_none()
+            if progress is None:
+                progress = UserWordProgress(user_id=user.id, word_id=data["current_word_id"])
+                session.add(progress)
+            if is_correct:
+                progress.correct_count += 1
+            else:
+                progress.wrong_count += 1
+            progress.last_result = is_correct
+            await session.commit()
 
     await state.update_data(quiz_index=next_index, quiz_correct=correct_count)
     await show_quiz_question(callback, state)
@@ -457,6 +542,13 @@ async def stats_handler(callback: CallbackQuery) -> None:
             ).where(TrainingAttempt.user_id == user.id)
         )
         attempts_count, correct_answers, total_questions = result.one()
+        weak_result = await session.execute(
+            select(func.count(UserWordProgress.id)).where(
+                UserWordProgress.user_id == user.id,
+                UserWordProgress.wrong_count > UserWordProgress.correct_count,
+            )
+        )
+        weak_words = weak_result.scalar_one()
 
     accuracy = 0 if total_questions == 0 else round(correct_answers / total_questions * 100)
     await edit_screen(
@@ -465,7 +557,8 @@ async def stats_handler(callback: CallbackQuery) -> None:
         f"Пройдено квизов: {attempts_count}\n"
         f"Правильных ответов: {correct_answers}\n"
         f"Всего вопросов: {total_questions}\n"
-        f"Точность: {accuracy}%",
+        f"Точность: {accuracy}%\n"
+        f"Слабые слова: {weak_words}",
         nav_keyboard(back_to="menu:home", include_home=False),
     )
 

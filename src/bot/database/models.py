@@ -24,6 +24,7 @@ class User(Base):
     )
 
     training_attempts: Mapped[list["TrainingAttempt"]] = relationship(back_populates="user")
+    word_progress: Mapped[list["UserWordProgress"]] = relationship(back_populates="user")
 
 
 class WordSet(Base):
@@ -49,6 +50,7 @@ class Word(Base):
     example: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     word_set: Mapped["WordSet"] = relationship(back_populates="words")
+    progress_entries: Mapped[list["UserWordProgress"]] = relationship(back_populates="word")
 
 
 class TrainingAttempt(Base):
@@ -63,3 +65,22 @@ class TrainingAttempt(Base):
 
     user: Mapped["User"] = relationship(back_populates="training_attempts")
     word_set: Mapped["WordSet"] = relationship(back_populates="training_attempts")
+
+
+class UserWordProgress(Base):
+    __tablename__ = "user_word_progress"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    word_id: Mapped[int] = mapped_column(ForeignKey("words.id"))
+    correct_count: Mapped[int] = mapped_column(Integer, default=0)
+    wrong_count: Mapped[int] = mapped_column(Integer, default=0)
+    last_result: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
+    )
+
+    user: Mapped["User"] = relationship(back_populates="word_progress")
+    word: Mapped["Word"] = relationship(back_populates="progress_entries")

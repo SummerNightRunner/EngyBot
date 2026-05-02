@@ -15,6 +15,7 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
         inline_keyboard=[
             [InlineKeyboardButton(text="Изучить слова", callback_data="menu:learn")],
             [InlineKeyboardButton(text="Пройти квиз", callback_data="menu:quiz")],
+            [InlineKeyboardButton(text="Повторение", callback_data="menu:review")],
             [InlineKeyboardButton(text="Профиль", callback_data="menu:profile")],
             [InlineKeyboardButton(text="Статистика", callback_data="menu:stats")],
             [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
@@ -119,3 +120,11 @@ def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> In
     if include_home:
         rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def review_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+        ]
+    )
