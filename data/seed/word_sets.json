@@ -13,7 +13,9 @@
       {"source_text": "осмотр достопримечательностей", "target_text": "sightseeing", "example": "We went sightseeing in the old town."},
       {"source_text": "путеводитель", "target_text": "guidebook", "example": "This guidebook is very useful."},
       {"source_text": "резервирование", "target_text": "reservation", "example": "Your reservation is confirmed."},
-      {"source_text": "аэропорт", "target_text": "airport", "example": "The airport is far from the city center."}
+      {"source_text": "аэропорт", "target_text": "airport", "example": "The airport is far from the city center."},
+      {"source_text": "посадка", "target_text": "boarding", "example": "Boarding starts in ten minutes."},
+      {"source_text": "рейс", "target_text": "flight", "example": "Our flight is delayed."}
     ]
   },
   {
@@ -30,7 +32,28 @@
       {"source_text": "паста", "target_text": "pasta", "example": "We ordered pasta for dinner."},
       {"source_text": "десерт", "target_text": "dessert", "example": "Dessert is my favorite part of lunch."},
       {"source_text": "сок", "target_text": "juice", "example": "Orange juice is on the table."},
-      {"source_text": "сыр", "target_text": "cheese", "example": "This cheese is very soft."}
+      {"source_text": "сыр", "target_text": "cheese", "example": "This cheese is very soft."},
+      {"source_text": "завтрак", "target_text": "breakfast", "example": "Breakfast is ready."},
+      {"source_text": "ужин", "target_text": "dinner", "example": "We are having dinner together."}
+    ]
+  },
+  {
+    "title": "Семья и друзья",
+    "description": "Базовая лексика о родственниках и близком окружении.",
+    "level": "A1",
+    "words": [
+      {"source_text": "мать", "target_text": "mother", "example": "My mother lives nearby."},
+      {"source_text": "отец", "target_text": "father", "example": "My father works in a bank."},
+      {"source_text": "друг", "target_text": "friend", "example": "My friend is waiting outside."},
+      {"source_text": "сестра", "target_text": "sister", "example": "My sister studies at university."},
+      {"source_text": "брат", "target_text": "brother", "example": "My brother likes football."},
+      {"source_text": "двоюродный брат/сестра", "target_text": "cousin", "example": "My cousin lives in another city."},
+      {"source_text": "тетя", "target_text": "aunt", "example": "My aunt cooks very well."},
+      {"source_text": "дядя", "target_text": "uncle", "example": "My uncle drives a truck."},
+      {"source_text": "бабушка и дедушка", "target_text": "grandparents", "example": "My grandparents live in the village."},
+      {"source_text": "сосед", "target_text": "neighbor", "example": "Our neighbor is very friendly."},
+      {"source_text": "родители", "target_text": "parents", "example": "My parents are at home."},
+      {"source_text": "ребенок", "target_text": "child", "example": "The child is playing outside."}
     ]
   },
   {
@@ -47,24 +70,28 @@
       {"source_text": "коллега", "target_text": "colleague", "example": "My colleague helps me a lot."},
       {"source_text": "собеседование", "target_text": "interview", "example": "I have an interview next week."},
       {"source_text": "зарплата", "target_text": "salary", "example": "His salary increased this year."},
-      {"source_text": "повышение", "target_text": "promotion", "example": "She got a promotion at work."}
+      {"source_text": "повышение", "target_text": "promotion", "example": "She got a promotion at work."},
+      {"source_text": "офис", "target_text": "office", "example": "The office is on the third floor."},
+      {"source_text": "договор", "target_text": "contract", "example": "Please sign the contract."}
     ]
   },
   {
-    "title": "Семья и друзья",
-    "description": "Базовая лексика о родственниках и близком окружении.",
+    "title": "Город и транспорт",
+    "description": "Лексика для перемещения по городу и общения в общественных местах.",
     "level": "A2",
     "words": [
-      {"source_text": "мать", "target_text": "mother", "example": "My mother lives nearby."},
-      {"source_text": "отец", "target_text": "father", "example": "My father works in a bank."},
-      {"source_text": "друг", "target_text": "friend", "example": "My friend is waiting outside."},
-      {"source_text": "сестра", "target_text": "sister", "example": "My sister studies at university."},
-      {"source_text": "брат", "target_text": "brother", "example": "My brother likes football."},
-      {"source_text": "двоюродный брат/сестра", "target_text": "cousin", "example": "My cousin lives in another city."},
-      {"source_text": "тетя", "target_text": "aunt", "example": "My aunt cooks very well."},
-      {"source_text": "дядя", "target_text": "uncle", "example": "My uncle drives a truck."},
-      {"source_text": "бабушка и дедушка", "target_text": "grandparents", "example": "My grandparents live in the village."},
-      {"source_text": "сосед", "target_text": "neighbor", "example": "Our neighbor is very friendly."}
+      {"source_text": "автобус", "target_text": "bus", "example": "The bus arrives every ten minutes."},
+      {"source_text": "поезд", "target_text": "train", "example": "The train leaves at six."},
+      {"source_text": "станция", "target_text": "station", "example": "The station is near the center."},
+      {"source_text": "улица", "target_text": "street", "example": "This street is very busy."},
+      {"source_text": "поворот", "target_text": "turn", "example": "Take the second turn left."},
+      {"source_text": "карта", "target_text": "map", "example": "Open the map on your phone."},
+      {"source_text": "светофор", "target_text": "traffic light", "example": "Wait at the traffic light."},
+      {"source_text": "метро", "target_text": "subway", "example": "The subway is fast and cheap."},
+      {"source_text": "остановка", "target_text": "stop", "example": "Get off at the next stop."},
+      {"source_text": "центр города", "target_text": "downtown", "example": "We are going downtown tonight."},
+      {"source_text": "мост", "target_text": "bridge", "example": "Cross the bridge carefully."},
+      {"source_text": "площадь", "target_text": "square", "example": "The square is full of tourists."}
     ]
   },
   {
@@ -81,7 +108,85 @@
       {"source_text": "приготовление пищи", "target_text": "cooking", "example": "Cooking is both useful and fun."},
       {"source_text": "походы", "target_text": "hiking", "example": "We enjoy hiking in the mountains."},
       {"source_text": "танцы", "target_text": "dancing", "example": "Dancing gives me energy."},
-      {"source_text": "путешествия", "target_text": "traveling", "example": "Traveling broadens the mind."}
+      {"source_text": "путешествия", "target_text": "traveling", "example": "Traveling broadens the mind."},
+      {"source_text": "настольные игры", "target_text": "board games", "example": "Board games are popular with my friends."},
+      {"source_text": "кино", "target_text": "cinema", "example": "We go to the cinema on weekends."}
+    ]
+  },
+  {
+    "title": "Здоровье и образ жизни",
+    "description": "Лексика о самочувствии, привычках и повседневном здоровье.",
+    "level": "B1",
+    "words": [
+      {"source_text": "здоровье", "target_text": "health", "example": "Health is more important than money."},
+      {"source_text": "упражнение", "target_text": "exercise", "example": "Daily exercise improves mood."},
+      {"source_text": "сон", "target_text": "sleep", "example": "Good sleep helps you focus."},
+      {"source_text": "диета", "target_text": "diet", "example": "She changed her diet last month."},
+      {"source_text": "врач", "target_text": "doctor", "example": "The doctor will see you now."},
+      {"source_text": "симптом", "target_text": "symptom", "example": "Fatigue can be a symptom of stress."},
+      {"source_text": "стресс", "target_text": "stress", "example": "Too much stress affects memory."},
+      {"source_text": "привычка", "target_text": "habit", "example": "Reading every day is a good habit."},
+      {"source_text": "энергия", "target_text": "energy", "example": "I have more energy in the morning."},
+      {"source_text": "баланс", "target_text": "balance", "example": "Work-life balance is essential."},
+      {"source_text": "восстановление", "target_text": "recovery", "example": "Recovery takes time after illness."},
+      {"source_text": "осанка", "target_text": "posture", "example": "Good posture reduces back pain."}
+    ]
+  },
+  {
+    "title": "Технологии и медиа",
+    "description": "Слова о цифровой среде, информации и онлайн-коммуникации.",
+    "level": "B2",
+    "words": [
+      {"source_text": "устройство", "target_text": "device", "example": "This device connects to the internet."},
+      {"source_text": "приложение", "target_text": "application", "example": "The application needs an update."},
+      {"source_text": "конфиденциальность", "target_text": "privacy", "example": "Privacy settings are important online."},
+      {"source_text": "подписка", "target_text": "subscription", "example": "My subscription ends next week."},
+      {"source_text": "потоковое вещание", "target_text": "streaming", "example": "Streaming platforms changed media habits."},
+      {"source_text": "алгоритм", "target_text": "algorithm", "example": "The algorithm recommends videos."},
+      {"source_text": "источник", "target_text": "source", "example": "Always check the source of information."},
+      {"source_text": "заголовок", "target_text": "headline", "example": "The headline was misleading."},
+      {"source_text": "аудитория", "target_text": "audience", "example": "The audience reacted positively."},
+      {"source_text": "обратная связь", "target_text": "feedback", "example": "Constructive feedback helps people improve."},
+      {"source_text": "социальные сети", "target_text": "social media", "example": "Social media shapes public opinion."},
+      {"source_text": "цифровой след", "target_text": "digital footprint", "example": "Your digital footprint stays online for years."}
+    ]
+  },
+  {
+    "title": "Культура и общество",
+    "description": "Лексика для обсуждения искусства, ценностей и общественных явлений.",
+    "level": "C1",
+    "words": [
+      {"source_text": "наследие", "target_text": "heritage", "example": "The city is proud of its cultural heritage."},
+      {"source_text": "разнообразие", "target_text": "diversity", "example": "Diversity strengthens creative teams."},
+      {"source_text": "перспектива", "target_text": "perspective", "example": "Travel broadens your perspective."},
+      {"source_text": "традиция", "target_text": "tradition", "example": "Some traditions change over time."},
+      {"source_text": "идентичность", "target_text": "identity", "example": "Language is part of personal identity."},
+      {"source_text": "ценность", "target_text": "value", "example": "Respect is a core social value."},
+      {"source_text": "сообщество", "target_text": "community", "example": "A strong community supports its members."},
+      {"source_text": "неравенство", "target_text": "inequality", "example": "The article focuses on social inequality."},
+      {"source_text": "повествование", "target_text": "narrative", "example": "The narrative reflects modern anxieties."},
+      {"source_text": "символизм", "target_text": "symbolism", "example": "The painting uses heavy symbolism."},
+      {"source_text": "влияние", "target_text": "influence", "example": "Cinema has a strong influence on culture."},
+      {"source_text": "общественное мнение", "target_text": "public opinion", "example": "Public opinion changed after the debate."}
+    ]
+  },
+  {
+    "title": "Абстрактные идеи и дебаты",
+    "description": "Продвинутая лексика для аргументации, анализа и сложных рассуждений.",
+    "level": "C2",
+    "words": [
+      {"source_text": "предпосылка", "target_text": "assumption", "example": "Your argument is based on a weak assumption."},
+      {"source_text": "двусмысленность", "target_text": "ambiguity", "example": "The statement leaves too much ambiguity."},
+      {"source_text": "обоснование", "target_text": "justification", "example": "The policy lacks clear justification."},
+      {"source_text": "нюанс", "target_text": "nuance", "example": "He captured every nuance of the discussion."},
+      {"source_text": "противоречие", "target_text": "contradiction", "example": "There is a contradiction in your reasoning."},
+      {"source_text": "достоверность", "target_text": "credibility", "example": "The report damaged the speaker's credibility."},
+      {"source_text": "интерпретация", "target_text": "interpretation", "example": "Her interpretation was persuasive."},
+      {"source_text": "предвзятость", "target_text": "bias", "example": "Every analysis contains some degree of bias."},
+      {"source_text": "консенсус", "target_text": "consensus", "example": "The panel reached a rare consensus."},
+      {"source_text": "дилемма", "target_text": "dilemma", "example": "The novel explores a moral dilemma."},
+      {"source_text": "правдоподобие", "target_text": "plausibility", "example": "We questioned the plausibility of the claim."},
+      {"source_text": "умозаключение", "target_text": "inference", "example": "The inference is logical but not certain."}
     ]
   }
 ]
