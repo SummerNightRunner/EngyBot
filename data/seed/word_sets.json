@@ -1,27 +1,328 @@
 [
   {
-    "title": "Путешествия",
-    "description": "Лексика для поездок, транспорта, размещения и сложных ситуаций в путешествии.",
+    "title": "Город и транспорт",
+    "description": "Лексика для ориентирования в городе, поездок и городской инфраструктуры.",
     "level": "A1",
     "words": [
-      {"source_text": "самолет", "target_text": "airplane", "level": "A1", "example": "The airplane lands at noon."},
-      {"source_text": "отель", "target_text": "hotel", "level": "A1", "example": "Our hotel is near the beach."},
-      {"source_text": "паспорт", "target_text": "passport", "level": "A1", "example": "Keep your passport in a safe place."},
-      {"source_text": "билет", "target_text": "ticket", "level": "A1", "example": "I bought the train ticket online."},
-      {"source_text": "багаж", "target_text": "luggage", "level": "A1", "example": "Their luggage arrived late."},
-      {"source_text": "рейс", "target_text": "flight", "level": "A2", "example": "The flight to Rome is delayed."},
-      {"source_text": "посадка", "target_text": "boarding", "level": "A2", "example": "Boarding starts in twenty minutes."},
-      {"source_text": "пересадка", "target_text": "transfer", "level": "A2", "example": "We have a short transfer in Istanbul."},
-      {"source_text": "бронь", "target_text": "reservation", "level": "A2", "example": "Your reservation is already confirmed."},
-      {"source_text": "маршрут", "target_text": "itinerary", "level": "B1", "example": "The itinerary includes three cities."},
-      {"source_text": "достопримечательность", "target_text": "landmark", "level": "B1", "example": "The guide showed us every famous landmark."},
-      {"source_text": "экскурсия", "target_text": "guided tour", "level": "B1", "example": "We booked a guided tour of the old town."},
-      {"source_text": "туристическая страховка", "target_text": "travel insurance", "level": "B2", "example": "Travel insurance covered the medical costs."},
-      {"source_text": "задержка", "target_text": "delay", "level": "B2", "example": "The delay ruined their connection."},
-      {"source_text": "размещение", "target_text": "accommodation", "level": "B2", "example": "Accommodation in the city center is expensive."},
-      {"source_text": "маршрутный узел", "target_text": "transport hub", "level": "C1", "example": "The airport has become a major transport hub."},
-      {"source_text": "непредвиденные расходы", "target_text": "unexpected expenses", "level": "C1", "example": "Unexpected expenses can ruin a travel budget."},
-      {"source_text": "маршрут в обход", "target_text": "detour", "level": "C1", "example": "We had to make a detour because of roadworks."}
+      {
+        "source_text": "автобус",
+        "target_text": "bus",
+        "level": "A1",
+        "example": "The bus stops near my house."
+      },
+      {
+        "source_text": "карта",
+        "target_text": "map",
+        "level": "A1",
+        "example": "Open the map on your phone."
+      },
+      {
+        "source_text": "поезд",
+        "target_text": "train",
+        "level": "A1",
+        "example": "The train leaves at seven."
+      },
+      {
+        "source_text": "станция",
+        "target_text": "station",
+        "level": "A1",
+        "example": "The station is two blocks away."
+      },
+      {
+        "source_text": "улица",
+        "target_text": "street",
+        "level": "A1",
+        "example": "This street is always crowded."
+      },
+      {
+        "source_text": "дорога",
+        "target_text": "road",
+        "level": "A2",
+        "example": "The road is closed for repairs."
+      },
+      {
+        "source_text": "метро",
+        "target_text": "subway",
+        "level": "A2",
+        "example": "The subway is faster than the bus."
+      },
+      {
+        "source_text": "остановка",
+        "target_text": "stop",
+        "level": "A2",
+        "example": "Get off at the next stop."
+      },
+      {
+        "source_text": "площадка для парковки",
+        "target_text": "parking lot",
+        "level": "A2",
+        "example": "The parking lot is full."
+      },
+      {
+        "source_text": "поворот",
+        "target_text": "turn",
+        "level": "A2",
+        "example": "Take the second turn on the right."
+      },
+      {
+        "source_text": "светофор",
+        "target_text": "traffic light",
+        "level": "A2",
+        "example": "Wait at the traffic light."
+      },
+      {
+        "source_text": "тариф",
+        "target_text": "fare",
+        "level": "A2",
+        "example": "The bus fare went up again."
+      },
+      {
+        "source_text": "объезд",
+        "target_text": "bypass",
+        "level": "B1",
+        "example": "The bypass reduces city traffic."
+      },
+      {
+        "source_text": "перекресток",
+        "target_text": "intersection",
+        "level": "B1",
+        "example": "Turn left at the intersection."
+      },
+      {
+        "source_text": "поездка на работу",
+        "target_text": "commute",
+        "level": "B1",
+        "example": "My commute takes almost an hour."
+      },
+      {
+        "source_text": "район",
+        "target_text": "district",
+        "level": "B1",
+        "example": "This district is popular with students."
+      },
+      {
+        "source_text": "расписание",
+        "target_text": "schedule",
+        "level": "B1",
+        "example": "Check the train schedule online."
+      },
+      {
+        "source_text": "час пик",
+        "target_text": "rush hour",
+        "level": "B1",
+        "example": "Rush hour traffic is terrible today."
+      },
+      {
+        "source_text": "велосипедная дорожка",
+        "target_text": "bike lane",
+        "level": "B2",
+        "example": "The city added a new bike lane downtown."
+      },
+      {
+        "source_text": "общественный транспорт",
+        "target_text": "public transport",
+        "level": "B2",
+        "example": "Public transport should be more reliable."
+      },
+      {
+        "source_text": "объездная дорога",
+        "target_text": "ring road",
+        "level": "B2",
+        "example": "The ring road helps reduce city traffic."
+      },
+      {
+        "source_text": "пешеходная зона",
+        "target_text": "pedestrian zone",
+        "level": "B2",
+        "example": "Cars are not allowed in the pedestrian zone."
+      },
+      {
+        "source_text": "пешеходный переход",
+        "target_text": "crosswalk",
+        "level": "B2",
+        "example": "Always stop at the crosswalk."
+      },
+      {
+        "source_text": "полоса движения",
+        "target_text": "lane",
+        "level": "B2",
+        "example": "Stay in the left lane after the tunnel."
+      },
+      {
+        "source_text": "городская застройка",
+        "target_text": "urban development",
+        "level": "C1",
+        "example": "Urban development changed the neighborhood completely."
+      },
+      {
+        "source_text": "транспортная доступность",
+        "target_text": "transport accessibility",
+        "level": "C1",
+        "example": "Transport accessibility matters for commuters."
+      },
+      {
+        "source_text": "инфраструктурный проект",
+        "target_text": "infrastructure project",
+        "level": "C2",
+        "example": "The infrastructure project will take a decade."
+      },
+      {
+        "source_text": "перегруженность дорог",
+        "target_text": "road congestion",
+        "level": "C2",
+        "example": "Road congestion worsens air quality."
+      }
+    ]
+  },
+  {
+    "title": "Дом и быт",
+    "description": "Лексика о доме, мебели, повседневных делах и бытовых вопросах.",
+    "level": "A1",
+    "words": [
+      {
+        "source_text": "дом",
+        "target_text": "house",
+        "level": "A1",
+        "example": "Their house is near the river."
+      },
+      {
+        "source_text": "комната",
+        "target_text": "room",
+        "level": "A1",
+        "example": "My room is very small but bright."
+      },
+      {
+        "source_text": "кровать",
+        "target_text": "bed",
+        "level": "A1",
+        "example": "The bed is next to the window."
+      },
+      {
+        "source_text": "кухня",
+        "target_text": "kitchen",
+        "level": "A1",
+        "example": "We eat breakfast in the kitchen."
+      },
+      {
+        "source_text": "стол",
+        "target_text": "table",
+        "level": "A1",
+        "example": "The books are on the table."
+      },
+      {
+        "source_text": "стул",
+        "target_text": "chair",
+        "level": "A1",
+        "example": "There are four chairs in the dining room."
+      },
+      {
+        "source_text": "дверь",
+        "target_text": "door",
+        "level": "A2",
+        "example": "Please close the door quietly."
+      },
+      {
+        "source_text": "окно",
+        "target_text": "window",
+        "level": "A2",
+        "example": "Open the window for a minute."
+      },
+      {
+        "source_text": "полка",
+        "target_text": "shelf",
+        "level": "A2",
+        "example": "Put the cups on the top shelf."
+      },
+      {
+        "source_text": "пылесосить",
+        "target_text": "to vacuum",
+        "level": "A2",
+        "example": "I need to vacuum the living room."
+      },
+      {
+        "source_text": "стирать",
+        "target_text": "to do the laundry",
+        "level": "A2",
+        "example": "He does the laundry every Sunday."
+      },
+      {
+        "source_text": "шкаф",
+        "target_text": "wardrobe",
+        "level": "A2",
+        "example": "Her clothes are in the wardrobe."
+      },
+      {
+        "source_text": "аренда",
+        "target_text": "rent",
+        "level": "B1",
+        "example": "Their rent increased this year."
+      },
+      {
+        "source_text": "гостиная",
+        "target_text": "living room",
+        "level": "B1",
+        "example": "We bought a new lamp for the living room."
+      },
+      {
+        "source_text": "ремонт",
+        "target_text": "renovation",
+        "level": "B1",
+        "example": "The apartment is closed for renovation."
+      },
+      {
+        "source_text": "счет за коммунальные услуги",
+        "target_text": "utility bill",
+        "level": "B1",
+        "example": "The utility bill was higher in winter."
+      },
+      {
+        "source_text": "беспорядок",
+        "target_text": "clutter",
+        "level": "B2",
+        "example": "Too much clutter makes the room stressful."
+      },
+      {
+        "source_text": "бытовая техника",
+        "target_text": "household appliance",
+        "level": "B2",
+        "example": "Household appliances consume a lot of energy."
+      },
+      {
+        "source_text": "изолировать",
+        "target_text": "to insulate",
+        "level": "B2",
+        "example": "They plan to insulate the roof next year."
+      },
+      {
+        "source_text": "кладовая",
+        "target_text": "storage room",
+        "level": "B2",
+        "example": "We keep tools in the storage room."
+      },
+      {
+        "source_text": "обслуживание дома",
+        "target_text": "property maintenance",
+        "level": "C1",
+        "example": "Property maintenance takes both time and money."
+      },
+      {
+        "source_text": "планировка",
+        "target_text": "layout",
+        "level": "C1",
+        "example": "The layout makes the apartment feel larger."
+      },
+      {
+        "source_text": "энергоэффективность",
+        "target_text": "energy efficiency",
+        "level": "C2",
+        "example": "Energy efficiency should be a design priority."
+      },
+      {
+        "source_text": "эргономичный",
+        "target_text": "ergonomic",
+        "level": "C2",
+        "example": "An ergonomic chair reduces back strain."
+      }
     ]
   },
   {
@@ -29,26 +330,367 @@
     "description": "Лексика о продуктах, приемах пищи, кухне, вкусах и гастрономии.",
     "level": "A1",
     "words": [
-      {"source_text": "яблоко", "target_text": "apple", "level": "A1", "example": "She eats an apple every morning."},
-      {"source_text": "хлеб", "target_text": "bread", "level": "A1", "example": "There is fresh bread on the table."},
-      {"source_text": "вода", "target_text": "water", "level": "A1", "example": "Could I have some water, please?"},
-      {"source_text": "кофе", "target_text": "coffee", "level": "A1", "example": "He drinks coffee before work."},
-      {"source_text": "сыр", "target_text": "cheese", "level": "A1", "example": "This cheese smells strong."},
-      {"source_text": "завтрак", "target_text": "breakfast", "level": "A2", "example": "Breakfast is served until ten."},
-      {"source_text": "ужин", "target_text": "dinner", "level": "A2", "example": "We had a late dinner yesterday."},
-      {"source_text": "рецепт", "target_text": "recipe", "level": "A2", "example": "My grandmother gave me the recipe."},
-      {"source_text": "жарить", "target_text": "to fry", "level": "A2", "example": "Do not fry the onions for too long."},
-      {"source_text": "ингредиент", "target_text": "ingredient", "level": "B1", "example": "This ingredient changes the whole flavor."},
-      {"source_text": "вегетарианский", "target_text": "vegetarian", "level": "B1", "example": "They ordered a vegetarian meal."},
-      {"source_text": "острый", "target_text": "spicy", "level": "B1", "example": "The curry is too spicy for me."},
-      {"source_text": "закуска", "target_text": "appetizer", "level": "B2", "example": "The appetizer arrived before the main course."},
-      {"source_text": "гарнир", "target_text": "side dish", "level": "B2", "example": "Rice is a common side dish in this restaurant."},
-      {"source_text": "тушеный", "target_text": "braised", "level": "B2", "example": "They served braised beef with vegetables."},
-      {"source_text": "перепел", "target_text": "quail", "level": "B2", "example": "Roasted quail is considered a delicacy."},
-      {"source_text": "выдержанный сыр", "target_text": "aged cheese", "level": "C1", "example": "Aged cheese pairs well with dry wine."},
-      {"source_text": "ферментация", "target_text": "fermentation", "level": "C1", "example": "Fermentation gives the bread a richer taste."},
-      {"source_text": "вкусовой профиль", "target_text": "flavor profile", "level": "C2", "example": "The chef balanced the flavor profile carefully."},
-      {"source_text": "гастрономический", "target_text": "gastronomic", "level": "C2", "example": "The city is known for its gastronomic traditions."}
+      {
+        "source_text": "вода",
+        "target_text": "water",
+        "level": "A1",
+        "example": "Could I have some water, please?"
+      },
+      {
+        "source_text": "кофе",
+        "target_text": "coffee",
+        "level": "A1",
+        "example": "He drinks coffee before work."
+      },
+      {
+        "source_text": "сыр",
+        "target_text": "cheese",
+        "level": "A1",
+        "example": "This cheese smells strong."
+      },
+      {
+        "source_text": "хлеб",
+        "target_text": "bread",
+        "level": "A1",
+        "example": "There is fresh bread on the table."
+      },
+      {
+        "source_text": "яблоко",
+        "target_text": "apple",
+        "level": "A1",
+        "example": "She eats an apple every morning."
+      },
+      {
+        "source_text": "жарить",
+        "target_text": "to fry",
+        "level": "A2",
+        "example": "Do not fry the onions for too long."
+      },
+      {
+        "source_text": "завтрак",
+        "target_text": "breakfast",
+        "level": "A2",
+        "example": "Breakfast is served until ten."
+      },
+      {
+        "source_text": "меню",
+        "target_text": "menu",
+        "level": "A2",
+        "example": "The menu has many vegetarian options."
+      },
+      {
+        "source_text": "обед",
+        "target_text": "lunch",
+        "level": "A2",
+        "example": "We had lunch at a small cafe."
+      },
+      {
+        "source_text": "официант",
+        "target_text": "waiter",
+        "level": "A2",
+        "example": "The waiter brought us some water."
+      },
+      {
+        "source_text": "рецепт",
+        "target_text": "recipe",
+        "level": "A2",
+        "example": "My grandmother gave me the recipe."
+      },
+      {
+        "source_text": "ужин",
+        "target_text": "dinner",
+        "level": "A2",
+        "example": "We had a late dinner yesterday."
+      },
+      {
+        "source_text": "вегетарианский",
+        "target_text": "vegetarian",
+        "level": "B1",
+        "example": "They ordered a vegetarian meal."
+      },
+      {
+        "source_text": "гриль",
+        "target_text": "grilled",
+        "level": "B1",
+        "example": "I ordered grilled vegetables."
+      },
+      {
+        "source_text": "ингредиент",
+        "target_text": "ingredient",
+        "level": "B1",
+        "example": "This ingredient changes the whole flavor."
+      },
+      {
+        "source_text": "морепродукты",
+        "target_text": "seafood",
+        "level": "B1",
+        "example": "This restaurant specializes in seafood."
+      },
+      {
+        "source_text": "острый",
+        "target_text": "spicy",
+        "level": "B1",
+        "example": "The curry is too spicy for me."
+      },
+      {
+        "source_text": "приправа",
+        "target_text": "seasoning",
+        "level": "B1",
+        "example": "The seasoning is too salty."
+      },
+      {
+        "source_text": "бульон",
+        "target_text": "broth",
+        "level": "B2",
+        "example": "The broth has a deep flavor."
+      },
+      {
+        "source_text": "гарнир",
+        "target_text": "side dish",
+        "level": "B2",
+        "example": "Rice is a common side dish in this restaurant."
+      },
+      {
+        "source_text": "горький",
+        "target_text": "bitter",
+        "level": "B2",
+        "example": "Dark chocolate can taste slightly bitter."
+      },
+      {
+        "source_text": "закуска",
+        "target_text": "appetizer",
+        "level": "B2",
+        "example": "The appetizer arrived before the main course."
+      },
+      {
+        "source_text": "перепел",
+        "target_text": "quail",
+        "level": "B2",
+        "example": "Roasted quail is considered a delicacy."
+      },
+      {
+        "source_text": "пикантный",
+        "target_text": "savory",
+        "level": "B2",
+        "example": "It is a savory dish with herbs."
+      },
+      {
+        "source_text": "тушеный",
+        "target_text": "braised",
+        "level": "B2",
+        "example": "They served braised beef with vegetables."
+      },
+      {
+        "source_text": "выдержанный сыр",
+        "target_text": "aged cheese",
+        "level": "C1",
+        "example": "Aged cheese pairs well with dry wine."
+      },
+      {
+        "source_text": "подача блюда",
+        "target_text": "plating",
+        "level": "C1",
+        "example": "The plating was elegant and minimalistic."
+      },
+      {
+        "source_text": "ферментация",
+        "target_text": "fermentation",
+        "level": "C1",
+        "example": "Fermentation gives the bread a richer taste."
+      },
+      {
+        "source_text": "вкусовой профиль",
+        "target_text": "flavor profile",
+        "level": "C2",
+        "example": "The chef balanced the flavor profile carefully."
+      },
+      {
+        "source_text": "гастрономический",
+        "target_text": "gastronomic",
+        "level": "C2",
+        "example": "The city is known for its gastronomic traditions."
+      },
+      {
+        "source_text": "умами",
+        "target_text": "umami",
+        "level": "C2",
+        "example": "Mushrooms add umami to the sauce."
+      }
+    ]
+  },
+  {
+    "title": "Путешествия",
+    "description": "Лексика для поездок, транспорта, размещения и сложных ситуаций в путешествии.",
+    "level": "A1",
+    "words": [
+      {
+        "source_text": "багаж",
+        "target_text": "luggage",
+        "level": "A1",
+        "example": "Their luggage arrived late."
+      },
+      {
+        "source_text": "билет",
+        "target_text": "ticket",
+        "level": "A1",
+        "example": "I bought the train ticket online."
+      },
+      {
+        "source_text": "отель",
+        "target_text": "hotel",
+        "level": "A1",
+        "example": "Our hotel is near the beach."
+      },
+      {
+        "source_text": "паспорт",
+        "target_text": "passport",
+        "level": "A1",
+        "example": "Keep your passport in a safe place."
+      },
+      {
+        "source_text": "самолет",
+        "target_text": "airplane",
+        "level": "A1",
+        "example": "The airplane lands at noon."
+      },
+      {
+        "source_text": "бронь",
+        "target_text": "reservation",
+        "level": "A2",
+        "example": "Your reservation is already confirmed."
+      },
+      {
+        "source_text": "виза",
+        "target_text": "visa",
+        "level": "A2",
+        "example": "You need a visa to enter the country."
+      },
+      {
+        "source_text": "выезд из отеля",
+        "target_text": "check-out",
+        "level": "A2",
+        "example": "Check-out is at eleven in the morning."
+      },
+      {
+        "source_text": "пересадка",
+        "target_text": "transfer",
+        "level": "A2",
+        "example": "We have a short transfer in Istanbul."
+      },
+      {
+        "source_text": "платформа",
+        "target_text": "platform",
+        "level": "A2",
+        "example": "The train leaves from platform four."
+      },
+      {
+        "source_text": "посадка",
+        "target_text": "boarding",
+        "level": "A2",
+        "example": "Boarding starts in twenty minutes."
+      },
+      {
+        "source_text": "рейс",
+        "target_text": "flight",
+        "level": "A2",
+        "example": "The flight to Rome is delayed."
+      },
+      {
+        "source_text": "выезд на посадку",
+        "target_text": "departure gate",
+        "level": "B1",
+        "example": "The departure gate changed at the last minute."
+      },
+      {
+        "source_text": "достопримечательность",
+        "target_text": "landmark",
+        "level": "B1",
+        "example": "The guide showed us every famous landmark."
+      },
+      {
+        "source_text": "маршрут",
+        "target_text": "itinerary",
+        "level": "B1",
+        "example": "The itinerary includes three cities."
+      },
+      {
+        "source_text": "прибытие",
+        "target_text": "arrival",
+        "level": "B1",
+        "example": "Arrival time is shown on the screen."
+      },
+      {
+        "source_text": "таможня",
+        "target_text": "customs",
+        "level": "B1",
+        "example": "We waited a long time at customs."
+      },
+      {
+        "source_text": "экскурсия",
+        "target_text": "guided tour",
+        "level": "B1",
+        "example": "We booked a guided tour of the old town."
+      },
+      {
+        "source_text": "задержка",
+        "target_text": "delay",
+        "level": "B2",
+        "example": "The delay ruined their connection."
+      },
+      {
+        "source_text": "зарегистрированный багаж",
+        "target_text": "checked baggage",
+        "level": "B2",
+        "example": "Checked baggage is included in the fare."
+      },
+      {
+        "source_text": "перелет с пересадкой",
+        "target_text": "layover",
+        "level": "B2",
+        "example": "We had a six-hour layover in Doha."
+      },
+      {
+        "source_text": "пограничный контроль",
+        "target_text": "border control",
+        "level": "B2",
+        "example": "Border control was strict but efficient."
+      },
+      {
+        "source_text": "размещение",
+        "target_text": "accommodation",
+        "level": "B2",
+        "example": "Accommodation in the city center is expensive."
+      },
+      {
+        "source_text": "совет для путешественников",
+        "target_text": "travel advisory",
+        "level": "B2",
+        "example": "We checked the travel advisory before booking."
+      },
+      {
+        "source_text": "туристическая страховка",
+        "target_text": "travel insurance",
+        "level": "B2",
+        "example": "Travel insurance covered the medical costs."
+      },
+      {
+        "source_text": "маршрут в обход",
+        "target_text": "detour",
+        "level": "C1",
+        "example": "We had to make a detour because of roadworks."
+      },
+      {
+        "source_text": "маршрутный узел",
+        "target_text": "transport hub",
+        "level": "C1",
+        "example": "The airport has become a major transport hub."
+      },
+      {
+        "source_text": "непредвиденные расходы",
+        "target_text": "unexpected expenses",
+        "level": "C1",
+        "example": "Unexpected expenses can ruin a travel budget."
+      }
     ]
   },
   {
@@ -56,124 +698,174 @@
     "description": "Лексика о родственниках, дружбе, близких людях и социальных связях.",
     "level": "A1",
     "words": [
-      {"source_text": "мать", "target_text": "mother", "level": "A1", "example": "My mother works from home."},
-      {"source_text": "отец", "target_text": "father", "level": "A1", "example": "His father likes fishing."},
-      {"source_text": "друг", "target_text": "friend", "level": "A1", "example": "My friend lives next door."},
-      {"source_text": "брат", "target_text": "brother", "level": "A1", "example": "Her brother is younger than she is."},
-      {"source_text": "сестра", "target_text": "sister", "level": "A1", "example": "My sister studies medicine."},
-      {"source_text": "родители", "target_text": "parents", "level": "A2", "example": "His parents moved to another city."},
-      {"source_text": "сосед", "target_text": "neighbor", "level": "A2", "example": "Our neighbor plays the piano."},
-      {"source_text": "родственник", "target_text": "relative", "level": "A2", "example": "I met many relatives at the wedding."},
-      {"source_text": "доверять", "target_text": "to trust", "level": "A2", "example": "You should trust your close friends."},
-      {"source_text": "поддержка", "target_text": "support", "level": "B1", "example": "Family support helps in difficult times."},
-      {"source_text": "спор", "target_text": "argument", "level": "B1", "example": "They had an argument about money."},
-      {"source_text": "помолвка", "target_text": "engagement", "level": "B1", "example": "Their engagement surprised everyone."},
-      {"source_text": "воспитывать", "target_text": "to raise", "level": "B2", "example": "They are trying to raise independent children."},
-      {"source_text": "родительские обязанности", "target_text": "parenting responsibilities", "level": "B2", "example": "Parenting responsibilities should be shared equally."},
-      {"source_text": "отчуждение", "target_text": "estrangement", "level": "C1", "example": "Years of silence led to estrangement."},
-      {"source_text": "примирение", "target_text": "reconciliation", "level": "C1", "example": "Their reconciliation took a long time."},
-      {"source_text": "эмоциональная близость", "target_text": "emotional intimacy", "level": "C2", "example": "Emotional intimacy grows through honesty."},
-      {"source_text": "безусловная поддержка", "target_text": "unconditional support", "level": "C2", "example": "Children need unconditional support from adults."}
-    ]
-  },
-  {
-    "title": "Город и транспорт",
-    "description": "Лексика для ориентирования в городе, поездок и городской инфраструктуры.",
-    "level": "A1",
-    "words": [
-      {"source_text": "автобус", "target_text": "bus", "level": "A1", "example": "The bus stops near my house."},
-      {"source_text": "поезд", "target_text": "train", "level": "A1", "example": "The train leaves at seven."},
-      {"source_text": "улица", "target_text": "street", "level": "A1", "example": "This street is always crowded."},
-      {"source_text": "станция", "target_text": "station", "level": "A1", "example": "The station is two blocks away."},
-      {"source_text": "карта", "target_text": "map", "level": "A1", "example": "Open the map on your phone."},
-      {"source_text": "поворот", "target_text": "turn", "level": "A2", "example": "Take the second turn on the right."},
-      {"source_text": "метро", "target_text": "subway", "level": "A2", "example": "The subway is faster than the bus."},
-      {"source_text": "остановка", "target_text": "stop", "level": "A2", "example": "Get off at the next stop."},
-      {"source_text": "светофор", "target_text": "traffic light", "level": "A2", "example": "Wait at the traffic light."},
-      {"source_text": "перекресток", "target_text": "intersection", "level": "B1", "example": "Turn left at the intersection."},
-      {"source_text": "объезд", "target_text": "bypass", "level": "B1", "example": "The bypass reduces city traffic."},
-      {"source_text": "час пик", "target_text": "rush hour", "level": "B1", "example": "Rush hour traffic is terrible today."},
-      {"source_text": "пешеходная зона", "target_text": "pedestrian zone", "level": "B2", "example": "Cars are not allowed in the pedestrian zone."},
-      {"source_text": "общественный транспорт", "target_text": "public transport", "level": "B2", "example": "Public transport should be more reliable."},
-      {"source_text": "городская застройка", "target_text": "urban development", "level": "C1", "example": "Urban development changed the neighborhood completely."},
-      {"source_text": "транспортная доступность", "target_text": "transport accessibility", "level": "C1", "example": "Transport accessibility matters for commuters."},
-      {"source_text": "перегруженность дорог", "target_text": "road congestion", "level": "C2", "example": "Road congestion worsens air quality."},
-      {"source_text": "инфраструктурный проект", "target_text": "infrastructure project", "level": "C2", "example": "The infrastructure project will take a decade."}
-    ]
-  },
-  {
-    "title": "Работа и карьера",
-    "description": "Лексика для работы, профессий, деловой переписки и карьерного роста.",
-    "level": "A2",
-    "words": [
-      {"source_text": "менеджер", "target_text": "manager", "level": "A2", "example": "The manager approved the request."},
-      {"source_text": "сотрудник", "target_text": "employee", "level": "A2", "example": "Every employee has a badge."},
-      {"source_text": "встреча", "target_text": "meeting", "level": "A2", "example": "The meeting starts at nine."},
-      {"source_text": "проект", "target_text": "project", "level": "A2", "example": "The project is almost ready."},
-      {"source_text": "дедлайн", "target_text": "deadline", "level": "A2", "example": "The deadline is next Friday."},
-      {"source_text": "собеседование", "target_text": "interview", "level": "B1", "example": "She prepared well for the interview."},
-      {"source_text": "зарплата", "target_text": "salary", "level": "B1", "example": "They discussed salary expectations."},
-      {"source_text": "обязанность", "target_text": "responsibility", "level": "B1", "example": "Time management is a key responsibility."},
-      {"source_text": "повышение", "target_text": "promotion", "level": "B1", "example": "He got a promotion this spring."},
-      {"source_text": "производительность", "target_text": "productivity", "level": "B2", "example": "Noise affects my productivity."},
-      {"source_text": "обратная связь", "target_text": "feedback", "level": "B2", "example": "Constructive feedback improves performance."},
-      {"source_text": "переговоры", "target_text": "negotiation", "level": "B2", "example": "The negotiation lasted for hours."},
-      {"source_text": "стратегия", "target_text": "strategy", "level": "C1", "example": "The team presented a long-term strategy."},
-      {"source_text": "заинтересованная сторона", "target_text": "stakeholder", "level": "C1", "example": "Every stakeholder must be informed."},
-      {"source_text": "делегирование", "target_text": "delegation", "level": "C1", "example": "Delegation helps managers avoid burnout."},
-      {"source_text": "корпоративное управление", "target_text": "corporate governance", "level": "C2", "example": "Corporate governance shapes executive decisions."},
-      {"source_text": "оптимизация процессов", "target_text": "process optimization", "level": "C2", "example": "Process optimization reduced costs significantly."},
-      {"source_text": "профессиональная репутация", "target_text": "professional credibility", "level": "C2", "example": "Professional credibility takes years to build."}
-    ]
-  },
-  {
-    "title": "Образование и обучение",
-    "description": "Лексика про учебу, навыки, экзамены и образовательную среду.",
-    "level": "A2",
-    "words": [
-      {"source_text": "учитель", "target_text": "teacher", "level": "A2", "example": "The teacher explained the rule again."},
-      {"source_text": "урок", "target_text": "lesson", "level": "A2", "example": "Today's lesson was very useful."},
-      {"source_text": "домашнее задание", "target_text": "homework", "level": "A2", "example": "I finished my homework late."},
-      {"source_text": "экзамен", "target_text": "exam", "level": "A2", "example": "The exam begins on Monday."},
-      {"source_text": "оценка", "target_text": "grade", "level": "A2", "example": "She got a good grade in math."},
-      {"source_text": "навык", "target_text": "skill", "level": "B1", "example": "Listening is an important skill."},
-      {"source_text": "практика", "target_text": "practice", "level": "B1", "example": "Daily practice improves fluency."},
-      {"source_text": "учебный материал", "target_text": "study material", "level": "B1", "example": "The study material is available online."},
-      {"source_text": "концентрация", "target_text": "concentration", "level": "B1", "example": "Good concentration helps with memorization."},
-      {"source_text": "самостоятельное обучение", "target_text": "self-study", "level": "B2", "example": "Self-study requires discipline."},
-      {"source_text": "пробел в знаниях", "target_text": "knowledge gap", "level": "B2", "example": "The quiz showed a major knowledge gap."},
-      {"source_text": "учебная стратегия", "target_text": "learning strategy", "level": "B2", "example": "Spacing is an effective learning strategy."},
-      {"source_text": "оценивание", "target_text": "assessment", "level": "C1", "example": "Assessment should reflect real ability."},
-      {"source_text": "учебная траектория", "target_text": "learning pathway", "level": "C1", "example": "The course offers a flexible learning pathway."},
-      {"source_text": "когнитивная нагрузка", "target_text": "cognitive load", "level": "C1", "example": "Too much cognitive load slows learning."},
-      {"source_text": "академическая добросовестность", "target_text": "academic integrity", "level": "C2", "example": "Academic integrity matters in every institution."},
-      {"source_text": "метапознание", "target_text": "metacognition", "level": "C2", "example": "Metacognition helps learners reflect on progress."},
-      {"source_text": "долговременное закрепление", "target_text": "long-term retention", "level": "C2", "example": "Retrieval practice improves long-term retention."}
-    ]
-  },
-  {
-    "title": "Здоровье и образ жизни",
-    "description": "Лексика про привычки, самочувствие, медицину и качество жизни.",
-    "level": "A2",
-    "words": [
-      {"source_text": "врач", "target_text": "doctor", "level": "A2", "example": "The doctor will see you now."},
-      {"source_text": "лекарство", "target_text": "medicine", "level": "A2", "example": "Take the medicine after lunch."},
-      {"source_text": "боль", "target_text": "pain", "level": "A2", "example": "He has pain in his back."},
-      {"source_text": "сон", "target_text": "sleep", "level": "A2", "example": "Good sleep improves memory."},
-      {"source_text": "упражнение", "target_text": "exercise", "level": "A2", "example": "Exercise helps me feel better."},
-      {"source_text": "симптом", "target_text": "symptom", "level": "B1", "example": "Fatigue can be a symptom of stress."},
-      {"source_text": "привычка", "target_text": "habit", "level": "B1", "example": "Reading before bed is a good habit."},
-      {"source_text": "восстановление", "target_text": "recovery", "level": "B1", "example": "Recovery takes time after surgery."},
-      {"source_text": "осанка", "target_text": "posture", "level": "B1", "example": "Good posture prevents neck pain."},
-      {"source_text": "психическое здоровье", "target_text": "mental health", "level": "B2", "example": "Mental health deserves more attention."},
-      {"source_text": "питательный", "target_text": "nutritious", "level": "B2", "example": "A nutritious meal keeps you full longer."},
-      {"source_text": "малоподвижный образ жизни", "target_text": "sedentary lifestyle", "level": "B2", "example": "A sedentary lifestyle increases health risks."},
-      {"source_text": "хронический", "target_text": "chronic", "level": "C1", "example": "Chronic stress affects the immune system."},
-      {"source_text": "профилактика", "target_text": "prevention", "level": "C1", "example": "Prevention is better than treatment."},
-      {"source_text": "устойчивость организма", "target_text": "resilience", "level": "C1", "example": "Sleep improves physical resilience."},
-      {"source_text": "сопутствующее заболевание", "target_text": "underlying condition", "level": "C2", "example": "The patient has an underlying condition."},
-      {"source_text": "благополучие", "target_text": "well-being", "level": "C2", "example": "Social connection improves well-being."},
-      {"source_text": "доказательная медицина", "target_text": "evidence-based medicine", "level": "C2", "example": "Evidence-based medicine relies on research."}
+      {
+        "source_text": "брат",
+        "target_text": "brother",
+        "level": "A1",
+        "example": "Her brother is younger than she is."
+      },
+      {
+        "source_text": "друг",
+        "target_text": "friend",
+        "level": "A1",
+        "example": "My friend lives next door."
+      },
+      {
+        "source_text": "мать",
+        "target_text": "mother",
+        "level": "A1",
+        "example": "My mother works from home."
+      },
+      {
+        "source_text": "отец",
+        "target_text": "father",
+        "level": "A1",
+        "example": "His father likes fishing."
+      },
+      {
+        "source_text": "сестра",
+        "target_text": "sister",
+        "level": "A1",
+        "example": "My sister studies medicine."
+      },
+      {
+        "source_text": "доверять",
+        "target_text": "to trust",
+        "level": "A2",
+        "example": "You should trust your close friends."
+      },
+      {
+        "source_text": "жена",
+        "target_text": "wife",
+        "level": "A2",
+        "example": "His wife loves classical music."
+      },
+      {
+        "source_text": "муж",
+        "target_text": "husband",
+        "level": "A2",
+        "example": "Her husband works abroad."
+      },
+      {
+        "source_text": "племянник",
+        "target_text": "nephew",
+        "level": "A2",
+        "example": "My nephew starts school this year."
+      },
+      {
+        "source_text": "племянница",
+        "target_text": "niece",
+        "level": "A2",
+        "example": "His niece is learning to read."
+      },
+      {
+        "source_text": "родители",
+        "target_text": "parents",
+        "level": "A2",
+        "example": "His parents moved to another city."
+      },
+      {
+        "source_text": "родственник",
+        "target_text": "relative",
+        "level": "A2",
+        "example": "I met many relatives at the wedding."
+      },
+      {
+        "source_text": "сосед",
+        "target_text": "neighbor",
+        "level": "A2",
+        "example": "Our neighbor plays the piano."
+      },
+      {
+        "source_text": "детство",
+        "target_text": "childhood",
+        "level": "B1",
+        "example": "They often talk about their childhood."
+      },
+      {
+        "source_text": "партнер",
+        "target_text": "partner",
+        "level": "B1",
+        "example": "She introduced her partner to the family."
+      },
+      {
+        "source_text": "поддержка",
+        "target_text": "support",
+        "level": "B1",
+        "example": "Family support helps in difficult times."
+      },
+      {
+        "source_text": "помолвка",
+        "target_text": "engagement",
+        "level": "B1",
+        "example": "Their engagement surprised everyone."
+      },
+      {
+        "source_text": "свадьба",
+        "target_text": "wedding",
+        "level": "B1",
+        "example": "The wedding will take place in June."
+      },
+      {
+        "source_text": "спор",
+        "target_text": "argument",
+        "level": "B1",
+        "example": "They had an argument about money."
+      },
+      {
+        "source_text": "воспитывать",
+        "target_text": "to raise",
+        "level": "B2",
+        "example": "They are trying to raise independent children."
+      },
+      {
+        "source_text": "домашнее хозяйство",
+        "target_text": "household",
+        "level": "B2",
+        "example": "Household duties should be shared."
+      },
+      {
+        "source_text": "компромисс",
+        "target_text": "compromise",
+        "level": "B2",
+        "example": "A good relationship needs compromise."
+      },
+      {
+        "source_text": "разногласие",
+        "target_text": "disagreement",
+        "level": "B2",
+        "example": "They had a disagreement about finances."
+      },
+      {
+        "source_text": "родительские обязанности",
+        "target_text": "parenting responsibilities",
+        "level": "B2",
+        "example": "Parenting responsibilities should be shared equally."
+      },
+      {
+        "source_text": "отчуждение",
+        "target_text": "estrangement",
+        "level": "C1",
+        "example": "Years of silence led to estrangement."
+      },
+      {
+        "source_text": "примирение",
+        "target_text": "reconciliation",
+        "level": "C1",
+        "example": "Their reconciliation took a long time."
+      },
+      {
+        "source_text": "безусловная поддержка",
+        "target_text": "unconditional support",
+        "level": "C2",
+        "example": "Children need unconditional support from adults."
+      },
+      {
+        "source_text": "эмоциональная близость",
+        "target_text": "emotional intimacy",
+        "level": "C2",
+        "example": "Emotional intimacy grows through honesty."
+      }
     ]
   },
   {
@@ -181,74 +873,868 @@
     "description": "Лексика о свободном времени, творчестве, развлечениях и отдыхе.",
     "level": "A1",
     "words": [
-      {"source_text": "музыка", "target_text": "music", "level": "A1", "example": "I listen to music every day."},
-      {"source_text": "книга", "target_text": "book", "level": "A1", "example": "This book is very easy to read."},
-      {"source_text": "спорт", "target_text": "sport", "level": "A1", "example": "Sport helps people stay active."},
-      {"source_text": "фильм", "target_text": "movie", "level": "A1", "example": "We watched a movie last night."},
-      {"source_text": "путешествовать", "target_text": "to travel", "level": "A1", "example": "They want to travel this summer."},
-      {"source_text": "рисование", "target_text": "drawing", "level": "A2", "example": "Drawing helps children express ideas."},
-      {"source_text": "фотография", "target_text": "photography", "level": "A2", "example": "Photography became her weekend hobby."},
-      {"source_text": "настольные игры", "target_text": "board games", "level": "A2", "example": "We play board games on Fridays."},
-      {"source_text": "поход", "target_text": "hike", "level": "A2", "example": "The hike was longer than we expected."},
-      {"source_text": "садоводство", "target_text": "gardening", "level": "B1", "example": "Gardening teaches patience."},
-      {"source_text": "рукоделие", "target_text": "crafting", "level": "B1", "example": "Crafting helps her relax after work."},
-      {"source_text": "кулинария", "target_text": "cooking", "level": "B1", "example": "Cooking became his creative outlet."},
-      {"source_text": "импровизация", "target_text": "improvisation", "level": "B2", "example": "Improvisation makes jazz exciting."},
-      {"source_text": "коллекционирование", "target_text": "collecting", "level": "B2", "example": "Collecting old maps is his passion."},
-      {"source_text": "сценическое выступление", "target_text": "stage performance", "level": "C1", "example": "Stage performance requires confidence."},
-      {"source_text": "творческое самовыражение", "target_text": "creative expression", "level": "C1", "example": "Dance is a form of creative expression."},
-      {"source_text": "погружение", "target_text": "immersion", "level": "C2", "example": "Language immersion can also be a hobby."},
-      {"source_text": "эстетическое восприятие", "target_text": "aesthetic appreciation", "level": "C2", "example": "Aesthetic appreciation grows with exposure to art."}
+      {
+        "source_text": "книга",
+        "target_text": "book",
+        "level": "A1",
+        "example": "This book is very easy to read."
+      },
+      {
+        "source_text": "музыка",
+        "target_text": "music",
+        "level": "A1",
+        "example": "I listen to music every day."
+      },
+      {
+        "source_text": "путешествовать",
+        "target_text": "to travel",
+        "level": "A1",
+        "example": "They want to travel this summer."
+      },
+      {
+        "source_text": "спорт",
+        "target_text": "sport",
+        "level": "A1",
+        "example": "Sport helps people stay active."
+      },
+      {
+        "source_text": "фильм",
+        "target_text": "movie",
+        "level": "A1",
+        "example": "We watched a movie last night."
+      },
+      {
+        "source_text": "гитара",
+        "target_text": "guitar",
+        "level": "A2",
+        "example": "He practices the guitar every evening."
+      },
+      {
+        "source_text": "настольные игры",
+        "target_text": "board games",
+        "level": "A2",
+        "example": "We play board games on Fridays."
+      },
+      {
+        "source_text": "подкаст",
+        "target_text": "podcast",
+        "level": "A2",
+        "example": "I listen to a history podcast on the way home."
+      },
+      {
+        "source_text": "поход",
+        "target_text": "hike",
+        "level": "A2",
+        "example": "The hike was longer than we expected."
+      },
+      {
+        "source_text": "рисование",
+        "target_text": "drawing",
+        "level": "A2",
+        "example": "Drawing helps children express ideas."
+      },
+      {
+        "source_text": "фотография",
+        "target_text": "photography",
+        "level": "A2",
+        "example": "Photography became her weekend hobby."
+      },
+      {
+        "source_text": "хобби",
+        "target_text": "hobby",
+        "level": "A2",
+        "example": "Everyone needs a relaxing hobby."
+      },
+      {
+        "source_text": "велоспорт",
+        "target_text": "cycling",
+        "level": "B1",
+        "example": "Cycling is both exercise and fun."
+      },
+      {
+        "source_text": "вязание",
+        "target_text": "knitting",
+        "level": "B1",
+        "example": "Knitting helps her unwind after work."
+      },
+      {
+        "source_text": "кулинария",
+        "target_text": "cooking",
+        "level": "B1",
+        "example": "Cooking became his creative outlet."
+      },
+      {
+        "source_text": "рукоделие",
+        "target_text": "crafting",
+        "level": "B1",
+        "example": "Crafting helps her relax after work."
+      },
+      {
+        "source_text": "садоводство",
+        "target_text": "gardening",
+        "level": "B1",
+        "example": "Gardening teaches patience."
+      },
+      {
+        "source_text": "эскиз",
+        "target_text": "sketching",
+        "level": "B1",
+        "example": "Sketching improves visual observation."
+      },
+      {
+        "source_text": "выставка",
+        "target_text": "exhibition",
+        "level": "B2",
+        "example": "The exhibition attracted many young artists."
+      },
+      {
+        "source_text": "импровизация",
+        "target_text": "improvisation",
+        "level": "B2",
+        "example": "Improvisation makes jazz exciting."
+      },
+      {
+        "source_text": "кинофестиваль",
+        "target_text": "film festival",
+        "level": "B2",
+        "example": "We volunteered at a local film festival."
+      },
+      {
+        "source_text": "коллекционирование",
+        "target_text": "collecting",
+        "level": "B2",
+        "example": "Collecting old maps is his passion."
+      },
+      {
+        "source_text": "коллекционное издание",
+        "target_text": "collector's edition",
+        "level": "B2",
+        "example": "He bought a collector's edition of the game."
+      },
+      {
+        "source_text": "сценарий",
+        "target_text": "screenplay",
+        "level": "B2",
+        "example": "She is writing her first screenplay."
+      },
+      {
+        "source_text": "сценическое выступление",
+        "target_text": "stage performance",
+        "level": "C1",
+        "example": "Stage performance requires confidence."
+      },
+      {
+        "source_text": "творческое самовыражение",
+        "target_text": "creative expression",
+        "level": "C1",
+        "example": "Dance is a form of creative expression."
+      },
+      {
+        "source_text": "погружение",
+        "target_text": "immersion",
+        "level": "C2",
+        "example": "Language immersion can also be a hobby."
+      },
+      {
+        "source_text": "эстетическое восприятие",
+        "target_text": "aesthetic appreciation",
+        "level": "C2",
+        "example": "Aesthetic appreciation grows with exposure to art."
+      }
     ]
   },
   {
-    "title": "Технологии и медиа",
-    "description": "Лексика о цифровой среде, информации, платформах и онлайн-коммуникации.",
-    "level": "B1",
+    "title": "Здоровье и образ жизни",
+    "description": "Лексика про привычки, самочувствие, медицину и качество жизни.",
+    "level": "A2",
     "words": [
-      {"source_text": "приложение", "target_text": "application", "level": "B1", "example": "The application needs another update."},
-      {"source_text": "устройство", "target_text": "device", "level": "B1", "example": "This device works without a cable."},
-      {"source_text": "сайт", "target_text": "website", "level": "B1", "example": "Their website loads very slowly."},
-      {"source_text": "пароль", "target_text": "password", "level": "B1", "example": "Never share your password online."},
-      {"source_text": "подписка", "target_text": "subscription", "level": "B1", "example": "My subscription renews automatically."},
-      {"source_text": "конфиденциальность", "target_text": "privacy", "level": "B2", "example": "Privacy settings protect user data."},
-      {"source_text": "алгоритм", "target_text": "algorithm", "level": "B2", "example": "The algorithm recommends similar videos."},
-      {"source_text": "потоковое вещание", "target_text": "streaming", "level": "B2", "example": "Streaming changed how we watch films."},
-      {"source_text": "цифровой след", "target_text": "digital footprint", "level": "B2", "example": "Your digital footprint can last for years."},
-      {"source_text": "дезинформация", "target_text": "misinformation", "level": "C1", "example": "Misinformation spreads faster than corrections."},
-      {"source_text": "модерация контента", "target_text": "content moderation", "level": "C1", "example": "Content moderation remains controversial."},
-      {"source_text": "вовлеченность аудитории", "target_text": "audience engagement", "level": "C1", "example": "The campaign increased audience engagement."},
-      {"source_text": "искусственный интеллект", "target_text": "artificial intelligence", "level": "C1", "example": "Artificial intelligence is used in translation tools."},
-      {"source_text": "предвзятость алгоритма", "target_text": "algorithmic bias", "level": "C2", "example": "Algorithmic bias can reinforce inequality."},
-      {"source_text": "цифровая грамотность", "target_text": "digital literacy", "level": "C2", "example": "Digital literacy is a basic modern skill."},
-      {"source_text": "экосистема платформ", "target_text": "platform ecosystem", "level": "C2", "example": "A platform ecosystem can lock users in."},
-      {"source_text": "проверка фактов", "target_text": "fact-checking", "level": "C2", "example": "Fact-checking is crucial during elections."},
-      {"source_text": "монетизация", "target_text": "monetization", "level": "C2", "example": "Monetization affects editorial choices."}
+      {
+        "source_text": "боль",
+        "target_text": "pain",
+        "level": "A2",
+        "example": "He has pain in his back."
+      },
+      {
+        "source_text": "врач",
+        "target_text": "doctor",
+        "level": "A2",
+        "example": "The doctor will see you now."
+      },
+      {
+        "source_text": "головная боль",
+        "target_text": "headache",
+        "level": "A2",
+        "example": "She stayed home because of a headache."
+      },
+      {
+        "source_text": "лекарство",
+        "target_text": "medicine",
+        "level": "A2",
+        "example": "Take the medicine after lunch."
+      },
+      {
+        "source_text": "прием у врача",
+        "target_text": "appointment",
+        "level": "A2",
+        "example": "I have a doctor appointment tomorrow."
+      },
+      {
+        "source_text": "сон",
+        "target_text": "sleep",
+        "level": "A2",
+        "example": "Good sleep improves memory."
+      },
+      {
+        "source_text": "температура",
+        "target_text": "fever",
+        "level": "A2",
+        "example": "A high fever can be dangerous."
+      },
+      {
+        "source_text": "упражнение",
+        "target_text": "exercise",
+        "level": "A2",
+        "example": "Exercise helps me feel better."
+      },
+      {
+        "source_text": "восстановление",
+        "target_text": "recovery",
+        "level": "B1",
+        "example": "Recovery takes time after surgery."
+      },
+      {
+        "source_text": "лечение",
+        "target_text": "treatment",
+        "level": "B1",
+        "example": "The treatment lasted two weeks."
+      },
+      {
+        "source_text": "осанка",
+        "target_text": "posture",
+        "level": "B1",
+        "example": "Good posture prevents neck pain."
+      },
+      {
+        "source_text": "питание",
+        "target_text": "nutrition",
+        "level": "B1",
+        "example": "Nutrition affects concentration and mood."
+      },
+      {
+        "source_text": "привычка",
+        "target_text": "habit",
+        "level": "B1",
+        "example": "Reading before bed is a good habit."
+      },
+      {
+        "source_text": "симптом",
+        "target_text": "symptom",
+        "level": "B1",
+        "example": "Fatigue can be a symptom of stress."
+      },
+      {
+        "source_text": "травма",
+        "target_text": "injury",
+        "level": "B1",
+        "example": "He is recovering from a sports injury."
+      },
+      {
+        "source_text": "диагноз",
+        "target_text": "diagnosis",
+        "level": "B2",
+        "example": "The diagnosis explained the symptoms."
+      },
+      {
+        "source_text": "иммунная система",
+        "target_text": "immune system",
+        "level": "B2",
+        "example": "Sleep strengthens the immune system."
+      },
+      {
+        "source_text": "малоподвижный образ жизни",
+        "target_text": "sedentary lifestyle",
+        "level": "B2",
+        "example": "A sedentary lifestyle increases health risks."
+      },
+      {
+        "source_text": "обезвоживание",
+        "target_text": "dehydration",
+        "level": "B2",
+        "example": "Dehydration can cause headaches."
+      },
+      {
+        "source_text": "питательный",
+        "target_text": "nutritious",
+        "level": "B2",
+        "example": "A nutritious meal keeps you full longer."
+      },
+      {
+        "source_text": "психическое здоровье",
+        "target_text": "mental health",
+        "level": "B2",
+        "example": "Mental health deserves more attention."
+      },
+      {
+        "source_text": "сбалансированное питание",
+        "target_text": "balanced diet",
+        "level": "B2",
+        "example": "A balanced diet supports long-term health."
+      },
+      {
+        "source_text": "усталость",
+        "target_text": "fatigue",
+        "level": "B2",
+        "example": "Fatigue can be a sign of burnout."
+      },
+      {
+        "source_text": "профилактика",
+        "target_text": "prevention",
+        "level": "C1",
+        "example": "Prevention is better than treatment."
+      },
+      {
+        "source_text": "устойчивость организма",
+        "target_text": "resilience",
+        "level": "C1",
+        "example": "Sleep improves physical resilience."
+      },
+      {
+        "source_text": "хронический",
+        "target_text": "chronic",
+        "level": "C1",
+        "example": "Chronic stress affects the immune system."
+      },
+      {
+        "source_text": "благополучие",
+        "target_text": "well-being",
+        "level": "C2",
+        "example": "Social connection improves well-being."
+      },
+      {
+        "source_text": "доказательная медицина",
+        "target_text": "evidence-based medicine",
+        "level": "C2",
+        "example": "Evidence-based medicine relies on research."
+      },
+      {
+        "source_text": "сопутствующее заболевание",
+        "target_text": "underlying condition",
+        "level": "C2",
+        "example": "The patient has an underlying condition."
+      }
     ]
   },
   {
-    "title": "Культура и общество",
-    "description": "Лексика для обсуждения традиций, ценностей, искусства и общественных процессов.",
-    "level": "B2",
+    "title": "Образование и обучение",
+    "description": "Лексика про учебу, навыки, экзамены и образовательную среду.",
+    "level": "A2",
     "words": [
-      {"source_text": "традиция", "target_text": "tradition", "level": "B2", "example": "Some traditions change over time."},
-      {"source_text": "праздник", "target_text": "celebration", "level": "B2", "example": "The celebration lasted all weekend."},
-      {"source_text": "выставка", "target_text": "exhibition", "level": "B2", "example": "The exhibition opens next month."},
-      {"source_text": "аудитория", "target_text": "audience", "level": "B2", "example": "The audience reacted warmly."},
-      {"source_text": "общественное мнение", "target_text": "public opinion", "level": "B2", "example": "Public opinion changed after the debate."},
-      {"source_text": "наследие", "target_text": "heritage", "level": "C1", "example": "The city protects its industrial heritage."},
-      {"source_text": "идентичность", "target_text": "identity", "level": "C1", "example": "Language shapes cultural identity."},
-      {"source_text": "разнообразие", "target_text": "diversity", "level": "C1", "example": "Diversity strengthens communities."},
-      {"source_text": "неравенство", "target_text": "inequality", "level": "C1", "example": "The article focuses on social inequality."},
-      {"source_text": "символизм", "target_text": "symbolism", "level": "C1", "example": "The painting is full of symbolism."},
-      {"source_text": "коллективная память", "target_text": "collective memory", "level": "C2", "example": "Wars shape collective memory for generations."},
-      {"source_text": "культурное присвоение", "target_text": "cultural appropriation", "level": "C2", "example": "The debate centered on cultural appropriation."},
-      {"source_text": "общественный дискурс", "target_text": "public discourse", "level": "C2", "example": "Public discourse influences policy."},
-      {"source_text": "репрезентация", "target_text": "representation", "level": "C2", "example": "Representation matters in film and media."},
-      {"source_text": "социальная сплоченность", "target_text": "social cohesion", "level": "C2", "example": "Education can improve social cohesion."},
-      {"source_text": "ценностная система", "target_text": "value system", "level": "C2", "example": "A value system develops over time."},
-      {"source_text": "культурная чувствительность", "target_text": "cultural sensitivity", "level": "C2", "example": "Teachers need cultural sensitivity in diverse groups."},
-      {"source_text": "гражданская вовлеченность", "target_text": "civic engagement", "level": "C2", "example": "Civic engagement strengthens democracy."}
+      {
+        "source_text": "домашнее задание",
+        "target_text": "homework",
+        "level": "A2",
+        "example": "I finished my homework late."
+      },
+      {
+        "source_text": "класс",
+        "target_text": "classroom",
+        "level": "A2",
+        "example": "The classroom is on the second floor."
+      },
+      {
+        "source_text": "оценка",
+        "target_text": "grade",
+        "level": "A2",
+        "example": "She got a good grade in math."
+      },
+      {
+        "source_text": "тетрадь",
+        "target_text": "notebook",
+        "level": "A2",
+        "example": "Write the new words in your notebook."
+      },
+      {
+        "source_text": "урок",
+        "target_text": "lesson",
+        "level": "A2",
+        "example": "Today's lesson was very useful."
+      },
+      {
+        "source_text": "учебник",
+        "target_text": "textbook",
+        "level": "A2",
+        "example": "The textbook includes audio exercises."
+      },
+      {
+        "source_text": "учитель",
+        "target_text": "teacher",
+        "level": "A2",
+        "example": "The teacher explained the rule again."
+      },
+      {
+        "source_text": "экзамен",
+        "target_text": "exam",
+        "level": "A2",
+        "example": "The exam begins on Monday."
+      },
+      {
+        "source_text": "задание",
+        "target_text": "assignment",
+        "level": "B1",
+        "example": "The assignment is due next week."
+      },
+      {
+        "source_text": "концентрация",
+        "target_text": "concentration",
+        "level": "B1",
+        "example": "Good concentration helps with memorization."
+      },
+      {
+        "source_text": "лекция",
+        "target_text": "lecture",
+        "level": "B1",
+        "example": "The lecture covered memory techniques."
+      },
+      {
+        "source_text": "навык",
+        "target_text": "skill",
+        "level": "B1",
+        "example": "Listening is an important skill."
+      },
+      {
+        "source_text": "повторение",
+        "target_text": "revision",
+        "level": "B1",
+        "example": "Revision helps before an exam."
+      },
+      {
+        "source_text": "практика",
+        "target_text": "practice",
+        "level": "B1",
+        "example": "Daily practice improves fluency."
+      },
+      {
+        "source_text": "учебный материал",
+        "target_text": "study material",
+        "level": "B1",
+        "example": "The study material is available online."
+      },
+      {
+        "source_text": "конспект",
+        "target_text": "study notes",
+        "level": "B2",
+        "example": "My study notes are color-coded by topic."
+      },
+      {
+        "source_text": "мастер-класс",
+        "target_text": "workshop",
+        "level": "B2",
+        "example": "The workshop focused on pronunciation."
+      },
+      {
+        "source_text": "плата за обучение",
+        "target_text": "tuition fee",
+        "level": "B2",
+        "example": "Tuition fees are rising every year."
+      },
+      {
+        "source_text": "пробел в знаниях",
+        "target_text": "knowledge gap",
+        "level": "B2",
+        "example": "The quiz showed a major knowledge gap."
+      },
+      {
+        "source_text": "самостоятельное обучение",
+        "target_text": "self-study",
+        "level": "B2",
+        "example": "Self-study requires discipline."
+      },
+      {
+        "source_text": "стипендия",
+        "target_text": "scholarship",
+        "level": "B2",
+        "example": "She received a scholarship for graduate study."
+      },
+      {
+        "source_text": "учебная стратегия",
+        "target_text": "learning strategy",
+        "level": "B2",
+        "example": "Spacing is an effective learning strategy."
+      },
+      {
+        "source_text": "учебный план",
+        "target_text": "syllabus",
+        "level": "B2",
+        "example": "The syllabus outlines every module."
+      },
+      {
+        "source_text": "когнитивная нагрузка",
+        "target_text": "cognitive load",
+        "level": "C1",
+        "example": "Too much cognitive load slows learning."
+      },
+      {
+        "source_text": "оценивание",
+        "target_text": "assessment",
+        "level": "C1",
+        "example": "Assessment should reflect real ability."
+      },
+      {
+        "source_text": "учебная траектория",
+        "target_text": "learning pathway",
+        "level": "C1",
+        "example": "The course offers a flexible learning pathway."
+      },
+      {
+        "source_text": "академическая добросовестность",
+        "target_text": "academic integrity",
+        "level": "C2",
+        "example": "Academic integrity matters in every institution."
+      },
+      {
+        "source_text": "долговременное закрепление",
+        "target_text": "long-term retention",
+        "level": "C2",
+        "example": "Retrieval practice improves long-term retention."
+      },
+      {
+        "source_text": "метапознание",
+        "target_text": "metacognition",
+        "level": "C2",
+        "example": "Metacognition helps learners reflect on progress."
+      }
+    ]
+  },
+  {
+    "title": "Покупки и деньги",
+    "description": "Лексика о покупках, ценах, оплате, бюджете и финансовых привычках.",
+    "level": "A2",
+    "words": [
+      {
+        "source_text": "кассир",
+        "target_text": "cashier",
+        "level": "A2",
+        "example": "The cashier asked if I needed a bag."
+      },
+      {
+        "source_text": "магазин",
+        "target_text": "shop",
+        "level": "A2",
+        "example": "The shop closes at eight."
+      },
+      {
+        "source_text": "покупать",
+        "target_text": "to buy",
+        "level": "A2",
+        "example": "I need to buy a new charger."
+      },
+      {
+        "source_text": "продавать",
+        "target_text": "to sell",
+        "level": "A2",
+        "example": "They sell fresh fruit here."
+      },
+      {
+        "source_text": "скидка",
+        "target_text": "discount",
+        "level": "A2",
+        "example": "We got a discount on the second item."
+      },
+      {
+        "source_text": "цена",
+        "target_text": "price",
+        "level": "A2",
+        "example": "The price is too high for me."
+      },
+      {
+        "source_text": "чек",
+        "target_text": "receipt",
+        "level": "A2",
+        "example": "Keep the receipt in case you return it."
+      },
+      {
+        "source_text": "банковская карта",
+        "target_text": "bank card",
+        "level": "B1",
+        "example": "My bank card stopped working abroad."
+      },
+      {
+        "source_text": "бюджет",
+        "target_text": "budget",
+        "level": "B1",
+        "example": "We set a budget for the trip."
+      },
+      {
+        "source_text": "кошелек",
+        "target_text": "wallet",
+        "level": "B1",
+        "example": "I left my wallet at home."
+      },
+      {
+        "source_text": "наличные",
+        "target_text": "cash",
+        "level": "B1",
+        "example": "Do you prefer cash or card?"
+      },
+      {
+        "source_text": "примерочная",
+        "target_text": "fitting room",
+        "level": "B1",
+        "example": "The fitting room is at the back of the store."
+      },
+      {
+        "source_text": "сдача",
+        "target_text": "change",
+        "level": "B1",
+        "example": "The cashier gave me the wrong change."
+      },
+      {
+        "source_text": "экономить",
+        "target_text": "to save money",
+        "level": "B1",
+        "example": "She is trying to save money for a laptop."
+      },
+      {
+        "source_text": "возврат товара",
+        "target_text": "refund",
+        "level": "B2",
+        "example": "The store offered a full refund."
+      },
+      {
+        "source_text": "выгодная сделка",
+        "target_text": "bargain",
+        "level": "B2",
+        "example": "That coat was a real bargain."
+      },
+      {
+        "source_text": "гарантия",
+        "target_text": "warranty",
+        "level": "B2",
+        "example": "The laptop comes with a two-year warranty."
+      },
+      {
+        "source_text": "импульсивная покупка",
+        "target_text": "impulse purchase",
+        "level": "B2",
+        "example": "That jacket was an impulse purchase."
+      },
+      {
+        "source_text": "переплачивать",
+        "target_text": "to overpay",
+        "level": "B2",
+        "example": "You may overpay if you do not compare prices."
+      },
+      {
+        "source_text": "рассрочка",
+        "target_text": "installment plan",
+        "level": "B2",
+        "example": "He bought the phone on an installment plan."
+      },
+      {
+        "source_text": "покупательная способность",
+        "target_text": "purchasing power",
+        "level": "C1",
+        "example": "Inflation reduces purchasing power."
+      },
+      {
+        "source_text": "финансовая подушка",
+        "target_text": "emergency fund",
+        "level": "C1",
+        "example": "An emergency fund makes people feel safer."
+      },
+      {
+        "source_text": "амортизация",
+        "target_text": "depreciation",
+        "level": "C2",
+        "example": "Depreciation affects the resale value of a car."
+      },
+      {
+        "source_text": "потребительское поведение",
+        "target_text": "consumer behavior",
+        "level": "C2",
+        "example": "Consumer behavior changes during economic crises."
+      }
+    ]
+  },
+  {
+    "title": "Работа и карьера",
+    "description": "Лексика для работы, профессий, деловой переписки и карьерного роста.",
+    "level": "A2",
+    "words": [
+      {
+        "source_text": "встреча",
+        "target_text": "meeting",
+        "level": "A2",
+        "example": "The meeting starts at nine."
+      },
+      {
+        "source_text": "дедлайн",
+        "target_text": "deadline",
+        "level": "A2",
+        "example": "The deadline is next Friday."
+      },
+      {
+        "source_text": "должность",
+        "target_text": "position",
+        "level": "A2",
+        "example": "She applied for a new position."
+      },
+      {
+        "source_text": "задача",
+        "target_text": "task",
+        "level": "A2",
+        "example": "I finished the main task before lunch."
+      },
+      {
+        "source_text": "команда",
+        "target_text": "team",
+        "level": "A2",
+        "example": "Our team works well together."
+      },
+      {
+        "source_text": "менеджер",
+        "target_text": "manager",
+        "level": "A2",
+        "example": "The manager approved the request."
+      },
+      {
+        "source_text": "проект",
+        "target_text": "project",
+        "level": "A2",
+        "example": "The project is almost ready."
+      },
+      {
+        "source_text": "сотрудник",
+        "target_text": "employee",
+        "level": "A2",
+        "example": "Every employee has a badge."
+      },
+      {
+        "source_text": "вакансия",
+        "target_text": "vacancy",
+        "level": "B1",
+        "example": "There is a vacancy in the sales department."
+      },
+      {
+        "source_text": "зарплата",
+        "target_text": "salary",
+        "level": "B1",
+        "example": "They discussed salary expectations."
+      },
+      {
+        "source_text": "обязанность",
+        "target_text": "responsibility",
+        "level": "B1",
+        "example": "Time management is a key responsibility."
+      },
+      {
+        "source_text": "повышение",
+        "target_text": "promotion",
+        "level": "B1",
+        "example": "He got a promotion this spring."
+      },
+      {
+        "source_text": "резюме",
+        "target_text": "resume",
+        "level": "B1",
+        "example": "Please attach your resume to the email."
+      },
+      {
+        "source_text": "смена",
+        "target_text": "shift",
+        "level": "B1",
+        "example": "He works the evening shift."
+      },
+      {
+        "source_text": "собеседование",
+        "target_text": "interview",
+        "level": "B1",
+        "example": "She prepared well for the interview."
+      },
+      {
+        "source_text": "бюджет",
+        "target_text": "budget",
+        "level": "B2",
+        "example": "The project went over budget."
+      },
+      {
+        "source_text": "обратная связь",
+        "target_text": "feedback",
+        "level": "B2",
+        "example": "Constructive feedback improves performance."
+      },
+      {
+        "source_text": "оценка эффективности",
+        "target_text": "performance review",
+        "level": "B2",
+        "example": "Her performance review was very positive."
+      },
+      {
+        "source_text": "переговоры",
+        "target_text": "negotiation",
+        "level": "B2",
+        "example": "The negotiation lasted for hours."
+      },
+      {
+        "source_text": "производительность",
+        "target_text": "productivity",
+        "level": "B2",
+        "example": "Noise affects my productivity."
+      },
+      {
+        "source_text": "рабочая нагрузка",
+        "target_text": "workload",
+        "level": "B2",
+        "example": "My workload increased this month."
+      },
+      {
+        "source_text": "сверхурочная работа",
+        "target_text": "overtime",
+        "level": "B2",
+        "example": "They had to work overtime before the launch."
+      },
+      {
+        "source_text": "трудоустраивать",
+        "target_text": "to hire",
+        "level": "B2",
+        "example": "The company plans to hire three developers."
+      },
+      {
+        "source_text": "делегирование",
+        "target_text": "delegation",
+        "level": "C1",
+        "example": "Delegation helps managers avoid burnout."
+      },
+      {
+        "source_text": "заинтересованная сторона",
+        "target_text": "stakeholder",
+        "level": "C1",
+        "example": "Every stakeholder must be informed."
+      },
+      {
+        "source_text": "стратегия",
+        "target_text": "strategy",
+        "level": "C1",
+        "example": "The team presented a long-term strategy."
+      },
+      {
+        "source_text": "корпоративное управление",
+        "target_text": "corporate governance",
+        "level": "C2",
+        "example": "Corporate governance shapes executive decisions."
+      },
+      {
+        "source_text": "оптимизация процессов",
+        "target_text": "process optimization",
+        "level": "C2",
+        "example": "Process optimization reduced costs significantly."
+      },
+      {
+        "source_text": "профессиональная репутация",
+        "target_text": "professional credibility",
+        "level": "C2",
+        "example": "Professional credibility takes years to build."
+      }
     ]
   },
   {
@@ -256,24 +1742,590 @@
     "description": "Лексика про природу, окружающую среду, климат и устойчивое развитие.",
     "level": "B1",
     "words": [
-      {"source_text": "лес", "target_text": "forest", "level": "B1", "example": "The forest is protected by law."},
-      {"source_text": "река", "target_text": "river", "level": "B1", "example": "The river is very clean here."},
-      {"source_text": "животное", "target_text": "animal", "level": "B1", "example": "The zoo protects injured animals."},
-      {"source_text": "погода", "target_text": "weather", "level": "B1", "example": "The weather changes quickly in spring."},
-      {"source_text": "загрязнение", "target_text": "pollution", "level": "B1", "example": "Pollution damages marine life."},
-      {"source_text": "переработка", "target_text": "recycling", "level": "B2", "example": "Recycling reduces waste."},
-      {"source_text": "выбросы", "target_text": "emissions", "level": "B2", "example": "The new law limits factory emissions."},
-      {"source_text": "засуха", "target_text": "drought", "level": "B2", "example": "The drought destroyed local crops."},
-      {"source_text": "возобновляемый", "target_text": "renewable", "level": "B2", "example": "Solar power is a renewable source of energy."},
-      {"source_text": "биоразнообразие", "target_text": "biodiversity", "level": "C1", "example": "Biodiversity declines when habitats disappear."},
-      {"source_text": "экосистема", "target_text": "ecosystem", "level": "C1", "example": "The lake ecosystem is very fragile."},
-      {"source_text": "устойчивое развитие", "target_text": "sustainable development", "level": "C1", "example": "Sustainable development balances growth and protection."},
-      {"source_text": "углеродный след", "target_text": "carbon footprint", "level": "C1", "example": "Flying increases your carbon footprint."},
-      {"source_text": "смягчение последствий", "target_text": "mitigation", "level": "C2", "example": "Climate mitigation requires long-term planning."},
-      {"source_text": "деградация почвы", "target_text": "soil degradation", "level": "C2", "example": "Soil degradation threatens food production."},
-      {"source_text": "экологическая устойчивость", "target_text": "environmental resilience", "level": "C2", "example": "Wetlands improve environmental resilience."},
-      {"source_text": "адаптация к климату", "target_text": "climate adaptation", "level": "C2", "example": "Cities need climate adaptation strategies."},
-      {"source_text": "истощение ресурсов", "target_text": "resource depletion", "level": "C2", "example": "Resource depletion affects future generations."}
+      {
+        "source_text": "гора",
+        "target_text": "mountain",
+        "level": "B1",
+        "example": "The mountain is visible from the village."
+      },
+      {
+        "source_text": "животное",
+        "target_text": "animal",
+        "level": "B1",
+        "example": "The zoo protects injured animals."
+      },
+      {
+        "source_text": "загрязнение",
+        "target_text": "pollution",
+        "level": "B1",
+        "example": "Pollution damages marine life."
+      },
+      {
+        "source_text": "климат",
+        "target_text": "climate",
+        "level": "B1",
+        "example": "The climate is getting warmer each decade."
+      },
+      {
+        "source_text": "лес",
+        "target_text": "forest",
+        "level": "B1",
+        "example": "The forest is protected by law."
+      },
+      {
+        "source_text": "пляж",
+        "target_text": "beach",
+        "level": "B1",
+        "example": "The beach was empty in the early morning."
+      },
+      {
+        "source_text": "погода",
+        "target_text": "weather",
+        "level": "B1",
+        "example": "The weather changes quickly in spring."
+      },
+      {
+        "source_text": "река",
+        "target_text": "river",
+        "level": "B1",
+        "example": "The river is very clean here."
+      },
+      {
+        "source_text": "сезон",
+        "target_text": "season",
+        "level": "B1",
+        "example": "Spring is my favorite season."
+      },
+      {
+        "source_text": "шторм",
+        "target_text": "storm",
+        "level": "B1",
+        "example": "The storm damaged several trees."
+      },
+      {
+        "source_text": "возобновляемый",
+        "target_text": "renewable",
+        "level": "B2",
+        "example": "Solar power is a renewable source of energy."
+      },
+      {
+        "source_text": "выбросы",
+        "target_text": "emissions",
+        "level": "B2",
+        "example": "The new law limits factory emissions."
+      },
+      {
+        "source_text": "заповедник",
+        "target_text": "nature reserve",
+        "level": "B2",
+        "example": "The birds are protected in a nature reserve."
+      },
+      {
+        "source_text": "засуха",
+        "target_text": "drought",
+        "level": "B2",
+        "example": "The drought destroyed local crops."
+      },
+      {
+        "source_text": "исчезающий вид",
+        "target_text": "endangered species",
+        "level": "B2",
+        "example": "The panda is an endangered species."
+      },
+      {
+        "source_text": "наводнение",
+        "target_text": "flood",
+        "level": "B2",
+        "example": "The flood forced people to evacuate."
+      },
+      {
+        "source_text": "осадки",
+        "target_text": "rainfall",
+        "level": "B2",
+        "example": "Rainfall has decreased in this region."
+      },
+      {
+        "source_text": "переработка",
+        "target_text": "recycling",
+        "level": "B2",
+        "example": "Recycling reduces waste."
+      },
+      {
+        "source_text": "среда обитания",
+        "target_text": "habitat",
+        "level": "B2",
+        "example": "Pollution destroys the habitat of many species."
+      },
+      {
+        "source_text": "температура",
+        "target_text": "temperature",
+        "level": "B2",
+        "example": "Average temperature keeps rising."
+      },
+      {
+        "source_text": "биоразнообразие",
+        "target_text": "biodiversity",
+        "level": "C1",
+        "example": "Biodiversity declines when habitats disappear."
+      },
+      {
+        "source_text": "углеродный след",
+        "target_text": "carbon footprint",
+        "level": "C1",
+        "example": "Flying increases your carbon footprint."
+      },
+      {
+        "source_text": "устойчивое развитие",
+        "target_text": "sustainable development",
+        "level": "C1",
+        "example": "Sustainable development balances growth and protection."
+      },
+      {
+        "source_text": "экосистема",
+        "target_text": "ecosystem",
+        "level": "C1",
+        "example": "The lake ecosystem is very fragile."
+      },
+      {
+        "source_text": "адаптация к климату",
+        "target_text": "climate adaptation",
+        "level": "C2",
+        "example": "Cities need climate adaptation strategies."
+      },
+      {
+        "source_text": "деградация почвы",
+        "target_text": "soil degradation",
+        "level": "C2",
+        "example": "Soil degradation threatens food production."
+      },
+      {
+        "source_text": "истощение ресурсов",
+        "target_text": "resource depletion",
+        "level": "C2",
+        "example": "Resource depletion affects future generations."
+      },
+      {
+        "source_text": "смягчение последствий",
+        "target_text": "mitigation",
+        "level": "C2",
+        "example": "Climate mitigation requires long-term planning."
+      },
+      {
+        "source_text": "экологическая устойчивость",
+        "target_text": "environmental resilience",
+        "level": "C2",
+        "example": "Wetlands improve environmental resilience."
+      }
+    ]
+  },
+  {
+    "title": "Технологии и медиа",
+    "description": "Лексика о цифровой среде, информации, платформах и онлайн-коммуникации.",
+    "level": "B1",
+    "words": [
+      {
+        "source_text": "загрузить",
+        "target_text": "download",
+        "level": "B1",
+        "example": "You can download the report as a PDF."
+      },
+      {
+        "source_text": "загрузить в сеть",
+        "target_text": "upload",
+        "level": "B1",
+        "example": "Please upload your homework to the platform."
+      },
+      {
+        "source_text": "интернет",
+        "target_text": "internet",
+        "level": "B1",
+        "example": "The internet connection is unstable today."
+      },
+      {
+        "source_text": "клавиатура",
+        "target_text": "keyboard",
+        "level": "B1",
+        "example": "This keyboard is comfortable to type on."
+      },
+      {
+        "source_text": "пароль",
+        "target_text": "password",
+        "level": "B1",
+        "example": "Never share your password online."
+      },
+      {
+        "source_text": "подписка",
+        "target_text": "subscription",
+        "level": "B1",
+        "example": "My subscription renews automatically."
+      },
+      {
+        "source_text": "приложение",
+        "target_text": "application",
+        "level": "B1",
+        "example": "The application needs another update."
+      },
+      {
+        "source_text": "сайт",
+        "target_text": "website",
+        "level": "B1",
+        "example": "Their website loads very slowly."
+      },
+      {
+        "source_text": "устройство",
+        "target_text": "device",
+        "level": "B1",
+        "example": "This device works without a cable."
+      },
+      {
+        "source_text": "файл",
+        "target_text": "file",
+        "level": "B1",
+        "example": "Save the file before closing the tab."
+      },
+      {
+        "source_text": "экран",
+        "target_text": "screen",
+        "level": "B1",
+        "example": "The screen is too bright at night."
+      },
+      {
+        "source_text": "электронная почта",
+        "target_text": "email",
+        "level": "B1",
+        "example": "I sent the file by email."
+      },
+      {
+        "source_text": "алгоритм",
+        "target_text": "algorithm",
+        "level": "B2",
+        "example": "The algorithm recommends similar videos."
+      },
+      {
+        "source_text": "аппаратное обеспечение",
+        "target_text": "hardware",
+        "level": "B2",
+        "example": "Hardware problems are harder to diagnose remotely."
+      },
+      {
+        "source_text": "браузер",
+        "target_text": "browser",
+        "level": "B2",
+        "example": "My browser keeps opening the wrong page."
+      },
+      {
+        "source_text": "конфиденциальность",
+        "target_text": "privacy",
+        "level": "B2",
+        "example": "Privacy settings protect user data."
+      },
+      {
+        "source_text": "облачное хранилище",
+        "target_text": "cloud storage",
+        "level": "B2",
+        "example": "Cloud storage makes collaboration easier."
+      },
+      {
+        "source_text": "ошибка в программе",
+        "target_text": "bug",
+        "level": "B2",
+        "example": "The update introduced a serious bug."
+      },
+      {
+        "source_text": "поисковая система",
+        "target_text": "search engine",
+        "level": "B2",
+        "example": "A search engine can help verify information."
+      },
+      {
+        "source_text": "потоковое вещание",
+        "target_text": "streaming",
+        "level": "B2",
+        "example": "Streaming changed how we watch films."
+      },
+      {
+        "source_text": "программное обеспечение",
+        "target_text": "software",
+        "level": "B2",
+        "example": "The software needs a security patch."
+      },
+      {
+        "source_text": "уведомление",
+        "target_text": "notification",
+        "level": "B2",
+        "example": "Turn off notifications during class."
+      },
+      {
+        "source_text": "цифровой след",
+        "target_text": "digital footprint",
+        "level": "B2",
+        "example": "Your digital footprint can last for years."
+      },
+      {
+        "source_text": "вовлеченность аудитории",
+        "target_text": "audience engagement",
+        "level": "C1",
+        "example": "The campaign increased audience engagement."
+      },
+      {
+        "source_text": "дезинформация",
+        "target_text": "misinformation",
+        "level": "C1",
+        "example": "Misinformation spreads faster than corrections."
+      },
+      {
+        "source_text": "искусственный интеллект",
+        "target_text": "artificial intelligence",
+        "level": "C1",
+        "example": "Artificial intelligence is used in translation tools."
+      },
+      {
+        "source_text": "модерация контента",
+        "target_text": "content moderation",
+        "level": "C1",
+        "example": "Content moderation remains controversial."
+      },
+      {
+        "source_text": "монетизация",
+        "target_text": "monetization",
+        "level": "C2",
+        "example": "Monetization affects editorial choices."
+      },
+      {
+        "source_text": "предвзятость алгоритма",
+        "target_text": "algorithmic bias",
+        "level": "C2",
+        "example": "Algorithmic bias can reinforce inequality."
+      },
+      {
+        "source_text": "проверка фактов",
+        "target_text": "fact-checking",
+        "level": "C2",
+        "example": "Fact-checking is crucial during elections."
+      },
+      {
+        "source_text": "цифровая грамотность",
+        "target_text": "digital literacy",
+        "level": "C2",
+        "example": "Digital literacy is a basic modern skill."
+      },
+      {
+        "source_text": "экосистема платформ",
+        "target_text": "platform ecosystem",
+        "level": "C2",
+        "example": "A platform ecosystem can lock users in."
+      }
+    ]
+  },
+  {
+    "title": "Культура и общество",
+    "description": "Лексика для обсуждения традиций, ценностей, искусства и общественных процессов.",
+    "level": "B2",
+    "words": [
+      {
+        "source_text": "архив",
+        "target_text": "archive",
+        "level": "B2",
+        "example": "The archive contains rare photographs."
+      },
+      {
+        "source_text": "аудитория",
+        "target_text": "audience",
+        "level": "B2",
+        "example": "The audience reacted warmly."
+      },
+      {
+        "source_text": "выставка",
+        "target_text": "exhibition",
+        "level": "B2",
+        "example": "The exhibition opens next month."
+      },
+      {
+        "source_text": "гражданство",
+        "target_text": "citizenship",
+        "level": "B2",
+        "example": "Citizenship classes explain civic duties."
+      },
+      {
+        "source_text": "документальный фильм",
+        "target_text": "documentary",
+        "level": "B2",
+        "example": "The documentary explored migration patterns."
+      },
+      {
+        "source_text": "критик",
+        "target_text": "critic",
+        "level": "B2",
+        "example": "The critic praised the director's vision."
+      },
+      {
+        "source_text": "литература",
+        "target_text": "literature",
+        "level": "B2",
+        "example": "She studies modern literature at university."
+      },
+      {
+        "source_text": "музей",
+        "target_text": "museum",
+        "level": "B2",
+        "example": "The museum stays open late on Thursdays."
+      },
+      {
+        "source_text": "общественное мнение",
+        "target_text": "public opinion",
+        "level": "B2",
+        "example": "Public opinion changed after the debate."
+      },
+      {
+        "source_text": "объект культурного наследия",
+        "target_text": "heritage site",
+        "level": "B2",
+        "example": "The old town is a protected heritage site."
+      },
+      {
+        "source_text": "обычай",
+        "target_text": "custom",
+        "level": "B2",
+        "example": "It is a custom to bring a gift."
+      },
+      {
+        "source_text": "перевод",
+        "target_text": "translation",
+        "level": "B2",
+        "example": "A good translation preserves tone and meaning."
+      },
+      {
+        "source_text": "портрет",
+        "target_text": "portrait",
+        "level": "B2",
+        "example": "The portrait hangs in the main hall."
+      },
+      {
+        "source_text": "праздник",
+        "target_text": "celebration",
+        "level": "B2",
+        "example": "The celebration lasted all weekend."
+      },
+      {
+        "source_text": "скульптура",
+        "target_text": "sculpture",
+        "level": "B2",
+        "example": "The sculpture stands in the city square."
+      },
+      {
+        "source_text": "стереотип",
+        "target_text": "stereotype",
+        "level": "B2",
+        "example": "The film challenges old stereotypes."
+      },
+      {
+        "source_text": "театр",
+        "target_text": "theater",
+        "level": "B2",
+        "example": "We saw a brilliant play at the theater."
+      },
+      {
+        "source_text": "традиция",
+        "target_text": "tradition",
+        "level": "B2",
+        "example": "Some traditions change over time."
+      },
+      {
+        "source_text": "фольклор",
+        "target_text": "folklore",
+        "level": "B2",
+        "example": "The festival celebrates local folklore."
+      },
+      {
+        "source_text": "церемония",
+        "target_text": "ceremony",
+        "level": "B2",
+        "example": "The opening ceremony was broadcast live."
+      },
+      {
+        "source_text": "идентичность",
+        "target_text": "identity",
+        "level": "C1",
+        "example": "Language shapes cultural identity."
+      },
+      {
+        "source_text": "мировоззрение",
+        "target_text": "worldview",
+        "level": "C1",
+        "example": "Travel can reshape your worldview."
+      },
+      {
+        "source_text": "наследие",
+        "target_text": "heritage",
+        "level": "C1",
+        "example": "The city protects its industrial heritage."
+      },
+      {
+        "source_text": "неравенство",
+        "target_text": "inequality",
+        "level": "C1",
+        "example": "The article focuses on social inequality."
+      },
+      {
+        "source_text": "разнообразие",
+        "target_text": "diversity",
+        "level": "C1",
+        "example": "Diversity strengthens communities."
+      },
+      {
+        "source_text": "символизм",
+        "target_text": "symbolism",
+        "level": "C1",
+        "example": "The painting is full of symbolism."
+      },
+      {
+        "source_text": "гражданская вовлеченность",
+        "target_text": "civic engagement",
+        "level": "C2",
+        "example": "Civic engagement strengthens democracy."
+      },
+      {
+        "source_text": "коллективная память",
+        "target_text": "collective memory",
+        "level": "C2",
+        "example": "Wars shape collective memory for generations."
+      },
+      {
+        "source_text": "культурная чувствительность",
+        "target_text": "cultural sensitivity",
+        "level": "C2",
+        "example": "Teachers need cultural sensitivity in diverse groups."
+      },
+      {
+        "source_text": "культурное присвоение",
+        "target_text": "cultural appropriation",
+        "level": "C2",
+        "example": "The debate centered on cultural appropriation."
+      },
+      {
+        "source_text": "общественный дискурс",
+        "target_text": "public discourse",
+        "level": "C2",
+        "example": "Public discourse influences policy."
+      },
+      {
+        "source_text": "репрезентация",
+        "target_text": "representation",
+        "level": "C2",
+        "example": "Representation matters in film and media."
+      },
+      {
+        "source_text": "социальная сплоченность",
+        "target_text": "social cohesion",
+        "level": "C2",
+        "example": "Education can improve social cohesion."
+      },
+      {
+        "source_text": "ценностная система",
+        "target_text": "value system",
+        "level": "C2",
+        "example": "A value system develops over time."
+      }
     ]
   }
 ]
