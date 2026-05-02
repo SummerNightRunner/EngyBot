@@ -13,6 +13,7 @@ LEVEL_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 def main_menu_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
+            [InlineKeyboardButton(text="Практика дня", callback_data="menu:daily")],
             [InlineKeyboardButton(text="Изучить слова", callback_data="menu:learn")],
             [InlineKeyboardButton(text="Пройти квиз", callback_data="menu:quiz")],
             [InlineKeyboardButton(text="Повторение", callback_data="menu:review")],

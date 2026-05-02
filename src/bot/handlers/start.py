@@ -101,6 +101,20 @@ async def get_words_by_ids(word_ids: list[int]) -> list[Word]:
     return [by_id[word_id] for word_id in word_ids if word_id in by_id]
 
 
+async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
+    user = await get_registered_user(telegram_id)
+    user_level = user.level if user is not None else None
+    word_sets = await get_active_word_sets(user_level)
+    pool: list[Word] = []
+    for word_set in word_sets:
+        pool.extend(word_set.words)
+
+    if len(pool) <= limit:
+        return pool
+
+    return random.sample(pool, k=limit)
+
+
 async def edit_screen(callback: CallbackQuery, text: str, reply_markup) -> None:
     if callback.message is None:
         await callback.answer()
@@ -212,6 +226,7 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
 async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None:
     data = await state.get_data()
     review_mode = data.get("review_mode", False)
+    daily_mode = data.get("daily_mode", False)
     question_index = data["quiz_index"]
     quiz_format = data["quiz_format"]
 
@@ -225,6 +240,16 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         total_questions = len(review_words)
         topic_title = "Повторение ошибок"
         options_pool = review_words
+    elif daily_mode:
+        daily_words = await get_words_by_ids(data["daily_word_ids"])
+        if not daily_words:
+            await state.clear()
+            await edit_screen(callback, "Слова для практики дня не найдены.", nav_keyboard(back_to="menu:daily"))
+            return
+        current_word = daily_words[question_index]
+        total_questions = len(daily_words)
+        topic_title = "Практика дня"
+        options_pool = daily_words
     else:
         word_set = await get_word_set(data["quiz_word_set_id"])
         if word_set is None or not word_set.words:
@@ -379,6 +404,31 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
     )
 
 
+@router.callback_query(F.data == "menu:daily")
+async def daily_practice_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    words = await get_daily_words(callback.from_user.id, limit=5)
+    if len(words) < 2:
+        await edit_screen(
+            callback,
+            "Для практики дня пока недостаточно слов.\n\n"
+            "Сначала настройте профиль или расширьте учебный контент.",
+            nav_keyboard(back_to="menu:home", include_home=False),
+        )
+        return
+
+    await state.set_state(QuizStates.in_progress)
+    await state.update_data(
+        daily_mode=True,
+        daily_word_ids=[word.id for word in words],
+        review_mode=False,
+        quiz_word_set_id=None,
+        quiz_index=0,
+        quiz_correct=0,
+        quiz_format="choice",
+    )
+    await show_quiz_question(callback, state)
+
+
 @router.callback_query(F.data == "menu:review")
 async def review_handler(callback: CallbackQuery) -> None:
     await edit_screen(
@@ -431,6 +481,7 @@ async def review_quiz_handler(callback: CallbackQuery, state: FSMContext) -> Non
     await state.set_state(QuizStates.in_progress)
     await state.update_data(
         review_mode=True,
+        daily_mode=False,
         review_word_ids=[word.id for word in words],
         quiz_word_set_id=None,
         quiz_index=0,
@@ -503,6 +554,8 @@ async def quiz_start_handler(callback: CallbackQuery, state: FSMContext) -> None
         return
     await state.set_state(QuizStates.in_progress)
     await state.update_data(
+        daily_mode=False,
+        review_mode=False,
         quiz_word_set_id=word_set.id,
         quiz_index=0,
         quiz_correct=0,
@@ -519,6 +572,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
     correct_count = data["quiz_correct"] + int(is_correct)
     next_index = data["quiz_index"] + 1
     review_mode = data.get("review_mode", False)
+    daily_mode = data.get("daily_mode", False)
 
     if review_mode:
         review_words = await get_words_by_ids(data["review_word_ids"])
@@ -528,6 +582,15 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             return
         total_questions = len(review_words)
         quiz_title = "Повторение ошибок"
+        word_set_id = None
+    elif daily_mode:
+        daily_words = await get_words_by_ids(data["daily_word_ids"])
+        if not daily_words:
+            await state.clear()
+            await edit_screen(callback, "Слова для практики дня не найдены.", nav_keyboard(back_to="menu:daily"))
+            return
+        total_questions = len(daily_words)
+        quiz_title = "Практика дня"
         word_set_id = None
     else:
         word_set = await get_word_set(data["quiz_word_set_id"])
@@ -570,7 +633,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                     )
                 await session.commit()
         await state.clear()
-        back_to = "menu:review" if review_mode else "menu:quiz"
+        back_to = "menu:daily" if daily_mode else ("menu:review" if review_mode else "menu:quiz")
         await edit_screen(
             callback,
             "<b>Квиз завершен</b>\n\n"
