@@ -110,6 +110,28 @@ def translated_label(key: str, target_language: str, source_language: str, bilin
     return f"{target} ({source})"
 
 
+def bilingual_block(
+    primary: str,
+    secondary: str | None = None,
+    *,
+    italic_secondary: bool = True,
+) -> str:
+    if not secondary or secondary == primary:
+        return primary
+    secondary_text = f"<i>{secondary}</i>" if italic_secondary else secondary
+    return f"{primary}\n{secondary_text}"
+
+
+def quiz_format_label(quiz_format: str, user: User | None) -> str:
+    entry = QUIZ_FORMATS[quiz_format]
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    primary = entry.get(target_language, entry["en"])
+    secondary = entry.get(source_language, entry["ru"]) if bilingual else None
+    return bilingual_block(primary, secondary)
+
+
 def topic_label(title: str, target_language: str, source_language: str, bilingual: bool) -> str:
     entry = TOPIC_LABELS.get(title, {})
     target = entry.get(target_language, title)
@@ -287,6 +309,29 @@ def format_grammar_unit(unit: dict) -> str:
         f"<b>Зачем это нужно</b>\n{unit['why_it_matters']}\n\n"
         f"<b>Шаблоны</b>\n{patterns}\n\n"
         f"<b>Примеры</b>\n{examples}"
+    )
+
+
+def render_word_card(
+    *,
+    word_set: WordSet,
+    word: Word,
+    current_index: int,
+    total: int,
+    user: User | None,
+) -> str:
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    title = topic_label(word_set.title, target_language, source_language, bilingual)
+    primary = f"<b>{word.target_text}</b>"
+    secondary = word.source_text if bilingual else None
+    return (
+        f"<b>{title}</b>\n\n"
+        f"Level range: {get_word_set_level_range(word_set, user.level if user is not None else None)}\n\n"
+        f"{bilingual_block(primary, secondary, italic_secondary=True)}\n\n"
+        f"{word.example}\n\n"
+        f"Item {current_index + 1} of {total}"
     )
 
 
@@ -555,14 +600,22 @@ def format_profile(user: User) -> str:
     )
 
 
-def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: int, total: int) -> str:
+def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: int, total: int, user: User | None) -> str:
+    topic_title = topic_label(
+        word_set.title,
+        user.target_language if user is not None else "en",
+        user.source_language if user is not None else "ru",
+        user.bilingual_ui if user is not None else True,
+    )
+    format_title = quiz_format_label(quiz_format, user)
+
     if quiz_format == "gap":
         masked_example = build_gap_sentence(current_word)
         return (
-            f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
-            f"Тема: {word_set.title}\n"
-            f"Вопрос {index + 1} из {total}\n\n"
-            "Fill in the gap.\n"
+            f"<b>{format_title}</b>\n"
+            f"{topic_title}\n"
+            f"Question {index + 1} of {total}\n\n"
+            f"{bilingual_block('Fill in the gap.', 'Заполните пропуск.')}\n"
             f"<i>{masked_example}</i>"
         )
 
@@ -572,26 +625,26 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
             f"Choose the word that matches: {current_word.source_text}.",
         )
         return (
-            f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
-            f"Тема: {word_set.title}\n"
-            f"Вопрос {index + 1} из {total}\n\n"
+            f"<b>{format_title}</b>\n"
+            f"{topic_title}\n"
+            f"Question {index + 1} of {total}\n\n"
             f"{definition}"
         )
 
     if quiz_format == "match":
         return (
-            f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
-            f"Тема: {word_set.title}\n"
-            f"Вопрос {index + 1} из {total}\n\n"
-            "Match the English word to the correct meaning.\n"
+            f"<b>{format_title}</b>\n"
+            f"{topic_title}\n"
+            f"Question {index + 1} of {total}\n\n"
+            f"{bilingual_block('Match the word to the correct meaning.', 'Сопоставьте слово с правильным значением.')}\n"
             f"<b>{current_word.target_text}</b>"
         )
 
     return (
-        f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
-        f"Тема: {word_set.title}\n"
-        f"Вопрос {index + 1} из {total}\n\n"
-        "Choose the correct word.\n"
+        f"<b>{format_title}</b>\n"
+        f"{topic_title}\n"
+        f"Question {index + 1} of {total}\n\n"
+        f"{bilingual_block('Choose the correct word.', 'Выберите правильное слово.')}\n"
         f"<b>{current_word.source_text}</b>"
     )
 
@@ -773,6 +826,7 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
             WordSet(title=topic_title, description=None, level="", is_active=True),
             question_index,
             total_questions,
+            user,
         ),
         quiz_options_keyboard(options),
     )
@@ -1000,12 +1054,7 @@ async def learn_set_handler(callback: CallbackQuery) -> None:
     word = words[0]
     await edit_screen(
         callback,
-        f"<b>{word_set.title}</b>\n"
-        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
-        f"{word_set.description}\n\n"
-        f"<b>{word.target_text}</b> — {word.source_text}\n"
-        f"Пример: {word.example}\n\n"
-        f"Слово 1 из {len(words)}",
+        render_word_card(word_set=word_set, word=word, current_index=0, total=len(words), user=user),
         card_keyboard(word_set.id, 0, len(words)),
     )
 
@@ -1031,11 +1080,13 @@ async def learn_card_handler(callback: CallbackQuery) -> None:
     word = words[current_index]
     await edit_screen(
         callback,
-        f"<b>{word_set.title}</b>\n\n"
-        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
-        f"<b>{word.target_text}</b> — {word.source_text}\n"
-        f"Пример: {word.example}\n\n"
-        f"Слово {current_index + 1} из {len(words)}",
+        render_word_card(
+            word_set=word_set,
+            word=word,
+            current_index=current_index,
+            total=len(words),
+            user=user,
+        ),
         card_keyboard(word_set.id, current_index, len(words)),
     )
 

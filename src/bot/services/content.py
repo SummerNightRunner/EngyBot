@@ -22,10 +22,10 @@ GRAMMAR_SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "gra
 
 
 QUIZ_FORMATS = {
-    "choice": "Выбор правильного варианта",
-    "gap": "Заполнение пропусков",
-    "definition": "Угадай слово по определению",
-    "match": "Соответствие",
+    "choice": {"en": "Choice", "ru": "Выбор правильного варианта"},
+    "gap": {"en": "Gap fill", "ru": "Заполнение пропусков"},
+    "definition": {"en": "Definition", "ru": "Угадай слово по определению"},
+    "match": {"en": "Match", "ru": "Соответствие"},
 }
 
 
