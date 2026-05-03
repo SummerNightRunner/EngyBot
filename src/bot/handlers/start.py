@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 from datetime import UTC, datetime, timedelta
 
 from aiogram import F, Router
@@ -27,6 +28,7 @@ from bot.keyboards.main_menu import (
     nav_keyboard,
     practice_menu_keyboard,
     profile_keyboard,
+    quiz_feedback_keyboard,
     quiz_formats_keyboard,
     quiz_options_keyboard,
     review_keyboard,
@@ -555,19 +557,19 @@ def format_profile(user: User) -> str:
 
 def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: int, total: int) -> str:
     if quiz_format == "gap":
-        masked_example = current_word.example.replace(current_word.target_text, "_____")
+        masked_example = build_gap_sentence(current_word)
         return (
             f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
             f"Тема: {word_set.title}\n"
             f"Вопрос {index + 1} из {total}\n\n"
-            "Какое слово должно стоять на месте пропуска?\n"
+            "Fill in the gap.\n"
             f"<i>{masked_example}</i>"
         )
 
     if quiz_format == "definition":
         definition = WORD_DEFINITIONS.get(
             current_word.target_text,
-            f"Выберите слово, которое соответствует значению: {current_word.source_text}.",
+            f"Choose the word that matches: {current_word.source_text}.",
         )
         return (
             f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
@@ -576,13 +578,89 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
             f"{definition}"
         )
 
+    if quiz_format == "match":
+        return (
+            f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
+            f"Тема: {word_set.title}\n"
+            f"Вопрос {index + 1} из {total}\n\n"
+            "Match the English word to the correct meaning.\n"
+            f"<b>{current_word.target_text}</b>"
+        )
+
     return (
         f"<b>Квиз: {QUIZ_FORMATS[quiz_format]}</b>\n"
         f"Тема: {word_set.title}\n"
         f"Вопрос {index + 1} из {total}\n\n"
-        "Выберите правильное слово из списка:\n"
+        "Choose the correct word.\n"
         f"<b>{current_word.source_text}</b>"
     )
+
+
+def build_gap_sentence(current_word: Word) -> str:
+    example = current_word.example or ""
+    pattern = re.compile(re.escape(current_word.target_text), flags=re.IGNORECASE)
+    if pattern.search(example):
+        return pattern.sub("_____", example, count=1)
+    return f"Use the word in context: _____ ({current_word.source_text})"
+
+
+def supports_gap_mode(word: Word) -> bool:
+    if not word.example:
+        return False
+    return current_word_text_in_example(word)
+
+
+def current_word_text_in_example(word: Word) -> bool:
+    return word.target_text.lower() in word.example.lower()
+
+
+def choose_quiz_words(words: list[Word], quiz_format: str, limit: int = 7) -> list[Word]:
+    pool = words
+    if quiz_format == "gap":
+        pool = [word for word in words if supports_gap_mode(word)]
+    if len(pool) <= limit:
+        return pool
+    return random.sample(pool, k=limit)
+
+
+def build_quiz_feedback(
+    *,
+    is_correct: bool,
+    selected_answer: str,
+    correct_answer: str,
+    current_word: Word,
+    quiz_title: str,
+    question_index: int,
+    total_questions: int,
+    correct_count: int,
+    is_final: bool,
+) -> str:
+    status = "✅ Correct" if is_correct else "❌ Not quite"
+    lines = [
+        status,
+        f"<b>{quiz_title}</b>",
+        f"Question {question_index + 1} of {total_questions}",
+        "",
+    ]
+    if is_correct:
+        lines.append(f"<b>{correct_answer}</b> = {current_word.source_text}")
+    else:
+        lines.append(f"Your answer: <b>{selected_answer}</b>")
+        lines.append(f"Correct answer: <b>{correct_answer}</b>")
+        lines.append(f"Meaning: {current_word.source_text}")
+
+    if current_word.example:
+        lines.extend(["", f"<i>{current_word.example}</i>"])
+
+    if is_final:
+        lines.extend(
+            [
+                "",
+                f"<b>Session complete</b>",
+                f"Score: {correct_count}/{total_questions}",
+            ]
+        )
+    return "\n".join(lines)
 
 
 async def build_quiz_options(
@@ -608,6 +686,33 @@ async def build_quiz_options(
     random.shuffle(distractor_pool)
     selected = distractor_pool[: max(desired_count - 1, 0)]
     options = selected + [current_word.target_text]
+    random.shuffle(options)
+    return options
+
+
+async def build_match_options(
+    current_word: Word,
+    session_words: list[Word],
+    user_level: str | None,
+    desired_count: int = 4,
+) -> list[str]:
+    distractor_sources = {
+        word.source_text
+        for word in session_words
+        if word.id != current_word.id and word.source_text != current_word.source_text
+    }
+
+    word_sets = await get_active_word_sets(user_level)
+    for word_set in word_sets:
+        for word in filter_words_for_level(word_set.words, user_level):
+            if word.id == current_word.id or word.source_text == current_word.source_text:
+                continue
+            distractor_sources.add(word.source_text)
+
+    distractor_pool = list(distractor_sources)
+    random.shuffle(distractor_pool)
+    selected = distractor_pool[: max(desired_count - 1, 0)]
+    options = selected + [current_word.source_text]
     random.shuffle(options)
     return options
 
@@ -652,9 +757,14 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         topic_title = data["quiz_title"]
         options_pool = quiz_words
 
-    options = await build_quiz_options(current_word, options_pool, user_level)
+    if quiz_format == "match":
+        options = await build_match_options(current_word, options_pool, user_level)
+        correct_answer = current_word.source_text
+    else:
+        options = await build_quiz_options(current_word, options_pool, user_level)
+        correct_answer = current_word.target_text
 
-    await state.update_data(correct_answer=current_word.target_text, current_word_id=current_word.id)
+    await state.update_data(correct_answer=correct_answer, current_word_id=current_word.id)
     await edit_screen(
         callback,
         build_quiz_prompt(
@@ -935,7 +1045,7 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await state.clear()
     await edit_screen(
         callback,
-        "Отлично! Давайте начнем с квиза!\n\nВыберите формат:",
+        "<b>Practice quiz</b>\n\nChoose a format.\n<i>Выберите формат.</i>",
         quiz_formats_keyboard(),
     )
 
@@ -984,8 +1094,9 @@ async def daily_practice_handler(callback: CallbackQuery, state: FSMContext) -> 
 async def review_handler(callback: CallbackQuery) -> None:
     await edit_screen(
         callback,
-        "<b>Повторение</b>\n\n"
-        "Здесь можно посмотреть слабые слова и пройти короткий квиз по ошибкам.",
+        "<b>Review</b>\n<i>Повторение</i>\n\n"
+        "Revisit weak words and run a short mistakes quiz.\n"
+        "<i>Здесь можно посмотреть слабые слова и пройти короткий квиз по ошибкам.</i>",
         review_keyboard(),
     )
 
@@ -1048,23 +1159,6 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
     await state.clear()
     await state.update_data(selected_quiz_format=quiz_format)
 
-    if quiz_format == "match":
-        user = await get_registered_user(callback.from_user.id)
-        user_level = user.level if user is not None else None
-        word_sets = await get_active_word_sets(user_level)
-        preview = []
-        for word_set in word_sets[:2]:
-            for word in filter_words_for_level(word_set.words, user_level)[:3]:
-                preview.append(f"{word.target_text} — {word.source_text}")
-        await edit_screen(
-            callback,
-            "<b>Квиз: Соответствие</b>\n\n"
-            "Этот формат оформлен как тренировочный экран с готовыми парами слов.\n\n"
-            + "\n".join(preview),
-            nav_keyboard(back_to="menu:quiz"),
-        )
-        return
-
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
     word_sets = await get_active_word_sets(user_level)
@@ -1079,6 +1173,7 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
 @router.callback_query(F.data.startswith("quiz:choice:set:"))
 @router.callback_query(F.data.startswith("quiz:gap:set:"))
 @router.callback_query(F.data.startswith("quiz:definition:set:"))
+@router.callback_query(F.data.startswith("quiz:match:set:"))
 async def quiz_set_handler(callback: CallbackQuery, state: FSMContext) -> None:
     _, quiz_format, _, raw_id = callback.data.split(":")
     await state.update_data(selected_quiz_format=quiz_format)
@@ -1096,13 +1191,21 @@ async def quiz_set_handler(callback: CallbackQuery, state: FSMContext) -> None:
             nav_keyboard(back_to="menu:quiz"),
         )
         return
+    quiz_words = choose_quiz_words(words, quiz_format)
+    if len(quiz_words) < 2:
+        await edit_screen(
+            callback,
+            "Для этого формата пока недостаточно подходящих примеров в теме.",
+            nav_keyboard(back_to="menu:quiz"),
+        )
+        return
     await edit_screen(
         callback,
         f"<b>{word_set.title}</b>\n"
         f"{word_set.description}\n\n"
         f"Формат квиза: {QUIZ_FORMATS[quiz_format]}\n"
         f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
-        f"Количество вопросов: {len(words)}",
+        f"Количество вопросов: {len(quiz_words)}",
         start_quiz_keyboard(word_set.id, quiz_format),
     )
 
@@ -1124,12 +1227,20 @@ async def quiz_start_handler(callback: CallbackQuery, state: FSMContext) -> None
             nav_keyboard(back_to="menu:quiz"),
         )
         return
+    quiz_words = choose_quiz_words(words, quiz_format)
+    if len(quiz_words) < 2:
+        await edit_screen(
+            callback,
+            "Для этого формата пока недостаточно подходящих примеров в теме.",
+            nav_keyboard(back_to="menu:quiz"),
+        )
+        return
     await state.set_state(QuizStates.in_progress)
     await state.update_data(
         daily_mode=False,
         review_mode=False,
         quiz_word_set_id=word_set.id,
-        quiz_word_ids=[word.id for word in words],
+        quiz_word_ids=[word.id for word in quiz_words],
         quiz_title=word_set.title,
         quiz_index=0,
         quiz_correct=0,
@@ -1154,6 +1265,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             await state.clear()
             await edit_screen(callback, "Слова для повторения не найдены.", nav_keyboard(back_to="menu:review"))
             return
+        current_word = review_words[data["quiz_index"]]
         total_questions = len(review_words)
         quiz_title = "Повторение ошибок"
         word_set_id = None
@@ -1163,6 +1275,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             await state.clear()
             await edit_screen(callback, "Слова для практики дня не найдены.", nav_keyboard(back_to="menu:daily"))
             return
+        current_word = daily_words[data["quiz_index"]]
         total_questions = len(daily_words)
         quiz_title = "Практика дня"
         word_set_id = None
@@ -1172,6 +1285,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             await state.clear()
             await edit_screen(callback, "Набор слов не найден.", nav_keyboard(back_to="menu:quiz"))
             return
+        current_word = quiz_words[data["quiz_index"]]
         total_questions = len(quiz_words)
         quiz_title = data["quiz_title"]
         word_set_id = data["quiz_word_set_id"]
@@ -1225,14 +1339,23 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                     )
                 await session.commit()
         await state.clear()
-        back_to = "menu:daily" if daily_mode else ("menu:review" if review_mode else "menu:quiz")
         await edit_screen(
             callback,
-            "<b>Квиз завершен</b>\n\n"
-            f"Формат: {QUIZ_FORMATS[data['quiz_format']]}\n"
-            f"Тема: {quiz_title}\n"
-            f"Правильных ответов: {correct_count} из {total_questions}",
-            nav_keyboard(back_to=back_to),
+            build_quiz_feedback(
+                is_correct=is_correct,
+                selected_answer=selected_answer,
+                correct_answer=data["correct_answer"],
+                current_word=current_word,
+                quiz_title=quiz_title,
+                question_index=data["quiz_index"],
+                total_questions=total_questions,
+                correct_count=correct_count,
+                is_final=True,
+            ),
+            quiz_feedback_keyboard(
+                next_step=False,
+                back_to="menu:daily" if daily_mode else ("menu:review" if review_mode else "menu:quiz"),
+            ),
         )
         return
 
@@ -1273,6 +1396,25 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             await session.commit()
 
     await state.update_data(quiz_index=next_index, quiz_correct=correct_count)
+    await edit_screen(
+        callback,
+        build_quiz_feedback(
+            is_correct=is_correct,
+            selected_answer=selected_answer,
+            correct_answer=data["correct_answer"],
+            current_word=current_word,
+            quiz_title=quiz_title,
+            question_index=data["quiz_index"],
+            total_questions=total_questions,
+            correct_count=correct_count,
+            is_final=False,
+        ),
+        quiz_feedback_keyboard(next_step=True),
+    )
+
+
+@router.callback_query(QuizStates.in_progress, F.data == "quiz:next")
+async def quiz_next_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await show_quiz_question(callback, state)
 
 

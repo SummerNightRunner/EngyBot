@@ -101,11 +101,11 @@ def word_sets_keyboard(word_sets: list[tuple[int, str, str]], *, mode: str) -> I
 def quiz_formats_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Выбор правильного варианта", callback_data="quiz:format:choice")],
-            [InlineKeyboardButton(text="Заполнение пропусков", callback_data="quiz:format:gap")],
-            [InlineKeyboardButton(text="Угадай слово по определению", callback_data="quiz:format:definition")],
-            [InlineKeyboardButton(text="Соответствие", callback_data="quiz:format:match")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Choice • Вариант", callback_data="quiz:format:choice")],
+            [InlineKeyboardButton(text="Gap fill • Пропуск", callback_data="quiz:format:gap")],
+            [InlineKeyboardButton(text="Definition • Определение", callback_data="quiz:format:definition")],
+            [InlineKeyboardButton(text="Match • Соответствие", callback_data="quiz:format:match")],
+            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
         ]
     )
 
@@ -135,6 +135,16 @@ def quiz_options_keyboard(options: list[str]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
+def quiz_feedback_keyboard(*, next_step: bool, back_to: str = "menu:quiz") -> InlineKeyboardMarkup:
+    rows: list[list[InlineKeyboardButton]] = []
+    if next_step:
+        rows.append([InlineKeyboardButton(text="Continue", callback_data="quiz:next")])
+    else:
+        rows.append([InlineKeyboardButton(text="Finish", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
 def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if back_to is not None:
@@ -147,9 +157,9 @@ def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> In
 def review_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Слабые слова", callback_data="review:words")],
-            [InlineKeyboardButton(text="Квиз по ошибкам", callback_data="review:quiz")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Weak words • Слабые слова", callback_data="review:words")],
+            [InlineKeyboardButton(text="Mistake quiz • Квиз по ошибкам", callback_data="review:quiz")],
+            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
         ]
     )
 
