@@ -174,11 +174,20 @@ def normalize_seed_payload(payloads: list[dict]) -> list[dict]:
                             "source_text": word["source_text"],
                             "target_text": word["target_text"],
                             "level": word["level"],
+                            "item_type": word.get("item_type", "word"),
+                            "subtopic": word.get("subtopic"),
+                            "priority": word.get("priority", 50),
                             "example": word["example"],
                         }
                         for word in payload["words"]
                     ],
-                    key=lambda item: (item["level"], item["source_text"], item["target_text"]),
+                    key=lambda item: (
+                        item["level"],
+                        item["item_type"],
+                        item["subtopic"] or "",
+                        item["source_text"],
+                        item["target_text"],
+                    ),
                 ),
             }
         )
@@ -199,17 +208,24 @@ def normalize_db_payload(word_sets: list[WordSet]) -> list[dict]:
                             "source_text": word.source_text,
                             "target_text": word.target_text,
                             "level": word.level,
+                            "item_type": word.item_type,
+                            "subtopic": word.subtopic,
+                            "priority": word.priority,
                             "example": word.example,
                         }
                         for word in word_set.words
                     ],
-                    key=lambda item: (item["level"], item["source_text"], item["target_text"]),
+                    key=lambda item: (
+                        item["level"],
+                        item["item_type"],
+                        item["subtopic"] or "",
+                        item["source_text"],
+                        item["target_text"],
+                    ),
                 ),
             }
         )
     return normalized
-
-
 async def seed_word_sets(session: AsyncSession) -> None:
     payloads = load_seed_word_sets()
     existing_result = await session.execute(select(WordSet).options(selectinload(WordSet.words)))
@@ -238,6 +254,9 @@ async def seed_word_sets(session: AsyncSession) -> None:
                     source_text=word["source_text"],
                     target_text=word["target_text"],
                     level=word["level"],
+                    item_type=word.get("item_type", "word"),
+                    subtopic=word.get("subtopic"),
+                    priority=word.get("priority", 50),
                     example=word["example"],
                 )
             )

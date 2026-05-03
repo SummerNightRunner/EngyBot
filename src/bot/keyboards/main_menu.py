@@ -91,7 +91,7 @@ def help_keyboard(is_registered: bool) -> InlineKeyboardMarkup:
 
 def word_sets_keyboard(word_sets: list[tuple[int, str, str]], *, mode: str) -> InlineKeyboardMarkup:
     rows = [
-        [InlineKeyboardButton(text=f"{title} ({meta})", callback_data=f"{mode}:set:{word_set_id}")]
+        [InlineKeyboardButton(text=f"{title} • {meta}", callback_data=f"{mode}:set:{word_set_id}")]
         for word_set_id, title, meta in word_sets
     ]
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
@@ -135,8 +135,24 @@ def quiz_options_keyboard(options: list[str]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def quiz_feedback_keyboard(*, next_step: bool, back_to: str = "menu:quiz") -> InlineKeyboardMarkup:
+def quiz_feedback_keyboard(
+    *,
+    next_step: bool,
+    back_to: str = "menu:quiz",
+    options: list[str] | None = None,
+    selected_answer: str | None = None,
+    correct_answer: str | None = None,
+) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
+    if options is not None and correct_answer is not None:
+        for option in options:
+            if option == correct_answer:
+                label = f"✅ {option}"
+            elif option == selected_answer:
+                label = f"❌ {option}"
+            else:
+                label = f"▫️ {option}"
+            rows.append([InlineKeyboardButton(text=label, callback_data="quiz:noop")])
     if next_step:
         rows.append([InlineKeyboardButton(text="Continue", callback_data="quiz:next")])
     else:

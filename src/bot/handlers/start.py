@@ -132,6 +132,18 @@ def quiz_format_label(quiz_format: str, user: User | None) -> str:
     return bilingual_block(primary, secondary)
 
 
+def single_line_quiz_format_label(quiz_format: str, user: User | None) -> str:
+    entry = QUIZ_FORMATS[quiz_format]
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    primary = entry.get(target_language, entry["en"])
+    secondary = entry.get(source_language, entry["ru"]) if bilingual else None
+    if not secondary or secondary == primary:
+        return primary
+    return f"{primary} / {secondary}"
+
+
 def topic_label(title: str, target_language: str, source_language: str, bilingual: bool) -> str:
     entry = TOPIC_LABELS.get(title, {})
     target = entry.get(target_language, title)
@@ -326,12 +338,32 @@ def render_word_card(
     title = topic_label(word_set.title, target_language, source_language, bilingual)
     primary = f"<b>{word.target_text}</b>"
     secondary = word.source_text if bilingual else None
+    type_labels = {
+        "word": {"en": "Word", "ru": "Слово"},
+        "phrase": {"en": "Phrase", "ru": "Фраза"},
+        "collocation": {"en": "Collocation", "ru": "Сочетание"},
+    }
+    type_entry = type_labels.get(word.item_type, type_labels["word"])
+    type_primary = type_entry.get(target_language, type_entry["en"])
+    type_secondary = type_entry.get(source_language, type_entry["ru"]) if bilingual else None
+    meta_lines = [
+        bilingual_block(f"Level: {word.level}", f"Уровень: {word.level}" if bilingual and target_language == "en" else None),
+        bilingual_block(type_primary, type_secondary),
+    ]
+    if word.subtopic:
+        meta_lines.append(
+            bilingual_block(
+                f"Focus: {word.subtopic}",
+                f"Подтема: {word.subtopic}" if bilingual and target_language == "en" else None,
+            )
+        )
     return (
         f"<b>{title}</b>\n\n"
-        f"Level range: {get_word_set_level_range(word_set, user.level if user is not None else None)}\n\n"
+        f"{bilingual_block('Topic range: ' + get_word_set_level_range(word_set, user.level if user is not None else None), 'Диапазон темы: ' + get_word_set_level_range(word_set, user.level if user is not None else None) if bilingual and target_language == 'en' else None)}\n\n"
+        f"{'\n'.join(meta_lines)}\n\n"
         f"{bilingual_block(primary, secondary, italic_secondary=True)}\n\n"
         f"{word.example}\n\n"
-        f"Item {current_index + 1} of {total}"
+        f"{bilingual_block(f'Item {current_index + 1} of {total}', f'Элемент {current_index + 1} из {total}' if bilingual and target_language == 'en' else None)}"
     )
 
 
@@ -346,7 +378,9 @@ async def get_daily_words(telegram_id: int, limit: int = 5) -> list[Word]:
     if len(pool) <= limit:
         return pool
 
-    return random.sample(pool, k=limit)
+    weighted_pool = sorted(pool, key=lambda word: (-word.priority, word.level, word.target_text))
+    top_slice = weighted_pool[: max(limit * 4, limit)]
+    return random.sample(top_slice, k=limit)
 
 
 def load_daily_word_ids(practice: DailyPractice) -> list[int]:
@@ -391,7 +425,9 @@ async def get_or_create_daily_practice(telegram_id: int, limit: int = 5) -> Dail
             return None
 
         generator = random.Random(f"{user.id}:{today.isoformat()}")
-        selected_words = pool if len(pool) <= limit else generator.sample(pool, k=limit)
+        weighted_pool = sorted(pool, key=lambda word: (-word.priority, word.level, word.target_text))
+        candidate_pool = weighted_pool[: max(limit * 4, limit)]
+        selected_words = candidate_pool if len(candidate_pool) <= limit else generator.sample(candidate_pool, k=limit)
         practice = DailyPractice(
             user_id=user.id,
             practice_date=today,
@@ -407,11 +443,8 @@ async def get_or_create_daily_practice(telegram_id: int, limit: int = 5) -> Dail
 
 
 def build_word_set_meta(word_set: WordSet, user_level: str | None) -> str:
-    visible_words = filter_words_for_level(word_set.words, user_level)
-    if not visible_words:
-        visible_words = word_set.words
     level_range = get_word_set_level_range(word_set, user_level)
-    return f"{level_range} | {len(visible_words)} слов"
+    return level_range
 
 
 async def get_theme_progress(telegram_id: int) -> list[dict]:
@@ -671,9 +704,11 @@ def choose_quiz_words(words: list[Word], quiz_format: str, limit: int = 7) -> li
     pool = words
     if quiz_format == "gap":
         pool = [word for word in words if supports_gap_mode(word)]
+    pool = sorted(pool, key=lambda word: (-word.priority, word.level, word.target_text))
     if len(pool) <= limit:
         return pool
-    return random.sample(pool, k=limit)
+    head = pool[: max(limit * 4, limit)]
+    return random.sample(head, k=limit)
 
 
 def build_quiz_feedback(
@@ -687,20 +722,42 @@ def build_quiz_feedback(
     total_questions: int,
     correct_count: int,
     is_final: bool,
+    user: User | None,
 ) -> str:
-    status = "✅ Correct" if is_correct else "❌ Not quite"
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+
+    if target_language == "en":
+        status = "✅ Correct" if is_correct else "❌ Not quite"
+        answer_label = "Your answer"
+        correct_label = "Correct answer"
+        meaning_label = "Meaning"
+        complete_label = "Session complete"
+        score_label = "Score"
+    else:
+        status = "✅ Верно" if is_correct else "❌ Неверно"
+        answer_label = "Ваш ответ"
+        correct_label = "Правильный ответ"
+        meaning_label = "Значение"
+        complete_label = "Сессия завершена"
+        score_label = "Результат"
+
     lines = [
         status,
         f"<b>{quiz_title}</b>",
-        f"Question {question_index + 1} of {total_questions}",
+        bilingual_block(
+            f"Question {question_index + 1} of {total_questions}",
+            f"Вопрос {question_index + 1} из {total_questions}" if bilingual and target_language == "en" else None,
+        ),
         "",
     ]
     if is_correct:
         lines.append(f"<b>{correct_answer}</b> = {current_word.source_text}")
     else:
-        lines.append(f"Your answer: <b>{selected_answer}</b>")
-        lines.append(f"Correct answer: <b>{correct_answer}</b>")
-        lines.append(f"Meaning: {current_word.source_text}")
+        lines.append(f"{answer_label}: <b>{selected_answer}</b>")
+        lines.append(f"{correct_label}: <b>{correct_answer}</b>")
+        lines.append(f"{meaning_label}: {current_word.source_text}")
 
     if current_word.example:
         lines.extend(["", f"<i>{current_word.example}</i>"])
@@ -709,8 +766,8 @@ def build_quiz_feedback(
         lines.extend(
             [
                 "",
-                f"<b>Session complete</b>",
-                f"Score: {correct_count}/{total_questions}",
+                f"<b>{complete_label}</b>",
+                f"{score_label}: {correct_count}/{total_questions}",
             ]
         )
     return "\n".join(lines)
@@ -818,6 +875,7 @@ async def show_quiz_question(callback: CallbackQuery, state: FSMContext) -> None
         correct_answer = current_word.target_text
 
     await state.update_data(correct_answer=correct_answer, current_word_id=current_word.id)
+    await state.update_data(current_options=options)
     await edit_screen(
         callback,
         build_quiz_prompt(
@@ -840,6 +898,11 @@ async def start_handler(message: Message, state: FSMContext) -> None:
 @router.callback_query(F.data == "menu:home")
 async def home_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await show_home(callback, state)
+
+
+@router.callback_query(F.data == "quiz:noop")
+async def quiz_noop_handler(callback: CallbackQuery) -> None:
+    await callback.answer()
 
 
 @router.callback_query(F.data == "profile:start_setup")
@@ -1212,11 +1275,26 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
 
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
     word_sets = await get_active_word_sets(user_level)
-    payload = [(word_set.id, word_set.title, build_word_set_meta(word_set, user_level)) for word_set in word_sets]
+    payload = [
+        (
+            word_set.id,
+            topic_label(word_set.title, target_language, source_language, bilingual),
+            build_word_set_meta(word_set, user_level),
+        )
+        for word_set in word_sets
+    ]
     await edit_screen(
         callback,
-        f"Выберите тему для квиза формата «{QUIZ_FORMATS[quiz_format]}»:",
+        bilingual_block(
+            f"Choose a topic for the {single_line_quiz_format_label(quiz_format, user)} quiz.",
+            f"Выберите тему для квиза формата {single_line_quiz_format_label(quiz_format, user)}."
+            if bilingual and target_language == "en"
+            else None,
+        ),
         word_sets_keyboard(payload, mode=f"quiz:{quiz_format}"),
     )
 
@@ -1250,13 +1328,20 @@ async def quiz_set_handler(callback: CallbackQuery, state: FSMContext) -> None:
             nav_keyboard(back_to="menu:quiz"),
         )
         return
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    title = topic_label(word_set.title, target_language, source_language, bilingual)
     await edit_screen(
         callback,
-        f"<b>{word_set.title}</b>\n"
+        f"<b>{title}</b>\n"
         f"{word_set.description}\n\n"
-        f"Формат квиза: {QUIZ_FORMATS[quiz_format]}\n"
-        f"Диапазон уровней: {get_word_set_level_range(word_set, user_level)}\n"
-        f"Количество вопросов: {len(quiz_words)}",
+        f"{bilingual_block('Quiz format', 'Формат квиза' if bilingual and target_language == 'en' else None)}: "
+        f"{single_line_quiz_format_label(quiz_format, user)}\n"
+        f"{bilingual_block('Level range', 'Диапазон уровней' if bilingual and target_language == 'en' else None)}: "
+        f"{get_word_set_level_range(word_set, user_level)}\n"
+        f"{bilingual_block('Questions', 'Количество вопросов' if bilingual and target_language == 'en' else None)}: "
+        f"{len(quiz_words)}",
         start_quiz_keyboard(word_set.id, quiz_format),
     )
 
@@ -1303,6 +1388,8 @@ async def quiz_start_handler(callback: CallbackQuery, state: FSMContext) -> None
 @router.callback_query(QuizStates.in_progress, F.data.startswith("quiz:answer:"))
 async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> None:
     data = await state.get_data()
+    user = await get_registered_user(callback.from_user.id)
+    current_options = data.get("current_options", [])
     selected_answer = callback.data.removeprefix("quiz:answer:")
     is_correct = selected_answer == data["correct_answer"]
     correct_count = data["quiz_correct"] + int(is_correct)
@@ -1342,7 +1429,6 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
         word_set_id = data["quiz_word_set_id"]
 
     if next_index >= total_questions:
-        user = await get_registered_user(callback.from_user.id)
         if user is not None:
             async with SessionLocal() as session:
                 progress_result = await session.execute(
@@ -1402,15 +1488,18 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                 total_questions=total_questions,
                 correct_count=correct_count,
                 is_final=True,
+                user=user,
             ),
             quiz_feedback_keyboard(
                 next_step=False,
                 back_to="menu:daily" if daily_mode else ("menu:review" if review_mode else "menu:quiz"),
+                options=current_options,
+                selected_answer=selected_answer,
+                correct_answer=data["correct_answer"],
             ),
         )
         return
 
-    user = await get_registered_user(callback.from_user.id)
     if user is not None:
         async with SessionLocal() as session:
             progress_result = await session.execute(
@@ -1459,8 +1548,14 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             total_questions=total_questions,
             correct_count=correct_count,
             is_final=False,
+            user=user,
         ),
-        quiz_feedback_keyboard(next_step=True),
+        quiz_feedback_keyboard(
+            next_step=True,
+            options=current_options,
+            selected_answer=selected_answer,
+            correct_answer=data["correct_answer"],
+        ),
     )
 
 
