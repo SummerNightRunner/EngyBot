@@ -49,6 +49,9 @@ class Word(Base):
     source_text: Mapped[str] = mapped_column(String(255))
     target_text: Mapped[str] = mapped_column(String(255))
     level: Mapped[str] = mapped_column(String(32), default="A1")
+    item_type: Mapped[str] = mapped_column(String(32), default="word")
+    subtopic: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    priority: Mapped[int] = mapped_column(Integer, default=50)
     example: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     word_set: Mapped["WordSet"] = relationship(back_populates="words")

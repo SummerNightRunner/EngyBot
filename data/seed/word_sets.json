@@ -8,169 +8,253 @@
         "source_text": "автобус",
         "target_text": "bus",
         "level": "A1",
-        "example": "The bus stops near my house."
+        "example": "The bus stops near my house.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "карта",
         "target_text": "map",
         "level": "A1",
-        "example": "Open the map on your phone."
+        "example": "Open the map on your phone.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поезд",
         "target_text": "train",
         "level": "A1",
-        "example": "The train leaves at seven."
+        "example": "The train leaves at seven.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "станция",
         "target_text": "station",
         "level": "A1",
-        "example": "The station is two blocks away."
+        "example": "The station is two blocks away.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "улица",
         "target_text": "street",
         "level": "A1",
-        "example": "This street is always crowded."
+        "example": "This street is always crowded.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "дорога",
         "target_text": "road",
         "level": "A2",
-        "example": "The road is closed for repairs."
+        "example": "The road is closed for repairs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "метро",
         "target_text": "subway",
         "level": "A2",
-        "example": "The subway is faster than the bus."
+        "example": "The subway is faster than the bus.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "остановка",
         "target_text": "stop",
         "level": "A2",
-        "example": "Get off at the next stop."
+        "example": "Get off at the next stop.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "площадка для парковки",
         "target_text": "parking lot",
         "level": "A2",
-        "example": "The parking lot is full."
+        "example": "The parking lot is full.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поворот",
         "target_text": "turn",
         "level": "A2",
-        "example": "Take the second turn on the right."
+        "example": "Take the second turn on the right.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "светофор",
         "target_text": "traffic light",
         "level": "A2",
-        "example": "Wait at the traffic light."
+        "example": "Wait at the traffic light.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "тариф",
         "target_text": "fare",
         "level": "A2",
-        "example": "The bus fare went up again."
+        "example": "The bus fare went up again.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "объезд",
         "target_text": "bypass",
         "level": "B1",
-        "example": "The bypass reduces city traffic."
+        "example": "The bypass reduces city traffic.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перекресток",
         "target_text": "intersection",
         "level": "B1",
-        "example": "Turn left at the intersection."
+        "example": "Turn left at the intersection.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поездка на работу",
         "target_text": "commute",
         "level": "B1",
-        "example": "My commute takes almost an hour."
+        "example": "My commute takes almost an hour.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "район",
         "target_text": "district",
         "level": "B1",
-        "example": "This district is popular with students."
+        "example": "This district is popular with students.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "расписание",
         "target_text": "schedule",
         "level": "B1",
-        "example": "Check the train schedule online."
+        "example": "Check the train schedule online.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "час пик",
         "target_text": "rush hour",
         "level": "B1",
-        "example": "Rush hour traffic is terrible today."
+        "example": "Rush hour traffic is terrible today.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "велосипедная дорожка",
         "target_text": "bike lane",
         "level": "B2",
-        "example": "The city added a new bike lane downtown."
+        "example": "The city added a new bike lane downtown.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "общественный транспорт",
         "target_text": "public transport",
         "level": "B2",
-        "example": "Public transport should be more reliable."
+        "example": "Public transport should be more reliable.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "объездная дорога",
         "target_text": "ring road",
         "level": "B2",
-        "example": "The ring road helps reduce city traffic."
+        "example": "The ring road helps reduce city traffic.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пешеходная зона",
         "target_text": "pedestrian zone",
         "level": "B2",
-        "example": "Cars are not allowed in the pedestrian zone."
+        "example": "Cars are not allowed in the pedestrian zone.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пешеходный переход",
         "target_text": "crosswalk",
         "level": "B2",
-        "example": "Always stop at the crosswalk."
+        "example": "Always stop at the crosswalk.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "полоса движения",
         "target_text": "lane",
         "level": "B2",
-        "example": "Stay in the left lane after the tunnel."
+        "example": "Stay in the left lane after the tunnel.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "городская застройка",
         "target_text": "urban development",
         "level": "C1",
-        "example": "Urban development changed the neighborhood completely."
+        "example": "Urban development changed the neighborhood completely.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "транспортная доступность",
         "target_text": "transport accessibility",
         "level": "C1",
-        "example": "Transport accessibility matters for commuters."
+        "example": "Transport accessibility matters for commuters.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "инфраструктурный проект",
         "target_text": "infrastructure project",
         "level": "C2",
-        "example": "The infrastructure project will take a decade."
+        "example": "The infrastructure project will take a decade.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перегруженность дорог",
         "target_text": "road congestion",
         "level": "C2",
-        "example": "Road congestion worsens air quality."
+        "example": "Road congestion worsens air quality.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -183,145 +267,307 @@
         "source_text": "дом",
         "target_text": "house",
         "level": "A1",
-        "example": "Their house is near the river."
+        "example": "Their house is near the river.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "комната",
         "target_text": "room",
         "level": "A1",
-        "example": "My room is very small but bright."
+        "example": "My room is very small but bright.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кровать",
         "target_text": "bed",
         "level": "A1",
-        "example": "The bed is next to the window."
+        "example": "The bed is next to the window.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кухня",
         "target_text": "kitchen",
         "level": "A1",
-        "example": "We eat breakfast in the kitchen."
+        "example": "We eat breakfast in the kitchen.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стол",
         "target_text": "table",
         "level": "A1",
-        "example": "The books are on the table."
+        "example": "The books are on the table.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стул",
         "target_text": "chair",
         "level": "A1",
-        "example": "There are four chairs in the dining room."
+        "example": "There are four chairs in the dining room.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "дверь",
         "target_text": "door",
         "level": "A2",
-        "example": "Please close the door quietly."
+        "example": "Please close the door quietly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "окно",
         "target_text": "window",
         "level": "A2",
-        "example": "Open the window for a minute."
+        "example": "Open the window for a minute.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "полка",
         "target_text": "shelf",
         "level": "A2",
-        "example": "Put the cups on the top shelf."
+        "example": "Put the cups on the top shelf.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пылесосить",
         "target_text": "to vacuum",
         "level": "A2",
-        "example": "I need to vacuum the living room."
+        "example": "I need to vacuum the living room.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стирать",
         "target_text": "to do the laundry",
         "level": "A2",
-        "example": "He does the laundry every Sunday."
+        "example": "He does the laundry every Sunday.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "шкаф",
         "target_text": "wardrobe",
         "level": "A2",
-        "example": "Her clothes are in the wardrobe."
+        "example": "Her clothes are in the wardrobe.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "аренда",
         "target_text": "rent",
         "level": "B1",
-        "example": "Their rent increased this year."
+        "example": "Their rent increased this year.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гостиная",
         "target_text": "living room",
         "level": "B1",
-        "example": "We bought a new lamp for the living room."
+        "example": "We bought a new lamp for the living room.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ремонт",
         "target_text": "renovation",
         "level": "B1",
-        "example": "The apartment is closed for renovation."
+        "example": "The apartment is closed for renovation.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "счет за коммунальные услуги",
         "target_text": "utility bill",
         "level": "B1",
-        "example": "The utility bill was higher in winter."
+        "example": "The utility bill was higher in winter.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "беспорядок",
         "target_text": "clutter",
         "level": "B2",
-        "example": "Too much clutter makes the room stressful."
+        "example": "Too much clutter makes the room stressful.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "бытовая техника",
         "target_text": "household appliance",
         "level": "B2",
-        "example": "Household appliances consume a lot of energy."
+        "example": "Household appliances consume a lot of energy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "изолировать",
         "target_text": "to insulate",
         "level": "B2",
-        "example": "They plan to insulate the roof next year."
+        "example": "They plan to insulate the roof next year.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кладовая",
         "target_text": "storage room",
         "level": "B2",
-        "example": "We keep tools in the storage room."
+        "example": "We keep tools in the storage room.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обслуживание дома",
         "target_text": "property maintenance",
         "level": "C1",
-        "example": "Property maintenance takes both time and money."
+        "example": "Property maintenance takes both time and money.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "планировка",
         "target_text": "layout",
         "level": "C1",
-        "example": "The layout makes the apartment feel larger."
+        "example": "The layout makes the apartment feel larger.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "энергоэффективность",
         "target_text": "energy efficiency",
         "level": "C2",
-        "example": "Energy efficiency should be a design priority."
+        "example": "Energy efficiency should be a design priority.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эргономичный",
         "target_text": "ergonomic",
         "level": "C2",
-        "example": "An ergonomic chair reduces back strain."
+        "example": "An ergonomic chair reduces back strain.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "полка",
+        "target_text": "shelf",
+        "level": "A1",
+        "example": "The books are on the shelf.",
+        "item_type": "word",
+        "subtopic": "furniture",
+        "priority": 85
+      },
+      {
+        "source_text": "ковер",
+        "target_text": "rug",
+        "level": "A1",
+        "example": "There is a small rug near the sofa.",
+        "item_type": "word",
+        "subtopic": "furniture",
+        "priority": 75
+      },
+      {
+        "source_text": "стиральная машина",
+        "target_text": "washing machine",
+        "level": "A2",
+        "example": "The washing machine is in the bathroom.",
+        "item_type": "phrase",
+        "subtopic": "appliances",
+        "priority": 70
+      },
+      {
+        "source_text": "пылесосить",
+        "target_text": "vacuum",
+        "level": "A2",
+        "example": "I need to vacuum the living room.",
+        "item_type": "word",
+        "subtopic": "chores",
+        "priority": 65
+      },
+      {
+        "source_text": "выносить мусор",
+        "target_text": "take out the trash",
+        "level": "A2",
+        "example": "Please take out the trash after dinner.",
+        "item_type": "phrase",
+        "subtopic": "chores",
+        "priority": 80
+      },
+      {
+        "source_text": "гладить одежду",
+        "target_text": "iron clothes",
+        "level": "A2",
+        "example": "He irons his clothes every Sunday.",
+        "item_type": "phrase",
+        "subtopic": "chores",
+        "priority": 60
+      },
+      {
+        "source_text": "коммунальные услуги",
+        "target_text": "utility bills",
+        "level": "B1",
+        "example": "Utility bills are higher in winter.",
+        "item_type": "phrase",
+        "subtopic": "finance",
+        "priority": 55
+      },
+      {
+        "source_text": "арендная плата",
+        "target_text": "rent payment",
+        "level": "B1",
+        "example": "Rent payment is due on the first day of the month.",
+        "item_type": "phrase",
+        "subtopic": "finance",
+        "priority": 50
+      },
+      {
+        "source_text": "протекающий кран",
+        "target_text": "leaking tap",
+        "level": "B1",
+        "example": "We need to fix the leaking tap.",
+        "item_type": "phrase",
+        "subtopic": "maintenance",
+        "priority": 55
+      },
+      {
+        "source_text": "домашний беспорядок",
+        "target_text": "household clutter",
+        "level": "B2",
+        "example": "Household clutter makes the room feel smaller.",
+        "item_type": "phrase",
+        "subtopic": "organization",
+        "priority": 35
       }
     ]
   },
@@ -334,187 +580,415 @@
         "source_text": "вода",
         "target_text": "water",
         "level": "A1",
-        "example": "Could I have some water, please?"
+        "example": "Could I have some water, please?",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кофе",
         "target_text": "coffee",
         "level": "A1",
-        "example": "He drinks coffee before work."
+        "example": "He drinks coffee before work.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сыр",
         "target_text": "cheese",
         "level": "A1",
-        "example": "This cheese smells strong."
+        "example": "This cheese smells strong.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "хлеб",
         "target_text": "bread",
         "level": "A1",
-        "example": "There is fresh bread on the table."
+        "example": "There is fresh bread on the table.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "яблоко",
         "target_text": "apple",
         "level": "A1",
-        "example": "She eats an apple every morning."
+        "example": "She eats an apple every morning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "жарить",
         "target_text": "to fry",
         "level": "A2",
-        "example": "Do not fry the onions for too long."
+        "example": "Do not fry the onions for too long.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "завтрак",
         "target_text": "breakfast",
         "level": "A2",
-        "example": "Breakfast is served until ten."
+        "example": "Breakfast is served until ten.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "меню",
         "target_text": "menu",
         "level": "A2",
-        "example": "The menu has many vegetarian options."
+        "example": "The menu has many vegetarian options.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обед",
         "target_text": "lunch",
         "level": "A2",
-        "example": "We had lunch at a small cafe."
+        "example": "We had lunch at a small cafe.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "официант",
         "target_text": "waiter",
         "level": "A2",
-        "example": "The waiter brought us some water."
+        "example": "The waiter brought us some water.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рецепт",
         "target_text": "recipe",
         "level": "A2",
-        "example": "My grandmother gave me the recipe."
+        "example": "My grandmother gave me the recipe.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ужин",
         "target_text": "dinner",
         "level": "A2",
-        "example": "We had a late dinner yesterday."
+        "example": "We had a late dinner yesterday.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "вегетарианский",
         "target_text": "vegetarian",
         "level": "B1",
-        "example": "They ordered a vegetarian meal."
+        "example": "They ordered a vegetarian meal.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гриль",
         "target_text": "grilled",
         "level": "B1",
-        "example": "I ordered grilled vegetables."
+        "example": "I ordered grilled vegetables.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ингредиент",
         "target_text": "ingredient",
         "level": "B1",
-        "example": "This ingredient changes the whole flavor."
+        "example": "This ingredient changes the whole flavor.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "морепродукты",
         "target_text": "seafood",
         "level": "B1",
-        "example": "This restaurant specializes in seafood."
+        "example": "This restaurant specializes in seafood.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "острый",
         "target_text": "spicy",
         "level": "B1",
-        "example": "The curry is too spicy for me."
+        "example": "The curry is too spicy for me.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "приправа",
         "target_text": "seasoning",
         "level": "B1",
-        "example": "The seasoning is too salty."
+        "example": "The seasoning is too salty.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "бульон",
         "target_text": "broth",
         "level": "B2",
-        "example": "The broth has a deep flavor."
+        "example": "The broth has a deep flavor.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гарнир",
         "target_text": "side dish",
         "level": "B2",
-        "example": "Rice is a common side dish in this restaurant."
+        "example": "Rice is a common side dish in this restaurant.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "горький",
         "target_text": "bitter",
         "level": "B2",
-        "example": "Dark chocolate can taste slightly bitter."
+        "example": "Dark chocolate can taste slightly bitter.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "закуска",
         "target_text": "appetizer",
         "level": "B2",
-        "example": "The appetizer arrived before the main course."
+        "example": "The appetizer arrived before the main course.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перепел",
         "target_text": "quail",
         "level": "B2",
-        "example": "Roasted quail is considered a delicacy."
+        "example": "Roasted quail is considered a delicacy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пикантный",
         "target_text": "savory",
         "level": "B2",
-        "example": "It is a savory dish with herbs."
+        "example": "It is a savory dish with herbs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "тушеный",
         "target_text": "braised",
         "level": "B2",
-        "example": "They served braised beef with vegetables."
+        "example": "They served braised beef with vegetables.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выдержанный сыр",
         "target_text": "aged cheese",
         "level": "C1",
-        "example": "Aged cheese pairs well with dry wine."
+        "example": "Aged cheese pairs well with dry wine.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подача блюда",
         "target_text": "plating",
         "level": "C1",
-        "example": "The plating was elegant and minimalistic."
+        "example": "The plating was elegant and minimalistic.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ферментация",
         "target_text": "fermentation",
         "level": "C1",
-        "example": "Fermentation gives the bread a richer taste."
+        "example": "Fermentation gives the bread a richer taste.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "вкусовой профиль",
         "target_text": "flavor profile",
         "level": "C2",
-        "example": "The chef balanced the flavor profile carefully."
+        "example": "The chef balanced the flavor profile carefully.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гастрономический",
         "target_text": "gastronomic",
         "level": "C2",
-        "example": "The city is known for its gastronomic traditions."
+        "example": "The city is known for its gastronomic traditions.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "умами",
         "target_text": "umami",
         "level": "C2",
-        "example": "Mushrooms add umami to the sauce."
+        "example": "Mushrooms add umami to the sauce.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "меню",
+        "target_text": "menu",
+        "level": "A1",
+        "example": "Can I see the menu, please?",
+        "item_type": "word",
+        "subtopic": "restaurant",
+        "priority": 90
+      },
+      {
+        "source_text": "счет",
+        "target_text": "bill",
+        "level": "A1",
+        "example": "Could we have the bill, please?",
+        "item_type": "word",
+        "subtopic": "restaurant",
+        "priority": 90
+      },
+      {
+        "source_text": "с собой",
+        "target_text": "to go",
+        "level": "A2",
+        "example": "I would like a coffee to go.",
+        "item_type": "phrase",
+        "subtopic": "ordering",
+        "priority": 80
+      },
+      {
+        "source_text": "на вынос",
+        "target_text": "takeout",
+        "level": "A2",
+        "example": "We ordered takeout on Friday night.",
+        "item_type": "word",
+        "subtopic": "ordering",
+        "priority": 75
+      },
+      {
+        "source_text": "доставка",
+        "target_text": "delivery",
+        "level": "A2",
+        "example": "The delivery should arrive in twenty minutes.",
+        "item_type": "word",
+        "subtopic": "ordering",
+        "priority": 80
+      },
+      {
+        "source_text": "без лука",
+        "target_text": "without onions",
+        "level": "A2",
+        "example": "I would like a burger without onions.",
+        "item_type": "phrase",
+        "subtopic": "ordering",
+        "priority": 80
+      },
+      {
+        "source_text": "дополнительный соус",
+        "target_text": "extra sauce",
+        "level": "A2",
+        "example": "Can I get extra sauce with that?",
+        "item_type": "phrase",
+        "subtopic": "ordering",
+        "priority": 75
+      },
+      {
+        "source_text": "острое блюдо",
+        "target_text": "spicy dish",
+        "level": "B1",
+        "example": "This is a spicy dish, so be careful.",
+        "item_type": "phrase",
+        "subtopic": "menu",
+        "priority": 60
+      },
+      {
+        "source_text": "закуска",
+        "target_text": "starter",
+        "level": "B1",
+        "example": "We ordered a starter before the main course.",
+        "item_type": "word",
+        "subtopic": "restaurant",
+        "priority": 65
+      },
+      {
+        "source_text": "основное блюдо",
+        "target_text": "main course",
+        "level": "B1",
+        "example": "The main course took a long time to arrive.",
+        "item_type": "phrase",
+        "subtopic": "restaurant",
+        "priority": 65
+      },
+      {
+        "source_text": "десертное меню",
+        "target_text": "dessert menu",
+        "level": "B1",
+        "example": "Could we also see the dessert menu?",
+        "item_type": "phrase",
+        "subtopic": "restaurant",
+        "priority": 55
+      },
+      {
+        "source_text": "жареный перепел",
+        "target_text": "roast quail",
+        "level": "B2",
+        "example": "The chef recommended the roast quail.",
+        "item_type": "phrase",
+        "subtopic": "fine dining",
+        "priority": 35
+      },
+      {
+        "source_text": "выдержанный сыр",
+        "target_text": "aged cheese",
+        "level": "B2",
+        "example": "This aged cheese has a strong flavor.",
+        "item_type": "phrase",
+        "subtopic": "ingredients",
+        "priority": 40
+      },
+      {
+        "source_text": "брожение",
+        "target_text": "fermentation",
+        "level": "C1",
+        "example": "Fermentation changes both flavor and texture.",
+        "item_type": "word",
+        "subtopic": "cooking",
+        "priority": 25
+      },
+      {
+        "source_text": "гастрономическое сочетание",
+        "target_text": "flavor pairing",
+        "level": "C1",
+        "example": "Flavor pairing matters in modern cuisine.",
+        "item_type": "phrase",
+        "subtopic": "fine dining",
+        "priority": 20
       }
     ]
   },
@@ -527,133 +1001,199 @@
         "source_text": "куртка",
         "target_text": "jacket",
         "level": "A1",
-        "example": "Take your jacket, it is cold outside."
+        "example": "Take your jacket, it is cold outside.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обувь",
         "target_text": "shoes",
         "level": "A1",
-        "example": "These shoes are very comfortable."
+        "example": "These shoes are very comfortable.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "платье",
         "target_text": "dress",
         "level": "A1",
-        "example": "She bought a new dress for the party."
+        "example": "She bought a new dress for the party.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рубашка",
         "target_text": "shirt",
         "level": "A1",
-        "example": "His shirt needs ironing."
+        "example": "His shirt needs ironing.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "футболка",
         "target_text": "T-shirt",
         "level": "A1",
-        "example": "He is wearing a blue T-shirt."
+        "example": "He is wearing a blue T-shirt.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "брюки",
         "target_text": "trousers",
         "level": "A2",
-        "example": "These trousers are too long for me."
+        "example": "These trousers are too long for me.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "примерять",
         "target_text": "to try on",
         "level": "A2",
-        "example": "I want to try on these boots."
+        "example": "I want to try on these boots.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "размер",
         "target_text": "size",
         "level": "A2",
-        "example": "Do you have this in a larger size?"
+        "example": "Do you have this in a larger size?",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "свитер",
         "target_text": "sweater",
         "level": "A2",
-        "example": "This sweater is made of wool."
+        "example": "This sweater is made of wool.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "юбка",
         "target_text": "skirt",
         "level": "A2",
-        "example": "The skirt matches her shoes."
+        "example": "The skirt matches her shoes.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "аккуратный",
         "target_text": "neat",
         "level": "B1",
-        "example": "He always looks neat and organized."
+        "example": "He always looks neat and organized.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "внешность",
         "target_text": "appearance",
         "level": "B1",
-        "example": "Appearance matters in some professions."
+        "example": "Appearance matters in some professions.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "повседневный стиль",
         "target_text": "casual style",
         "level": "B1",
-        "example": "I prefer casual style at work."
+        "example": "I prefer casual style at work.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "элегантный",
         "target_text": "elegant",
         "level": "B1",
-        "example": "That coat looks very elegant."
+        "example": "That coat looks very elegant.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "небрежный",
         "target_text": "scruffy",
         "level": "B2",
-        "example": "He looked scruffy after the long flight."
+        "example": "He looked scruffy after the long flight.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подходить по фигуре",
         "target_text": "to fit well",
         "level": "B2",
-        "example": "That suit fits him well."
+        "example": "That suit fits him well.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ткань",
         "target_text": "fabric",
         "level": "B2",
-        "example": "This fabric feels soft and light."
+        "example": "This fabric feels soft and light.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "формальный дресс-код",
         "target_text": "formal dress code",
         "level": "B2",
-        "example": "The event has a formal dress code."
+        "example": "The event has a formal dress code.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "портной",
         "target_text": "tailor",
         "level": "C1",
-        "example": "The tailor adjusted the sleeves perfectly."
+        "example": "The tailor adjusted the sleeves perfectly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "силуэт",
         "target_text": "silhouette",
         "level": "C1",
-        "example": "The dress has a simple but striking silhouette."
+        "example": "The dress has a simple but striking silhouette.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "самопрезентация",
         "target_text": "self-presentation",
         "level": "C2",
-        "example": "Clothing is part of professional self-presentation."
+        "example": "Clothing is part of professional self-presentation.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эстетика",
         "target_text": "aesthetic",
         "level": "C2",
-        "example": "Their brand aesthetic is very minimalist."
+        "example": "Their brand aesthetic is very minimalist.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -666,145 +1206,307 @@
         "source_text": "вечер",
         "target_text": "evening",
         "level": "A1",
-        "example": "We take a walk in the evening."
+        "example": "We take a walk in the evening.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "возвращаться домой",
         "target_text": "to come home",
         "level": "A1",
-        "example": "She comes home late on Fridays."
+        "example": "She comes home late on Fridays.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "завтракать",
         "target_text": "to have breakfast",
         "level": "A1",
-        "example": "We usually have breakfast together."
+        "example": "We usually have breakfast together.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "идти на работу",
         "target_text": "to go to work",
         "level": "A1",
-        "example": "He goes to work by bus."
+        "example": "He goes to work by bus.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ложиться спать",
         "target_text": "to go to bed",
         "level": "A1",
-        "example": "The children go to bed at nine."
+        "example": "The children go to bed at nine.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "просыпаться",
         "target_text": "to wake up",
         "level": "A1",
-        "example": "I wake up at seven every day."
+        "example": "I wake up at seven every day.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "утро",
         "target_text": "morning",
         "level": "A1",
-        "example": "I study English in the morning."
+        "example": "I study English in the morning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "встречаться с друзьями",
         "target_text": "to meet friends",
         "level": "A2",
-        "example": "I like to meet friends after class."
+        "example": "I like to meet friends after class.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выходной",
         "target_text": "day off",
         "level": "A2",
-        "example": "Sunday is my only day off this week."
+        "example": "Sunday is my only day off this week.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "делать покупки",
         "target_text": "to do the shopping",
         "level": "A2",
-        "example": "We do the shopping on Saturdays."
+        "example": "We do the shopping on Saturdays.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "день недели",
         "target_text": "weekday",
         "level": "A2",
-        "example": "My weekdays are usually very busy."
+        "example": "My weekdays are usually very busy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "планировать день",
         "target_text": "to plan the day",
         "level": "A2",
-        "example": "She likes to plan the day the night before."
+        "example": "She likes to plan the day the night before.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "дело по дому",
         "target_text": "chore",
         "level": "B1",
-        "example": "Washing dishes is my least favorite chore."
+        "example": "Washing dishes is my least favorite chore.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "привыкать",
         "target_text": "to get used to",
         "level": "B1",
-        "example": "It took me time to get used to the new schedule."
+        "example": "It took me time to get used to the new schedule.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рутина",
         "target_text": "routine",
         "level": "B1",
-        "example": "A stable routine helps people focus."
+        "example": "A stable routine helps people focus.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "спешить",
         "target_text": "to rush",
         "level": "B1",
-        "example": "I always rush in the morning."
+        "example": "I always rush in the morning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "откладывать дела",
         "target_text": "to procrastinate",
         "level": "B2",
-        "example": "Students often procrastinate before exams."
+        "example": "Students often procrastinate before exams.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перегруженный график",
         "target_text": "packed schedule",
         "level": "B2",
-        "example": "Her packed schedule leaves little time to rest."
+        "example": "Her packed schedule leaves little time to rest.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сбалансированный образ жизни",
         "target_text": "balanced lifestyle",
         "level": "B2",
-        "example": "A balanced lifestyle reduces stress."
+        "example": "A balanced lifestyle reduces stress.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "управление временем",
         "target_text": "time management",
         "level": "B2",
-        "example": "Time management is a useful professional skill."
+        "example": "Time management is a useful professional skill.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "повседневные обязательства",
         "target_text": "daily commitments",
         "level": "C1",
-        "example": "Daily commitments can easily crowd out rest."
+        "example": "Daily commitments can easily crowd out rest.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "структурировать день",
         "target_text": "to structure the day",
         "level": "C1",
-        "example": "Learning to structure the day improved my productivity."
+        "example": "Learning to structure the day improved my productivity.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "распределение внимания",
         "target_text": "attention allocation",
         "level": "C2",
-        "example": "Attention allocation becomes harder in digital life."
+        "example": "Attention allocation becomes harder in digital life.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "устойчивый ритм",
         "target_text": "sustainable rhythm",
         "level": "C2",
-        "example": "A sustainable rhythm is better than short bursts of effort."
+        "example": "A sustainable rhythm is better than short bursts of effort.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "просыпаться",
+        "target_text": "wake up",
+        "level": "A1",
+        "example": "I usually wake up at seven.",
+        "item_type": "word",
+        "subtopic": "routine",
+        "priority": 90
+      },
+      {
+        "source_text": "принимать душ",
+        "target_text": "take a shower",
+        "level": "A1",
+        "example": "She takes a shower before breakfast.",
+        "item_type": "phrase",
+        "subtopic": "routine",
+        "priority": 85
+      },
+      {
+        "source_text": "опаздывать",
+        "target_text": "run late",
+        "level": "A2",
+        "example": "I ran late because of traffic.",
+        "item_type": "phrase",
+        "subtopic": "time",
+        "priority": 75
+      },
+      {
+        "source_text": "успевать к сроку",
+        "target_text": "be on time",
+        "level": "A2",
+        "example": "We need to be on time for class.",
+        "item_type": "phrase",
+        "subtopic": "time",
+        "priority": 80
+      },
+      {
+        "source_text": "короткий перерыв",
+        "target_text": "short break",
+        "level": "A2",
+        "example": "Let's take a short break after this task.",
+        "item_type": "phrase",
+        "subtopic": "routine",
+        "priority": 60
+      },
+      {
+        "source_text": "плотный график",
+        "target_text": "busy schedule",
+        "level": "B1",
+        "example": "I have a busy schedule this week.",
+        "item_type": "phrase",
+        "subtopic": "time",
+        "priority": 55
+      },
+      {
+        "source_text": "привычка",
+        "target_text": "habit",
+        "level": "B1",
+        "example": "Reading before bed is a good habit.",
+        "item_type": "word",
+        "subtopic": "routine",
+        "priority": 60
+      },
+      {
+        "source_text": "ежедневная рутина",
+        "target_text": "daily routine",
+        "level": "A2",
+        "example": "My daily routine changes on weekends.",
+        "item_type": "phrase",
+        "subtopic": "routine",
+        "priority": 75
+      },
+      {
+        "source_text": "откладывать дела",
+        "target_text": "put things off",
+        "level": "B2",
+        "example": "I try not to put things off until Friday.",
+        "item_type": "phrase",
+        "subtopic": "productivity",
+        "priority": 40
+      },
+      {
+        "source_text": "выгорать",
+        "target_text": "burn out",
+        "level": "C1",
+        "example": "People burn out when they ignore rest for too long.",
+        "item_type": "phrase",
+        "subtopic": "wellbeing",
+        "priority": 25
       }
     ]
   },
@@ -817,169 +1519,361 @@
         "source_text": "багаж",
         "target_text": "luggage",
         "level": "A1",
-        "example": "Their luggage arrived late."
+        "example": "Their luggage arrived late.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "билет",
         "target_text": "ticket",
         "level": "A1",
-        "example": "I bought the train ticket online."
+        "example": "I bought the train ticket online.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "отель",
         "target_text": "hotel",
         "level": "A1",
-        "example": "Our hotel is near the beach."
+        "example": "Our hotel is near the beach.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "паспорт",
         "target_text": "passport",
         "level": "A1",
-        "example": "Keep your passport in a safe place."
+        "example": "Keep your passport in a safe place.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "самолет",
         "target_text": "airplane",
         "level": "A1",
-        "example": "The airplane lands at noon."
+        "example": "The airplane lands at noon.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "бронь",
         "target_text": "reservation",
         "level": "A2",
-        "example": "Your reservation is already confirmed."
+        "example": "Your reservation is already confirmed.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "виза",
         "target_text": "visa",
         "level": "A2",
-        "example": "You need a visa to enter the country."
+        "example": "You need a visa to enter the country.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выезд из отеля",
         "target_text": "check-out",
         "level": "A2",
-        "example": "Check-out is at eleven in the morning."
+        "example": "Check-out is at eleven in the morning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пересадка",
         "target_text": "transfer",
         "level": "A2",
-        "example": "We have a short transfer in Istanbul."
+        "example": "We have a short transfer in Istanbul.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "платформа",
         "target_text": "platform",
         "level": "A2",
-        "example": "The train leaves from platform four."
+        "example": "The train leaves from platform four.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "посадка",
         "target_text": "boarding",
         "level": "A2",
-        "example": "Boarding starts in twenty minutes."
+        "example": "Boarding starts in twenty minutes.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рейс",
         "target_text": "flight",
         "level": "A2",
-        "example": "The flight to Rome is delayed."
+        "example": "The flight to Rome is delayed.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выезд на посадку",
         "target_text": "departure gate",
         "level": "B1",
-        "example": "The departure gate changed at the last minute."
+        "example": "The departure gate changed at the last minute.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "достопримечательность",
         "target_text": "landmark",
         "level": "B1",
-        "example": "The guide showed us every famous landmark."
+        "example": "The guide showed us every famous landmark.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "маршрут",
         "target_text": "itinerary",
         "level": "B1",
-        "example": "The itinerary includes three cities."
+        "example": "The itinerary includes three cities.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "прибытие",
         "target_text": "arrival",
         "level": "B1",
-        "example": "Arrival time is shown on the screen."
+        "example": "Arrival time is shown on the screen.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "таможня",
         "target_text": "customs",
         "level": "B1",
-        "example": "We waited a long time at customs."
+        "example": "We waited a long time at customs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экскурсия",
         "target_text": "guided tour",
         "level": "B1",
-        "example": "We booked a guided tour of the old town."
+        "example": "We booked a guided tour of the old town.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "задержка",
         "target_text": "delay",
         "level": "B2",
-        "example": "The delay ruined their connection."
+        "example": "The delay ruined their connection.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "зарегистрированный багаж",
         "target_text": "checked baggage",
         "level": "B2",
-        "example": "Checked baggage is included in the fare."
+        "example": "Checked baggage is included in the fare.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перелет с пересадкой",
         "target_text": "layover",
         "level": "B2",
-        "example": "We had a six-hour layover in Doha."
+        "example": "We had a six-hour layover in Doha.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пограничный контроль",
         "target_text": "border control",
         "level": "B2",
-        "example": "Border control was strict but efficient."
+        "example": "Border control was strict but efficient.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "размещение",
         "target_text": "accommodation",
         "level": "B2",
-        "example": "Accommodation in the city center is expensive."
+        "example": "Accommodation in the city center is expensive.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "совет для путешественников",
         "target_text": "travel advisory",
         "level": "B2",
-        "example": "We checked the travel advisory before booking."
+        "example": "We checked the travel advisory before booking.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "туристическая страховка",
         "target_text": "travel insurance",
         "level": "B2",
-        "example": "Travel insurance covered the medical costs."
+        "example": "Travel insurance covered the medical costs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "маршрут в обход",
         "target_text": "detour",
         "level": "C1",
-        "example": "We had to make a detour because of roadworks."
+        "example": "We had to make a detour because of roadworks.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "маршрутный узел",
         "target_text": "transport hub",
         "level": "C1",
-        "example": "The airport has become a major transport hub."
+        "example": "The airport has become a major transport hub.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "непредвиденные расходы",
         "target_text": "unexpected expenses",
         "level": "C1",
-        "example": "Unexpected expenses can ruin a travel budget."
+        "example": "Unexpected expenses can ruin a travel budget.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "посадочный талон",
+        "target_text": "boarding pass",
+        "level": "A1",
+        "example": "Please show your boarding pass at the gate.",
+        "item_type": "phrase",
+        "subtopic": "airport",
+        "priority": 90
+      },
+      {
+        "source_text": "рейс задержан",
+        "target_text": "flight delayed",
+        "level": "A2",
+        "example": "Our flight was delayed by two hours.",
+        "item_type": "phrase",
+        "subtopic": "airport",
+        "priority": 80
+      },
+      {
+        "source_text": "ручная кладь",
+        "target_text": "carry-on bag",
+        "level": "A2",
+        "example": "You can take one carry-on bag on board.",
+        "item_type": "phrase",
+        "subtopic": "airport",
+        "priority": 80
+      },
+      {
+        "source_text": "стойка регистрации",
+        "target_text": "check-in desk",
+        "level": "A1",
+        "example": "The check-in desk is near the entrance.",
+        "item_type": "phrase",
+        "subtopic": "airport",
+        "priority": 85
+      },
+      {
+        "source_text": "выход на посадку",
+        "target_text": "boarding gate",
+        "level": "A1",
+        "example": "Your boarding gate is number twelve.",
+        "item_type": "phrase",
+        "subtopic": "airport",
+        "priority": 85
+      },
+      {
+        "source_text": "прямой рейс",
+        "target_text": "direct flight",
+        "level": "A2",
+        "example": "A direct flight is usually more expensive.",
+        "item_type": "phrase",
+        "subtopic": "flight",
+        "priority": 70
+      },
+      {
+        "source_text": "пересадка",
+        "target_text": "layover",
+        "level": "B1",
+        "example": "We had a short layover in Istanbul.",
+        "item_type": "word",
+        "subtopic": "flight",
+        "priority": 60
+      },
+      {
+        "source_text": "арендовать машину",
+        "target_text": "rent a car",
+        "level": "A2",
+        "example": "We decided to rent a car at the airport.",
+        "item_type": "phrase",
+        "subtopic": "transport",
+        "priority": 70
+      },
+      {
+        "source_text": "туристическая страховка",
+        "target_text": "travel insurance",
+        "level": "B1",
+        "example": "Travel insurance is useful for international trips.",
+        "item_type": "phrase",
+        "subtopic": "planning",
+        "priority": 60
+      },
+      {
+        "source_text": "обмен валюты",
+        "target_text": "currency exchange",
+        "level": "B1",
+        "example": "We used a currency exchange near the station.",
+        "item_type": "phrase",
+        "subtopic": "money",
+        "priority": 60
+      },
+      {
+        "source_text": "местная достопримечательность",
+        "target_text": "local landmark",
+        "level": "B1",
+        "example": "The guide showed us every local landmark.",
+        "item_type": "phrase",
+        "subtopic": "sightseeing",
+        "priority": 55
+      },
+      {
+        "source_text": "сесть не на тот поезд",
+        "target_text": "take the wrong train",
+        "level": "B1",
+        "example": "We almost took the wrong train in Milan.",
+        "item_type": "phrase",
+        "subtopic": "transport",
+        "priority": 50
       }
     ]
   },
@@ -992,169 +1886,253 @@
         "source_text": "брат",
         "target_text": "brother",
         "level": "A1",
-        "example": "Her brother is younger than she is."
+        "example": "Her brother is younger than she is.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "друг",
         "target_text": "friend",
         "level": "A1",
-        "example": "My friend lives next door."
+        "example": "My friend lives next door.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "мать",
         "target_text": "mother",
         "level": "A1",
-        "example": "My mother works from home."
+        "example": "My mother works from home.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "отец",
         "target_text": "father",
         "level": "A1",
-        "example": "His father likes fishing."
+        "example": "His father likes fishing.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сестра",
         "target_text": "sister",
         "level": "A1",
-        "example": "My sister studies medicine."
+        "example": "My sister studies medicine.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "доверять",
         "target_text": "to trust",
         "level": "A2",
-        "example": "You should trust your close friends."
+        "example": "You should trust your close friends.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "жена",
         "target_text": "wife",
         "level": "A2",
-        "example": "His wife loves classical music."
+        "example": "His wife loves classical music.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "муж",
         "target_text": "husband",
         "level": "A2",
-        "example": "Her husband works abroad."
+        "example": "Her husband works abroad.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "племянник",
         "target_text": "nephew",
         "level": "A2",
-        "example": "My nephew starts school this year."
+        "example": "My nephew starts school this year.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "племянница",
         "target_text": "niece",
         "level": "A2",
-        "example": "His niece is learning to read."
+        "example": "His niece is learning to read.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "родители",
         "target_text": "parents",
         "level": "A2",
-        "example": "His parents moved to another city."
+        "example": "His parents moved to another city.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "родственник",
         "target_text": "relative",
         "level": "A2",
-        "example": "I met many relatives at the wedding."
+        "example": "I met many relatives at the wedding.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сосед",
         "target_text": "neighbor",
         "level": "A2",
-        "example": "Our neighbor plays the piano."
+        "example": "Our neighbor plays the piano.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "детство",
         "target_text": "childhood",
         "level": "B1",
-        "example": "They often talk about their childhood."
+        "example": "They often talk about their childhood.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "партнер",
         "target_text": "partner",
         "level": "B1",
-        "example": "She introduced her partner to the family."
+        "example": "She introduced her partner to the family.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поддержка",
         "target_text": "support",
         "level": "B1",
-        "example": "Family support helps in difficult times."
+        "example": "Family support helps in difficult times.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "помолвка",
         "target_text": "engagement",
         "level": "B1",
-        "example": "Their engagement surprised everyone."
+        "example": "Their engagement surprised everyone.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "свадьба",
         "target_text": "wedding",
         "level": "B1",
-        "example": "The wedding will take place in June."
+        "example": "The wedding will take place in June.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "спор",
         "target_text": "argument",
         "level": "B1",
-        "example": "They had an argument about money."
+        "example": "They had an argument about money.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "воспитывать",
         "target_text": "to raise",
         "level": "B2",
-        "example": "They are trying to raise independent children."
+        "example": "They are trying to raise independent children.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "домашнее хозяйство",
         "target_text": "household",
         "level": "B2",
-        "example": "Household duties should be shared."
+        "example": "Household duties should be shared.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "компромисс",
         "target_text": "compromise",
         "level": "B2",
-        "example": "A good relationship needs compromise."
+        "example": "A good relationship needs compromise.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "разногласие",
         "target_text": "disagreement",
         "level": "B2",
-        "example": "They had a disagreement about finances."
+        "example": "They had a disagreement about finances.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "родительские обязанности",
         "target_text": "parenting responsibilities",
         "level": "B2",
-        "example": "Parenting responsibilities should be shared equally."
+        "example": "Parenting responsibilities should be shared equally.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "отчуждение",
         "target_text": "estrangement",
         "level": "C1",
-        "example": "Years of silence led to estrangement."
+        "example": "Years of silence led to estrangement.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "примирение",
         "target_text": "reconciliation",
         "level": "C1",
-        "example": "Their reconciliation took a long time."
+        "example": "Their reconciliation took a long time.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "безусловная поддержка",
         "target_text": "unconditional support",
         "level": "C2",
-        "example": "Children need unconditional support from adults."
+        "example": "Children need unconditional support from adults.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эмоциональная близость",
         "target_text": "emotional intimacy",
         "level": "C2",
-        "example": "Emotional intimacy grows through honesty."
+        "example": "Emotional intimacy grows through honesty.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -1167,169 +2145,253 @@
         "source_text": "книга",
         "target_text": "book",
         "level": "A1",
-        "example": "This book is very easy to read."
+        "example": "This book is very easy to read.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "музыка",
         "target_text": "music",
         "level": "A1",
-        "example": "I listen to music every day."
+        "example": "I listen to music every day.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "путешествовать",
         "target_text": "to travel",
         "level": "A1",
-        "example": "They want to travel this summer."
+        "example": "They want to travel this summer.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "спорт",
         "target_text": "sport",
         "level": "A1",
-        "example": "Sport helps people stay active."
+        "example": "Sport helps people stay active.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "фильм",
         "target_text": "movie",
         "level": "A1",
-        "example": "We watched a movie last night."
+        "example": "We watched a movie last night.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гитара",
         "target_text": "guitar",
         "level": "A2",
-        "example": "He practices the guitar every evening."
+        "example": "He practices the guitar every evening.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "настольные игры",
         "target_text": "board games",
         "level": "A2",
-        "example": "We play board games on Fridays."
+        "example": "We play board games on Fridays.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подкаст",
         "target_text": "podcast",
         "level": "A2",
-        "example": "I listen to a history podcast on the way home."
+        "example": "I listen to a history podcast on the way home.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поход",
         "target_text": "hike",
         "level": "A2",
-        "example": "The hike was longer than we expected."
+        "example": "The hike was longer than we expected.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рисование",
         "target_text": "drawing",
         "level": "A2",
-        "example": "Drawing helps children express ideas."
+        "example": "Drawing helps children express ideas.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "фотография",
         "target_text": "photography",
         "level": "A2",
-        "example": "Photography became her weekend hobby."
+        "example": "Photography became her weekend hobby.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "хобби",
         "target_text": "hobby",
         "level": "A2",
-        "example": "Everyone needs a relaxing hobby."
+        "example": "Everyone needs a relaxing hobby.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "велоспорт",
         "target_text": "cycling",
         "level": "B1",
-        "example": "Cycling is both exercise and fun."
+        "example": "Cycling is both exercise and fun.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "вязание",
         "target_text": "knitting",
         "level": "B1",
-        "example": "Knitting helps her unwind after work."
+        "example": "Knitting helps her unwind after work.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кулинария",
         "target_text": "cooking",
         "level": "B1",
-        "example": "Cooking became his creative outlet."
+        "example": "Cooking became his creative outlet.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рукоделие",
         "target_text": "crafting",
         "level": "B1",
-        "example": "Crafting helps her relax after work."
+        "example": "Crafting helps her relax after work.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "садоводство",
         "target_text": "gardening",
         "level": "B1",
-        "example": "Gardening teaches patience."
+        "example": "Gardening teaches patience.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эскиз",
         "target_text": "sketching",
         "level": "B1",
-        "example": "Sketching improves visual observation."
+        "example": "Sketching improves visual observation.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выставка",
         "target_text": "exhibition",
         "level": "B2",
-        "example": "The exhibition attracted many young artists."
+        "example": "The exhibition attracted many young artists.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "импровизация",
         "target_text": "improvisation",
         "level": "B2",
-        "example": "Improvisation makes jazz exciting."
+        "example": "Improvisation makes jazz exciting.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кинофестиваль",
         "target_text": "film festival",
         "level": "B2",
-        "example": "We volunteered at a local film festival."
+        "example": "We volunteered at a local film festival.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "коллекционирование",
         "target_text": "collecting",
         "level": "B2",
-        "example": "Collecting old maps is his passion."
+        "example": "Collecting old maps is his passion.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "коллекционное издание",
         "target_text": "collector's edition",
         "level": "B2",
-        "example": "He bought a collector's edition of the game."
+        "example": "He bought a collector's edition of the game.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сценарий",
         "target_text": "screenplay",
         "level": "B2",
-        "example": "She is writing her first screenplay."
+        "example": "She is writing her first screenplay.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сценическое выступление",
         "target_text": "stage performance",
         "level": "C1",
-        "example": "Stage performance requires confidence."
+        "example": "Stage performance requires confidence.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "творческое самовыражение",
         "target_text": "creative expression",
         "level": "C1",
-        "example": "Dance is a form of creative expression."
+        "example": "Dance is a form of creative expression.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "погружение",
         "target_text": "immersion",
         "level": "C2",
-        "example": "Language immersion can also be a hobby."
+        "example": "Language immersion can also be a hobby.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эстетическое восприятие",
         "target_text": "aesthetic appreciation",
         "level": "C2",
-        "example": "Aesthetic appreciation grows with exposure to art."
+        "example": "Aesthetic appreciation grows with exposure to art.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -1342,175 +2404,352 @@
         "source_text": "боль",
         "target_text": "pain",
         "level": "A2",
-        "example": "He has pain in his back."
+        "example": "He has pain in his back.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "врач",
         "target_text": "doctor",
         "level": "A2",
-        "example": "The doctor will see you now."
+        "example": "The doctor will see you now.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "головная боль",
         "target_text": "headache",
         "level": "A2",
-        "example": "She stayed home because of a headache."
+        "example": "She stayed home because of a headache.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "лекарство",
         "target_text": "medicine",
         "level": "A2",
-        "example": "Take the medicine after lunch."
+        "example": "Take the medicine after lunch.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "прием у врача",
         "target_text": "appointment",
         "level": "A2",
-        "example": "I have a doctor appointment tomorrow."
+        "example": "I have a doctor appointment tomorrow.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сон",
         "target_text": "sleep",
         "level": "A2",
-        "example": "Good sleep improves memory."
+        "example": "Good sleep improves memory.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "температура",
         "target_text": "fever",
         "level": "A2",
-        "example": "A high fever can be dangerous."
+        "example": "A high fever can be dangerous.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "упражнение",
         "target_text": "exercise",
         "level": "A2",
-        "example": "Exercise helps me feel better."
+        "example": "Exercise helps me feel better.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "восстановление",
         "target_text": "recovery",
         "level": "B1",
-        "example": "Recovery takes time after surgery."
+        "example": "Recovery takes time after surgery.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "лечение",
         "target_text": "treatment",
         "level": "B1",
-        "example": "The treatment lasted two weeks."
+        "example": "The treatment lasted two weeks.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "осанка",
         "target_text": "posture",
         "level": "B1",
-        "example": "Good posture prevents neck pain."
+        "example": "Good posture prevents neck pain.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "питание",
         "target_text": "nutrition",
         "level": "B1",
-        "example": "Nutrition affects concentration and mood."
+        "example": "Nutrition affects concentration and mood.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "привычка",
         "target_text": "habit",
         "level": "B1",
-        "example": "Reading before bed is a good habit."
+        "example": "Reading before bed is a good habit.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "симптом",
         "target_text": "symptom",
         "level": "B1",
-        "example": "Fatigue can be a symptom of stress."
+        "example": "Fatigue can be a symptom of stress.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "травма",
         "target_text": "injury",
         "level": "B1",
-        "example": "He is recovering from a sports injury."
+        "example": "He is recovering from a sports injury.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "диагноз",
         "target_text": "diagnosis",
         "level": "B2",
-        "example": "The diagnosis explained the symptoms."
+        "example": "The diagnosis explained the symptoms.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "иммунная система",
         "target_text": "immune system",
         "level": "B2",
-        "example": "Sleep strengthens the immune system."
+        "example": "Sleep strengthens the immune system.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "малоподвижный образ жизни",
         "target_text": "sedentary lifestyle",
         "level": "B2",
-        "example": "A sedentary lifestyle increases health risks."
+        "example": "A sedentary lifestyle increases health risks.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обезвоживание",
         "target_text": "dehydration",
         "level": "B2",
-        "example": "Dehydration can cause headaches."
+        "example": "Dehydration can cause headaches.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "питательный",
         "target_text": "nutritious",
         "level": "B2",
-        "example": "A nutritious meal keeps you full longer."
+        "example": "A nutritious meal keeps you full longer.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "психическое здоровье",
         "target_text": "mental health",
         "level": "B2",
-        "example": "Mental health deserves more attention."
+        "example": "Mental health deserves more attention.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сбалансированное питание",
         "target_text": "balanced diet",
         "level": "B2",
-        "example": "A balanced diet supports long-term health."
+        "example": "A balanced diet supports long-term health.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "усталость",
         "target_text": "fatigue",
         "level": "B2",
-        "example": "Fatigue can be a sign of burnout."
+        "example": "Fatigue can be a sign of burnout.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "профилактика",
         "target_text": "prevention",
         "level": "C1",
-        "example": "Prevention is better than treatment."
+        "example": "Prevention is better than treatment.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "устойчивость организма",
         "target_text": "resilience",
         "level": "C1",
-        "example": "Sleep improves physical resilience."
+        "example": "Sleep improves physical resilience.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "хронический",
         "target_text": "chronic",
         "level": "C1",
-        "example": "Chronic stress affects the immune system."
+        "example": "Chronic stress affects the immune system.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "благополучие",
         "target_text": "well-being",
         "level": "C2",
-        "example": "Social connection improves well-being."
+        "example": "Social connection improves well-being.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "доказательная медицина",
         "target_text": "evidence-based medicine",
         "level": "C2",
-        "example": "Evidence-based medicine relies on research."
+        "example": "Evidence-based medicine relies on research.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сопутствующее заболевание",
         "target_text": "underlying condition",
         "level": "C2",
-        "example": "The patient has an underlying condition."
+        "example": "The patient has an underlying condition.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "простуда",
+        "target_text": "cold",
+        "level": "A1",
+        "example": "I think I have a cold.",
+        "item_type": "word",
+        "subtopic": "health",
+        "priority": 85
+      },
+      {
+        "source_text": "принимать лекарство",
+        "target_text": "take medicine",
+        "level": "A1",
+        "example": "You should take medicine after lunch.",
+        "item_type": "phrase",
+        "subtopic": "health",
+        "priority": 80
+      },
+      {
+        "source_text": "записаться к врачу",
+        "target_text": "book a doctor's appointment",
+        "level": "A2",
+        "example": "I need to book a doctor's appointment.",
+        "item_type": "phrase",
+        "subtopic": "healthcare",
+        "priority": 70
+      },
+      {
+        "source_text": "симптом",
+        "target_text": "symptom",
+        "level": "B1",
+        "example": "Fatigue can be a common symptom.",
+        "item_type": "word",
+        "subtopic": "healthcare",
+        "priority": 55
+      },
+      {
+        "source_text": "выздоравливать",
+        "target_text": "recover",
+        "level": "B1",
+        "example": "It took him a week to recover.",
+        "item_type": "word",
+        "subtopic": "healthcare",
+        "priority": 60
+      },
+      {
+        "source_text": "здоровое питание",
+        "target_text": "healthy diet",
+        "level": "A2",
+        "example": "A healthy diet improves your energy.",
+        "item_type": "phrase",
+        "subtopic": "lifestyle",
+        "priority": 70
+      },
+      {
+        "source_text": "качество сна",
+        "target_text": "sleep quality",
+        "level": "B2",
+        "example": "Stress can reduce sleep quality.",
+        "item_type": "phrase",
+        "subtopic": "wellbeing",
+        "priority": 35
+      },
+      {
+        "source_text": "обезвоживание",
+        "target_text": "dehydration",
+        "level": "B2",
+        "example": "Dehydration is common in hot weather.",
+        "item_type": "word",
+        "subtopic": "health",
+        "priority": 35
+      },
+      {
+        "source_text": "психическое здоровье",
+        "target_text": "mental health",
+        "level": "B2",
+        "example": "Mental health is part of overall health.",
+        "item_type": "phrase",
+        "subtopic": "wellbeing",
+        "priority": 40
+      },
+      {
+        "source_text": "сидячий образ жизни",
+        "target_text": "sedentary lifestyle",
+        "level": "C1",
+        "example": "A sedentary lifestyle affects long-term health.",
+        "item_type": "phrase",
+        "subtopic": "wellbeing",
+        "priority": 20
       }
     ]
   },
@@ -1523,175 +2762,352 @@
         "source_text": "домашнее задание",
         "target_text": "homework",
         "level": "A2",
-        "example": "I finished my homework late."
+        "example": "I finished my homework late.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "класс",
         "target_text": "classroom",
         "level": "A2",
-        "example": "The classroom is on the second floor."
+        "example": "The classroom is on the second floor.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "оценка",
         "target_text": "grade",
         "level": "A2",
-        "example": "She got a good grade in math."
+        "example": "She got a good grade in math.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "тетрадь",
         "target_text": "notebook",
         "level": "A2",
-        "example": "Write the new words in your notebook."
+        "example": "Write the new words in your notebook.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "урок",
         "target_text": "lesson",
         "level": "A2",
-        "example": "Today's lesson was very useful."
+        "example": "Today's lesson was very useful.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учебник",
         "target_text": "textbook",
         "level": "A2",
-        "example": "The textbook includes audio exercises."
+        "example": "The textbook includes audio exercises.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учитель",
         "target_text": "teacher",
         "level": "A2",
-        "example": "The teacher explained the rule again."
+        "example": "The teacher explained the rule again.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экзамен",
         "target_text": "exam",
         "level": "A2",
-        "example": "The exam begins on Monday."
+        "example": "The exam begins on Monday.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "задание",
         "target_text": "assignment",
         "level": "B1",
-        "example": "The assignment is due next week."
+        "example": "The assignment is due next week.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "концентрация",
         "target_text": "concentration",
         "level": "B1",
-        "example": "Good concentration helps with memorization."
+        "example": "Good concentration helps with memorization.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "лекция",
         "target_text": "lecture",
         "level": "B1",
-        "example": "The lecture covered memory techniques."
+        "example": "The lecture covered memory techniques.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "навык",
         "target_text": "skill",
         "level": "B1",
-        "example": "Listening is an important skill."
+        "example": "Listening is an important skill.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "повторение",
         "target_text": "revision",
         "level": "B1",
-        "example": "Revision helps before an exam."
+        "example": "Revision helps before an exam.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "практика",
         "target_text": "practice",
         "level": "B1",
-        "example": "Daily practice improves fluency."
+        "example": "Daily practice improves fluency.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учебный материал",
         "target_text": "study material",
         "level": "B1",
-        "example": "The study material is available online."
+        "example": "The study material is available online.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "конспект",
         "target_text": "study notes",
         "level": "B2",
-        "example": "My study notes are color-coded by topic."
+        "example": "My study notes are color-coded by topic.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "мастер-класс",
         "target_text": "workshop",
         "level": "B2",
-        "example": "The workshop focused on pronunciation."
+        "example": "The workshop focused on pronunciation.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "плата за обучение",
         "target_text": "tuition fee",
         "level": "B2",
-        "example": "Tuition fees are rising every year."
+        "example": "Tuition fees are rising every year.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пробел в знаниях",
         "target_text": "knowledge gap",
         "level": "B2",
-        "example": "The quiz showed a major knowledge gap."
+        "example": "The quiz showed a major knowledge gap.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "самостоятельное обучение",
         "target_text": "self-study",
         "level": "B2",
-        "example": "Self-study requires discipline."
+        "example": "Self-study requires discipline.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стипендия",
         "target_text": "scholarship",
         "level": "B2",
-        "example": "She received a scholarship for graduate study."
+        "example": "She received a scholarship for graduate study.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учебная стратегия",
         "target_text": "learning strategy",
         "level": "B2",
-        "example": "Spacing is an effective learning strategy."
+        "example": "Spacing is an effective learning strategy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учебный план",
         "target_text": "syllabus",
         "level": "B2",
-        "example": "The syllabus outlines every module."
+        "example": "The syllabus outlines every module.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "когнитивная нагрузка",
         "target_text": "cognitive load",
         "level": "C1",
-        "example": "Too much cognitive load slows learning."
+        "example": "Too much cognitive load slows learning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "оценивание",
         "target_text": "assessment",
         "level": "C1",
-        "example": "Assessment should reflect real ability."
+        "example": "Assessment should reflect real ability.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "учебная траектория",
         "target_text": "learning pathway",
         "level": "C1",
-        "example": "The course offers a flexible learning pathway."
+        "example": "The course offers a flexible learning pathway.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "академическая добросовестность",
         "target_text": "academic integrity",
         "level": "C2",
-        "example": "Academic integrity matters in every institution."
+        "example": "Academic integrity matters in every institution.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "долговременное закрепление",
         "target_text": "long-term retention",
         "level": "C2",
-        "example": "Retrieval practice improves long-term retention."
+        "example": "Retrieval practice improves long-term retention.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "метапознание",
         "target_text": "metacognition",
         "level": "C2",
-        "example": "Metacognition helps learners reflect on progress."
+        "example": "Metacognition helps learners reflect on progress.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "домашнее задание",
+        "target_text": "homework",
+        "level": "A1",
+        "example": "I finished my homework before dinner.",
+        "item_type": "word",
+        "subtopic": "school",
+        "priority": 90
+      },
+      {
+        "source_text": "тетрадь",
+        "target_text": "notebook",
+        "level": "A1",
+        "example": "Please open your notebook.",
+        "item_type": "word",
+        "subtopic": "school",
+        "priority": 80
+      },
+      {
+        "source_text": "экзамен",
+        "target_text": "exam",
+        "level": "A2",
+        "example": "The exam starts at nine.",
+        "item_type": "word",
+        "subtopic": "school",
+        "priority": 80
+      },
+      {
+        "source_text": "делать заметки",
+        "target_text": "take notes",
+        "level": "A2",
+        "example": "Students should take notes during the lecture.",
+        "item_type": "phrase",
+        "subtopic": "study",
+        "priority": 75
+      },
+      {
+        "source_text": "крайний срок сдачи",
+        "target_text": "submission deadline",
+        "level": "B1",
+        "example": "The submission deadline is next Friday.",
+        "item_type": "phrase",
+        "subtopic": "study",
+        "priority": 55
+      },
+      {
+        "source_text": "учебная программа",
+        "target_text": "curriculum",
+        "level": "B1",
+        "example": "The curriculum was updated last year.",
+        "item_type": "word",
+        "subtopic": "education",
+        "priority": 50
+      },
+      {
+        "source_text": "самостоятельное обучение",
+        "target_text": "self-study",
+        "level": "B2",
+        "example": "Self-study requires discipline.",
+        "item_type": "word",
+        "subtopic": "learning",
+        "priority": 35
+      },
+      {
+        "source_text": "критическое мышление",
+        "target_text": "critical thinking",
+        "level": "B2",
+        "example": "Critical thinking is essential in higher education.",
+        "item_type": "phrase",
+        "subtopic": "learning",
+        "priority": 35
+      },
+      {
+        "source_text": "академическая честность",
+        "target_text": "academic integrity",
+        "level": "C1",
+        "example": "Academic integrity matters in every institution.",
+        "item_type": "phrase",
+        "subtopic": "education",
+        "priority": 20
+      },
+      {
+        "source_text": "исследовательская работа",
+        "target_text": "research paper",
+        "level": "C1",
+        "example": "She is revising her research paper.",
+        "item_type": "phrase",
+        "subtopic": "academia",
+        "priority": 25
       }
     ]
   },
@@ -1704,145 +3120,307 @@
         "source_text": "кассир",
         "target_text": "cashier",
         "level": "A2",
-        "example": "The cashier asked if I needed a bag."
+        "example": "The cashier asked if I needed a bag.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "магазин",
         "target_text": "shop",
         "level": "A2",
-        "example": "The shop closes at eight."
+        "example": "The shop closes at eight.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "покупать",
         "target_text": "to buy",
         "level": "A2",
-        "example": "I need to buy a new charger."
+        "example": "I need to buy a new charger.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "продавать",
         "target_text": "to sell",
         "level": "A2",
-        "example": "They sell fresh fruit here."
+        "example": "They sell fresh fruit here.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "скидка",
         "target_text": "discount",
         "level": "A2",
-        "example": "We got a discount on the second item."
+        "example": "We got a discount on the second item.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "цена",
         "target_text": "price",
         "level": "A2",
-        "example": "The price is too high for me."
+        "example": "The price is too high for me.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "чек",
         "target_text": "receipt",
         "level": "A2",
-        "example": "Keep the receipt in case you return it."
+        "example": "Keep the receipt in case you return it.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "банковская карта",
         "target_text": "bank card",
         "level": "B1",
-        "example": "My bank card stopped working abroad."
+        "example": "My bank card stopped working abroad.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "бюджет",
         "target_text": "budget",
         "level": "B1",
-        "example": "We set a budget for the trip."
+        "example": "We set a budget for the trip.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "кошелек",
         "target_text": "wallet",
         "level": "B1",
-        "example": "I left my wallet at home."
+        "example": "I left my wallet at home.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "наличные",
         "target_text": "cash",
         "level": "B1",
-        "example": "Do you prefer cash or card?"
+        "example": "Do you prefer cash or card?",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "примерочная",
         "target_text": "fitting room",
         "level": "B1",
-        "example": "The fitting room is at the back of the store."
+        "example": "The fitting room is at the back of the store.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сдача",
         "target_text": "change",
         "level": "B1",
-        "example": "The cashier gave me the wrong change."
+        "example": "The cashier gave me the wrong change.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экономить",
         "target_text": "to save money",
         "level": "B1",
-        "example": "She is trying to save money for a laptop."
+        "example": "She is trying to save money for a laptop.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "возврат товара",
         "target_text": "refund",
         "level": "B2",
-        "example": "The store offered a full refund."
+        "example": "The store offered a full refund.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выгодная сделка",
         "target_text": "bargain",
         "level": "B2",
-        "example": "That coat was a real bargain."
+        "example": "That coat was a real bargain.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гарантия",
         "target_text": "warranty",
         "level": "B2",
-        "example": "The laptop comes with a two-year warranty."
+        "example": "The laptop comes with a two-year warranty.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "импульсивная покупка",
         "target_text": "impulse purchase",
         "level": "B2",
-        "example": "That jacket was an impulse purchase."
+        "example": "That jacket was an impulse purchase.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "переплачивать",
         "target_text": "to overpay",
         "level": "B2",
-        "example": "You may overpay if you do not compare prices."
+        "example": "You may overpay if you do not compare prices.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рассрочка",
         "target_text": "installment plan",
         "level": "B2",
-        "example": "He bought the phone on an installment plan."
+        "example": "He bought the phone on an installment plan.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "покупательная способность",
         "target_text": "purchasing power",
         "level": "C1",
-        "example": "Inflation reduces purchasing power."
+        "example": "Inflation reduces purchasing power.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "финансовая подушка",
         "target_text": "emergency fund",
         "level": "C1",
-        "example": "An emergency fund makes people feel safer."
+        "example": "An emergency fund makes people feel safer.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "амортизация",
         "target_text": "depreciation",
         "level": "C2",
-        "example": "Depreciation affects the resale value of a car."
+        "example": "Depreciation affects the resale value of a car.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "потребительское поведение",
         "target_text": "consumer behavior",
         "level": "C2",
-        "example": "Consumer behavior changes during economic crises."
+        "example": "Consumer behavior changes during economic crises.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "наличные",
+        "target_text": "cash",
+        "level": "A1",
+        "example": "Do you pay in cash or by card?",
+        "item_type": "word",
+        "subtopic": "payment",
+        "priority": 90
+      },
+      {
+        "source_text": "банковская карта",
+        "target_text": "bank card",
+        "level": "A1",
+        "example": "I forgot my bank card at home.",
+        "item_type": "phrase",
+        "subtopic": "payment",
+        "priority": 80
+      },
+      {
+        "source_text": "скидка",
+        "target_text": "discount",
+        "level": "A2",
+        "example": "This jacket is on discount today.",
+        "item_type": "word",
+        "subtopic": "shopping",
+        "priority": 80
+      },
+      {
+        "source_text": "возврат товара",
+        "target_text": "return an item",
+        "level": "A2",
+        "example": "I need to return an item to the store.",
+        "item_type": "phrase",
+        "subtopic": "shopping",
+        "priority": 75
+      },
+      {
+        "source_text": "примерочная",
+        "target_text": "fitting room",
+        "level": "A2",
+        "example": "The fitting room is at the back.",
+        "item_type": "phrase",
+        "subtopic": "clothes",
+        "priority": 70
+      },
+      {
+        "source_text": "чек",
+        "target_text": "receipt",
+        "level": "A1",
+        "example": "Please keep the receipt.",
+        "item_type": "word",
+        "subtopic": "payment",
+        "priority": 85
+      },
+      {
+        "source_text": "дорогостоящий",
+        "target_text": "overpriced",
+        "level": "B1",
+        "example": "That phone looks overpriced to me.",
+        "item_type": "word",
+        "subtopic": "evaluation",
+        "priority": 45
+      },
+      {
+        "source_text": "ежемесячный бюджет",
+        "target_text": "monthly budget",
+        "level": "B1",
+        "example": "We review our monthly budget every Sunday.",
+        "item_type": "phrase",
+        "subtopic": "finance",
+        "priority": 55
+      },
+      {
+        "source_text": "спонтанная покупка",
+        "target_text": "impulse purchase",
+        "level": "B2",
+        "example": "That was an impulse purchase, not a planned one.",
+        "item_type": "phrase",
+        "subtopic": "finance",
+        "priority": 35
+      },
+      {
+        "source_text": "процентная ставка",
+        "target_text": "interest rate",
+        "level": "B2",
+        "example": "The interest rate affects the final payment.",
+        "item_type": "phrase",
+        "subtopic": "finance",
+        "priority": 35
       }
     ]
   },
@@ -1855,175 +3433,352 @@
         "source_text": "встреча",
         "target_text": "meeting",
         "level": "A2",
-        "example": "The meeting starts at nine."
+        "example": "The meeting starts at nine.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "дедлайн",
         "target_text": "deadline",
         "level": "A2",
-        "example": "The deadline is next Friday."
+        "example": "The deadline is next Friday.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "должность",
         "target_text": "position",
         "level": "A2",
-        "example": "She applied for a new position."
+        "example": "She applied for a new position.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "задача",
         "target_text": "task",
         "level": "A2",
-        "example": "I finished the main task before lunch."
+        "example": "I finished the main task before lunch.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "команда",
         "target_text": "team",
         "level": "A2",
-        "example": "Our team works well together."
+        "example": "Our team works well together.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "менеджер",
         "target_text": "manager",
         "level": "A2",
-        "example": "The manager approved the request."
+        "example": "The manager approved the request.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "проект",
         "target_text": "project",
         "level": "A2",
-        "example": "The project is almost ready."
+        "example": "The project is almost ready.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сотрудник",
         "target_text": "employee",
         "level": "A2",
-        "example": "Every employee has a badge."
+        "example": "Every employee has a badge.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "вакансия",
         "target_text": "vacancy",
         "level": "B1",
-        "example": "There is a vacancy in the sales department."
+        "example": "There is a vacancy in the sales department.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "зарплата",
         "target_text": "salary",
         "level": "B1",
-        "example": "They discussed salary expectations."
+        "example": "They discussed salary expectations.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обязанность",
         "target_text": "responsibility",
         "level": "B1",
-        "example": "Time management is a key responsibility."
+        "example": "Time management is a key responsibility.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "повышение",
         "target_text": "promotion",
         "level": "B1",
-        "example": "He got a promotion this spring."
+        "example": "He got a promotion this spring.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "резюме",
         "target_text": "resume",
         "level": "B1",
-        "example": "Please attach your resume to the email."
+        "example": "Please attach your resume to the email.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "смена",
         "target_text": "shift",
         "level": "B1",
-        "example": "He works the evening shift."
+        "example": "He works the evening shift.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "собеседование",
         "target_text": "interview",
         "level": "B1",
-        "example": "She prepared well for the interview."
+        "example": "She prepared well for the interview.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "бюджет",
         "target_text": "budget",
         "level": "B2",
-        "example": "The project went over budget."
+        "example": "The project went over budget.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обратная связь",
         "target_text": "feedback",
         "level": "B2",
-        "example": "Constructive feedback improves performance."
+        "example": "Constructive feedback improves performance.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "оценка эффективности",
         "target_text": "performance review",
         "level": "B2",
-        "example": "Her performance review was very positive."
+        "example": "Her performance review was very positive.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "переговоры",
         "target_text": "negotiation",
         "level": "B2",
-        "example": "The negotiation lasted for hours."
+        "example": "The negotiation lasted for hours.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "производительность",
         "target_text": "productivity",
         "level": "B2",
-        "example": "Noise affects my productivity."
+        "example": "Noise affects my productivity.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рабочая нагрузка",
         "target_text": "workload",
         "level": "B2",
-        "example": "My workload increased this month."
+        "example": "My workload increased this month.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сверхурочная работа",
         "target_text": "overtime",
         "level": "B2",
-        "example": "They had to work overtime before the launch."
+        "example": "They had to work overtime before the launch.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "трудоустраивать",
         "target_text": "to hire",
         "level": "B2",
-        "example": "The company plans to hire three developers."
+        "example": "The company plans to hire three developers.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "делегирование",
         "target_text": "delegation",
         "level": "C1",
-        "example": "Delegation helps managers avoid burnout."
+        "example": "Delegation helps managers avoid burnout.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "заинтересованная сторона",
         "target_text": "stakeholder",
         "level": "C1",
-        "example": "Every stakeholder must be informed."
+        "example": "Every stakeholder must be informed.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стратегия",
         "target_text": "strategy",
         "level": "C1",
-        "example": "The team presented a long-term strategy."
+        "example": "The team presented a long-term strategy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "корпоративное управление",
         "target_text": "corporate governance",
         "level": "C2",
-        "example": "Corporate governance shapes executive decisions."
+        "example": "Corporate governance shapes executive decisions.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "оптимизация процессов",
         "target_text": "process optimization",
         "level": "C2",
-        "example": "Process optimization reduced costs significantly."
+        "example": "Process optimization reduced costs significantly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "профессиональная репутация",
         "target_text": "professional credibility",
         "level": "C2",
-        "example": "Professional credibility takes years to build."
+        "example": "Professional credibility takes years to build.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "рабочая нагрузка",
+        "target_text": "workload",
+        "level": "A2",
+        "example": "My workload is heavier this month.",
+        "item_type": "word",
+        "subtopic": "office",
+        "priority": 75
+      },
+      {
+        "source_text": "совещание команды",
+        "target_text": "team meeting",
+        "level": "A2",
+        "example": "We have a team meeting every Monday.",
+        "item_type": "phrase",
+        "subtopic": "office",
+        "priority": 80
+      },
+      {
+        "source_text": "должностные обязанности",
+        "target_text": "job duties",
+        "level": "B1",
+        "example": "Her job duties include client support.",
+        "item_type": "phrase",
+        "subtopic": "job",
+        "priority": 60
+      },
+      {
+        "source_text": "продвижение по службе",
+        "target_text": "career growth",
+        "level": "B1",
+        "example": "He is focused on career growth.",
+        "item_type": "phrase",
+        "subtopic": "career",
+        "priority": 55
+      },
+      {
+        "source_text": "резюме",
+        "target_text": "resume",
+        "level": "A2",
+        "example": "I updated my resume yesterday.",
+        "item_type": "word",
+        "subtopic": "job search",
+        "priority": 75
+      },
+      {
+        "source_text": "сопроводительное письмо",
+        "target_text": "cover letter",
+        "level": "B1",
+        "example": "A strong cover letter helps a lot.",
+        "item_type": "phrase",
+        "subtopic": "job search",
+        "priority": 55
+      },
+      {
+        "source_text": "испытательный срок",
+        "target_text": "probation period",
+        "level": "B2",
+        "example": "The job includes a three-month probation period.",
+        "item_type": "phrase",
+        "subtopic": "contract",
+        "priority": 35
+      },
+      {
+        "source_text": "делегировать задачу",
+        "target_text": "delegate a task",
+        "level": "B2",
+        "example": "A good manager knows when to delegate a task.",
+        "item_type": "phrase",
+        "subtopic": "management",
+        "priority": 40
+      },
+      {
+        "source_text": "обратная связь по работе",
+        "target_text": "performance feedback",
+        "level": "B2",
+        "example": "Regular performance feedback improves results.",
+        "item_type": "phrase",
+        "subtopic": "management",
+        "priority": 35
+      },
+      {
+        "source_text": "увольнение",
+        "target_text": "redundancy",
+        "level": "C1",
+        "example": "The company announced several redundancies.",
+        "item_type": "word",
+        "subtopic": "workplace",
+        "priority": 25
       }
     ]
   },
@@ -2036,175 +3791,262 @@
         "source_text": "гора",
         "target_text": "mountain",
         "level": "B1",
-        "example": "The mountain is visible from the village."
+        "example": "The mountain is visible from the village.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "животное",
         "target_text": "animal",
         "level": "B1",
-        "example": "The zoo protects injured animals."
+        "example": "The zoo protects injured animals.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "загрязнение",
         "target_text": "pollution",
         "level": "B1",
-        "example": "Pollution damages marine life."
+        "example": "Pollution damages marine life.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "климат",
         "target_text": "climate",
         "level": "B1",
-        "example": "The climate is getting warmer each decade."
+        "example": "The climate is getting warmer each decade.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "лес",
         "target_text": "forest",
         "level": "B1",
-        "example": "The forest is protected by law."
+        "example": "The forest is protected by law.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пляж",
         "target_text": "beach",
         "level": "B1",
-        "example": "The beach was empty in the early morning."
+        "example": "The beach was empty in the early morning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "погода",
         "target_text": "weather",
         "level": "B1",
-        "example": "The weather changes quickly in spring."
+        "example": "The weather changes quickly in spring.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "река",
         "target_text": "river",
         "level": "B1",
-        "example": "The river is very clean here."
+        "example": "The river is very clean here.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сезон",
         "target_text": "season",
         "level": "B1",
-        "example": "Spring is my favorite season."
+        "example": "Spring is my favorite season.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "шторм",
         "target_text": "storm",
         "level": "B1",
-        "example": "The storm damaged several trees."
+        "example": "The storm damaged several trees.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "возобновляемый",
         "target_text": "renewable",
         "level": "B2",
-        "example": "Solar power is a renewable source of energy."
+        "example": "Solar power is a renewable source of energy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выбросы",
         "target_text": "emissions",
         "level": "B2",
-        "example": "The new law limits factory emissions."
+        "example": "The new law limits factory emissions.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "заповедник",
         "target_text": "nature reserve",
         "level": "B2",
-        "example": "The birds are protected in a nature reserve."
+        "example": "The birds are protected in a nature reserve.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "засуха",
         "target_text": "drought",
         "level": "B2",
-        "example": "The drought destroyed local crops."
+        "example": "The drought destroyed local crops.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "исчезающий вид",
         "target_text": "endangered species",
         "level": "B2",
-        "example": "The panda is an endangered species."
+        "example": "The panda is an endangered species.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "наводнение",
         "target_text": "flood",
         "level": "B2",
-        "example": "The flood forced people to evacuate."
+        "example": "The flood forced people to evacuate.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "осадки",
         "target_text": "rainfall",
         "level": "B2",
-        "example": "Rainfall has decreased in this region."
+        "example": "Rainfall has decreased in this region.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "переработка",
         "target_text": "recycling",
         "level": "B2",
-        "example": "Recycling reduces waste."
+        "example": "Recycling reduces waste.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "среда обитания",
         "target_text": "habitat",
         "level": "B2",
-        "example": "Pollution destroys the habitat of many species."
+        "example": "Pollution destroys the habitat of many species.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "температура",
         "target_text": "temperature",
         "level": "B2",
-        "example": "Average temperature keeps rising."
+        "example": "Average temperature keeps rising.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "биоразнообразие",
         "target_text": "biodiversity",
         "level": "C1",
-        "example": "Biodiversity declines when habitats disappear."
+        "example": "Biodiversity declines when habitats disappear.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "углеродный след",
         "target_text": "carbon footprint",
         "level": "C1",
-        "example": "Flying increases your carbon footprint."
+        "example": "Flying increases your carbon footprint.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "устойчивое развитие",
         "target_text": "sustainable development",
         "level": "C1",
-        "example": "Sustainable development balances growth and protection."
+        "example": "Sustainable development balances growth and protection.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экосистема",
         "target_text": "ecosystem",
         "level": "C1",
-        "example": "The lake ecosystem is very fragile."
+        "example": "The lake ecosystem is very fragile.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "адаптация к климату",
         "target_text": "climate adaptation",
         "level": "C2",
-        "example": "Cities need climate adaptation strategies."
+        "example": "Cities need climate adaptation strategies.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "деградация почвы",
         "target_text": "soil degradation",
         "level": "C2",
-        "example": "Soil degradation threatens food production."
+        "example": "Soil degradation threatens food production.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "истощение ресурсов",
         "target_text": "resource depletion",
         "level": "C2",
-        "example": "Resource depletion affects future generations."
+        "example": "Resource depletion affects future generations.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "смягчение последствий",
         "target_text": "mitigation",
         "level": "C2",
-        "example": "Climate mitigation requires long-term planning."
+        "example": "Climate mitigation requires long-term planning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экологическая устойчивость",
         "target_text": "environmental resilience",
         "level": "C2",
-        "example": "Wetlands improve environmental resilience."
+        "example": "Wetlands improve environmental resilience.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -2217,193 +4059,379 @@
         "source_text": "загрузить",
         "target_text": "download",
         "level": "B1",
-        "example": "You can download the report as a PDF."
+        "example": "You can download the report as a PDF.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "загрузить в сеть",
         "target_text": "upload",
         "level": "B1",
-        "example": "Please upload your homework to the platform."
+        "example": "Please upload your homework to the platform.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "интернет",
         "target_text": "internet",
         "level": "B1",
-        "example": "The internet connection is unstable today."
+        "example": "The internet connection is unstable today.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "клавиатура",
         "target_text": "keyboard",
         "level": "B1",
-        "example": "This keyboard is comfortable to type on."
+        "example": "This keyboard is comfortable to type on.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "пароль",
         "target_text": "password",
         "level": "B1",
-        "example": "Never share your password online."
+        "example": "Never share your password online.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подписка",
         "target_text": "subscription",
         "level": "B1",
-        "example": "My subscription renews automatically."
+        "example": "My subscription renews automatically.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "приложение",
         "target_text": "application",
         "level": "B1",
-        "example": "The application needs another update."
+        "example": "The application needs another update.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сайт",
         "target_text": "website",
         "level": "B1",
-        "example": "Their website loads very slowly."
+        "example": "Their website loads very slowly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "устройство",
         "target_text": "device",
         "level": "B1",
-        "example": "This device works without a cable."
+        "example": "This device works without a cable.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "файл",
         "target_text": "file",
         "level": "B1",
-        "example": "Save the file before closing the tab."
+        "example": "Save the file before closing the tab.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экран",
         "target_text": "screen",
         "level": "B1",
-        "example": "The screen is too bright at night."
+        "example": "The screen is too bright at night.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "электронная почта",
         "target_text": "email",
         "level": "B1",
-        "example": "I sent the file by email."
+        "example": "I sent the file by email.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "алгоритм",
         "target_text": "algorithm",
         "level": "B2",
-        "example": "The algorithm recommends similar videos."
+        "example": "The algorithm recommends similar videos.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "аппаратное обеспечение",
         "target_text": "hardware",
         "level": "B2",
-        "example": "Hardware problems are harder to diagnose remotely."
+        "example": "Hardware problems are harder to diagnose remotely.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "браузер",
         "target_text": "browser",
         "level": "B2",
-        "example": "My browser keeps opening the wrong page."
+        "example": "My browser keeps opening the wrong page.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "конфиденциальность",
         "target_text": "privacy",
         "level": "B2",
-        "example": "Privacy settings protect user data."
+        "example": "Privacy settings protect user data.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "облачное хранилище",
         "target_text": "cloud storage",
         "level": "B2",
-        "example": "Cloud storage makes collaboration easier."
+        "example": "Cloud storage makes collaboration easier.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ошибка в программе",
         "target_text": "bug",
         "level": "B2",
-        "example": "The update introduced a serious bug."
+        "example": "The update introduced a serious bug.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поисковая система",
         "target_text": "search engine",
         "level": "B2",
-        "example": "A search engine can help verify information."
+        "example": "A search engine can help verify information.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "потоковое вещание",
         "target_text": "streaming",
         "level": "B2",
-        "example": "Streaming changed how we watch films."
+        "example": "Streaming changed how we watch films.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "программное обеспечение",
         "target_text": "software",
         "level": "B2",
-        "example": "The software needs a security patch."
+        "example": "The software needs a security patch.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "уведомление",
         "target_text": "notification",
         "level": "B2",
-        "example": "Turn off notifications during class."
+        "example": "Turn off notifications during class.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "цифровой след",
         "target_text": "digital footprint",
         "level": "B2",
-        "example": "Your digital footprint can last for years."
+        "example": "Your digital footprint can last for years.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "вовлеченность аудитории",
         "target_text": "audience engagement",
         "level": "C1",
-        "example": "The campaign increased audience engagement."
+        "example": "The campaign increased audience engagement.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "дезинформация",
         "target_text": "misinformation",
         "level": "C1",
-        "example": "Misinformation spreads faster than corrections."
+        "example": "Misinformation spreads faster than corrections.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "искусственный интеллект",
         "target_text": "artificial intelligence",
         "level": "C1",
-        "example": "Artificial intelligence is used in translation tools."
+        "example": "Artificial intelligence is used in translation tools.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "модерация контента",
         "target_text": "content moderation",
         "level": "C1",
-        "example": "Content moderation remains controversial."
+        "example": "Content moderation remains controversial.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "монетизация",
         "target_text": "monetization",
         "level": "C2",
-        "example": "Monetization affects editorial choices."
+        "example": "Monetization affects editorial choices.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "предвзятость алгоритма",
         "target_text": "algorithmic bias",
         "level": "C2",
-        "example": "Algorithmic bias can reinforce inequality."
+        "example": "Algorithmic bias can reinforce inequality.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "проверка фактов",
         "target_text": "fact-checking",
         "level": "C2",
-        "example": "Fact-checking is crucial during elections."
+        "example": "Fact-checking is crucial during elections.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "цифровая грамотность",
         "target_text": "digital literacy",
         "level": "C2",
-        "example": "Digital literacy is a basic modern skill."
+        "example": "Digital literacy is a basic modern skill.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "экосистема платформ",
         "target_text": "platform ecosystem",
         "level": "C2",
-        "example": "A platform ecosystem can lock users in."
+        "example": "A platform ecosystem can lock users in.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "браузер",
+        "target_text": "browser",
+        "level": "A2",
+        "example": "Open the browser and search for the file.",
+        "item_type": "word",
+        "subtopic": "devices",
+        "priority": 80
+      },
+      {
+        "source_text": "пароль",
+        "target_text": "password",
+        "level": "A1",
+        "example": "Please enter your password.",
+        "item_type": "word",
+        "subtopic": "security",
+        "priority": 90
+      },
+      {
+        "source_text": "обновление",
+        "target_text": "update",
+        "level": "A2",
+        "example": "The app needs an update.",
+        "item_type": "word",
+        "subtopic": "software",
+        "priority": 75
+      },
+      {
+        "source_text": "видеозвонок",
+        "target_text": "video call",
+        "level": "A2",
+        "example": "We had a video call with the client.",
+        "item_type": "phrase",
+        "subtopic": "communication",
+        "priority": 70
+      },
+      {
+        "source_text": "социальные сети",
+        "target_text": "social media",
+        "level": "B1",
+        "example": "Social media affects how people share news.",
+        "item_type": "phrase",
+        "subtopic": "media",
+        "priority": 60
+      },
+      {
+        "source_text": "утечка данных",
+        "target_text": "data breach",
+        "level": "B2",
+        "example": "The company reported a data breach.",
+        "item_type": "phrase",
+        "subtopic": "security",
+        "priority": 35
+      },
+      {
+        "source_text": "алгоритмическая лента",
+        "target_text": "algorithmic feed",
+        "level": "B2",
+        "example": "An algorithmic feed changes what users notice.",
+        "item_type": "phrase",
+        "subtopic": "media",
+        "priority": 30
+      },
+      {
+        "source_text": "цифровая грамотность",
+        "target_text": "digital literacy",
+        "level": "B2",
+        "example": "Digital literacy is now a basic skill.",
+        "item_type": "phrase",
+        "subtopic": "education",
+        "priority": 35
+      },
+      {
+        "source_text": "дезинформация",
+        "target_text": "misinformation",
+        "level": "C1",
+        "example": "Misinformation spreads quickly online.",
+        "item_type": "word",
+        "subtopic": "media",
+        "priority": 25
+      },
+      {
+        "source_text": "предвзятость алгоритма",
+        "target_text": "algorithmic bias",
+        "level": "C1",
+        "example": "Algorithmic bias can affect public decisions.",
+        "item_type": "phrase",
+        "subtopic": "ai",
+        "priority": 20
       }
     ]
   },
@@ -2416,145 +4444,307 @@
         "source_text": "волноваться",
         "target_text": "to worry",
         "level": "B1",
-        "example": "Parents often worry about their children."
+        "example": "Parents often worry about their children.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "грустный",
         "target_text": "sad",
         "level": "B1",
-        "example": "He looked sad after the meeting."
+        "example": "He looked sad after the meeting.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "злой",
         "target_text": "angry",
         "level": "B1",
-        "example": "She was angry about the delay."
+        "example": "She was angry about the delay.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "нервничать",
         "target_text": "to feel nervous",
         "level": "B1",
-        "example": "I always feel nervous before speaking in public."
+        "example": "I always feel nervous before speaking in public.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "поощрять",
         "target_text": "to encourage",
         "level": "B1",
-        "example": "Good teachers encourage curiosity."
+        "example": "Good teachers encourage curiosity.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "счастливый",
         "target_text": "happy",
         "level": "B1",
-        "example": "She felt happy after the exam."
+        "example": "She felt happy after the exam.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "удивленный",
         "target_text": "surprised",
         "level": "B1",
-        "example": "They were surprised by the result."
+        "example": "They were surprised by the result.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "успокаивать",
         "target_text": "to calm down",
         "level": "B1",
-        "example": "A short walk helps me calm down."
+        "example": "A short walk helps me calm down.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "благодарный",
         "target_text": "grateful",
         "level": "B2",
-        "example": "We are grateful for your support."
+        "example": "We are grateful for your support.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "воспринимать критику",
         "target_text": "to take criticism",
         "level": "B2",
-        "example": "It is not easy to take criticism calmly."
+        "example": "It is not easy to take criticism calmly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выражать мнение",
         "target_text": "to express an opinion",
         "level": "B2",
-        "example": "Students should learn to express an opinion clearly."
+        "example": "Students should learn to express an opinion clearly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "недоразумение",
         "target_text": "misunderstanding",
         "level": "B2",
-        "example": "The conflict began with a misunderstanding."
+        "example": "The conflict began with a misunderstanding.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "неловкий",
         "target_text": "awkward",
         "level": "B2",
-        "example": "There was an awkward silence in the room."
+        "example": "There was an awkward silence in the room.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "разочарованный",
         "target_text": "disappointed",
         "level": "B2",
-        "example": "I was disappointed by the service."
+        "example": "I was disappointed by the service.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "сочувствие",
         "target_text": "empathy",
         "level": "B2",
-        "example": "Empathy makes communication more effective."
+        "example": "Empathy makes communication more effective.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "напористость",
         "target_text": "assertiveness",
         "level": "C1",
-        "example": "Assertiveness is useful in workplace communication."
+        "example": "Assertiveness is useful in workplace communication.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "неоднозначный сигнал",
         "target_text": "mixed signal",
         "level": "C1",
-        "example": "His reply sent mixed signals."
+        "example": "His reply sent mixed signals.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обида",
         "target_text": "resentment",
         "level": "C1",
-        "example": "Resentment can damage close relationships."
+        "example": "Resentment can damage close relationships.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "уязвимость",
         "target_text": "vulnerability",
         "level": "C1",
-        "example": "Showing vulnerability can build trust."
+        "example": "Showing vulnerability can build trust.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "межличностная динамика",
         "target_text": "interpersonal dynamics",
         "level": "C2",
-        "example": "Leaders must understand interpersonal dynamics."
+        "example": "Leaders must understand interpersonal dynamics.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "невербальный сигнал",
         "target_text": "non-verbal cue",
         "level": "C2",
-        "example": "Non-verbal cues often reveal discomfort."
+        "example": "Non-verbal cues often reveal discomfort.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "смягчать конфликт",
         "target_text": "to defuse a conflict",
         "level": "C2",
-        "example": "Humor can sometimes defuse a conflict."
+        "example": "Humor can sometimes defuse a conflict.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эмоциональная регуляция",
         "target_text": "emotional regulation",
         "level": "C2",
-        "example": "Emotional regulation is essential in conflict situations."
+        "example": "Emotional regulation is essential in conflict situations.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эмоциональный отклик",
         "target_text": "emotional response",
         "level": "C2",
-        "example": "The film triggered a strong emotional response."
+        "example": "The film triggered a strong emotional response.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "нервничать",
+        "target_text": "feel nervous",
+        "level": "A2",
+        "example": "I always feel nervous before interviews.",
+        "item_type": "phrase",
+        "subtopic": "emotions",
+        "priority": 75
+      },
+      {
+        "source_text": "гордиться",
+        "target_text": "be proud of",
+        "level": "A2",
+        "example": "Her parents are proud of her.",
+        "item_type": "phrase",
+        "subtopic": "emotions",
+        "priority": 70
+      },
+      {
+        "source_text": "обижаться",
+        "target_text": "feel offended",
+        "level": "B1",
+        "example": "He felt offended by that comment.",
+        "item_type": "phrase",
+        "subtopic": "conflict",
+        "priority": 45
+      },
+      {
+        "source_text": "поддерживать разговор",
+        "target_text": "keep a conversation going",
+        "level": "B1",
+        "example": "It can be hard to keep a conversation going.",
+        "item_type": "phrase",
+        "subtopic": "speaking",
+        "priority": 50
+      },
+      {
+        "source_text": "недопонимание",
+        "target_text": "misunderstanding",
+        "level": "B1",
+        "example": "It was just a misunderstanding.",
+        "item_type": "word",
+        "subtopic": "communication",
+        "priority": 55
+      },
+      {
+        "source_text": "тон голоса",
+        "target_text": "tone of voice",
+        "level": "B2",
+        "example": "Your tone of voice changes the meaning.",
+        "item_type": "phrase",
+        "subtopic": "communication",
+        "priority": 35
+      },
+      {
+        "source_text": "сдерживать эмоции",
+        "target_text": "hold back emotions",
+        "level": "B2",
+        "example": "He tried to hold back emotions during the meeting.",
+        "item_type": "phrase",
+        "subtopic": "emotions",
+        "priority": 30
+      },
+      {
+        "source_text": "проявлять сочувствие",
+        "target_text": "show empathy",
+        "level": "B2",
+        "example": "Good leaders know how to show empathy.",
+        "item_type": "phrase",
+        "subtopic": "communication",
+        "priority": 35
+      },
+      {
+        "source_text": "двусмысленный",
+        "target_text": "ambiguous",
+        "level": "C1",
+        "example": "The message sounded ambiguous to everyone.",
+        "item_type": "word",
+        "subtopic": "communication",
+        "priority": 20
+      },
+      {
+        "source_text": "эмоциональная дистанция",
+        "target_text": "emotional distance",
+        "level": "C1",
+        "example": "Emotional distance can damage trust.",
+        "item_type": "phrase",
+        "subtopic": "relationships",
+        "priority": 20
       }
     ]
   },
@@ -2567,205 +4757,379 @@
         "source_text": "архив",
         "target_text": "archive",
         "level": "B2",
-        "example": "The archive contains rare photographs."
+        "example": "The archive contains rare photographs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "аудитория",
         "target_text": "audience",
         "level": "B2",
-        "example": "The audience reacted warmly."
+        "example": "The audience reacted warmly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выставка",
         "target_text": "exhibition",
         "level": "B2",
-        "example": "The exhibition opens next month."
+        "example": "The exhibition opens next month.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гражданство",
         "target_text": "citizenship",
         "level": "B2",
-        "example": "Citizenship classes explain civic duties."
+        "example": "Citizenship classes explain civic duties.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "документальный фильм",
         "target_text": "documentary",
         "level": "B2",
-        "example": "The documentary explored migration patterns."
+        "example": "The documentary explored migration patterns.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "критик",
         "target_text": "critic",
         "level": "B2",
-        "example": "The critic praised the director's vision."
+        "example": "The critic praised the director's vision.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "литература",
         "target_text": "literature",
         "level": "B2",
-        "example": "She studies modern literature at university."
+        "example": "She studies modern literature at university.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "музей",
         "target_text": "museum",
         "level": "B2",
-        "example": "The museum stays open late on Thursdays."
+        "example": "The museum stays open late on Thursdays.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "общественное мнение",
         "target_text": "public opinion",
         "level": "B2",
-        "example": "Public opinion changed after the debate."
+        "example": "Public opinion changed after the debate.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "объект культурного наследия",
         "target_text": "heritage site",
         "level": "B2",
-        "example": "The old town is a protected heritage site."
+        "example": "The old town is a protected heritage site.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обычай",
         "target_text": "custom",
         "level": "B2",
-        "example": "It is a custom to bring a gift."
+        "example": "It is a custom to bring a gift.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "перевод",
         "target_text": "translation",
         "level": "B2",
-        "example": "A good translation preserves tone and meaning."
+        "example": "A good translation preserves tone and meaning.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "портрет",
         "target_text": "portrait",
         "level": "B2",
-        "example": "The portrait hangs in the main hall."
+        "example": "The portrait hangs in the main hall.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "праздник",
         "target_text": "celebration",
         "level": "B2",
-        "example": "The celebration lasted all weekend."
+        "example": "The celebration lasted all weekend.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "скульптура",
         "target_text": "sculpture",
         "level": "B2",
-        "example": "The sculpture stands in the city square."
+        "example": "The sculpture stands in the city square.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "стереотип",
         "target_text": "stereotype",
         "level": "B2",
-        "example": "The film challenges old stereotypes."
+        "example": "The film challenges old stereotypes.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "театр",
         "target_text": "theater",
         "level": "B2",
-        "example": "We saw a brilliant play at the theater."
+        "example": "We saw a brilliant play at the theater.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "традиция",
         "target_text": "tradition",
         "level": "B2",
-        "example": "Some traditions change over time."
+        "example": "Some traditions change over time.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "фольклор",
         "target_text": "folklore",
         "level": "B2",
-        "example": "The festival celebrates local folklore."
+        "example": "The festival celebrates local folklore.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "церемония",
         "target_text": "ceremony",
         "level": "B2",
-        "example": "The opening ceremony was broadcast live."
+        "example": "The opening ceremony was broadcast live.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "идентичность",
         "target_text": "identity",
         "level": "C1",
-        "example": "Language shapes cultural identity."
+        "example": "Language shapes cultural identity.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "мировоззрение",
         "target_text": "worldview",
         "level": "C1",
-        "example": "Travel can reshape your worldview."
+        "example": "Travel can reshape your worldview.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "наследие",
         "target_text": "heritage",
         "level": "C1",
-        "example": "The city protects its industrial heritage."
+        "example": "The city protects its industrial heritage.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "неравенство",
         "target_text": "inequality",
         "level": "C1",
-        "example": "The article focuses on social inequality."
+        "example": "The article focuses on social inequality.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "разнообразие",
         "target_text": "diversity",
         "level": "C1",
-        "example": "Diversity strengthens communities."
+        "example": "Diversity strengthens communities.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "символизм",
         "target_text": "symbolism",
         "level": "C1",
-        "example": "The painting is full of symbolism."
+        "example": "The painting is full of symbolism.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гражданская вовлеченность",
         "target_text": "civic engagement",
         "level": "C2",
-        "example": "Civic engagement strengthens democracy."
+        "example": "Civic engagement strengthens democracy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "коллективная память",
         "target_text": "collective memory",
         "level": "C2",
-        "example": "Wars shape collective memory for generations."
+        "example": "Wars shape collective memory for generations.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "культурная чувствительность",
         "target_text": "cultural sensitivity",
         "level": "C2",
-        "example": "Teachers need cultural sensitivity in diverse groups."
+        "example": "Teachers need cultural sensitivity in diverse groups.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "культурное присвоение",
         "target_text": "cultural appropriation",
         "level": "C2",
-        "example": "The debate centered on cultural appropriation."
+        "example": "The debate centered on cultural appropriation.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "общественный дискурс",
         "target_text": "public discourse",
         "level": "C2",
-        "example": "Public discourse influences policy."
+        "example": "Public discourse influences policy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "репрезентация",
         "target_text": "representation",
         "level": "C2",
-        "example": "Representation matters in film and media."
+        "example": "Representation matters in film and media.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "социальная сплоченность",
         "target_text": "social cohesion",
         "level": "C2",
-        "example": "Education can improve social cohesion."
+        "example": "Education can improve social cohesion.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ценностная система",
         "target_text": "value system",
         "level": "C2",
-        "example": "A value system develops over time."
+        "example": "A value system develops over time.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "традиция",
+        "target_text": "tradition",
+        "level": "A2",
+        "example": "This tradition is still important today.",
+        "item_type": "word",
+        "subtopic": "culture",
+        "priority": 70
+      },
+      {
+        "source_text": "праздновать",
+        "target_text": "celebrate",
+        "level": "A2",
+        "example": "Many countries celebrate this holiday differently.",
+        "item_type": "word",
+        "subtopic": "culture",
+        "priority": 70
+      },
+      {
+        "source_text": "общественное мнение",
+        "target_text": "public opinion",
+        "level": "B1",
+        "example": "Public opinion changed after the interview.",
+        "item_type": "phrase",
+        "subtopic": "society",
+        "priority": 45
+      },
+      {
+        "source_text": "культурное наследие",
+        "target_text": "cultural heritage",
+        "level": "B1",
+        "example": "The museum protects cultural heritage.",
+        "item_type": "phrase",
+        "subtopic": "culture",
+        "priority": 45
+      },
+      {
+        "source_text": "социальная норма",
+        "target_text": "social norm",
+        "level": "B2",
+        "example": "A social norm can change over time.",
+        "item_type": "phrase",
+        "subtopic": "society",
+        "priority": 30
+      },
+      {
+        "source_text": "неравенство",
+        "target_text": "inequality",
+        "level": "B2",
+        "example": "The report discusses economic inequality.",
+        "item_type": "word",
+        "subtopic": "society",
+        "priority": 30
+      },
+      {
+        "source_text": "гражданская позиция",
+        "target_text": "civic engagement",
+        "level": "C1",
+        "example": "Civic engagement strengthens local communities.",
+        "item_type": "phrase",
+        "subtopic": "society",
+        "priority": 20
+      },
+      {
+        "source_text": "ценностный конфликт",
+        "target_text": "value conflict",
+        "level": "C1",
+        "example": "The debate revealed a deep value conflict.",
+        "item_type": "phrase",
+        "subtopic": "society",
+        "priority": 20
       }
     ]
   },
@@ -2778,121 +5142,181 @@
         "source_text": "данные",
         "target_text": "data",
         "level": "B2",
-        "example": "The data supports the original claim."
+        "example": "The data supports the original claim.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "изобретение",
         "target_text": "invention",
         "level": "B2",
-        "example": "The invention changed medical practice."
+        "example": "The invention changed medical practice.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "исследование",
         "target_text": "research study",
         "level": "B2",
-        "example": "The research study lasted two years."
+        "example": "The research study lasted two years.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "лаборатория",
         "target_text": "laboratory",
         "level": "B2",
-        "example": "The samples were tested in a laboratory."
+        "example": "The samples were tested in a laboratory.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "открытие",
         "target_text": "discovery",
         "level": "B2",
-        "example": "The discovery attracted global attention."
+        "example": "The discovery attracted global attention.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "эксперимент",
         "target_text": "experiment",
         "level": "B2",
-        "example": "The experiment produced unexpected results."
+        "example": "The experiment produced unexpected results.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "гипотеза",
         "target_text": "hypothesis",
         "level": "C1",
-        "example": "The hypothesis was not supported by the results."
+        "example": "The hypothesis was not supported by the results.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "доказательство",
         "target_text": "evidence",
         "level": "C1",
-        "example": "There is little evidence for that theory."
+        "example": "There is little evidence for that theory.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "методология",
         "target_text": "methodology",
         "level": "C1",
-        "example": "The methodology needs to be clearly described."
+        "example": "The methodology needs to be clearly described.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "моделирование",
         "target_text": "simulation",
         "level": "C1",
-        "example": "The simulation predicted system failure."
+        "example": "The simulation predicted system failure.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "переменная",
         "target_text": "variable",
         "level": "C1",
-        "example": "The researchers controlled every variable."
+        "example": "The researchers controlled every variable.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "прорыв",
         "target_text": "breakthrough",
         "level": "C1",
-        "example": "The team announced a major breakthrough."
+        "example": "The team announced a major breakthrough.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "воспроизводимость",
         "target_text": "replicability",
         "level": "C2",
-        "example": "Replicability is essential in modern science."
+        "example": "Replicability is essential in modern science.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "инновационная экосистема",
         "target_text": "innovation ecosystem",
         "level": "C2",
-        "example": "Universities support the innovation ecosystem."
+        "example": "Universities support the innovation ecosystem.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "масштабируемость",
         "target_text": "scalability",
         "level": "C2",
-        "example": "The startup proved the scalability of the model."
+        "example": "The startup proved the scalability of the model.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "междисциплинарный",
         "target_text": "interdisciplinary",
         "level": "C2",
-        "example": "The project required an interdisciplinary approach."
+        "example": "The project required an interdisciplinary approach.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "научная грамотность",
         "target_text": "scientific literacy",
         "level": "C2",
-        "example": "Scientific literacy helps people evaluate claims."
+        "example": "Scientific literacy helps people evaluate claims.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "научный консенсус",
         "target_text": "scientific consensus",
         "level": "C2",
-        "example": "The scientific consensus is stronger than ever."
+        "example": "The scientific consensus is stronger than ever.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "рецензируемый",
         "target_text": "peer-reviewed",
         "level": "C2",
-        "example": "The paper was published in a peer-reviewed journal."
+        "example": "The paper was published in a peer-reviewed journal.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "этические последствия",
         "target_text": "ethical implications",
         "level": "C2",
-        "example": "The ethical implications of gene editing are complex."
+        "example": "The ethical implications of gene editing are complex.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       }
     ]
   },
@@ -2905,121 +5329,253 @@
         "source_text": "аргумент",
         "target_text": "argument",
         "level": "C1",
-        "example": "Her argument was clear and persuasive."
+        "example": "Her argument was clear and persuasive.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "доказать",
         "target_text": "to demonstrate",
         "level": "C1",
-        "example": "The report demonstrates a clear trend."
+        "example": "The report demonstrates a clear trend.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "контраргумент",
         "target_text": "counterargument",
         "level": "C1",
-        "example": "A good essay anticipates the counterargument."
+        "example": "A good essay anticipates the counterargument.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обосновывать",
         "target_text": "to justify",
         "level": "C1",
-        "example": "You need to justify your choice with evidence."
+        "example": "You need to justify your choice with evidence.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "оспаривать",
         "target_text": "to challenge",
         "level": "C1",
-        "example": "Several experts challenged the conclusion."
+        "example": "Several experts challenged the conclusion.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "точка зрения",
         "target_text": "point of view",
         "level": "C1",
-        "example": "Try to consider the opposite point of view."
+        "example": "Try to consider the opposite point of view.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "выстраивать позицию",
         "target_text": "to build a case",
         "level": "C2",
-        "example": "The article builds a strong case for reform."
+        "example": "The article builds a strong case for reform.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "интерпретировать данные",
         "target_text": "to interpret data",
         "level": "C2",
-        "example": "People often interpret data through prior beliefs."
+        "example": "People often interpret data through prior beliefs.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "логическая ошибка",
         "target_text": "fallacy",
         "level": "C2",
-        "example": "The article contains a common logical fallacy."
+        "example": "The article contains a common logical fallacy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "ложная дихотомия",
         "target_text": "false dichotomy",
         "level": "C2",
-        "example": "The speaker created a false dichotomy."
+        "example": "The speaker created a false dichotomy.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "нюансировать позицию",
         "target_text": "to qualify a position",
         "level": "C2",
-        "example": "She later qualified her position in an interview."
+        "example": "She later qualified her position in an interview.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "обобщение",
         "target_text": "generalization",
         "level": "C2",
-        "example": "That conclusion is based on a weak generalization."
+        "example": "That conclusion is based on a weak generalization.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "опровергать",
         "target_text": "to refute",
         "level": "C2",
-        "example": "The lawyer refuted each accusation calmly."
+        "example": "The lawyer refuted each accusation calmly.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подкреплять довод",
         "target_text": "to substantiate a claim",
         "level": "C2",
-        "example": "The author failed to substantiate the claim."
+        "example": "The author failed to substantiate the claim.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "подрывать довод",
         "target_text": "to undermine an argument",
         "level": "C2",
-        "example": "A single inconsistency can undermine an argument."
+        "example": "A single inconsistency can undermine an argument.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "последовательность рассуждения",
         "target_text": "line of reasoning",
         "level": "C2",
-        "example": "The line of reasoning breaks down in the final paragraph."
+        "example": "The line of reasoning breaks down in the final paragraph.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "предпосылка",
         "target_text": "premise",
         "level": "C2",
-        "example": "The argument depends on a questionable premise."
+        "example": "The argument depends on a questionable premise.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "риторический прием",
         "target_text": "rhetorical device",
         "level": "C2",
-        "example": "Repetition is a common rhetorical device."
+        "example": "Repetition is a common rhetorical device.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "смещать акцент",
         "target_text": "to shift the focus",
         "level": "C2",
-        "example": "The moderator tried to shift the focus back to evidence."
+        "example": "The moderator tried to shift the focus back to evidence.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
       },
       {
         "source_text": "убедительность",
         "target_text": "persuasiveness",
         "level": "C2",
-        "example": "Tone affects the persuasiveness of an argument."
+        "example": "Tone affects the persuasiveness of an argument.",
+        "item_type": "word",
+        "subtopic": null,
+        "priority": 50
+      },
+      {
+        "source_text": "сильный аргумент",
+        "target_text": "strong argument",
+        "level": "B2",
+        "example": "That is a strong argument in favor of the proposal.",
+        "item_type": "phrase",
+        "subtopic": "debate",
+        "priority": 35
+      },
+      {
+        "source_text": "контраргумент",
+        "target_text": "counterargument",
+        "level": "B2",
+        "example": "You should address the main counterargument.",
+        "item_type": "word",
+        "subtopic": "debate",
+        "priority": 30
+      },
+      {
+        "source_text": "подтверждать доказательствами",
+        "target_text": "support with evidence",
+        "level": "B2",
+        "example": "Please support your claim with evidence.",
+        "item_type": "phrase",
+        "subtopic": "debate",
+        "priority": 35
+      },
+      {
+        "source_text": "делать вывод",
+        "target_text": "draw a conclusion",
+        "level": "B2",
+        "example": "It is too early to draw a conclusion.",
+        "item_type": "phrase",
+        "subtopic": "reasoning",
+        "priority": 35
+      },
+      {
+        "source_text": "неубедительный",
+        "target_text": "unconvincing",
+        "level": "C1",
+        "example": "His explanation sounded unconvincing.",
+        "item_type": "word",
+        "subtopic": "reasoning",
+        "priority": 20
+      },
+      {
+        "source_text": "логическая ошибка",
+        "target_text": "logical fallacy",
+        "level": "C1",
+        "example": "That example contains a logical fallacy.",
+        "item_type": "phrase",
+        "subtopic": "reasoning",
+        "priority": 20
+      },
+      {
+        "source_text": "формулировать позицию",
+        "target_text": "articulate a position",
+        "level": "C1",
+        "example": "She can articulate a position very clearly.",
+        "item_type": "phrase",
+        "subtopic": "debate",
+        "priority": 20
+      },
+      {
+        "source_text": "нюансировать утверждение",
+        "target_text": "qualify a claim",
+        "level": "C2",
+        "example": "A careful speaker knows when to qualify a claim.",
+        "item_type": "phrase",
+        "subtopic": "reasoning",
+        "priority": 10
       }
     ]
   }
