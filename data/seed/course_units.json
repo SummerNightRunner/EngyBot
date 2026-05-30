@@ -1,0 +1,56 @@
+[
+  {
+    "id": "a1_foundations",
+    "level": "A1",
+    "title": "Foundations of Daily English",
+    "summary": "Basic self-introduction, home vocabulary, food, and simple everyday phrases.",
+    "topics": ["Повседневная жизнь и распорядок", "Дом и быт", "Еда и напитки"],
+    "grammar_unit_ids": ["a1_be_pronouns", "a1_articles_plurals", "a1_present_simple"],
+    "dialogue_ids": ["travel_checkin", "cafe_order"]
+  },
+  {
+    "id": "a2_everyday_actions",
+    "level": "A2",
+    "title": "Everyday Actions and Routines",
+    "summary": "Routine communication, shopping, city navigation, and short practical interactions.",
+    "topics": ["Город и транспорт", "Покупки и деньги", "Одежда и внешность", "Здоровье и образ жизни"],
+    "grammar_unit_ids": ["a2_present_continuous", "a2_past_simple", "a2_quantifiers", "a2_future_going_to"],
+    "dialogue_ids": ["office_meeting", "family_weekend"]
+  },
+  {
+    "id": "b1_social_and_study",
+    "level": "B1",
+    "title": "Study, Work, and Social Life",
+    "summary": "Connected speech about study, hobbies, family, and workplace situations.",
+    "topics": ["Образование и обучение", "Хобби и досуг", "Семья и отношения", "Работа и карьера"],
+    "grammar_unit_ids": ["b1_present_perfect", "b1_first_conditional", "b1_relative_clauses", "b1_gerunds_infinitives"],
+    "dialogue_ids": ["hobby_club"]
+  },
+  {
+    "id": "b2_opinions_and_media",
+    "level": "B2",
+    "title": "Opinions, Media, and Professional Communication",
+    "summary": "More flexible communication about work, media, technology, and public issues.",
+    "topics": ["Технологии и медиа", "Культура и общество", "Эмоции и общение", "Работа и карьера"],
+    "grammar_unit_ids": ["b2_passive_voice", "b2_reported_speech", "b2_second_third_conditionals"],
+    "dialogue_ids": ["media_discussion"]
+  },
+  {
+    "id": "c1_abstract_topics",
+    "level": "C1",
+    "title": "Abstract Topics and Structured Argumentation",
+    "summary": "Advanced vocabulary and grammar for nuanced explanations, debate, and analytical speech.",
+    "topics": ["Наука и инновации", "Аргументация и дебаты", "Культура и общество", "Природа и экология"],
+    "grammar_unit_ids": ["c1_inversion_emphasis", "c1_participle_clauses", "c1_hedging_stance", "c1_advanced_complex_sentences"],
+    "dialogue_ids": []
+  },
+  {
+    "id": "c2_precision_and_register",
+    "level": "C2",
+    "title": "Precision, Register, and Rhetorical Control",
+    "summary": "High-level lexical control, register awareness, and precise argument building.",
+    "topics": ["Аргументация и дебаты", "Наука и инновации", "Технологии и медиа", "Культура и общество"],
+    "grammar_unit_ids": ["c2_nominalisation_register", "c2_rhetorical_argumentation"],
+    "dialogue_ids": []
+  }
+]

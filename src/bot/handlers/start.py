@@ -17,6 +17,7 @@ from bot.database.session import SessionLocal
 from bot.keyboards.main_menu import (
     card_keyboard,
     course_menu_keyboard,
+    course_units_keyboard,
     dialogue_keyboard,
     dialogue_step_keyboard,
     grammar_units_keyboard,
@@ -34,6 +35,7 @@ from bot.keyboards.main_menu import (
     review_keyboard,
     start_quiz_keyboard,
     stats_keyboard,
+    unit_actions_keyboard,
     word_sets_keyboard,
 )
 from bot.services.content import (
@@ -41,9 +43,10 @@ from bot.services.content import (
     QUIZ_FORMATS,
     WORD_DEFINITIONS,
     filter_words_for_level,
-    load_grammar_units,
     get_word_set_level_range,
     level_is_allowed,
+    load_course_units,
+    load_grammar_units,
 )
 from bot.states.training import QuizStates
 
@@ -57,6 +60,7 @@ LANGUAGE_NAMES = {
 }
 
 GRAMMAR_UNITS = load_grammar_units()
+COURSE_UNITS = load_course_units()
 
 TOPIC_LABELS = {
     "Путешествия": {"en": "Travel"},
@@ -88,6 +92,7 @@ UI_TEXT = {
     "stats": {"en": "Progress", "ru": "Статистика"},
     "help": {"en": "Help", "ru": "Помощь"},
     "vocabulary": {"en": "Vocabulary", "ru": "Слова"},
+    "units": {"en": "Units", "ru": "Юниты"},
     "grammar": {"en": "Grammar", "ru": "Грамматика"},
     "dialogues": {"en": "Dialogues", "ru": "Диалоги"},
     "daily": {"en": "Daily Practice", "ru": "Практика дня"},
@@ -206,6 +211,7 @@ def user_labels(user: User | None) -> dict[str, str]:
             "stats",
             "help",
             "vocabulary",
+            "units",
             "grammar",
             "dialogues",
             "daily",
@@ -309,6 +315,65 @@ def get_grammar_unit(unit_id: str) -> dict | None:
         if unit["id"] == unit_id:
             return unit
     return None
+
+
+def get_course_units(user_level: str | None = None) -> list[dict]:
+    if user_level is None:
+        return COURSE_UNITS
+    return [unit for unit in COURSE_UNITS if level_is_allowed(user_level, unit["level"])]
+
+
+def get_course_unit(unit_id: str) -> dict | None:
+    for unit in COURSE_UNITS:
+        if unit["id"] == unit_id:
+            return unit
+    return None
+
+
+async def build_unit_context(unit: dict, user: User | None) -> dict:
+    user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+
+    word_sets = await get_active_word_sets(user_level)
+    word_sets_by_title = {word_set.title: word_set for word_set in word_sets}
+    topic_links = []
+    for title in unit["topics"]:
+        word_set = word_sets_by_title.get(title)
+        if word_set is None:
+            continue
+        topic_links.append(
+            (
+                word_set.id,
+                topic_label(word_set.title, target_language, source_language, bilingual),
+            )
+        )
+
+    grammar_links = []
+    for grammar_id in unit["grammar_unit_ids"]:
+        grammar_unit = get_grammar_unit(grammar_id)
+        if grammar_unit is None:
+            continue
+        grammar_links.append(
+            (
+                grammar_unit["id"],
+                grammar_label(grammar_unit["title"], target_language, source_language, bilingual),
+            )
+        )
+
+    dialogue_links = []
+    for dialogue_id in unit["dialogue_ids"]:
+        dialogue = get_dialogue_by_id(dialogue_id)
+        if dialogue is None:
+            continue
+        dialogue_links.append((dialogue["id"], dialogue["title"]))
+
+    return {
+        "topic_links": topic_links,
+        "grammar_links": grammar_links,
+        "dialogue_links": dialogue_links,
+    }
 
 
 def format_grammar_unit(unit: dict) -> str:
@@ -984,10 +1049,88 @@ async def course_handler(callback: CallbackQuery) -> None:
     await edit_screen(
         callback,
         f"<b>{translated_label('course_title', target_language, source_language, bilingual)}</b>\n\n"
-        "Choose what you want to build today: vocabulary, grammar, or guided dialogues."
-        if target_language == "en"
-        else "<b>Course</b>\n\nChoose what you want to build today: vocabulary, grammar, or guided dialogues.",
+        + bilingual_block(
+            "Open a unit or jump directly to vocabulary, grammar, or dialogues.",
+            "Откройте юнит или перейдите сразу к словам, грамматике или диалогам."
+            if bilingual and target_language == "en"
+            else None,
+        ),
         course_menu_keyboard(labels),
+    )
+
+
+@router.callback_query(F.data == "menu:units")
+async def units_handler(callback: CallbackQuery) -> None:
+    user = await get_registered_user(callback.from_user.id)
+    user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+    units = get_course_units(user_level)
+    payload = [
+        (
+            unit["id"],
+            bilingual_block(
+                unit["title"],
+                f"Юнит {unit['level']}" if bilingual and target_language == "en" else None,
+                italic_secondary=False,
+            ).replace("\n", " • "),
+            unit["level"],
+            unit["summary"],
+        )
+        for unit in units
+    ]
+    await edit_screen(
+        callback,
+        bilingual_block(
+            "Units organize the course into linked blocks: vocabulary, grammar, dialogue, and practice.",
+            "Юниты собирают курс в связанные блоки: словарь, грамматика, диалоги и практика."
+            if bilingual and target_language == "en"
+            else None,
+        ),
+        course_units_keyboard(payload),
+    )
+
+
+@router.callback_query(F.data.startswith("unit:view:"))
+async def unit_view_handler(callback: CallbackQuery) -> None:
+    unit_id = callback.data.split(":")[-1]
+    unit = get_course_unit(unit_id)
+    if unit is None:
+        await edit_screen(callback, "Юнит не найден.", nav_keyboard(back_to="menu:units"))
+        return
+
+    user = await get_registered_user(callback.from_user.id)
+    context = await build_unit_context(unit, user)
+    target_language = user.target_language if user is not None else "en"
+    source_language = user.source_language if user is not None else "ru"
+    bilingual = user.bilingual_ui if user is not None else True
+
+    topic_lines = "\n".join(f"• {label}" for _, label in context["topic_links"]) or "• —"
+    grammar_lines = "\n".join(f"• {label}" for _, label in context["grammar_links"]) or "• —"
+    dialogue_lines = "\n".join(f"• {label}" for _, label in context["dialogue_links"]) or "• —"
+
+    text = (
+        f"<b>{unit['title']}</b>\n"
+        f"{bilingual_block(f'Level: {unit['level']}', f'Уровень: {unit['level']}' if bilingual and target_language == 'en' else None)}\n\n"
+        f"{unit['summary']}\n\n"
+        f"{bilingual_block('Vocabulary focus', 'Словарный фокус' if bilingual and target_language == 'en' else None)}\n"
+        f"{topic_lines}\n\n"
+        f"{bilingual_block('Grammar focus', 'Грамматический фокус' if bilingual and target_language == 'en' else None)}\n"
+        f"{grammar_lines}\n\n"
+        f"{bilingual_block('Dialogue practice', 'Диалоговая практика' if bilingual and target_language == 'en' else None)}\n"
+        f"{dialogue_lines}"
+    )
+
+    await edit_screen(
+        callback,
+        text,
+        unit_actions_keyboard(
+            unit_id=unit["id"],
+            topic_links=context["topic_links"],
+            grammar_links=context["grammar_links"],
+            dialogue_links=context["dialogue_links"],
+        ),
     )
 
 

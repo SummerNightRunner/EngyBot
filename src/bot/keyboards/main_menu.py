@@ -26,6 +26,7 @@ def main_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
 def course_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
+            [InlineKeyboardButton(text=labels["units"], callback_data="menu:units")],
             [InlineKeyboardButton(text=labels["vocabulary"], callback_data="menu:learn")],
             [InlineKeyboardButton(text=labels["grammar"], callback_data="menu:grammar")],
             [InlineKeyboardButton(text=labels["dialogues"], callback_data="menu:dialogue")],
@@ -196,6 +197,35 @@ def dialogue_keyboard(scenarios: list[tuple[str, str, str, str]]) -> InlineKeybo
         for scenario_id, title, level, theme in scenarios
     ]
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def course_units_keyboard(units: list[tuple[str, str, str, str]]) -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=f"[{level}] {title} • {summary}", callback_data=f"unit:view:{unit_id}")]
+        for unit_id, title, level, summary in units
+    ]
+    rows.append([InlineKeyboardButton(text="К курсу", callback_data="menu:course")])
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def unit_actions_keyboard(
+    *,
+    unit_id: str,
+    topic_links: list[tuple[int, str]],
+    grammar_links: list[tuple[str, str]],
+    dialogue_links: list[tuple[str, str]],
+) -> InlineKeyboardMarkup:
+    rows: list[list[InlineKeyboardButton]] = []
+    for topic_id, label in topic_links[:3]:
+        rows.append([InlineKeyboardButton(text=f"Topic: {label}", callback_data=f"learn:set:{topic_id}")])
+    for grammar_id, label in grammar_links[:2]:
+        rows.append([InlineKeyboardButton(text=f"Grammar: {label}", callback_data=f"grammar:unit:{grammar_id}")])
+    for dialogue_id, label in dialogue_links[:2]:
+        rows.append([InlineKeyboardButton(text=f"Dialogue: {label}", callback_data=f"dialogue:{dialogue_id}:0")])
+    rows.append([InlineKeyboardButton(text="К юнитам", callback_data="menu:units")])
+    rows.append([InlineKeyboardButton(text="К курсу", callback_data="menu:course")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
