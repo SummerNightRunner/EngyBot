@@ -1,0 +1,237 @@
+[
+  {
+    "id": "a1_bus_stop",
+    "level": "A1",
+    "title": "At the bus stop",
+    "summary": "A simple dialogue about waiting for a bus and asking basic questions.",
+    "focus": ["city", "transport", "present simple", "basic questions"],
+    "lines": [
+      { "speaker": "A", "text": "Excuse me, is this the bus to the city center?" },
+      { "speaker": "B", "text": "Yes, it is." },
+      { "speaker": "A", "text": "Do you know when it comes?" },
+      { "speaker": "B", "text": "It comes in about ten minutes." },
+      { "speaker": "A", "text": "Thank you." },
+      { "speaker": "B", "text": "You're welcome." }
+    ]
+  },
+  {
+    "id": "a1_new_student",
+    "level": "A1",
+    "title": "Meeting a new classmate",
+    "summary": "Two students introduce themselves before class.",
+    "focus": ["introductions", "to be", "subject pronouns"],
+    "lines": [
+      { "speaker": "A", "text": "Hi, I am Anna." },
+      { "speaker": "B", "text": "Hi, I am Leo." },
+      { "speaker": "A", "text": "Are you new here?" },
+      { "speaker": "B", "text": "Yes, I am." },
+      { "speaker": "A", "text": "I am in this class too." },
+      { "speaker": "B", "text": "Nice to meet you." },
+      { "speaker": "A", "text": "Nice to meet you too." }
+    ]
+  },
+  {
+    "id": "a1_in_the_cafe",
+    "level": "A1",
+    "title": "In the cafe",
+    "summary": "A basic cafe order with simple food and drink vocabulary.",
+    "focus": ["food", "ordering", "can", "polite requests"],
+    "lines": [
+      { "speaker": "A", "text": "Hello. Can I have a coffee, please?" },
+      { "speaker": "B", "text": "Sure. Anything else?" },
+      { "speaker": "A", "text": "Yes, a sandwich, please." },
+      { "speaker": "B", "text": "Cheese or chicken?" },
+      { "speaker": "A", "text": "Cheese, please." },
+      { "speaker": "B", "text": "That is six euros." },
+      { "speaker": "A", "text": "Here you are." }
+    ]
+  },
+  {
+    "id": "a1_at_home",
+    "level": "A1",
+    "title": "At home",
+    "summary": "A short home conversation using there is and there are.",
+    "focus": ["home", "there is", "there are", "furniture"],
+    "lines": [
+      { "speaker": "A", "text": "Your room is nice." },
+      { "speaker": "B", "text": "Thank you." },
+      { "speaker": "A", "text": "Is there a desk?" },
+      { "speaker": "B", "text": "Yes, there is a desk near the window." },
+      { "speaker": "A", "text": "Are there any books on it?" },
+      { "speaker": "B", "text": "Yes, there are two books and a notebook." }
+    ]
+  },
+  {
+    "id": "a1_family_photo",
+    "level": "A1",
+    "title": "Looking at a family photo",
+    "summary": "A simple dialogue about family members.",
+    "focus": ["family", "have got", "to be"],
+    "lines": [
+      { "speaker": "A", "text": "Who is this?" },
+      { "speaker": "B", "text": "This is my sister." },
+      { "speaker": "A", "text": "Is she older than you?" },
+      { "speaker": "B", "text": "Yes, she is." },
+      { "speaker": "A", "text": "Have you got any brothers?" },
+      { "speaker": "B", "text": "Yes, I have got one brother." }
+    ]
+  },
+  {
+    "id": "a2_missed_bus",
+    "level": "A2",
+    "title": "Missing the bus",
+    "summary": "Two friends talk about being late and making a new plan.",
+    "focus": ["past simple", "present continuous", "travel"],
+    "lines": [
+      { "speaker": "A", "text": "Where are you?" },
+      { "speaker": "B", "text": "I am at the bus stop." },
+      { "speaker": "A", "text": "Did you catch the bus?" },
+      { "speaker": "B", "text": "No, I missed it." },
+      { "speaker": "A", "text": "Oh no. What are you going to do now?" },
+      { "speaker": "B", "text": "I am going to take the next one." },
+      { "speaker": "A", "text": "Okay, I will wait for you." }
+    ]
+  },
+  {
+    "id": "a2_supermarket_help",
+    "level": "A2",
+    "title": "At the supermarket",
+    "summary": "A customer asks for help finding items in a supermarket.",
+    "focus": ["shopping", "some/any", "countable and uncountable nouns"],
+    "lines": [
+      { "speaker": "A", "text": "Excuse me, do you have any bread?" },
+      { "speaker": "B", "text": "Yes, it is over there, next to the milk." },
+      { "speaker": "A", "text": "Great. And where can I find some apples?" },
+      { "speaker": "B", "text": "They are in the fruit section." },
+      { "speaker": "A", "text": "Do you have any fresh juice?" },
+      { "speaker": "B", "text": "Yes, we have orange and apple juice." }
+    ]
+  },
+  {
+    "id": "a2_doctor_appointment",
+    "level": "A2",
+    "title": "Booking a doctor's appointment",
+    "summary": "A patient calls to make an appointment.",
+    "focus": ["health", "appointments", "polite questions", "future plans"],
+    "lines": [
+      { "speaker": "A", "text": "Good morning. I would like to book a doctor's appointment." },
+      { "speaker": "B", "text": "Of course. What seems to be the problem?" },
+      { "speaker": "A", "text": "I have a headache and a fever." },
+      { "speaker": "B", "text": "I see. Are you free this afternoon?" },
+      { "speaker": "A", "text": "Yes, I am." },
+      { "speaker": "B", "text": "The doctor can see you at three o'clock." },
+      { "speaker": "A", "text": "That works for me. Thank you." }
+    ]
+  },
+  {
+    "id": "a2_flat_problem",
+    "level": "A2",
+    "title": "A problem in the apartment",
+    "summary": "A tenant reports a small maintenance problem.",
+    "focus": ["home", "past simple", "present continuous", "practical communication"],
+    "lines": [
+      { "speaker": "A", "text": "Hi. I am calling about the apartment." },
+      { "speaker": "B", "text": "What happened?" },
+      { "speaker": "A", "text": "The kitchen tap started leaking last night." },
+      { "speaker": "B", "text": "Is it leaking now?" },
+      { "speaker": "A", "text": "Yes, it is. The water is dripping all the time." },
+      { "speaker": "B", "text": "Okay. I am going to send someone tomorrow morning." },
+      { "speaker": "A", "text": "Thank you very much." }
+    ]
+  },
+  {
+    "id": "a2_weekend_plan",
+    "level": "A2",
+    "title": "Weekend plans",
+    "summary": "Two friends make plans for the weekend.",
+    "focus": ["going to", "free time", "suggestions"],
+    "lines": [
+      { "speaker": "A", "text": "What are you going to do this weekend?" },
+      { "speaker": "B", "text": "I am going to visit my cousin." },
+      { "speaker": "A", "text": "Nice. Are you going by train?" },
+      { "speaker": "B", "text": "No, I am going by car." },
+      { "speaker": "A", "text": "What about Sunday?" },
+      { "speaker": "B", "text": "I am free on Sunday. We can meet then." },
+      { "speaker": "A", "text": "Great. Let's have lunch together." }
+    ]
+  },
+  {
+    "id": "b1_job_interview_call",
+    "level": "B1",
+    "title": "A call after a job interview",
+    "summary": "A candidate talks to a friend after an interview.",
+    "focus": ["work", "past simple", "present perfect", "feelings"],
+    "lines": [
+      { "speaker": "A", "text": "How did the interview go?" },
+      { "speaker": "B", "text": "I think it went well." },
+      { "speaker": "A", "text": "What did they ask you?" },
+      { "speaker": "B", "text": "They asked about my experience and why I wanted the position." },
+      { "speaker": "A", "text": "Have you heard from them yet?" },
+      { "speaker": "B", "text": "No, not yet. But they said they would email me tomorrow." },
+      { "speaker": "A", "text": "That sounds promising." }
+    ]
+  },
+  {
+    "id": "b1_group_project",
+    "level": "B1",
+    "title": "Planning a group project",
+    "summary": "Students discuss tasks, deadlines, and responsibilities.",
+    "focus": ["study", "work", "first conditional", "future arrangement"],
+    "lines": [
+      { "speaker": "A", "text": "We need to finish the project by Friday." },
+      { "speaker": "B", "text": "I can do the slides if you write the introduction." },
+      { "speaker": "A", "text": "That works. What about the data?" },
+      { "speaker": "B", "text": "Mila has already collected most of it." },
+      { "speaker": "A", "text": "Good. If we divide the work now, we will finish on time." },
+      { "speaker": "B", "text": "Agreed. Let's send everyone a message tonight." }
+    ]
+  },
+  {
+    "id": "b1_wrong_train",
+    "level": "B1",
+    "title": "Taking the wrong train",
+    "summary": "Two travelers realize they may be on the wrong train and solve the problem.",
+    "focus": ["travel", "present perfect", "problem solving", "questions"],
+    "lines": [
+      { "speaker": "A", "text": "I think we have made a mistake." },
+      { "speaker": "B", "text": "Why? What happened?" },
+      { "speaker": "A", "text": "This train has just stopped at the wrong station." },
+      { "speaker": "B", "text": "Are you sure?" },
+      { "speaker": "A", "text": "Yes. I have checked the route on my phone." },
+      { "speaker": "B", "text": "So what do we do now?" },
+      { "speaker": "A", "text": "If we get off here, we can catch the next train back." }
+    ]
+  },
+  {
+    "id": "b1_workload_talk",
+    "level": "B1",
+    "title": "Talking about workload",
+    "summary": "Two coworkers discuss stress and time management.",
+    "focus": ["work", "present perfect", "advice", "everyday communication"],
+    "lines": [
+      { "speaker": "A", "text": "You look tired. Is everything okay?" },
+      { "speaker": "B", "text": "I have had a very busy week." },
+      { "speaker": "A", "text": "Too many meetings?" },
+      { "speaker": "B", "text": "Yes, and I have also been working on two deadlines at the same time." },
+      { "speaker": "A", "text": "That sounds stressful." },
+      { "speaker": "B", "text": "It is. I need to organize my time better." },
+      { "speaker": "A", "text": "Maybe you should talk to your manager." }
+    ]
+  },
+  {
+    "id": "b1_family_visit",
+    "level": "B1",
+    "title": "After a family visit",
+    "summary": "Two friends talk about a recent family gathering.",
+    "focus": ["family", "past simple", "present perfect", "connected speech"],
+    "lines": [
+      { "speaker": "A", "text": "How was your weekend?" },
+      { "speaker": "B", "text": "It was nice. I visited my parents." },
+      { "speaker": "A", "text": "I have not seen mine for months." },
+      { "speaker": "B", "text": "Really? We had lunch together and talked for hours." },
+      { "speaker": "A", "text": "That sounds lovely." },
+      { "speaker": "B", "text": "Yes. My mother made my favorite soup, which she always cooks when I come home." },
+      { "speaker": "A", "text": "Now I miss home too." }
+    ]
+  }
+]
