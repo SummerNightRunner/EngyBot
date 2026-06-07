@@ -81,6 +81,8 @@ class UserWordProgress(Base):
     correct_count: Mapped[int] = mapped_column(Integer, default=0)
     wrong_count: Mapped[int] = mapped_column(Integer, default=0)
     last_result: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    mastery_level: Mapped[int] = mapped_column(Integer, default=0)
+    review_due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),

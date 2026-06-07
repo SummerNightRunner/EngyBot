@@ -18,6 +18,7 @@ async def migrate_schema() -> None:
             required = {
                 "users": {"bilingual_ui"},
                 "words": {"level", "item_type", "subtopic", "priority"},
+                "user_word_progress": {"mastery_level", "review_due_at"},
                 "daily_practices": set(),
             }
             missing: dict[str, set[str]] = {}
@@ -41,6 +42,10 @@ async def migrate_schema() -> None:
             await connection.exec_driver_sql("ALTER TABLE words ADD COLUMN priority INTEGER DEFAULT 50")
         if "bilingual_ui" in missing.get("users", set()):
             await connection.exec_driver_sql("ALTER TABLE users ADD COLUMN bilingual_ui BOOLEAN DEFAULT TRUE")
+        if "mastery_level" in missing.get("user_word_progress", set()):
+            await connection.exec_driver_sql("ALTER TABLE user_word_progress ADD COLUMN mastery_level INTEGER DEFAULT 0")
+        if "review_due_at" in missing.get("user_word_progress", set()):
+            await connection.exec_driver_sql("ALTER TABLE user_word_progress ADD COLUMN review_due_at TIMESTAMP")
 
 
 async def init_db() -> None:

@@ -4,7 +4,10 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 LANGUAGE_OPTIONS = [
     ("Русский", "ru"),
     ("Английский", "en"),
-    ("Немецкий", "de"),
+]
+
+TARGET_LANGUAGE_OPTIONS = [
+    ("Английский", "en"),
 ]
 
 LEVEL_OPTIONS = ["A1", "A2", "B1", "B2", "C1", "C2"]
@@ -54,10 +57,11 @@ def guest_menu_keyboard() -> InlineKeyboardMarkup:
     )
 
 
-def language_keyboard(prefix: str) -> InlineKeyboardMarkup:
+def language_keyboard(prefix: str, options: list[tuple[str, str]] | None = None) -> InlineKeyboardMarkup:
+    language_options = options if options is not None else LANGUAGE_OPTIONS
     rows = [
         [InlineKeyboardButton(text=label, callback_data=f"{prefix}:{code}")]
-        for label, code in LANGUAGE_OPTIONS
+        for label, code in language_options
     ]
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
@@ -131,7 +135,7 @@ def start_quiz_keyboard(word_set_id: int, quiz_format: str) -> InlineKeyboardMar
 
 
 def quiz_options_keyboard(options: list[str]) -> InlineKeyboardMarkup:
-    rows = [[InlineKeyboardButton(text=option, callback_data=f"quiz:answer:{option}")] for option in options]
+    rows = [[InlineKeyboardButton(text=option, callback_data=f"quiz:answer:{index}")] for index, option in enumerate(options)]
     rows.append([InlineKeyboardButton(text="Прервать квиз", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
@@ -229,10 +233,32 @@ def unit_actions_keyboard(
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def dialogue_step_keyboard(scenario_id: str, index: int, total: int) -> InlineKeyboardMarkup:
+def dialogue_step_keyboard(scenario_id: str, index: int, total: int, *, has_tasks: bool = False) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if index + 1 < total:
         rows.append([InlineKeyboardButton(text="Следующая реплика", callback_data=f"dialogue:{scenario_id}:{index + 1}")])
+    elif has_tasks:
+        rows.append([InlineKeyboardButton(text="Задание по диалогу", callback_data=f"dialogue:task:{scenario_id}:0")])
+    rows.append([InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")])
+    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def dialogue_gap_task_keyboard(scenario_id: str) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="К диалогу", callback_data=f"dialogue:{scenario_id}:0")],
+            [InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")],
+            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+        ]
+    )
+
+
+def dialogue_task_result_keyboard(scenario_id: str, task_index: int, has_next_task: bool) -> InlineKeyboardMarkup:
+    rows: list[list[InlineKeyboardButton]] = []
+    if has_next_task:
+        rows.append([InlineKeyboardButton(text="Следующее задание", callback_data=f"dialogue:task:{scenario_id}:{task_index + 1}")])
+    rows.append([InlineKeyboardButton(text="Повторить диалог", callback_data=f"dialogue:{scenario_id}:0")])
     rows.append([InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")])
     rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)

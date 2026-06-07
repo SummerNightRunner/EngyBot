@@ -4,14 +4,50 @@
     "level": "A1",
     "title": "At the bus stop",
     "summary": "A simple dialogue about waiting for a bus and asking basic questions.",
-    "focus": ["city", "transport", "present simple", "basic questions"],
+    "focus": [
+      "city",
+      "transport",
+      "present simple",
+      "basic questions"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Excuse me, is this the bus to the city center?" },
-      { "speaker": "B", "text": "Yes, it is." },
-      { "speaker": "A", "text": "Do you know when it comes?" },
-      { "speaker": "B", "text": "It comes in about ten minutes." },
-      { "speaker": "A", "text": "Thank you." },
-      { "speaker": "B", "text": "You're welcome." }
+      {
+        "speaker": "A",
+        "text": "Excuse me, is this the bus to the city center?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it is."
+      },
+      {
+        "speaker": "A",
+        "text": "Do you know when it comes?"
+      },
+      {
+        "speaker": "B",
+        "text": "It comes in about ten minutes."
+      },
+      {
+        "speaker": "A",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "B",
+        "text": "You're welcome."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a1_bus_stop_gap",
+        "type": "gap",
+        "prompt": "It comes in about _____ minutes.",
+        "accepted_answers": [
+          "ten",
+          "10"
+        ],
+        "hint": "Write the number from the bus stop dialogue.",
+        "explanation": "Speaker B says: “It comes in about ten minutes.”"
+      }
     ]
   },
   {
@@ -19,15 +55,52 @@
     "level": "A1",
     "title": "Meeting a new classmate",
     "summary": "Two students introduce themselves before class.",
-    "focus": ["introductions", "to be", "subject pronouns"],
+    "focus": [
+      "introductions",
+      "to be",
+      "subject pronouns"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Hi, I am Anna." },
-      { "speaker": "B", "text": "Hi, I am Leo." },
-      { "speaker": "A", "text": "Are you new here?" },
-      { "speaker": "B", "text": "Yes, I am." },
-      { "speaker": "A", "text": "I am in this class too." },
-      { "speaker": "B", "text": "Nice to meet you." },
-      { "speaker": "A", "text": "Nice to meet you too." }
+      {
+        "speaker": "A",
+        "text": "Hi, I am Anna."
+      },
+      {
+        "speaker": "B",
+        "text": "Hi, I am Leo."
+      },
+      {
+        "speaker": "A",
+        "text": "Are you new here?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, I am."
+      },
+      {
+        "speaker": "A",
+        "text": "I am in this class too."
+      },
+      {
+        "speaker": "B",
+        "text": "Nice to meet you."
+      },
+      {
+        "speaker": "A",
+        "text": "Nice to meet you too."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a1_new_student_gap",
+        "type": "gap",
+        "prompt": "Nice to _____ you too.",
+        "accepted_answers": [
+          "meet"
+        ],
+        "hint": "Use the verb from the greeting phrase.",
+        "explanation": "The dialogue ends with the phrase “Nice to meet you too.”"
+      }
     ]
   },
   {
@@ -35,15 +108,53 @@
     "level": "A1",
     "title": "In the cafe",
     "summary": "A basic cafe order with simple food and drink vocabulary.",
-    "focus": ["food", "ordering", "can", "polite requests"],
+    "focus": [
+      "food",
+      "ordering",
+      "can",
+      "polite requests"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Hello. Can I have a coffee, please?" },
-      { "speaker": "B", "text": "Sure. Anything else?" },
-      { "speaker": "A", "text": "Yes, a sandwich, please." },
-      { "speaker": "B", "text": "Cheese or chicken?" },
-      { "speaker": "A", "text": "Cheese, please." },
-      { "speaker": "B", "text": "That is six euros." },
-      { "speaker": "A", "text": "Here you are." }
+      {
+        "speaker": "A",
+        "text": "Hello. Can I have a coffee, please?"
+      },
+      {
+        "speaker": "B",
+        "text": "Sure. Anything else?"
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, a sandwich, please."
+      },
+      {
+        "speaker": "B",
+        "text": "Cheese or chicken?"
+      },
+      {
+        "speaker": "A",
+        "text": "Cheese, please."
+      },
+      {
+        "speaker": "B",
+        "text": "That is six euros."
+      },
+      {
+        "speaker": "A",
+        "text": "Here you are."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a1_in_the_cafe_gap",
+        "type": "gap",
+        "prompt": "Can I have a _____, please?",
+        "accepted_answers": [
+          "coffee"
+        ],
+        "hint": "Speaker A orders a drink first.",
+        "explanation": "Speaker A says: “Can I have a coffee, please?”"
+      }
     ]
   },
   {
@@ -51,14 +162,49 @@
     "level": "A1",
     "title": "At home",
     "summary": "A short home conversation using there is and there are.",
-    "focus": ["home", "there is", "there are", "furniture"],
+    "focus": [
+      "home",
+      "there is",
+      "there are",
+      "furniture"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Your room is nice." },
-      { "speaker": "B", "text": "Thank you." },
-      { "speaker": "A", "text": "Is there a desk?" },
-      { "speaker": "B", "text": "Yes, there is a desk near the window." },
-      { "speaker": "A", "text": "Are there any books on it?" },
-      { "speaker": "B", "text": "Yes, there are two books and a notebook." }
+      {
+        "speaker": "A",
+        "text": "Your room is nice."
+      },
+      {
+        "speaker": "B",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "A",
+        "text": "Is there a desk?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, there is a desk near the window."
+      },
+      {
+        "speaker": "A",
+        "text": "Are there any books on it?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, there are two books and a notebook."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a1_at_home_gap",
+        "type": "gap",
+        "prompt": "There is a desk near the _____.",
+        "accepted_answers": [
+          "window"
+        ],
+        "hint": "It is part of the room and lets in light.",
+        "explanation": "Speaker B says the desk is near the window."
+      }
     ]
   },
   {
@@ -66,14 +212,48 @@
     "level": "A1",
     "title": "Looking at a family photo",
     "summary": "A simple dialogue about family members.",
-    "focus": ["family", "have got", "to be"],
+    "focus": [
+      "family",
+      "have got",
+      "to be"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Who is this?" },
-      { "speaker": "B", "text": "This is my sister." },
-      { "speaker": "A", "text": "Is she older than you?" },
-      { "speaker": "B", "text": "Yes, she is." },
-      { "speaker": "A", "text": "Have you got any brothers?" },
-      { "speaker": "B", "text": "Yes, I have got one brother." }
+      {
+        "speaker": "A",
+        "text": "Who is this?"
+      },
+      {
+        "speaker": "B",
+        "text": "This is my sister."
+      },
+      {
+        "speaker": "A",
+        "text": "Is she older than you?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, she is."
+      },
+      {
+        "speaker": "A",
+        "text": "Have you got any brothers?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, I have got one brother."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a1_family_photo_gap",
+        "type": "gap",
+        "prompt": "This is my _____.",
+        "accepted_answers": [
+          "sister"
+        ],
+        "hint": "The dialogue is about a family photo.",
+        "explanation": "Speaker B identifies the person in the photo: “This is my sister.”"
+      }
     ]
   },
   {
@@ -81,15 +261,52 @@
     "level": "A2",
     "title": "Missing the bus",
     "summary": "Two friends talk about being late and making a new plan.",
-    "focus": ["past simple", "present continuous", "travel"],
+    "focus": [
+      "past simple",
+      "present continuous",
+      "travel"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Where are you?" },
-      { "speaker": "B", "text": "I am at the bus stop." },
-      { "speaker": "A", "text": "Did you catch the bus?" },
-      { "speaker": "B", "text": "No, I missed it." },
-      { "speaker": "A", "text": "Oh no. What are you going to do now?" },
-      { "speaker": "B", "text": "I am going to take the next one." },
-      { "speaker": "A", "text": "Okay, I will wait for you." }
+      {
+        "speaker": "A",
+        "text": "Where are you?"
+      },
+      {
+        "speaker": "B",
+        "text": "I am at the bus stop."
+      },
+      {
+        "speaker": "A",
+        "text": "Did you catch the bus?"
+      },
+      {
+        "speaker": "B",
+        "text": "No, I missed it."
+      },
+      {
+        "speaker": "A",
+        "text": "Oh no. What are you going to do now?"
+      },
+      {
+        "speaker": "B",
+        "text": "I am going to take the next one."
+      },
+      {
+        "speaker": "A",
+        "text": "Okay, I will wait for you."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a2_missed_bus_gap",
+        "type": "gap",
+        "prompt": "I am going to take the _____ one.",
+        "accepted_answers": [
+          "next"
+        ],
+        "hint": "Speaker B missed the first bus.",
+        "explanation": "Speaker B says they are going to take the next one."
+      }
     ]
   },
   {
@@ -97,14 +314,48 @@
     "level": "A2",
     "title": "At the supermarket",
     "summary": "A customer asks for help finding items in a supermarket.",
-    "focus": ["shopping", "some/any", "countable and uncountable nouns"],
+    "focus": [
+      "shopping",
+      "some/any",
+      "countable and uncountable nouns"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Excuse me, do you have any bread?" },
-      { "speaker": "B", "text": "Yes, it is over there, next to the milk." },
-      { "speaker": "A", "text": "Great. And where can I find some apples?" },
-      { "speaker": "B", "text": "They are in the fruit section." },
-      { "speaker": "A", "text": "Do you have any fresh juice?" },
-      { "speaker": "B", "text": "Yes, we have orange and apple juice." }
+      {
+        "speaker": "A",
+        "text": "Excuse me, do you have any bread?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, it is over there, next to the milk."
+      },
+      {
+        "speaker": "A",
+        "text": "Great. And where can I find some apples?"
+      },
+      {
+        "speaker": "B",
+        "text": "They are in the fruit section."
+      },
+      {
+        "speaker": "A",
+        "text": "Do you have any fresh juice?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, we have orange and apple juice."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a2_supermarket_help_gap",
+        "type": "gap",
+        "prompt": "They are in the _____ section.",
+        "accepted_answers": [
+          "fruit"
+        ],
+        "hint": "The customer is looking for apples.",
+        "explanation": "The assistant says the apples are in the fruit section."
+      }
     ]
   },
   {
@@ -112,15 +363,54 @@
     "level": "A2",
     "title": "Booking a doctor's appointment",
     "summary": "A patient calls to make an appointment.",
-    "focus": ["health", "appointments", "polite questions", "future plans"],
+    "focus": [
+      "health",
+      "appointments",
+      "polite questions",
+      "future plans"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Good morning. I would like to book a doctor's appointment." },
-      { "speaker": "B", "text": "Of course. What seems to be the problem?" },
-      { "speaker": "A", "text": "I have a headache and a fever." },
-      { "speaker": "B", "text": "I see. Are you free this afternoon?" },
-      { "speaker": "A", "text": "Yes, I am." },
-      { "speaker": "B", "text": "The doctor can see you at three o'clock." },
-      { "speaker": "A", "text": "That works for me. Thank you." }
+      {
+        "speaker": "A",
+        "text": "Good morning. I would like to book a doctor's appointment."
+      },
+      {
+        "speaker": "B",
+        "text": "Of course. What seems to be the problem?"
+      },
+      {
+        "speaker": "A",
+        "text": "I have a headache and a fever."
+      },
+      {
+        "speaker": "B",
+        "text": "I see. Are you free this afternoon?"
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, I am."
+      },
+      {
+        "speaker": "B",
+        "text": "The doctor can see you at three o'clock."
+      },
+      {
+        "speaker": "A",
+        "text": "That works for me. Thank you."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a2_doctor_appointment_gap",
+        "type": "gap",
+        "prompt": "The doctor can see you at _____ o’clock.",
+        "accepted_answers": [
+          "three",
+          "3"
+        ],
+        "hint": "Write the appointment time.",
+        "explanation": "The receptionist offers an appointment at three o’clock."
+      }
     ]
   },
   {
@@ -128,15 +418,53 @@
     "level": "A2",
     "title": "A problem in the apartment",
     "summary": "A tenant reports a small maintenance problem.",
-    "focus": ["home", "past simple", "present continuous", "practical communication"],
+    "focus": [
+      "home",
+      "past simple",
+      "present continuous",
+      "practical communication"
+    ],
     "lines": [
-      { "speaker": "A", "text": "Hi. I am calling about the apartment." },
-      { "speaker": "B", "text": "What happened?" },
-      { "speaker": "A", "text": "The kitchen tap started leaking last night." },
-      { "speaker": "B", "text": "Is it leaking now?" },
-      { "speaker": "A", "text": "Yes, it is. The water is dripping all the time." },
-      { "speaker": "B", "text": "Okay. I am going to send someone tomorrow morning." },
-      { "speaker": "A", "text": "Thank you very much." }
+      {
+        "speaker": "A",
+        "text": "Hi. I am calling about the apartment."
+      },
+      {
+        "speaker": "B",
+        "text": "What happened?"
+      },
+      {
+        "speaker": "A",
+        "text": "The kitchen tap started leaking last night."
+      },
+      {
+        "speaker": "B",
+        "text": "Is it leaking now?"
+      },
+      {
+        "speaker": "A",
+        "text": "Yes, it is. The water is dripping all the time."
+      },
+      {
+        "speaker": "B",
+        "text": "Okay. I am going to send someone tomorrow morning."
+      },
+      {
+        "speaker": "A",
+        "text": "Thank you very much."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a2_flat_problem_gap",
+        "type": "gap",
+        "prompt": "The kitchen tap started _____ last night.",
+        "accepted_answers": [
+          "leaking"
+        ],
+        "hint": "Use the -ing form from the apartment problem.",
+        "explanation": "The tenant reports that the kitchen tap started leaking."
+      }
     ]
   },
   {
@@ -144,15 +472,52 @@
     "level": "A2",
     "title": "Weekend plans",
     "summary": "Two friends make plans for the weekend.",
-    "focus": ["going to", "free time", "suggestions"],
+    "focus": [
+      "going to",
+      "free time",
+      "suggestions"
+    ],
     "lines": [
-      { "speaker": "A", "text": "What are you going to do this weekend?" },
-      { "speaker": "B", "text": "I am going to visit my cousin." },
-      { "speaker": "A", "text": "Nice. Are you going by train?" },
-      { "speaker": "B", "text": "No, I am going by car." },
-      { "speaker": "A", "text": "What about Sunday?" },
-      { "speaker": "B", "text": "I am free on Sunday. We can meet then." },
-      { "speaker": "A", "text": "Great. Let's have lunch together." }
+      {
+        "speaker": "A",
+        "text": "What are you going to do this weekend?"
+      },
+      {
+        "speaker": "B",
+        "text": "I am going to visit my cousin."
+      },
+      {
+        "speaker": "A",
+        "text": "Nice. Are you going by train?"
+      },
+      {
+        "speaker": "B",
+        "text": "No, I am going by car."
+      },
+      {
+        "speaker": "A",
+        "text": "What about Sunday?"
+      },
+      {
+        "speaker": "B",
+        "text": "I am free on Sunday. We can meet then."
+      },
+      {
+        "speaker": "A",
+        "text": "Great. Let's have lunch together."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "a2_weekend_plan_gap",
+        "type": "gap",
+        "prompt": "No, I am going by _____.",
+        "accepted_answers": [
+          "car"
+        ],
+        "hint": "Speaker B is not going by train.",
+        "explanation": "Speaker B says they are going by car."
+      }
     ]
   },
   {
@@ -160,15 +525,53 @@
     "level": "B1",
     "title": "A call after a job interview",
     "summary": "A candidate talks to a friend after an interview.",
-    "focus": ["work", "past simple", "present perfect", "feelings"],
+    "focus": [
+      "work",
+      "past simple",
+      "present perfect",
+      "feelings"
+    ],
     "lines": [
-      { "speaker": "A", "text": "How did the interview go?" },
-      { "speaker": "B", "text": "I think it went well." },
-      { "speaker": "A", "text": "What did they ask you?" },
-      { "speaker": "B", "text": "They asked about my experience and why I wanted the position." },
-      { "speaker": "A", "text": "Have you heard from them yet?" },
-      { "speaker": "B", "text": "No, not yet. But they said they would email me tomorrow." },
-      { "speaker": "A", "text": "That sounds promising." }
+      {
+        "speaker": "A",
+        "text": "How did the interview go?"
+      },
+      {
+        "speaker": "B",
+        "text": "I think it went well."
+      },
+      {
+        "speaker": "A",
+        "text": "What did they ask you?"
+      },
+      {
+        "speaker": "B",
+        "text": "They asked about my experience and why I wanted the position."
+      },
+      {
+        "speaker": "A",
+        "text": "Have you heard from them yet?"
+      },
+      {
+        "speaker": "B",
+        "text": "No, not yet. But they said they would email me tomorrow."
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds promising."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "b1_job_interview_call_gap",
+        "type": "gap",
+        "prompt": "They said they would _____ me tomorrow.",
+        "accepted_answers": [
+          "email"
+        ],
+        "hint": "The company will contact the candidate in writing.",
+        "explanation": "The candidate says the company would email tomorrow."
+      }
     ]
   },
   {
@@ -176,14 +579,49 @@
     "level": "B1",
     "title": "Planning a group project",
     "summary": "Students discuss tasks, deadlines, and responsibilities.",
-    "focus": ["study", "work", "first conditional", "future arrangement"],
+    "focus": [
+      "study",
+      "work",
+      "first conditional",
+      "future arrangement"
+    ],
     "lines": [
-      { "speaker": "A", "text": "We need to finish the project by Friday." },
-      { "speaker": "B", "text": "I can do the slides if you write the introduction." },
-      { "speaker": "A", "text": "That works. What about the data?" },
-      { "speaker": "B", "text": "Mila has already collected most of it." },
-      { "speaker": "A", "text": "Good. If we divide the work now, we will finish on time." },
-      { "speaker": "B", "text": "Agreed. Let's send everyone a message tonight." }
+      {
+        "speaker": "A",
+        "text": "We need to finish the project by Friday."
+      },
+      {
+        "speaker": "B",
+        "text": "I can do the slides if you write the introduction."
+      },
+      {
+        "speaker": "A",
+        "text": "That works. What about the data?"
+      },
+      {
+        "speaker": "B",
+        "text": "Mila has already collected most of it."
+      },
+      {
+        "speaker": "A",
+        "text": "Good. If we divide the work now, we will finish on time."
+      },
+      {
+        "speaker": "B",
+        "text": "Agreed. Let's send everyone a message tonight."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "b1_group_project_gap",
+        "type": "gap",
+        "prompt": "If we divide the work now, we will finish on _____.",
+        "accepted_answers": [
+          "time"
+        ],
+        "hint": "This phrase means not late.",
+        "explanation": "Speaker A says they will finish on time if they divide the work now."
+      }
     ]
   },
   {
@@ -191,15 +629,53 @@
     "level": "B1",
     "title": "Taking the wrong train",
     "summary": "Two travelers realize they may be on the wrong train and solve the problem.",
-    "focus": ["travel", "present perfect", "problem solving", "questions"],
+    "focus": [
+      "travel",
+      "present perfect",
+      "problem solving",
+      "questions"
+    ],
     "lines": [
-      { "speaker": "A", "text": "I think we have made a mistake." },
-      { "speaker": "B", "text": "Why? What happened?" },
-      { "speaker": "A", "text": "This train has just stopped at the wrong station." },
-      { "speaker": "B", "text": "Are you sure?" },
-      { "speaker": "A", "text": "Yes. I have checked the route on my phone." },
-      { "speaker": "B", "text": "So what do we do now?" },
-      { "speaker": "A", "text": "If we get off here, we can catch the next train back." }
+      {
+        "speaker": "A",
+        "text": "I think we have made a mistake."
+      },
+      {
+        "speaker": "B",
+        "text": "Why? What happened?"
+      },
+      {
+        "speaker": "A",
+        "text": "This train has just stopped at the wrong station."
+      },
+      {
+        "speaker": "B",
+        "text": "Are you sure?"
+      },
+      {
+        "speaker": "A",
+        "text": "Yes. I have checked the route on my phone."
+      },
+      {
+        "speaker": "B",
+        "text": "So what do we do now?"
+      },
+      {
+        "speaker": "A",
+        "text": "If we get off here, we can catch the next train back."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "b1_wrong_train_gap",
+        "type": "gap",
+        "prompt": "I have checked the route on my _____.",
+        "accepted_answers": [
+          "phone"
+        ],
+        "hint": "Speaker A used this device to check the route.",
+        "explanation": "Speaker A says they checked the route on their phone."
+      }
     ]
   },
   {
@@ -207,15 +683,53 @@
     "level": "B1",
     "title": "Talking about workload",
     "summary": "Two coworkers discuss stress and time management.",
-    "focus": ["work", "present perfect", "advice", "everyday communication"],
+    "focus": [
+      "work",
+      "present perfect",
+      "advice",
+      "everyday communication"
+    ],
     "lines": [
-      { "speaker": "A", "text": "You look tired. Is everything okay?" },
-      { "speaker": "B", "text": "I have had a very busy week." },
-      { "speaker": "A", "text": "Too many meetings?" },
-      { "speaker": "B", "text": "Yes, and I have also been working on two deadlines at the same time." },
-      { "speaker": "A", "text": "That sounds stressful." },
-      { "speaker": "B", "text": "It is. I need to organize my time better." },
-      { "speaker": "A", "text": "Maybe you should talk to your manager." }
+      {
+        "speaker": "A",
+        "text": "You look tired. Is everything okay?"
+      },
+      {
+        "speaker": "B",
+        "text": "I have had a very busy week."
+      },
+      {
+        "speaker": "A",
+        "text": "Too many meetings?"
+      },
+      {
+        "speaker": "B",
+        "text": "Yes, and I have also been working on two deadlines at the same time."
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds stressful."
+      },
+      {
+        "speaker": "B",
+        "text": "It is. I need to organize my time better."
+      },
+      {
+        "speaker": "A",
+        "text": "Maybe you should talk to your manager."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "b1_workload_talk_gap",
+        "type": "gap",
+        "prompt": "Maybe you should talk to your _____.",
+        "accepted_answers": [
+          "manager"
+        ],
+        "hint": "This person can help with workload at work.",
+        "explanation": "Speaker A suggests talking to the manager."
+      }
     ]
   },
   {
@@ -223,15 +737,53 @@
     "level": "B1",
     "title": "After a family visit",
     "summary": "Two friends talk about a recent family gathering.",
-    "focus": ["family", "past simple", "present perfect", "connected speech"],
+    "focus": [
+      "family",
+      "past simple",
+      "present perfect",
+      "connected speech"
+    ],
     "lines": [
-      { "speaker": "A", "text": "How was your weekend?" },
-      { "speaker": "B", "text": "It was nice. I visited my parents." },
-      { "speaker": "A", "text": "I have not seen mine for months." },
-      { "speaker": "B", "text": "Really? We had lunch together and talked for hours." },
-      { "speaker": "A", "text": "That sounds lovely." },
-      { "speaker": "B", "text": "Yes. My mother made my favorite soup, which she always cooks when I come home." },
-      { "speaker": "A", "text": "Now I miss home too." }
+      {
+        "speaker": "A",
+        "text": "How was your weekend?"
+      },
+      {
+        "speaker": "B",
+        "text": "It was nice. I visited my parents."
+      },
+      {
+        "speaker": "A",
+        "text": "I have not seen mine for months."
+      },
+      {
+        "speaker": "B",
+        "text": "Really? We had lunch together and talked for hours."
+      },
+      {
+        "speaker": "A",
+        "text": "That sounds lovely."
+      },
+      {
+        "speaker": "B",
+        "text": "Yes. My mother made my favorite soup, which she always cooks when I come home."
+      },
+      {
+        "speaker": "A",
+        "text": "Now I miss home too."
+      }
+    ],
+    "tasks": [
+      {
+        "id": "b1_family_visit_gap",
+        "type": "gap",
+        "prompt": "We had lunch together and talked for _____.",
+        "accepted_answers": [
+          "hours"
+        ],
+        "hint": "The word shows they talked for a long time.",
+        "explanation": "Speaker B says they had lunch together and talked for hours."
+      }
     ]
   }
 ]

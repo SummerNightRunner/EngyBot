@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: python -m pip install -e .
+
+      - name: Validate JSON seed files
+        run: python -m json.tool data/seed/word_sets.json >/dev/null && python -m json.tool data/seed/grammar_units.json >/dev/null && python -m json.tool data/seed/course_units.json >/dev/null && python -m json.tool data/seed/dialogues.json >/dev/null
+
+      - name: Compile source
+        run: python -m compileall src
