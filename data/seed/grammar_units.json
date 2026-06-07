@@ -21,8 +21,8 @@
     "id": "a1_articles_plurals",
     "level": "A1",
     "title": "articles and plurals",
-    "summary": "Неопределенный и определенный артикль, базовое множественное число существительных.",
-    "why_it_matters": "Нужно для первых описаний предметов и повседневных вещей.",
+    "summary": "Неопределенный и определенный артикль, а также базовое множественное число существительных.",
+    "why_it_matters": "Это нужно для первых описаний предметов, людей и повседневных вещей.",
     "patterns": [
       "a/an + singular noun",
       "the + noun",
@@ -38,8 +38,8 @@
     "id": "a1_present_simple",
     "level": "A1",
     "title": "present simple",
-    "summary": "Простое настоящее время для фактов, привычек и распорядка.",
-    "why_it_matters": "С него обычно начинается школьная и Duolingo-последовательность времен.",
+    "summary": "Простое настоящее время для фактов, привычек и повседневных действий.",
+    "why_it_matters": "С него начинается базовое общение о себе, своей жизни и ежедневной рутине.",
     "patterns": [
       "I/You/We/They work",
       "He/She/It works",
@@ -56,7 +56,7 @@
     "level": "A1",
     "title": "there is / there are / have got",
     "summary": "Базовые конструкции для описания наличия и владения.",
-    "why_it_matters": "Нужны для темы дома, города, вещей и семьи.",
+    "why_it_matters": "Они нужны, чтобы говорить о доме, семье, вещах и о том, что где находится.",
     "patterns": [
       "There is ...",
       "There are ...",
@@ -72,8 +72,8 @@
     "id": "a1_can_questions",
     "level": "A1",
     "title": "can / can't and basic questions",
-    "summary": "Модальный can для умений и разрешения, простые вопросительные конструкции.",
-    "why_it_matters": "Помогает говорить о навыках и делать базовые запросы.",
+    "summary": "Модальный глагол can для умений и разрешения, а также простые вопросительные конструкции.",
+    "why_it_matters": "Помогает говорить о том, что человек умеет, не умеет и о чем хочет спросить.",
     "patterns": [
       "I can ...",
       "I can't ...",
@@ -90,10 +90,11 @@
     "level": "A2",
     "title": "present continuous",
     "summary": "Действия, которые происходят сейчас или вокруг момента речи.",
-    "why_it_matters": "Школьные курсы и Duolingo обычно вводят это время сразу после present simple.",
+    "why_it_matters": "Помогает описывать текущие действия, планы на ближайшее время и ситуации вокруг себя.",
     "patterns": [
       "am/is/are + verb-ing",
-      "What are you doing?"
+      "What are you doing?",
+      "She is working now."
     ],
     "examples": [
       "I am reading now.",
@@ -105,8 +106,8 @@
     "id": "a2_past_simple",
     "level": "A2",
     "title": "past simple",
-    "summary": "Прошедшее время для законченных действий в прошлом.",
-    "why_it_matters": "Нужно, чтобы рассказывать о вчерашнем дне, поездках и опыте.",
+    "summary": "Прошедшее время для завершенных действий и событий в прошлом.",
+    "why_it_matters": "Нужно, чтобы рассказывать о вчерашнем дне, поездках, выходных и прошлом опыте.",
     "patterns": [
       "worked / went / saw",
       "did not + verb",
@@ -122,8 +123,8 @@
     "id": "a2_quantifiers",
     "level": "A2",
     "title": "some / any / much / many",
-    "summary": "Количество, исчисляемые и неисчисляемые существительные.",
-    "why_it_matters": "Критично для покупок, еды, телефона, заказа и everyday transactions.",
+    "summary": "Слова количества для исчисляемых и неисчисляемых существительных.",
+    "why_it_matters": "Очень важно для разговоров о еде, покупках, времени, вещах и повседневных ситуациях.",
     "patterns": [
       "some water",
       "any questions",
@@ -139,8 +140,8 @@
     "id": "a2_comparatives",
     "level": "A2",
     "title": "comparatives and superlatives",
-    "summary": "Сравнение предметов, людей и мест.",
-    "why_it_matters": "Используется в школьных курсах довольно рано для описания и выбора.",
+    "summary": "Формы сравнения для описания людей, предметов, мест и выбора между вариантами.",
+    "why_it_matters": "Нужно, чтобы сравнивать вещи, выражать предпочтения и делать простые выводы.",
     "patterns": [
       "bigger than",
       "more interesting than",
@@ -156,11 +157,12 @@
     "id": "a2_future_going_to",
     "level": "A2",
     "title": "going to and basic future",
-    "summary": "Планы, намерения и простые предсказания.",
-    "why_it_matters": "Помогает говорить о ближайших планах и договоренностях.",
+    "summary": "Конструкция going to для планов, намерений и простых прогнозов.",
+    "why_it_matters": "Помогает говорить о ближайших планах, договоренностях и будущих действиях.",
     "patterns": [
       "be going to + verb",
-      "I think it will ..."
+      "I think it will ...",
+      "We are going to ..."
     ],
     "examples": [
       "I am going to study tonight.",
@@ -172,8 +174,8 @@
     "id": "a2_prepositions_time_place",
     "level": "A2",
     "title": "prepositions of time and place",
-    "summary": "in, on, at и базовые пространственные предлоги.",
-    "why_it_matters": "Нужны для расписания, адресов, встреч и бытового общения.",
+    "summary": "Предлоги времени и места: in, on, at и базовые пространственные предлоги.",
+    "why_it_matters": "Они нужны для разговоров о расписании, встречах, адресах, доме и городе.",
     "patterns": [
       "at 7 o'clock",
       "on Monday",
@@ -189,8 +191,8 @@
     "id": "b1_present_perfect",
     "level": "B1",
     "title": "present perfect",
-    "summary": "Связь прошлого опыта с настоящим: have/has + past participle.",
-    "why_it_matters": "Одна из основных тем школьной грамматики на среднем уровне.",
+    "summary": "Время, которое связывает прошлый опыт с настоящим: have/has + past participle.",
+    "why_it_matters": "Нужно для разговоров об опыте, достижениях, недавних действиях и результате в настоящем.",
     "patterns": [
       "have/has done",
       "Have you ever ... ?",
@@ -207,10 +209,11 @@
     "level": "B1",
     "title": "past continuous",
     "summary": "Действие в процессе в определенный момент в прошлом.",
-    "why_it_matters": "Помогает строить более естественные рассказы и описывать фон событий.",
+    "why_it_matters": "Помогает рассказывать истории, описывать фон событий и связывать несколько действий в прошлом.",
     "patterns": [
       "was/were + verb-ing",
-      "while / when"
+      "while / when",
+      "I was doing ... when ..."
     ],
     "examples": [
       "I was walking home when it started to rain.",
@@ -222,10 +225,12 @@
     "id": "b1_first_conditional",
     "level": "B1",
     "title": "first conditional",
-    "summary": "Реальные условия и их вероятный результат.",
-    "why_it_matters": "Нужно для планов, предупреждений и everyday decision making.",
+    "summary": "Реальные и вероятные условия в настоящем или будущем.",
+    "why_it_matters": "Нужно для планов, предупреждений, решений и обсуждения возможных последствий.",
     "patterns": [
-      "If + present simple, will + verb"
+      "If + present simple, will + verb",
+      "If it rains, we will ...",
+      "If you study, you will ..."
     ],
     "examples": [
       "If it rains, we will stay inside.",
@@ -237,8 +242,8 @@
     "id": "b1_modals_obligation_advice",
     "level": "B1",
     "title": "must / have to / should",
-    "summary": "Обязанность, необходимость и советы.",
-    "why_it_matters": "Нужно для правил, рекомендаций и повседневных решений.",
+    "summary": "Модальные конструкции для обязанности, необходимости и совета.",
+    "why_it_matters": "Нужно, чтобы говорить о правилах, обязанностях, рекомендациях и повседневных решениях.",
     "patterns": [
       "must / mustn't",
       "have to / don't have to",
@@ -254,8 +259,8 @@
     "id": "b1_relative_clauses",
     "level": "B1",
     "title": "relative clauses",
-    "summary": "who, which, that для соединения идей в более длинные предложения.",
-    "why_it_matters": "Это шаг от коротких фраз к связной речи и письму.",
+    "summary": "Придаточные предложения с who, which, that, where для соединения идей.",
+    "why_it_matters": "Они помогают строить более естественную, связанную и информативную речь.",
     "patterns": [
       "The person who ...",
       "The book that ...",
@@ -271,8 +276,8 @@
     "id": "b1_gerunds_infinitives",
     "level": "B1",
     "title": "gerunds and infinitives",
-    "summary": "Разница между verb + ing и to + verb после типичных глаголов.",
-    "why_it_matters": "Очень частая школьная тема и частый источник ошибок.",
+    "summary": "Разница между формами verb + ing и to + verb после разных глаголов.",
+    "why_it_matters": "Это одна из самых частых тем среднего уровня и важный шаг к более естественной речи.",
     "patterns": [
       "like doing",
       "want to do",
@@ -280,7 +285,7 @@
     ],
     "examples": [
       "I enjoy reading in the evening.",
-      "She wants to learn German.",
+      "She wants to learn English.",
       "They started working early."
     ]
   },
@@ -288,8 +293,8 @@
     "id": "b2_passive_voice",
     "level": "B2",
     "title": "passive voice",
-    "summary": "Пассивный залог для описания процессов, новостей и формального стиля.",
-    "why_it_matters": "Типичная школьная и экзаменационная тема уровня B2.",
+    "summary": "Пассивный залог для описания процессов, результатов и действий без акцента на исполнителе.",
+    "why_it_matters": "Особенно полезен в новостях, формальной речи, описании работы и общественных тем.",
     "patterns": [
       "is made",
       "was built",
@@ -305,8 +310,8 @@
     "id": "b2_reported_speech",
     "level": "B2",
     "title": "reported speech",
-    "summary": "Передача чужой речи и изменение времен в косвенной речи.",
-    "why_it_matters": "Нужно для пересказа, новостей и более сложных разговоров.",
+    "summary": "Передача чужих слов, вопросов и просьб в косвенной речи.",
+    "why_it_matters": "Нужно для пересказа разговоров, новостей, инструкций и более сложного общения.",
     "patterns": [
       "He said that ...",
       "She told me to ...",
@@ -323,10 +328,11 @@
     "level": "B2",
     "title": "second and third conditionals",
     "summary": "Гипотетические и нереальные ситуации в настоящем и прошлом.",
-    "why_it_matters": "Это важная часть mature communication и аргументации.",
+    "why_it_matters": "Позволяет обсуждать воображаемые сценарии, сожаления и альтернативные варианты развития событий.",
     "patterns": [
       "If I were ..., I would ...",
-      "If she had known, she would have ..."
+      "If she had known, she would have ...",
+      "If they had left earlier, ..."
     ],
     "examples": [
       "If I had more time, I would travel more.",
@@ -338,8 +344,8 @@
     "id": "b2_modal_deduction",
     "level": "B2",
     "title": "modal deduction",
-    "summary": "must, might, can't для выводов и предположений.",
-    "why_it_matters": "Очень типичная B2-грамматика для рассуждений и интерпретации фактов.",
+    "summary": "Модальные глаголы must, might, can't для выводов и предположений.",
+    "why_it_matters": "Нужно для анализа ситуаций, интерпретации фактов и выражения степени уверенности.",
     "patterns": [
       "must be",
       "might be",
@@ -355,8 +361,8 @@
     "id": "b2_linkers_discourse",
     "level": "B2",
     "title": "linkers and discourse markers",
-    "summary": "although, however, therefore, in addition и связность речи.",
-    "why_it_matters": "Без этого невозможно писать связно и говорить на B2-уровне.",
+    "summary": "Связующие слова и маркеры речи: however, therefore, in addition, although и другие.",
+    "why_it_matters": "Они делают речь более логичной, связной и убедительной в разговоре и письме.",
     "patterns": [
       "However, ...",
       "In addition, ...",
@@ -372,11 +378,12 @@
     "id": "c1_inversion_emphasis",
     "level": "C1",
     "title": "inversion and emphasis",
-    "summary": "Продвинутые способы усиления смысла и формальной речи.",
-    "why_it_matters": "Характерно для high-level writing and speaking.",
+    "summary": "Продвинутые структуры для усиления смысла и формального акцента в речи.",
+    "why_it_matters": "Это характерно для высокого уровня владения языком, особенно в письменной и публичной речи.",
     "patterns": [
       "Rarely have I ...",
-      "Not only ... but also ..."
+      "Not only ... but also ...",
+      "Only later did ..."
     ],
     "examples": [
       "Rarely have I seen such a strong reaction.",
@@ -388,8 +395,8 @@
     "id": "c1_participle_clauses",
     "level": "C1",
     "title": "participle clauses",
-    "summary": "Сжатые структуры для более плотной и академичной речи.",
-    "why_it_matters": "Часто встречается в advanced textbooks and exams.",
+    "summary": "Сжатые конструкции с participle clauses для более плотной и академичной речи.",
+    "why_it_matters": "Они помогают писать и говорить более компактно, точно и естественно на продвинутом уровне.",
     "patterns": [
       "Having finished ...",
       "Given that ...",
@@ -405,8 +412,8 @@
     "id": "c1_hedging_stance",
     "level": "C1",
     "title": "hedging and stance",
-    "summary": "Смягчение утверждений и выражение степени уверенности.",
-    "why_it_matters": "Нужно для академического и профессионального общения.",
+    "summary": "Языковые средства для смягчения утверждений и выражения степени уверенности.",
+    "why_it_matters": "Важно для академической, аналитической и профессиональной речи, где нужна точность формулировок.",
     "patterns": [
       "It seems that ...",
       "This may suggest ...",
@@ -422,8 +429,8 @@
     "id": "c1_advanced_complex_sentences",
     "level": "C1",
     "title": "advanced sentence combining",
-    "summary": "Сложноподчиненные структуры для точности и гибкости выражения.",
-    "why_it_matters": "Это делает речь менее школьной и более зрелой.",
+    "summary": "Сложные способы соединения идей для более гибкой и точной речи.",
+    "why_it_matters": "Это помогает строить зрелые, нюансированные высказывания и уходить от слишком простых фраз.",
     "patterns": [
       "while / whereas / despite / in spite of",
       "the reason why ...",
@@ -439,8 +446,8 @@
     "id": "c2_nominalisation_register",
     "level": "C2",
     "title": "nominalisation and register control",
-    "summary": "Переход от разговорной к академической и аналитической подаче мысли.",
-    "why_it_matters": "Типичная черта very high-level writing and argumentation.",
+    "summary": "Переход от разговорной подачи к более академичной, аналитической и формальной речи.",
+    "why_it_matters": "Нужно для высокого уровня точности, контроля регистра и сложного письменного выражения мысли.",
     "patterns": [
       "decide -> decision",
       "analyze -> analysis",
@@ -456,8 +463,8 @@
     "id": "c2_rhetorical_argumentation",
     "level": "C2",
     "title": "rhetorical and argumentation grammar",
-    "summary": "Продвинутые структуры для дебатов, контраргументов и точной позиции.",
-    "why_it_matters": "Нужно для сложных письменных и устных рассуждений.",
+    "summary": "Продвинутые структуры для дебатов, аргументации и точной риторической подачи.",
+    "why_it_matters": "Они помогают строить сильную позицию, тонко возражать и управлять сложной аргументацией.",
     "patterns": [
       "It is not so much ... as ...",
       "What follows from this is ...",

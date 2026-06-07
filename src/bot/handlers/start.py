@@ -9,7 +9,7 @@ from aiogram import F, Router
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
-from sqlalchemy import func, select
+from sqlalchemy import case, func, or_, select
 from sqlalchemy.orm import selectinload
 
 from bot.database.models import DailyPractice, TrainingAttempt, User, UserWordProgress, Word, WordSet
@@ -35,17 +35,18 @@ from bot.keyboards.main_menu import (
     review_keyboard,
     start_quiz_keyboard,
     stats_keyboard,
+    TARGET_LANGUAGE_OPTIONS,
     unit_actions_keyboard,
     word_sets_keyboard,
 )
 from bot.services.content import (
-    DIALOGUE_SCENARIOS,
     QUIZ_FORMATS,
     WORD_DEFINITIONS,
     filter_words_for_level,
     get_word_set_level_range,
     level_is_allowed,
     load_course_units,
+    load_dialogue_scenarios,
     load_grammar_units,
 )
 from bot.states.training import QuizStates
@@ -56,11 +57,11 @@ router = Router()
 LANGUAGE_NAMES = {
     "ru": "Русский",
     "en": "Английский",
-    "de": "Немецкий",
 }
 
 GRAMMAR_UNITS = load_grammar_units()
 COURSE_UNITS = load_course_units()
+DIALOGUE_SCENARIOS = load_dialogue_scenarios()
 
 TOPIC_LABELS = {
     "Путешествия": {"en": "Travel"},
@@ -264,19 +265,68 @@ async def get_review_words(telegram_id: int, limit: int = 8) -> list[Word]:
     if user is None:
         return []
 
+    now = datetime.now(UTC)
     async with SessionLocal() as session:
         result = await session.execute(
             select(Word)
             .join(UserWordProgress, UserWordProgress.word_id == Word.id)
-            .where(UserWordProgress.user_id == user.id)
+            .where(
+                UserWordProgress.user_id == user.id,
+                or_(
+                    UserWordProgress.review_due_at.is_(None),
+                    UserWordProgress.review_due_at <= now,
+                    UserWordProgress.last_result.is_(False),
+                    UserWordProgress.wrong_count > UserWordProgress.correct_count,
+                ),
+            )
             .order_by(
+                case(
+                    (
+                        or_(
+                            UserWordProgress.review_due_at.is_(None),
+                            UserWordProgress.review_due_at <= now,
+                        ),
+                        0,
+                    ),
+                    else_=1,
+                ),
                 UserWordProgress.last_result.asc(),
+                UserWordProgress.mastery_level.asc(),
                 (UserWordProgress.wrong_count - UserWordProgress.correct_count).desc(),
                 UserWordProgress.updated_at.desc(),
             )
             .limit(limit)
         )
         return list(result.scalars().all())
+
+
+def update_review_schedule(progress: UserWordProgress, is_correct: bool, now: datetime | None = None) -> None:
+    current_time = now or datetime.now(UTC)
+    if is_correct:
+        progress.mastery_level = min((progress.mastery_level or 0) + 1, 5)
+        interval_days = [1, 2, 4, 7, 14, 30][progress.mastery_level - 1]
+        progress.review_due_at = current_time + timedelta(days=interval_days)
+        return
+
+    progress.mastery_level = 0
+    progress.review_due_at = current_time + timedelta(hours=12)
+
+
+async def get_due_review_count(user_id: int) -> int:
+    now = datetime.now(UTC)
+    async with SessionLocal() as session:
+        result = await session.execute(
+            select(func.count(UserWordProgress.id)).where(
+                UserWordProgress.user_id == user_id,
+                or_(
+                    UserWordProgress.review_due_at.is_(None),
+                    UserWordProgress.review_due_at <= now,
+                    UserWordProgress.last_result.is_(False),
+                    UserWordProgress.wrong_count > UserWordProgress.correct_count,
+                ),
+            )
+        )
+        return result.scalar_one()
 
 
 async def get_words_by_ids(word_ids: list[int]) -> list[Word]:
@@ -646,15 +696,15 @@ async def show_home(target: Message | CallbackQuery, state: FSMContext) -> None:
 
     if user is None:
         await send(
-            "Привет! Я ваш помощник в изучении иностранных языков.\n\n"
-            "Сначала настройте профиль: выберите родной язык, язык для изучения и уровень.",
+            "Привет! Я ваш помощник в изучении английского языка.\n\n"
+            "Сначала настройте профиль: выберите родной язык и уровень английского.",
             reply_markup=guest_menu_keyboard(),
         )
         return
 
     labels = user_labels(user)
     await send(
-        f"Привет, <b>{telegram_user.full_name}</b>! Я ваш помощник в изучении иностранных языков.\n"
+        f"Привет, <b>{telegram_user.full_name}</b>! Я ваш помощник в изучении английского языка.\n"
         "Что вы хотите сделать сегодня?",
         reply_markup=main_menu_keyboard(labels),
     )
@@ -982,17 +1032,27 @@ async def profile_start_handler(callback: CallbackQuery, state: FSMContext) -> N
 
 @router.callback_query(F.data.startswith("profile:source:"))
 async def profile_source_handler(callback: CallbackQuery, state: FSMContext) -> None:
-    await state.update_data(source_language=callback.data.split(":")[-1])
+    source_language = callback.data.split(":")[-1]
+    if source_language not in LANGUAGE_NAMES:
+        await callback.answer("Этот язык больше не поддерживается.", show_alert=True)
+        return
+
+    await state.update_data(source_language=source_language)
     await edit_screen(
         callback,
         "Шаг 2 из 3.\n\nВыберите язык, который хотите изучать:",
-        language_keyboard("profile:target"),
+        language_keyboard("profile:target", TARGET_LANGUAGE_OPTIONS),
     )
 
 
 @router.callback_query(F.data.startswith("profile:target:"))
 async def profile_target_handler(callback: CallbackQuery, state: FSMContext) -> None:
-    await state.update_data(target_language=callback.data.split(":")[-1])
+    target_language = callback.data.split(":")[-1]
+    if target_language != "en":
+        await callback.answer("Сейчас в боте доступен только английский курс.", show_alert=True)
+        return
+
+    await state.update_data(target_language=target_language)
     await edit_screen(
         callback,
         "Шаг 3 из 3.\n\nВыберите уровень владения языком:",
@@ -1066,6 +1126,7 @@ async def stats_handler(callback: CallbackQuery) -> None:
             )
         )
         weak_words = weak_result.scalar_one()
+    due_review_words = await get_due_review_count(user.id)
 
     accuracy = 0 if total_questions == 0 else round(correct_answers / total_questions * 100)
     await edit_screen(
@@ -1075,7 +1136,8 @@ async def stats_handler(callback: CallbackQuery) -> None:
         f"Правильных ответов: {correct_answers}\n"
         f"Всего вопросов: {total_questions}\n"
         f"Точность: {accuracy}%\n"
-        f"Слабые слова: {weak_words}",
+        f"Слабые слова: {weak_words}\n"
+        f"К повторению сегодня: {due_review_words}",
         stats_keyboard(),
     )
 
@@ -1139,7 +1201,7 @@ async def help_handler(callback: CallbackQuery) -> None:
     user = await get_registered_user(callback.from_user.id)
     await edit_screen(
         callback,
-        "Привет! Я ваш помощник в изучении иностранных языков. Что вы хотите сделать сегодня?\n\n"
+        "Привет! Я ваш помощник в изучении английского языка. Что вы хотите сделать сегодня?\n\n"
         "1. Изучить слова\n"
         "2. Изучить грамматику\n"
         "3. Пройти квиз",
@@ -1183,4 +1245,39 @@ async def help_mvp_handler(callback: CallbackQuery) -> None:
         "- мини-диалоги и практику дня\n"
         "- сохранение статистики обучения",
         nav_keyboard(back_to="menu:help", include_home=user is not None),
+    )
+
+
+@router.callback_query()
+async def unknown_callback_handler(callback: CallbackQuery) -> None:
+    await edit_screen(
+        callback,
+        "Эта кнопка больше не актуальна или раздел не найден.\n\n"
+        "Вернитесь в главное меню и выберите нужный раздел заново.",
+        nav_keyboard(back_to="menu:home", include_home=False),
+    )
+
+
+@router.message()
+async def text_fallback_handler(message: Message, state: FSMContext) -> None:
+    current_state = await state.get_state()
+    if current_state is not None:
+        await message.answer(
+            "Сейчас открыт пошаговый сценарий.\n\n"
+            "Используйте кнопки под сообщением или нажмите /start, чтобы начать заново."
+        )
+        return
+
+    user = await get_registered_user(message.from_user.id)
+    if user is None:
+        await message.answer(
+            "Я работаю через кнопки Telegram.\n\n"
+            "Сначала настройте профиль: выберите родной язык, язык для изучения и уровень.",
+            reply_markup=guest_menu_keyboard(),
+        )
+        return
+
+    await message.answer(
+        "Я работаю через кнопки Telegram.\n\nВыберите нужный раздел в меню.",
+        reply_markup=main_menu_keyboard(user_labels(user)),
     )

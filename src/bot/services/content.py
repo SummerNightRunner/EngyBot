@@ -20,6 +20,7 @@ LEVEL_ORDER = {
 SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "word_sets.json"
 GRAMMAR_SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "grammar_units.json"
 COURSE_UNITS_SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "course_units.json"
+DIALOGUE_SEED_PATH = Path(__file__).resolve().parents[3] / "data" / "seed" / "dialogues.json"
 
 
 QUIZ_FORMATS = {
@@ -45,88 +46,6 @@ WORD_DEFINITIONS = {
 }
 
 
-DIALOGUE_SCENARIOS = [
-    {
-        "id": "travel_checkin",
-        "title": "Заселение в отель",
-        "level": "A1",
-        "theme": "Путешествия",
-        "lines": [
-            "Receptionist: Good evening. Do you have a reservation?",
-            "Learner: Yes, I have a reservation for two nights.",
-            "Receptionist: May I see your passport, please?",
-            "Learner: Sure. Here is my passport.",
-            "Receptionist: Thank you. Your room is on the third floor.",
-        ],
-    },
-    {
-        "id": "cafe_order",
-        "title": "Заказ в кафе",
-        "level": "A1",
-        "theme": "Еда и напитки",
-        "lines": [
-            "Waiter: Are you ready to order?",
-            "Learner: Yes. I would like a salad and a coffee.",
-            "Waiter: Anything else?",
-            "Learner: A glass of water, please.",
-            "Waiter: Great. I will bring your order soon.",
-        ],
-    },
-    {
-        "id": "office_meeting",
-        "title": "Обсуждение проекта",
-        "level": "A2",
-        "theme": "Работа и профессии",
-        "lines": [
-            "Manager: Let's discuss the project deadline.",
-            "Learner: We need two more days to finish the presentation.",
-            "Manager: What is the main issue right now?",
-            "Learner: We are waiting for feedback from the client.",
-            "Manager: Fine. Keep the team updated.",
-        ],
-    },
-    {
-        "id": "family_weekend",
-        "title": "Планы на выходные с семьей",
-        "level": "A2",
-        "theme": "Семья и друзья",
-        "lines": [
-            "Friend: What are you doing this weekend?",
-            "Learner: I am visiting my grandparents with my parents.",
-            "Friend: That sounds nice. Are you staying there long?",
-            "Learner: Just for one day, but we will have dinner together.",
-            "Friend: Say hello to your family from me.",
-        ],
-    },
-    {
-        "id": "hobby_club",
-        "title": "Разговор о хобби",
-        "level": "B1",
-        "theme": "Хобби и досуг",
-        "lines": [
-            "Club member: How did you get into photography?",
-            "Learner: I started taking pictures during my travels.",
-            "Club member: What do you enjoy most about it?",
-            "Learner: I like capturing small details people usually miss.",
-            "Club member: That is what makes the hobby rewarding.",
-        ],
-    },
-    {
-        "id": "media_discussion",
-        "title": "Обсуждение статьи",
-        "level": "B2",
-        "theme": "Технологии и медиа",
-        "lines": [
-            "Colleague: Did you read the article about social media algorithms?",
-            "Learner: Yes, and I found its main argument quite convincing.",
-            "Colleague: What stood out to you the most?",
-            "Learner: The way it explained the influence of headlines on public opinion.",
-            "Colleague: I agree. It raised several important concerns.",
-        ],
-    },
-]
-
-
 def load_seed_word_sets() -> list[dict]:
     return json.loads(SEED_PATH.read_text(encoding="utf-8"))
 
@@ -137,6 +56,35 @@ def load_grammar_units() -> list[dict]:
 
 def load_course_units() -> list[dict]:
     return json.loads(COURSE_UNITS_SEED_PATH.read_text(encoding="utf-8"))
+
+
+def load_dialogue_scenarios() -> list[dict]:
+    payloads = json.loads(DIALOGUE_SEED_PATH.read_text(encoding="utf-8"))
+    scenarios: list[dict] = []
+    for payload in payloads:
+        focus = payload.get("focus", [])
+        lines = []
+        for line in payload["lines"]:
+            if isinstance(line, dict):
+                speaker = line.get("speaker", "").strip()
+                text = line["text"].strip()
+                lines.append(f"{speaker}: {text}" if speaker else text)
+            else:
+                lines.append(str(line))
+
+        scenarios.append(
+            {
+                "id": payload["id"],
+                "level": payload["level"],
+                "title": payload["title"],
+                "summary": payload["summary"],
+                "theme": " / ".join(focus[:2]) if focus else payload["summary"],
+                "focus": focus,
+                "lines": lines,
+                "tasks": payload.get("tasks", []),
+            }
+        )
+    return scenarios
 
 
 def level_is_allowed(user_level: str, content_level: str) -> bool:

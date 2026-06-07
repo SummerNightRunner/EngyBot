@@ -1,7 +1,7 @@
 [project]
 name = "engybot"
 version = "0.1.0"
-description = "Telegram bot MVP for learning foreign languages"
+description = "Telegram bot MVP for learning English"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

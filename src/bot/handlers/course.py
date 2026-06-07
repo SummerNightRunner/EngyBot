@@ -1,18 +1,24 @@
+import re
+
 from aiogram import F, Router
-from aiogram.types import CallbackQuery
+from aiogram.fsm.context import FSMContext
+from aiogram.types import CallbackQuery, Message
 
 from bot.keyboards.main_menu import (
     card_keyboard,
     course_menu_keyboard,
     course_units_keyboard,
     dialogue_keyboard,
+    dialogue_gap_task_keyboard,
     dialogue_step_keyboard,
+    dialogue_task_result_keyboard,
     grammar_units_keyboard,
     nav_keyboard,
     unit_actions_keyboard,
     word_sets_keyboard,
 )
 from bot.services.content import filter_words_for_level
+from bot.states.dialogue import DialogueStates
 
 from .start import (
     bilingual_block,
@@ -37,6 +43,16 @@ from .start import (
 )
 
 router = Router()
+
+
+def normalize_gap_answer(text: str) -> str:
+    stripped = text.strip().lower().strip(".,!?;:'\"")
+    return re.sub(r"\s+", " ", stripped)
+
+
+def is_gap_answer_correct(answer: str, accepted_answers: list[str]) -> bool:
+    normalized_answer = normalize_gap_answer(answer)
+    return any(normalized_answer == normalize_gap_answer(item) for item in accepted_answers)
 
 
 @router.callback_query(F.data == "menu:course")
@@ -179,7 +195,8 @@ async def grammar_handler(callback: CallbackQuery) -> None:
 
 
 @router.callback_query(F.data == "menu:dialogue")
-async def dialogue_menu_handler(callback: CallbackQuery) -> None:
+async def dialogue_menu_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    await state.clear()
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
     scenarios = get_dialogue_scenarios(user_level)
@@ -190,8 +207,81 @@ async def dialogue_menu_handler(callback: CallbackQuery) -> None:
     await edit_screen(callback, text, dialogue_keyboard(payload))
 
 
+@router.callback_query(F.data.startswith("dialogue:task:"))
+async def dialogue_task_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    _, _, scenario_id, raw_task_index = callback.data.split(":")
+    scenario = get_dialogue_by_id(scenario_id)
+    if scenario is None:
+        await edit_screen(callback, "Диалог не найден.", nav_keyboard(back_to="menu:dialogue"))
+        return
+
+    tasks = scenario.get("tasks", [])
+    if not tasks:
+        await edit_screen(callback, "Для этого диалога пока нет задания.", nav_keyboard(back_to=f"dialogue:{scenario_id}:0"))
+        return
+
+    task_index = min(int(raw_task_index), len(tasks) - 1)
+    task = tasks[task_index]
+    if task.get("type") != "gap":
+        await edit_screen(callback, "Этот формат задания пока не поддерживается.", nav_keyboard(back_to=f"dialogue:{scenario_id}:0"))
+        return
+
+    await state.set_state(DialogueStates.awaiting_gap_answer)
+    await state.update_data(dialogue_scenario_id=scenario_id, dialogue_task_index=task_index)
+    await edit_screen(
+        callback,
+        f"<b>{scenario['title']}</b>\n"
+        f"Задание {task_index + 1} из {len(tasks)}\n\n"
+        "Заполните пропуск в реплике из диалога:\n"
+        f"<code>{task['prompt']}</code>\n\n"
+        f"Подсказка: {task.get('hint', 'вспомните последнюю реплику диалога')}\n\n"
+        "Напишите ответ одним сообщением.",
+        dialogue_gap_task_keyboard(scenario_id),
+    )
+
+
+@router.message(DialogueStates.awaiting_gap_answer)
+async def dialogue_gap_answer_handler(message: Message, state: FSMContext) -> None:
+    data = await state.get_data()
+    scenario_id = data.get("dialogue_scenario_id")
+    task_index = int(data.get("dialogue_task_index", 0))
+    scenario = get_dialogue_by_id(scenario_id)
+    if scenario is None:
+        await state.clear()
+        await message.answer("Диалог не найден.", reply_markup=nav_keyboard(back_to="menu:dialogue"))
+        return
+
+    tasks = scenario.get("tasks", [])
+    if task_index >= len(tasks):
+        await state.clear()
+        await message.answer("Задание не найдено.", reply_markup=nav_keyboard(back_to=f"dialogue:{scenario_id}:0"))
+        return
+
+    task = tasks[task_index]
+    accepted_answers = task.get("accepted_answers", [])
+    user_answer = message.text or ""
+    if not user_answer.strip():
+        await message.answer("Напишите слово или короткую фразу для пропуска.")
+        return
+
+    is_correct = is_gap_answer_correct(user_answer, accepted_answers)
+    status = "✅ Верно" if is_correct else "❌ Неверно"
+    correct_answer = accepted_answers[0] if accepted_answers else "—"
+    await state.clear()
+    await message.answer(
+        f"<b>{scenario['title']}</b>\n"
+        f"{status}\n\n"
+        f"Фраза: <code>{task['prompt']}</code>\n"
+        f"Ваш ответ: <b>{user_answer.strip()}</b>\n"
+        f"Правильный ответ: <b>{correct_answer}</b>\n\n"
+        f"{task.get('explanation', '')}",
+        reply_markup=dialogue_task_result_keyboard(scenario_id, task_index, task_index + 1 < len(tasks)),
+    )
+
+
 @router.callback_query(F.data.startswith("dialogue:"))
-async def dialogue_handler(callback: CallbackQuery) -> None:
+async def dialogue_handler(callback: CallbackQuery, state: FSMContext) -> None:
+    await state.clear()
     _, scenario_id, raw_index = callback.data.split(":")
     scenario = get_dialogue_by_id(scenario_id)
     if scenario is None:
@@ -207,7 +297,7 @@ async def dialogue_handler(callback: CallbackQuery) -> None:
         f"Уровень: {scenario['level']}\n\n"
         f"{line}\n\n"
         f"Реплика {index + 1} из {len(scenario['lines'])}",
-        dialogue_step_keyboard(scenario_id, index, len(scenario["lines"])),
+        dialogue_step_keyboard(scenario_id, index, len(scenario["lines"]), has_tasks=bool(scenario.get("tasks"))),
     )
 
 

@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, Message
 from sqlalchemy import select
 
 from bot.database.models import DailyPractice, TrainingAttempt, UserWordProgress
@@ -36,6 +36,7 @@ from .start import (
     show_quiz_question,
     single_line_quiz_format_label,
     topic_label,
+    update_review_schedule,
     user_labels,
 )
 
@@ -300,7 +301,11 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
     data = await state.get_data()
     user = await get_registered_user(callback.from_user.id)
     current_options = data.get("current_options", [])
-    selected_answer = callback.data.removeprefix("quiz:answer:")
+    raw_answer = callback.data.removeprefix("quiz:answer:")
+    if not raw_answer.isdigit() or int(raw_answer) >= len(current_options):
+        await callback.answer("Этот вариант ответа больше не актуален.", show_alert=True)
+        return
+    selected_answer = current_options[int(raw_answer)]
     is_correct = selected_answer == data["correct_answer"]
     correct_count = data["quiz_correct"] + int(is_correct)
     next_index = data["quiz_index"] + 1
@@ -363,6 +368,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
                 else:
                     progress.wrong_count += 1
                 progress.last_result = is_correct
+                update_review_schedule(progress, is_correct)
 
                 if daily_mode:
                     practice_result = await session.execute(
@@ -434,6 +440,7 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
             else:
                 progress.wrong_count += 1
             progress.last_result = is_correct
+            update_review_schedule(progress, is_correct)
 
             if daily_mode:
                 practice_result = await session.execute(
@@ -472,3 +479,11 @@ async def quiz_answer_handler(callback: CallbackQuery, state: FSMContext) -> Non
 @router.callback_query(QuizStates.in_progress, F.data == "quiz:next")
 async def quiz_next_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await show_quiz_question(callback, state)
+
+
+@router.message(QuizStates.in_progress)
+async def quiz_text_fallback_handler(message: Message) -> None:
+    await message.answer(
+        "Квиз управляется кнопками под сообщением.\n\n"
+        "Выберите один из вариантов ответа или нажмите /start, чтобы вернуться в главное меню."
+    )

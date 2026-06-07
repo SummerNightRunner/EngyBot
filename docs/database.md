@@ -82,11 +82,14 @@
 | `correct_count` | число правильных ответов |
 | `wrong_count` | число ошибок |
 | `last_result` | последний сохраненный результат |
+| `mastery_level` | уровень освоения слова для интервального повторения |
+| `review_due_at` | дата и время следующего повторения |
 
 На этой таблице построены:
 
 - weak words;
 - mistakes quiz;
+- spaced repetition;
 - topic progress.
 
 ### `daily_practices`
