@@ -43,7 +43,7 @@ def practice_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
         inline_keyboard=[
             [InlineKeyboardButton(text=labels["daily"], callback_data="menu:daily")],
             [InlineKeyboardButton(text=labels["quiz"], callback_data="menu:quiz")],
-            [InlineKeyboardButton(text=labels["dialogues"], callback_data="menu:dialogue")],
+            [InlineKeyboardButton(text=labels["dialogues"], callback_data="practice:dialogue")],
             [InlineKeyboardButton(text=labels["home"], callback_data="menu:home")],
         ]
     )
@@ -52,8 +52,8 @@ def practice_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
 def guest_menu_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Начать настройку", callback_data="profile:start_setup")],
-            [InlineKeyboardButton(text="Помощь", callback_data="menu:help")],
+            [InlineKeyboardButton(text="Start setup • Начать настройку", callback_data="profile:start_setup")],
+            [InlineKeyboardButton(text="Help • Помощь", callback_data="menu:help")],
         ]
     )
 
@@ -64,13 +64,13 @@ def language_keyboard(prefix: str, options: list[tuple[str, str]] | None = None)
         [InlineKeyboardButton(text=label, callback_data=f"{prefix}:{code}")]
         for label, code in language_options
     ]
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def level_keyboard() -> InlineKeyboardMarkup:
     rows = [[InlineKeyboardButton(text=level, callback_data=f"profile:level:{level}")] for level in LEVEL_OPTIONS]
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -86,58 +86,66 @@ def profile_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
 
 def help_keyboard(is_registered: bool) -> InlineKeyboardMarkup:
     rows = [
-        [InlineKeyboardButton(text="Как пользоваться ботом", callback_data="help:usage")],
-        [InlineKeyboardButton(text="Что умеет MVP", callback_data="help:mvp")],
+        [InlineKeyboardButton(text="Usage • Как пользоваться ботом", callback_data="help:usage")],
+        [InlineKeyboardButton(text="MVP scope • Что умеет MVP", callback_data="help:mvp")],
     ]
     if not is_registered:
-        rows.append([InlineKeyboardButton(text="Начать настройку", callback_data="profile:start_setup")])
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Start setup • Начать настройку", callback_data="profile:start_setup")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def word_sets_keyboard(word_sets: list[tuple[int, str, str]], *, mode: str) -> InlineKeyboardMarkup:
+def word_sets_keyboard(
+    word_sets: list[tuple[int, str, str]],
+    *,
+    mode: str,
+    back_to: str | None = None,
+) -> InlineKeyboardMarkup:
     rows = [
         [InlineKeyboardButton(text=f"{title} • {meta}", callback_data=f"{mode}:set:{word_set_id}")]
         for word_set_id, title, meta in word_sets
     ]
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    if back_to is not None:
+        rows.append([InlineKeyboardButton(text="Back • Назад", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def quiz_formats_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text="Choice • Вариант", callback_data="quiz:format:choice")],
-            [InlineKeyboardButton(text="Gap fill • Пропуск", callback_data="quiz:format:gap")],
-            [InlineKeyboardButton(text="Definition • Определение", callback_data="quiz:format:definition")],
-            [InlineKeyboardButton(text="Match • Соответствие", callback_data="quiz:format:match")],
-            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
-        ]
-    )
+def quiz_formats_keyboard(*, back_to: str | None = "menu:practice") -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text="Choice • Вариант", callback_data="quiz:format:choice")],
+        [InlineKeyboardButton(text="Gap fill • Пропуск", callback_data="quiz:format:gap")],
+        [InlineKeyboardButton(text="Definition • Определение", callback_data="quiz:format:definition")],
+        [InlineKeyboardButton(text="Match • Соответствие", callback_data="quiz:format:match")],
+    ]
+    if back_to is not None:
+        rows.append([InlineKeyboardButton(text="Back • Назад", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def card_keyboard(word_set_id: int, index: int, total: int) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if index + 1 < total:
-        rows.append([InlineKeyboardButton(text="Следующее слово", callback_data=f"learn:card:{word_set_id}:{index + 1}")])
-    rows.append([InlineKeyboardButton(text="К списку тем", callback_data="menu:learn")])
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Next word • Следующее слово", callback_data=f"learn:card:{word_set_id}:{index + 1}")])
+    rows.append([InlineKeyboardButton(text="Topics • К списку тем", callback_data="menu:learn")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def start_quiz_keyboard(word_set_id: int, quiz_format: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Начать квиз", callback_data=f"quiz:start:{quiz_format}:{word_set_id}")],
-            [InlineKeyboardButton(text="К форматам квизов", callback_data="menu:quiz")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Start quiz • Начать квиз", callback_data=f"quiz:start:{quiz_format}:{word_set_id}")],
+            [InlineKeyboardButton(text="Formats • К форматам квизов", callback_data="menu:quiz")],
+            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
         ]
     )
 
 
 def quiz_options_keyboard(options: list[str]) -> InlineKeyboardMarkup:
     rows = [[InlineKeyboardButton(text=option, callback_data=f"quiz:answer:{index}")] for index, option in enumerate(options)]
-    rows.append([InlineKeyboardButton(text="Прервать квиз", callback_data="menu:home")])
+    rows.append([InlineKeyboardButton(text="Stop quiz • Прервать квиз", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -160,19 +168,19 @@ def quiz_feedback_keyboard(
                 label = f"▫️ {option}"
             rows.append([InlineKeyboardButton(text=label, callback_data="quiz:noop")])
     if next_step:
-        rows.append([InlineKeyboardButton(text="Continue", callback_data="quiz:next")])
+        rows.append([InlineKeyboardButton(text="Continue • Дальше", callback_data="quiz:next")])
     else:
-        rows.append([InlineKeyboardButton(text="Finish", callback_data=back_to)])
-    rows.append([InlineKeyboardButton(text="Home", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Finish • Завершить", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def nav_keyboard(*, back_to: str | None = None, include_home: bool = True) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if back_to is not None:
-        rows.append([InlineKeyboardButton(text="Назад", callback_data=back_to)])
+        rows.append([InlineKeyboardButton(text="Back • Назад", callback_data=back_to)])
     if include_home:
-        rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -189,19 +197,25 @@ def review_keyboard() -> InlineKeyboardMarkup:
 def stats_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Цель дня", callback_data="stats:goal")],
-            [InlineKeyboardButton(text="Прогресс по темам", callback_data="stats:themes")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Daily goal • Цель дня", callback_data="stats:goal")],
+            [InlineKeyboardButton(text="Topic progress • Прогресс по темам", callback_data="stats:themes")],
+            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
         ]
     )
 
 
-def dialogue_keyboard(scenarios: list[tuple[str, str, str, str]]) -> InlineKeyboardMarkup:
+def dialogue_keyboard(
+    scenarios: list[tuple[str, str, str, str]],
+    *,
+    back_to: str | None = "menu:practice",
+) -> InlineKeyboardMarkup:
     rows = [
         [InlineKeyboardButton(text=f"{title} [{level}] - {theme}", callback_data=f"dialogue:{scenario_id}:0")]
         for scenario_id, title, level, theme in scenarios
     ]
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    if back_to is not None:
+        rows.append([InlineKeyboardButton(text="Back • Назад", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -210,8 +224,8 @@ def course_units_keyboard(units: list[tuple[str, str, str, str]]) -> InlineKeybo
         [InlineKeyboardButton(text=f"[{level}] {title} • {summary}", callback_data=f"unit:view:{unit_id}")]
         for unit_id, title, level, summary in units
     ]
-    rows.append([InlineKeyboardButton(text="К курсу", callback_data="menu:course")])
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    rows.append([InlineKeyboardButton(text="Course • К курсу", callback_data="menu:course")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -224,33 +238,35 @@ def unit_actions_keyboard(
 ) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     for topic_id, label in topic_links[:3]:
-        rows.append([InlineKeyboardButton(text=f"Topic: {label}", callback_data=f"learn:set:{topic_id}")])
+        rows.append([InlineKeyboardButton(text=f"Topic • Тема: {label}", callback_data=f"learn:set:{topic_id}")])
     for grammar_id, label in grammar_links[:2]:
-        rows.append([InlineKeyboardButton(text=f"Grammar: {label}", callback_data=f"grammar:unit:{grammar_id}")])
+        rows.append([InlineKeyboardButton(text=f"Grammar • Грамматика: {label}", callback_data=f"grammar:unit:{grammar_id}")])
     for dialogue_id, label in dialogue_links[:2]:
-        rows.append([InlineKeyboardButton(text=f"Dialogue: {label}", callback_data=f"dialogue:{dialogue_id}:0")])
-    rows.append([InlineKeyboardButton(text="К юнитам", callback_data="menu:units")])
-    rows.append([InlineKeyboardButton(text="К курсу", callback_data="menu:course")])
+        rows.append([InlineKeyboardButton(text=f"Dialogue • Диалог: {label}", callback_data=f"dialogue:{dialogue_id}:0")])
+    rows.append([InlineKeyboardButton(text="Units • К юнитам", callback_data="menu:units")])
+    rows.append([InlineKeyboardButton(text="Course • К курсу", callback_data="menu:course")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def dialogue_step_keyboard(scenario_id: str, index: int, total: int, *, has_tasks: bool = False) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if index + 1 < total:
-        rows.append([InlineKeyboardButton(text="Следующая реплика", callback_data=f"dialogue:{scenario_id}:{index + 1}")])
+        rows.append([InlineKeyboardButton(text="Next line • Следующая реплика", callback_data=f"dialogue:{scenario_id}:{index + 1}")])
     elif has_tasks:
-        rows.append([InlineKeyboardButton(text="Задание по диалогу", callback_data=f"dialogue:task:{scenario_id}:0")])
-    rows.append([InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")])
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Dialogue task • Задание по диалогу", callback_data=f"dialogue:task:{scenario_id}:0")])
+    if index > 0:
+        rows.append([InlineKeyboardButton(text="Previous line • Назад", callback_data=f"dialogue:{scenario_id}:{index - 1}")])
+    rows.append([InlineKeyboardButton(text="Dialogues • К списку диалогов", callback_data="menu:dialogue")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def dialogue_gap_task_keyboard(scenario_id: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="К диалогу", callback_data=f"dialogue:{scenario_id}:0")],
-            [InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")],
-            [InlineKeyboardButton(text="В меню", callback_data="menu:home")],
+            [InlineKeyboardButton(text="Dialogue • К диалогу", callback_data=f"dialogue:{scenario_id}:0")],
+            [InlineKeyboardButton(text="Dialogues • К списку диалогов", callback_data="menu:dialogue")],
+            [InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")],
         ]
     )
 
@@ -258,17 +274,19 @@ def dialogue_gap_task_keyboard(scenario_id: str) -> InlineKeyboardMarkup:
 def dialogue_task_result_keyboard(scenario_id: str, task_index: int, has_next_task: bool) -> InlineKeyboardMarkup:
     rows: list[list[InlineKeyboardButton]] = []
     if has_next_task:
-        rows.append([InlineKeyboardButton(text="Следующее задание", callback_data=f"dialogue:task:{scenario_id}:{task_index + 1}")])
-    rows.append([InlineKeyboardButton(text="Повторить диалог", callback_data=f"dialogue:{scenario_id}:0")])
-    rows.append([InlineKeyboardButton(text="К списку диалогов", callback_data="menu:dialogue")])
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+        rows.append([InlineKeyboardButton(text="Next task • Следующее задание", callback_data=f"dialogue:task:{scenario_id}:{task_index + 1}")])
+    rows.append([InlineKeyboardButton(text="Replay dialogue • Повторить диалог", callback_data=f"dialogue:{scenario_id}:0")])
+    rows.append([InlineKeyboardButton(text="Dialogues • К списку диалогов", callback_data="menu:dialogue")])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
-def grammar_units_keyboard(units: list[tuple[str, str, str]]) -> InlineKeyboardMarkup:
+def grammar_units_keyboard(units: list[tuple[str, str, str]], *, back_to: str | None = "menu:course") -> InlineKeyboardMarkup:
     rows = [
         [InlineKeyboardButton(text=f"[{level}] {title}", callback_data=f"grammar:unit:{unit_id}")]
         for unit_id, title, level in units
     ]
-    rows.append([InlineKeyboardButton(text="В меню", callback_data="menu:home")])
+    if back_to is not None:
+        rows.append([InlineKeyboardButton(text="Back • Назад", callback_data=back_to)])
+    rows.append([InlineKeyboardButton(text="Home • В меню", callback_data="menu:home")])
     return InlineKeyboardMarkup(inline_keyboard=rows)

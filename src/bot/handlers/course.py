@@ -164,10 +164,16 @@ async def learn_handler(callback: CallbackQuery) -> None:
         )
         for word_set in word_sets
     ]
-    text = "Choose a topic:"
+    text = bilingual_block(
+        "Choose a topic.",
+        "Выберите тему." if bilingual and target_language == "en" else None,
+    )
     if user_level is not None:
-        text = f"Choose a topic for level {user_level}:"
-    await edit_screen(callback, text, word_sets_keyboard(payload, mode="learn"))
+        text = bilingual_block(
+            f"Choose a topic for level {user_level}.",
+            f"Выберите тему для уровня {user_level}." if bilingual and target_language == "en" else None,
+        )
+    await edit_screen(callback, text, word_sets_keyboard(payload, mode="learn", back_to="menu:course"))
 
 
 @router.callback_query(F.data == "menu:grammar")
@@ -182,29 +188,43 @@ async def grammar_handler(callback: CallbackQuery) -> None:
         (unit["id"], grammar_label(unit["title"], target_language, source_language, bilingual), unit["level"])
         for unit in units
     ]
-    text = (
-        "Choose a grammar block.\n\n"
-        "Work through tenses, structures, and discourse patterns level by level."
+    text = bilingual_block(
+        "Choose a grammar block.\n\nWork through tenses, structures, and discourse patterns level by level.",
+        "Выберите блок грамматики.\n\nПроходите времена, конструкции и связность речи по уровням."
+        if bilingual and target_language == "en"
+        else None,
     )
     if user_level is not None:
-        text = (
-            f"Choose a grammar block for level {user_level}.\n\n"
-            "This list includes the grammar topics that should already be active at your level."
+        text = bilingual_block(
+            f"Choose a grammar block for level {user_level}.\n\nThis list includes topics active at your level and below.",
+            f"Выберите блок грамматики для уровня {user_level}.\n\nВ списке темы вашего уровня и ниже."
+            if bilingual and target_language == "en"
+            else None,
         )
     await edit_screen(callback, text, grammar_units_keyboard(payload))
 
 
 @router.callback_query(F.data == "menu:dialogue")
+@router.callback_query(F.data == "practice:dialogue")
 async def dialogue_menu_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await state.clear()
     user = await get_registered_user(callback.from_user.id)
     user_level = user.level if user is not None else None
+    target_language = user.target_language if user is not None else "en"
+    bilingual = user.bilingual_ui if user is not None else True
     scenarios = get_dialogue_scenarios(user_level)
     payload = [(item["id"], item["title"], item["level"], item["theme"]) for item in scenarios]
-    text = "Выберите мини-диалог:"
+    text = bilingual_block(
+        "Choose a short dialogue.",
+        "Выберите мини-диалог." if bilingual and target_language == "en" else None,
+    )
     if user_level is not None:
-        text = f"Выберите мини-диалог для уровня {user_level}:"
-    await edit_screen(callback, text, dialogue_keyboard(payload))
+        text = bilingual_block(
+            f"Choose a short dialogue for level {user_level}.",
+            f"Выберите мини-диалог для уровня {user_level}." if bilingual and target_language == "en" else None,
+        )
+    back_to = "menu:practice" if callback.data == "practice:dialogue" else "menu:course"
+    await edit_screen(callback, text, dialogue_keyboard(payload, back_to=back_to))
 
 
 @router.callback_query(F.data.startswith("dialogue:task:"))
@@ -226,16 +246,20 @@ async def dialogue_task_handler(callback: CallbackQuery, state: FSMContext) -> N
         await edit_screen(callback, "Этот формат задания пока не поддерживается.", nav_keyboard(back_to=f"dialogue:{scenario_id}:0"))
         return
 
+    user = await get_registered_user(callback.from_user.id)
+    target_language = user.target_language if user is not None else "en"
+    bilingual = user.bilingual_ui if user is not None else True
     await state.set_state(DialogueStates.awaiting_gap_answer)
     await state.update_data(dialogue_scenario_id=scenario_id, dialogue_task_index=task_index)
     await edit_screen(
         callback,
         f"<b>{scenario['title']}</b>\n"
-        f"Задание {task_index + 1} из {len(tasks)}\n\n"
-        "Заполните пропуск в реплике из диалога:\n"
+        f"{bilingual_block(f'Task {task_index + 1} of {len(tasks)}', f'Задание {task_index + 1} из {len(tasks)}' if bilingual and target_language == 'en' else None)}\n\n"
+        f"{bilingual_block('Fill in the gap in the dialogue line.', 'Заполните пропуск в реплике из диалога.' if bilingual and target_language == 'en' else None)}\n"
         f"<code>{task['prompt']}</code>\n\n"
-        f"Подсказка: {task.get('hint', 'вспомните последнюю реплику диалога')}\n\n"
-        "Напишите ответ одним сообщением.",
+        f"{bilingual_block('Hint', 'Подсказка' if bilingual and target_language == 'en' else None)}: "
+        f"{task.get('hint', 'вспомните последнюю реплику диалога')}\n\n"
+        f"{bilingual_block('Send the answer as one message.', 'Напишите ответ одним сообщением.' if bilingual and target_language == 'en' else None)}",
         dialogue_gap_task_keyboard(scenario_id),
     )
 
@@ -265,15 +289,15 @@ async def dialogue_gap_answer_handler(message: Message, state: FSMContext) -> No
         return
 
     is_correct = is_gap_answer_correct(user_answer, accepted_answers)
-    status = "✅ Верно" if is_correct else "❌ Неверно"
+    status = "✅ Correct • Верно" if is_correct else "❌ Not quite • Неверно"
     correct_answer = accepted_answers[0] if accepted_answers else "—"
     await state.clear()
     await message.answer(
         f"<b>{scenario['title']}</b>\n"
         f"{status}\n\n"
-        f"Фраза: <code>{task['prompt']}</code>\n"
-        f"Ваш ответ: <b>{user_answer.strip()}</b>\n"
-        f"Правильный ответ: <b>{correct_answer}</b>\n\n"
+        f"Line • Фраза: <code>{task['prompt']}</code>\n"
+        f"Your answer • Ваш ответ: <b>{user_answer.strip()}</b>\n"
+        f"Correct answer • Правильный ответ: <b>{correct_answer}</b>\n\n"
         f"{task.get('explanation', '')}",
         reply_markup=dialogue_task_result_keyboard(scenario_id, task_index, task_index + 1 < len(tasks)),
     )
@@ -288,16 +312,29 @@ async def dialogue_handler(callback: CallbackQuery, state: FSMContext) -> None:
         await edit_screen(callback, "Диалог не найден.", nav_keyboard(back_to="menu:dialogue"))
         return
 
+    user = await get_registered_user(callback.from_user.id)
+    target_language = user.target_language if user is not None else "en"
+    bilingual = user.bilingual_ui if user is not None else True
     index = min(int(raw_index), len(scenario["lines"]) - 1)
     line = scenario["lines"][index]
+    theme = scenario["theme"]
+    level = scenario["level"]
+    total_lines = len(scenario["lines"])
+    progress_line = bilingual_block(
+        f"Line {index + 1} of {total_lines}",
+        f"Реплика {index + 1} из {total_lines}" if bilingual and target_language == "en" else None,
+    )
+    text = (
+        f"<b>{scenario['title']}</b>\n"
+        f"{bilingual_block(f'Theme: {theme}', f'Тема: {theme}' if bilingual and target_language == 'en' else None)}\n"
+        f"{bilingual_block(f'Level: {level}', f'Уровень: {level}' if bilingual and target_language == 'en' else None)}\n\n"
+        f"{line}\n\n"
+        f"{progress_line}"
+    )
     await edit_screen(
         callback,
-        f"<b>{scenario['title']}</b>\n"
-        f"Тема: {scenario['theme']}\n"
-        f"Уровень: {scenario['level']}\n\n"
-        f"{line}\n\n"
-        f"Реплика {index + 1} из {len(scenario['lines'])}",
-        dialogue_step_keyboard(scenario_id, index, len(scenario["lines"]), has_tasks=bool(scenario.get("tasks"))),
+        text,
+        dialogue_step_keyboard(scenario_id, index, total_lines, has_tasks=bool(scenario.get("tasks"))),
     )
 
 

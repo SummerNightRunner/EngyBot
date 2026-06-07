@@ -749,21 +749,31 @@ def format_profile(user: User) -> str:
 
 
 def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: int, total: int, user: User | None) -> str:
+    target_language = user.target_language if user is not None else "en"
+    bilingual = user.bilingual_ui if user is not None else True
+
+    def secondary(text: str) -> str | None:
+        return text if bilingual and target_language == "en" else None
+
     topic_title = topic_label(
         word_set.title,
-        user.target_language if user is not None else "en",
+        target_language,
         user.source_language if user is not None else "ru",
-        user.bilingual_ui if user is not None else True,
+        bilingual,
     )
     format_title = quiz_format_label(quiz_format, user)
+    question_line = bilingual_block(
+        f"Question {index + 1} of {total}",
+        secondary(f"Вопрос {index + 1} из {total}"),
+    )
 
     if quiz_format == "gap":
         masked_example = build_gap_sentence(current_word)
         return (
             f"<b>{format_title}</b>\n"
             f"{topic_title}\n"
-            f"Question {index + 1} of {total}\n\n"
-            f"{bilingual_block('Fill in the gap.', 'Заполните пропуск.')}\n"
+            f"{question_line}\n\n"
+            f"{bilingual_block('Fill in the gap.', secondary('Заполните пропуск.'))}\n"
             f"<i>{masked_example}</i>"
         )
 
@@ -775,7 +785,7 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
         return (
             f"<b>{format_title}</b>\n"
             f"{topic_title}\n"
-            f"Question {index + 1} of {total}\n\n"
+            f"{question_line}\n\n"
             f"{definition}"
         )
 
@@ -783,16 +793,16 @@ def build_quiz_prompt(quiz_format: str, current_word, word_set: WordSet, index: 
         return (
             f"<b>{format_title}</b>\n"
             f"{topic_title}\n"
-            f"Question {index + 1} of {total}\n\n"
-            f"{bilingual_block('Match the word to the correct meaning.', 'Сопоставьте слово с правильным значением.')}\n"
+            f"{question_line}\n\n"
+            f"{bilingual_block('Match the word to the correct meaning.', secondary('Сопоставьте слово с правильным значением.'))}\n"
             f"<b>{current_word.target_text}</b>"
         )
 
     return (
         f"<b>{format_title}</b>\n"
         f"{topic_title}\n"
-        f"Question {index + 1} of {total}\n\n"
-        f"{bilingual_block('Choose the correct word.', 'Выберите правильное слово.')}\n"
+        f"{question_line}\n\n"
+        f"{bilingual_block('Choose the correct word.', secondary('Выберите правильное слово.'))}\n"
         f"<b>{current_word.source_text}</b>"
     )
 

@@ -70,7 +70,9 @@ async def quiz_handler(callback: CallbackQuery, state: FSMContext) -> None:
     await state.clear()
     await edit_screen(
         callback,
-        "<b>Practice quiz</b>\n\nChoose a format.\n<i>Выберите формат.</i>",
+        "<b>Practice quiz</b>\n<i>Квиз для тренировки</i>\n\n"
+        "Choose a format.\n"
+        "<i>Выберите формат.</i>",
         quiz_formats_keyboard(),
     )
 
@@ -206,7 +208,7 @@ async def quiz_format_handler(callback: CallbackQuery, state: FSMContext) -> Non
             if bilingual and target_language == "en"
             else None,
         ),
-        word_sets_keyboard(payload, mode=f"quiz:{quiz_format}"),
+        word_sets_keyboard(payload, mode=f"quiz:{quiz_format}", back_to="menu:quiz"),
     )
 
 
