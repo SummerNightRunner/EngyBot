@@ -29,6 +29,7 @@
   -> Practice
      -> Daily practice
      -> Mixed quiz
+     -> Dialogues
   -> Review
      -> Weak words
      -> Mistakes quiz
@@ -87,6 +88,14 @@
 8. бот проверяет ответ и показывает объяснение.
 
 ## Practice flow
+
+### Dialogue tasks
+
+1. пользователь открывает `Practice`;
+2. выбирает `Dialogues`;
+3. открывает сценарий диалога;
+4. проходит реплики;
+5. заполняет пропуск в задании после диалога.
 
 ### Mixed quiz
 

@@ -43,6 +43,7 @@ def practice_menu_keyboard(labels: dict[str, str]) -> InlineKeyboardMarkup:
         inline_keyboard=[
             [InlineKeyboardButton(text=labels["daily"], callback_data="menu:daily")],
             [InlineKeyboardButton(text=labels["quiz"], callback_data="menu:quiz")],
+            [InlineKeyboardButton(text=labels["dialogues"], callback_data="menu:dialogue")],
             [InlineKeyboardButton(text=labels["home"], callback_data="menu:home")],
         ]
     )

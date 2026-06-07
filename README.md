@@ -47,6 +47,7 @@ It comes in about _____ minutes.
 
 `Practice` — активная тренировка.
 
+- `Dialogues`: диалоговые задания с заполнением пропусков.
 - `Choice`: выбрать правильный перевод.
 - `Gap fill`: восстановить пропущенное слово.
 - `Definition`: угадать слово по определению.
@@ -98,6 +99,7 @@ It comes in about _____ minutes.
   -> Practice
      -> Daily practice
      -> Mixed quiz
+     -> Dialogues
   -> Review
      -> Weak words
      -> Mistake quiz
